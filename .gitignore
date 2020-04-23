@@ -1,2 +1,2 @@
-gocdb-container/deploy-database.sh
-gocdb-container/extract-database.sh
+gocdb-container/*.sh
+gocdb-container/docker-compose.dev.yml

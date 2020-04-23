@@ -1,8 +1,8 @@
 # docker-compose.yml -- Set up all necessary containers to run a GOCDB instance
 #
 # Author:   Daniel Mueller/University of Muenster (daniel.mueller@uni-muenster.de)
-# Date:     2020-04-22
-# Version:  0.1
+# Date:     2020-04-23
+# Version:  0.2
 #
 # Note:     This file is considered experimental and should be used with care.
 #           It is neither meant to be efficient nor secure.
@@ -26,8 +26,6 @@ services:
         restart: always
         depends_on:
             - database
-        volumes:
-            - ./html:/var/www/html
         ports:
             - 80:80
 
