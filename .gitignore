@@ -1,2 +1,2 @@
 gocdb-container/*.sh
-gocdb-container/docker-compose.dev.yml
+gocdb-container/docker-compose.dev.yaml
