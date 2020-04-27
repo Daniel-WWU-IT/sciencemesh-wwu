@@ -1,0 +1,30 @@
+# docker-compose.dev.yml -- Set up all necessary containers to run a GOCDB instance
+#
+# Development version: Mounts html and sql directories to host
+version: "3.4"
+
+# GOCDB is delivered via two containers: A database and a webserver running the GOCDB instance
+services:
+    # Database server (MariaDB)
+    database:
+        image: mariadb:5
+        restart: always
+        environment:
+            MYSQL_ROOT_PASSWORD: oihwnthnwent7u2
+        volumes:
+            - db:/var/lib/mysql
+            - ./sql/:/docker-entrypoint-initdb.d:ro
+
+    # Webserver (Apache + PHP 5) running the GOCDB instance
+    webserver:
+        build: webserver
+        restart: always
+        depends_on:
+            - database
+        volumes:
+            - ./webserver/html:/var/www/html
+        ports:
+            - 80:80
+
+volumes:
+    db:
