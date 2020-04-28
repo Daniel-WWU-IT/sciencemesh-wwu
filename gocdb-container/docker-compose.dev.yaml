@@ -8,6 +8,7 @@ services:
     # Database server (MariaDB)
     gocdb-database:
         image: mariadb:5
+        container_name: "gocdb-database"
         restart: always
         environment:
             MYSQL_ROOT_PASSWORD: oihwnthnwent7u2
@@ -20,6 +21,7 @@ services:
     # Webserver (Apache + PHP 5) running the GOCDB instance
     gocdb-webserver:
         build: webserver
+        container_name: "gocdb-webserver"
         restart: always
         depends_on:
             - gocdb-database
