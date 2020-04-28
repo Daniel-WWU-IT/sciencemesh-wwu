@@ -11,7 +11,7 @@ version: "3.4"
 # GOCDB is delivered via two containers: A database and a webserver running the GOCDB instance
 services:
     # Database server (MariaDB)
-    database:
+    gocdb-database:
         build: database
         restart: always
         environment:
@@ -20,11 +20,13 @@ services:
             - db:/var/lib/mysql
 
     # Webserver (Apache + PHP 5) running the GOCDB instance
-    webserver:
+    gocdb-webserver:
         build: webserver
         restart: always
         depends_on:
-            - database
+            - gocdb-database
+        environment:
+            GOCDB_DATABASE_SERVER: gocdb-database
         ports:
             - 80:80
 

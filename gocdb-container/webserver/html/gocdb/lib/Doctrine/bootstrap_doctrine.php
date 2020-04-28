@@ -71,11 +71,16 @@ $config = Setup::createAnnotationMetadataConfiguration(array(__DIR__."/entities"
 
 
     ///////////////////////MYSQL CONNECTION DETAILS////////////////////////////////////////////
+    $gocdb_db_server = getenv("GOCDB_DATABASE_SERVER");
+
+    if ($gocdb_db_server == false)
+        die('The environment variable GOCDB_DATABASE_SERVER has not been set.');
+
     $conn = array(
     	'driver' => 'pdo_mysql',
     	'user' => 'gocdbuser',
     	'password' => 'srgh85tz7sdgz2',
-    	'host' => 'database',
+    	'host' => $gocdb_db_server,
     	'dbname' => 'gocdb'
     );
     /////////////////////////////////////////////////////////////////////////////////////////////
