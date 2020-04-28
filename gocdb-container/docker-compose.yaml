@@ -18,6 +18,8 @@ services:
             MYSQL_ROOT_PASSWORD: oihwnthnwent7u2
         volumes:
             - db:/var/lib/mysql
+        ports:
+            - 3306:3306
 
     # Webserver (Apache + PHP 5) running the GOCDB instance
     gocdb-webserver:
