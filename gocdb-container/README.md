@@ -4,7 +4,7 @@ Docker files to provide a containerized version of GOCDB (https://wiki.egi.eu/wi
 ## Installation
 Simply build and run the containers via _docker-compose_:
 
-- docker-compose build && docker-compose up -d
+    docker-compose build && docker-compose up -d
 
 This will launch two containers, one for the database and one for the webserver.
 
@@ -12,7 +12,9 @@ This will launch two containers, one for the database and one for the webserver.
 Simple Kubernetes configuration files are provided in _k8s_. Note that the deployments are configured to never pull images, so the containers have to be built beforehand.
 
 ## Configuration
-Configuration is usually not necessary. If you need to adjust the webserver configuration, modify the corresponding files in _webserver/config_ and rebuild.
+If running the containers via _docker-compose_, no configuration is needed; if you need to adjust the webserver configuration, modify the corresponding files in _webserver/config_ and rebuild.
+
+If running the containers manually or in Kubernetes, it is necessary to set the environment variable _GOCDB_DATABASE_SERVER_ for the GOCDB webserver container to point to the GOCDB database host.
 
 ## Usage
 - The GOCDB frontend can be reached at: [/gocdb](http://localhost/gocdb)
