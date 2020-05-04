@@ -19,7 +19,7 @@ RUN     mkdir -p /usr/local/doctrine
 COPY    config/composer.json /usr/local/doctrine
 ENV     PATH="/usr/local/doctrine/vendor/bin:${PATH}"
 
-# Install additional dependencies etc.
+# Install additional dependencies, the GOCDB source files, etc.
 RUN     apt-get update && \
         apt-get install -y unzip && \
         a2enmod rewrite && \
