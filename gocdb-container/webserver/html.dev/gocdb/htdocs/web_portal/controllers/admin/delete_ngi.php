@@ -78,7 +78,7 @@ function submit() {
      $dn = Get_User_Principle();
      $user = \Factory::getUserService()->getUserByPrinciple($dn);
 
-     //die("Safguard disabled delete - remove this line to enable in [".__FILE__."]");
+     die("Safguard disabled delete - remove this line to enable in [".__FILE__."]");
 
      //remove ngi
      try {
