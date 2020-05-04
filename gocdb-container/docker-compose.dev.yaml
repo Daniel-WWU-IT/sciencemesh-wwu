@@ -30,7 +30,7 @@ services:
         environment:
             GOCDB_DATABASE_SERVER: gocdb-database
         volumes:
-            - ./webserver/html:/var/www/html
+            - ./webserver/html.dev:/var/www/html
         ports:
             - 80:80
 
