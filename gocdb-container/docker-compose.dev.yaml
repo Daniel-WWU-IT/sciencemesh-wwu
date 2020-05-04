@@ -20,7 +20,9 @@ services:
 
     # Webserver (Apache + PHP 5) running the GOCDB instance
     gocdb-webserver:
-        build: webserver
+        build:
+            context: ./webserver
+            dockerfile: Dockerfile.dev
         container_name: "gocdb-webserver"
         restart: always
         depends_on:
