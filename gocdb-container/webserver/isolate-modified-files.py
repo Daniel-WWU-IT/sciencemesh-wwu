@@ -3,7 +3,7 @@ import os, requests, tarfile, filecmp, shutil
 
 
 # GOCDB base version
-GOCDB_VERSION = "5.7.4"
+GOCDB_VERSION = "5.7.5"
 
 
 class TextOutput:
