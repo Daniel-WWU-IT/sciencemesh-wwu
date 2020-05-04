@@ -6,6 +6,7 @@
 #
 # Note:     This file is considered experimental and should be used with care.
 #           It is neither meant to be efficient nor secure.
+
 version: "3.4"
 
 # GOCDB is delivered via two containers: A database and a webserver running the GOCDB instance

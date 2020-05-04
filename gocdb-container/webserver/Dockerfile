@@ -6,9 +6,13 @@
 #
 # Note:     This file is considered experimental and should be used with care.
 #           It is neither meant to be efficient nor secure.
+
 FROM    php:5-apache
 LABEL   maintainer "daniel.mueller@uni-muenster.de"
 LABEL   description "Webserver container for GOCDB"
+
+# The GOCDB version number to use
+ENV     GOCDB_VERSION="5.7.5"
 
 # Needed for Doctrine
 RUN     mkdir -p /usr/local/doctrine
@@ -25,7 +29,12 @@ RUN     apt-get update && \
         cd /usr/local/doctrine && \
         curl -sS https://getcomposer.org/installer -o composer-setup.php && \
         php composer-setup.php --install-dir=/usr/local/bin --filename=composer && \
-        composer install
+        composer install && \
+        cd /tmp && \
+        curl -sSL https://github.com/GOCDB/gocdb/archive/${GOCDB_VERSION}.tar.gz -o gocdb.tar.gz && \
+        tar -xf gocdb.tar.gz && \
+        mv -f gocdb-${GOCDB_VERSION} /var/www/html/gocdb && \
+        rm -f gocdb.tar.gz
 
 # Add GOCDB as a virtual host
 COPY    config/000-default.conf /etc/apache2/sites-available
