@@ -1,12 +1,12 @@
 /**************************************************************************************************
- * File:   filenames.go
- * Date:   2020-05-06
+ * File:   site.go
+ * Date:   2020-05-07
  * Author: Daniel Müller (daniel.mueller@uni-muenster.de)
  *************************************************************************************************/
 
-package core
+package meshdata
 
-var (
-	fn_configFile = "mentix.yaml"
-	fn_logsDir    = "logs"
-)
+type Site struct {
+	Name     string
+	Services []Service
+}

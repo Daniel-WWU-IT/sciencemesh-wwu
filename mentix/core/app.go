@@ -14,21 +14,26 @@ import (
 	"path/filepath"
 	"time"
 
+	"github.com/sciencemesh/mentix/connectors"
+	"github.com/sciencemesh/mentix/core/config"
 	"github.com/sciencemesh/mentix/core/logging"
+	"github.com/sciencemesh/mentix/engine"
 )
 
-type mentixApp struct {
+type MentixApp struct {
 	appDir string
 
-	config *mentixConfig
+	config *config.MentixConfig
 	logger *logging.TextLogger
+
+	engine *engine.MentixEngine
 }
 
 var (
-	appInstance *mentixApp
+	appInstance *MentixApp
 )
 
-func (app *mentixApp) initialize() error {
+func (app *MentixApp) initialize() error {
 	// Parse any provided commandline flags
 	flag.Parse()
 
@@ -40,117 +45,98 @@ func (app *mentixApp) initialize() error {
 	app.appDir = dir
 
 	// Prepare the configuration
-	app.config = newMentixConfig(app)
+	app.config = config.NewMentixConfig(app.appDir)
+	app.config.Settings.Engine.Connector = connectors.GOCDBConnectorID // Use the GOCDB connector by default
 	if err := app.config.Load(app.getConfigFilename()); err != nil {
 		return fmt.Errorf("unable to load the Mentix configuration: %v", err)
 	}
 
-	// Initialize logging; this has to be done after loading the configuration, as the log directory is needed for this
-	logger, err := logging.NewTextLogger(app.getLogFilename(), app.config.Core.Logging.Enabled, app.config.Core.Logging.Level)
+	// Activate logging; this has to be done after loading the configuration, as the log directory is needed for this
+	logger, err := logging.NewTextLogger(app.getLogFilename(), app.config.Settings.Core.Logging.Enabled, app.config.Settings.Core.Logging.Level)
 	if err != nil {
-		return fmt.Errorf("unable to initialize logging: %v", err)
+		return fmt.Errorf("unable to create a text logger: %v", err)
 	}
 	app.logger = logger
 
 	app.logSessionStart()
+
+	// Finally, initialize the engine
+	engine, err := engine.NewMentixEngine(app.config)
+	if err != nil {
+		return fmt.Errorf("unable to create the Mentix engine: %v", err)
+	}
+	app.engine = engine
+
 	return nil
 }
 
-func (app *mentixApp) shutdown() {
+func (app *MentixApp) destroy() {
 	app.logger.Close()
 
 	app.logSessionEnd()
 }
 
-func (app *mentixApp) getConfigFilename() string {
+func (app *MentixApp) getConfigFilename() string {
 	// If a configuration file was specified via commandline, use that one; otherwise, use the default one
-	configFile := *flag_configFile
+	configFile := *CLI_ConfigFile
 	if len(configFile) == 0 {
-		configFile = fn_configFile
+		configFile = config.FN_ConfigFile
 	}
 
 	// Relative filenames are treated to be relative to the Mentix app dir
 	if !filepath.IsAbs(configFile) {
-		configFile = app.SafeResolveFilename(configFile)
+		configFile = app.config.SafeResolveFilename(configFile)
 	}
 
 	return configFile
 }
 
-func (app *mentixApp) getLogFilename() string {
+func (app *MentixApp) getLogFilename() string {
 	timestamp := time.Now()
 	filename := fmt.Sprintf("mentix-%d-%02d-%02d.log", timestamp.Year(), timestamp.Month(), timestamp.Day())
-	return app.SafeResolvePath(app.config.Core.Logging.Directory, filename)
+	return app.config.SafeResolvePath(app.config.Settings.Core.Logging.Directory, filename)
 }
 
-func (app *mentixApp) Run() error {
+func (app *MentixApp) Run() error {
 	// Shut down the app automatically after Run() has finished
-	defer app.shutdown()
+	defer app.destroy()
 
-	// TODO: Do sumthin'
-	return nil
+	// The engine will do the actual work
+	return app.engine.Run()
 }
 
-func (app *mentixApp) ResolveFilename(filename string) string {
-	dir, file := filepath.Split(filename)
-	return app.ResolvePath(dir, file)
-}
-
-func (app *mentixApp) SafeResolveFilename(filename string) string {
-	dir, file := filepath.Split(filename)
-	return app.SafeResolvePath(dir, file)
-}
-
-func (app *mentixApp) ResolvePath(dir string, filename string) string {
-	filename = filepath.Join(dir, filename)
-	if filepath.IsAbs(filename) {
-		return filename
-	} else {
-		return filepath.Join(app.appDir, filename)
-	}
-}
-
-func (app *mentixApp) SafeResolvePath(dir string, filename string) string {
-	resolvedFilename := app.ResolvePath(dir, filename)
-
-	// Create directory tree
-	if len(filename) == 0 { // No filename provided
-		os.MkdirAll(resolvedFilename, os.ModePerm)
-	} else {
-		os.MkdirAll(filepath.Dir(resolvedFilename), os.ModePerm)
-	}
-
-	return resolvedFilename
-}
-
-func (app *mentixApp) logSessionStart() {
-	app.logger.Info("<b>Mentix session started:")
+func (app *MentixApp) logSessionStart() {
+	app.logger.Info("Mentix session started:")
 	app.logger.Infof("\t<b>Version:</> %v", GetVersionStringWithBuild())
 	app.logger.Infof("\t<b>Configuration:</> %v", app.getConfigFilename())
 
-	if app.config.Core.Logging.Enabled {
+	if app.config.Settings.Core.Logging.Enabled {
 		app.logger.Infof("\t<b>Log file:</> %v", app.getLogFilename())
 	}
 }
 
-func (app *mentixApp) logSessionEnd() {
-	app.logger.Info("<b>Mentix session ended")
+func (app *MentixApp) logSessionEnd() {
+	app.logger.Info("Mentix session ended")
 }
 
-func (app *mentixApp) Config() *mentixConfig {
+func (app *MentixApp) Config() *config.MentixConfig {
 	return app.config
 }
 
-func (app *mentixApp) Log() *logging.TextLogger {
+func (app *MentixApp) Log() *logging.TextLogger {
 	return app.logger
 }
 
-func NewMentixApp() (*mentixApp, error) {
+func (app *MentixApp) Engine() *engine.MentixEngine {
+	return app.engine
+}
+
+func NewMentixApp() (*MentixApp, error) {
 	// Ensure that only one Mentix app exists
 	if appInstance != nil {
 		return appInstance, nil
 	} else {
-		appInstance = new(mentixApp)
+		appInstance = new(MentixApp)
 		if err := appInstance.initialize(); err != nil {
 			return nil, fmt.Errorf("unable to initialize the Mentix app: %v", err)
 		}
@@ -158,7 +144,7 @@ func NewMentixApp() (*mentixApp, error) {
 	}
 }
 
-func Mentix() *mentixApp {
+func Mentix() *MentixApp {
 	if appInstance == nil {
 		// This should never happen
 		log.Fatal("Accessed uninitialized Mentix app")

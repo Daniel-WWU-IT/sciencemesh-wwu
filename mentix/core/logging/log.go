@@ -8,6 +8,7 @@ package logging
 
 import (
 	"fmt"
+	"log"
 	"os"
 	"strings"
 	"time"
@@ -24,6 +25,10 @@ const (
 	tagBegin = '<'
 	tagEnd   = '>'
 	tagPop   = "/"
+)
+
+var (
+	loggerInstance *TextLogger
 )
 
 type TextLogger struct {
@@ -226,16 +231,16 @@ func (logger *TextLogger) getColorAttributes(attributes []string) []Attribute {
 func (logger *TextLogger) getFormattedLogLevelName(logLevel int) string {
 	switch logLevel {
 	case LogLevelInfo:
-		return "<green>INFO</>"
+		return "<green>INF</>"
 
 	case LogLevelWarning:
-		return "<yellow>WARN</>"
+		return "<yellow>WRN</>"
 
 	case LogLevelError:
-		return "<red> ERR</>"
+		return "<red>ERR</>"
 
 	case LogLevelDebug:
-		return "<blue> DBG</>"
+		return "<blue>DBG</>"
 
 	default:
 		return ""
@@ -243,9 +248,22 @@ func (logger *TextLogger) getFormattedLogLevelName(logLevel int) string {
 }
 
 func NewTextLogger(logDir string, logToFile bool, logLevel int) (*TextLogger, error) {
-	logger := &TextLogger{logToFileEnabled: logToFile, logLevel: logLevel}
-	if err := logger.initialize(logDir); err != nil {
-		return nil, fmt.Errorf("unable to initialize the logger: %v", err)
+	if loggerInstance != nil {
+		return loggerInstance, nil
+	} else {
+		loggerInstance = &TextLogger{logToFileEnabled: logToFile, logLevel: logLevel}
+		if err := loggerInstance.initialize(logDir); err != nil {
+			return nil, fmt.Errorf("unable to initialize the logger: %v", err)
+		}
+		return loggerInstance, nil
 	}
-	return logger, nil
+}
+
+func Log() *TextLogger {
+	if loggerInstance == nil {
+		// This should never happen
+		log.Fatal("Accessed uninitialized Mentix app")
+	}
+
+	return loggerInstance
 }
