@@ -27,30 +27,38 @@ const (
 )
 
 type TextLogger struct {
-	logToFile bool
-	logLevel  int
-	logFile   *os.File
-
 	attributeTags map[string]Attribute
+
+	logToFileEnabled bool
+	logLevel         int
+	logFile          *os.File
+}
+
+type messageToken struct {
+	text       string
+	attributes []Attribute
 }
 
 func (logger *TextLogger) initialize(logFilename string) error {
 	logger.fillAttributeTags()
 
-	// Open a file for logging; if it already exists, new entries will be appended
-	if err := logger.openLogFile(logFilename); err != nil {
-		return fmt.Errorf("error while opening the log file: %v", err)
-	}
-
-	// Ensure a new line at the end of the log
-	stats, err := os.Stat(logFilename)
-	if err == nil {
-		if stats.Size() > 0 {
-			logger.logFile.WriteString("\n")
+	if logger.logToFileEnabled {
+		// Open the log file; if it already exists, new entries will be appended
+		if err := logger.openLogFile(logFilename); err != nil {
+			return fmt.Errorf("error while opening log file '%v': %v", logFilename, err)
 		}
+
+		// Ensure a new line at the end of the log
+		stats, err := os.Stat(logFilename)
+		if err == nil {
+			if stats.Size() > 0 {
+				logger.logFile.WriteString("\n")
+			}
+		}
+
+		logger.writeSessionStart()
 	}
 
-	logger.logSessionInfo()
 	return nil
 }
 
@@ -89,11 +97,11 @@ func (logger *TextLogger) closeLogFile() {
 	}
 }
 
-func (logger *TextLogger) logSessionInfo() {
+func (logger *TextLogger) writeSessionStart() {
 	// Write a line denoting the start of the current session
 	timestamp := time.Now()
 	timestring := fmt.Sprintf("--- Session started at %d-%02d-%02d %d:%02d:%02d ---", timestamp.Year(), timestamp.Month(), timestamp.Day(), timestamp.Hour(), timestamp.Minute(), timestamp.Second())
-	logger.logMessage(timestring)
+	logger.writeMessage([]messageToken{{text: timestring}})
 }
 
 func (logger *TextLogger) Info(msg string) {
@@ -130,70 +138,74 @@ func (logger *TextLogger) Debugf(format string, args ...interface{}) {
 
 func (logger *TextLogger) log(msg string, logLevel int) {
 	if logLevel >= logger.logLevel {
+		// Format log entry
 		timestamp := time.Now()
 		timestring := fmt.Sprintf("%d-%02d-%02d %d:%02d:%02d", timestamp.Year(), timestamp.Month(), timestamp.Day(), timestamp.Hour(), timestamp.Minute(), timestamp.Second())
 		logText := fmt.Sprintf("[%v] <b>%v:</> %v", timestring, logger.getFormattedLogLevelName(logLevel), msg)
 
-		rawText := logger.printMessage(logText)
-		logger.logMessage(rawText)
+		// Print and log the message
+		tokens := logger.parseMessage(logText)
+		logger.printMessage(tokens)
+		if logger.logToFileEnabled {
+			logger.writeMessage(tokens)
+		}
 	}
 }
 
-func (logger *TextLogger) printMessage(msg string) (rawString string) {
-	var attributeStack []string
-	var inTag bool
-	var curTag string
-	var curText string
+func (logger *TextLogger) parseMessage(msg string) []messageToken {
+	var tokens []messageToken
 
-	printCurrentText := func() {
+	var attributeStack []string
+	var curText string
+	var inTag bool
+	var addCurrentText = func() {
 		if len(curText) > 0 {
-			logger.printColorizedText(curText, attributeStack)
+			tokens = append(tokens, messageToken{text: curText, attributes: logger.getColorAttributes(attributeStack)})
 			curText = ""
 		}
 	}
 
-	// Parse all <...> tags and print everything in between
+	// Parse all <...> tags and created attributed tokens
 	for _, c := range msg {
 		if c == tagBegin && !inTag { // New tag started
-			printCurrentText()
+			addCurrentText()
 			inTag = true
 			continue
 		} else if c == tagEnd && inTag { // Current tag ended
 			// Push/pop text attributes
-			if curTag == tagPop && len(attributeStack) > 0 {
+			if curText == tagPop && len(attributeStack) > 0 {
 				attributeStack = attributeStack[:len(attributeStack)-1]
 			} else {
-				attributeStack = append(attributeStack, curTag)
+				attributeStack = append(attributeStack, curText)
 			}
 
 			inTag = false
-			curTag = ""
+			curText = ""
 			continue
 		}
 
-		if inTag { // Append current tag
-			curTag += string(c)
-		} else { // Append current text token
-			curText += string(c)
-			rawString += string(c)
-		}
+		curText += string(c)
 	}
-	printCurrentText()
+	addCurrentText()
+
+	return tokens
+}
+
+func (logger *TextLogger) printMessage(tokens []messageToken) {
+	for _, token := range tokens {
+		// Print colorized text using the 'color' package
+		printer := NewColor(token.attributes...)
+		printer.Print(strings.ReplaceAll(token.text, "\t", "  "))
+	}
 	fmt.Println("")
-
-	return rawString
 }
 
-func (logger *TextLogger) printColorizedText(text string, attributes []string) {
-	// Print colorized text using the 'color' package
-	printer := NewColor(logger.getColorAttributes(attributes)...)
-	printer.Print(text)
-}
-
-func (logger *TextLogger) logMessage(text string) {
-	if logger.logToFile {
-		logger.logFile.WriteString(text + "\n")
+func (logger *TextLogger) writeMessage(tokens []messageToken) {
+	msg := ""
+	for _, token := range tokens {
+		msg += token.text
 	}
+	logger.logFile.WriteString(msg + "\n")
 }
 
 func (logger *TextLogger) getColorAttributes(attributes []string) []Attribute {
@@ -231,7 +243,7 @@ func (logger *TextLogger) getFormattedLogLevelName(logLevel int) string {
 }
 
 func NewTextLogger(logDir string, logToFile bool, logLevel int) (*TextLogger, error) {
-	logger := &TextLogger{logToFile: logToFile, logLevel: logLevel}
+	logger := &TextLogger{logToFileEnabled: logToFile, logLevel: logLevel}
 	if err := logger.initialize(logDir); err != nil {
 		return nil, fmt.Errorf("unable to initialize the logger: %v", err)
 	}

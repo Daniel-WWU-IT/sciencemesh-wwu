@@ -36,7 +36,7 @@ func (config *mentixConfig) Save(configFilename string) error {
 	// Create the configuration file and encode it using a YAML decoder
 	file, err := os.Create(configFilename)
 	if err != nil {
-		return fmt.Errorf("unable to create the configuration file: %v", err)
+		return fmt.Errorf("unable to create config file '%v': %v", configFilename, err)
 	}
 	defer file.Close()
 
@@ -52,15 +52,13 @@ func (config *mentixConfig) Load(configFilename string) error {
 	// If the config file doesn't exist yet, create a default one
 	_, err := os.Stat(configFilename)
 	if os.IsNotExist(err) {
-		if err := config.Save(configFilename); err != nil {
-			return fmt.Errorf("unable to create a default configuration: %v", err)
-		}
+		config.createDefaultConfig(configFilename)
 	}
 
 	// Open the configuration file and decode it using a YAML decoder
 	file, err := os.Open(configFilename)
 	if err != nil {
-		return fmt.Errorf("unable to load the configuration file: %v", err)
+		return fmt.Errorf("unable to load config file '%v': %v", configFilename, err)
 	}
 	defer file.Close()
 
@@ -70,6 +68,14 @@ func (config *mentixConfig) Load(configFilename string) error {
 	}
 
 	return nil
+}
+
+func (config *mentixConfig) createDefaultConfig(configFilename string) error {
+	if err := config.Save(configFilename); err != nil {
+		return fmt.Errorf("unable to create a default configuration: %v", err)
+	} else {
+		return nil
+	}
 }
 
 func newMentixConfig(app *mentixApp) *mentixConfig {

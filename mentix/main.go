@@ -20,6 +20,6 @@ func main() {
 
 	// Just let the app run...
 	if err := app.Run(); err != nil {
-		log.Fatalf("Mentix could not be run: %v", err)
+		log.Fatalf("An error occurred while running Mentix: %v", err)
 	}
 }

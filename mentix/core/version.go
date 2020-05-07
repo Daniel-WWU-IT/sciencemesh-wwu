@@ -12,8 +12,13 @@ const (
 	VersionMajor    = 0
 	VersionMinor    = 1
 	VersionRevision = 0
+	VersionBuild    = 6
 )
 
 func GetVersionString() string {
 	return fmt.Sprintf("%v.%v.%v", VersionMajor, VersionMinor, VersionRevision)
+}
+
+func GetVersionStringWithBuild() string {
+	return fmt.Sprintf("%v.%v.%v Build %04d", VersionMajor, VersionMinor, VersionRevision, VersionBuild)
 }

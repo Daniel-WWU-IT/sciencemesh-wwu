@@ -19,6 +19,7 @@ import (
 
 type mentixApp struct {
 	appDir string
+
 	config *mentixConfig
 	logger *logging.TextLogger
 }
@@ -86,7 +87,7 @@ func (app *mentixApp) Run() error {
 	// Shut down the app automatically after Run() has finished
 	defer app.shutdown()
 
-	app.logger.Info("Hello <cyan>WORLD</>")
+	// TODO: Do sumthin'
 	return nil
 }
 
@@ -110,21 +111,21 @@ func (app *mentixApp) ResolvePath(dir string, filename string) string {
 }
 
 func (app *mentixApp) SafeResolvePath(dir string, filename string) string {
-	isDirOnly := len(filename) == 0
-	filename = app.ResolvePath(dir, filename)
+	resolvedFilename := app.ResolvePath(dir, filename)
 
-	if isDirOnly {
-		os.MkdirAll(filename, os.ModePerm)
+	// Create directory tree
+	if len(filename) == 0 { // No filename provided
+		os.MkdirAll(resolvedFilename, os.ModePerm)
 	} else {
-		os.MkdirAll(filepath.Dir(filename), os.ModePerm)
+		os.MkdirAll(filepath.Dir(resolvedFilename), os.ModePerm)
 	}
 
-	return filename
+	return resolvedFilename
 }
 
 func (app *mentixApp) logSessionStart() {
 	app.logger.Info("<b>Mentix session started:")
-	app.logger.Infof("\t<b>Version:</> %v", GetVersionString())
+	app.logger.Infof("\t<b>Version:</> %v", GetVersionStringWithBuild())
 	app.logger.Infof("\t<b>Configuration:</> %v", app.getConfigFilename())
 
 	if app.config.Core.Logging.Enabled {
@@ -159,6 +160,7 @@ func NewMentixApp() (*mentixApp, error) {
 
 func Mentix() *mentixApp {
 	if appInstance == nil {
+		// This should never happen
 		log.Fatal("Accessed uninitialized Mentix app")
 	}
 
