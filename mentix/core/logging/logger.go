@@ -104,44 +104,50 @@ func (logger *Logger) writeSessionStart() {
 	logger.logToFile([]messageToken{{text: timestring}})
 }
 
-func (logger *Logger) Info(msg string) {
-	logger.log(msg, LevelInfo)
+func (logger *Logger) Info(scope string, msg string) {
+	logger.log(scope, msg, LevelInfo)
 }
 
-func (logger *Logger) Infof(format string, args ...interface{}) {
-	logger.log(fmt.Sprintf(format, args...), LevelInfo)
+func (logger *Logger) Infof(scope string, format string, args ...interface{}) {
+	logger.log(scope, fmt.Sprintf(format, args...), LevelInfo)
 }
 
-func (logger *Logger) Warning(msg string) {
-	logger.log(msg, LevelWarning)
+func (logger *Logger) Warning(scope string, msg string) {
+	logger.log(scope, msg, LevelWarning)
 }
 
-func (logger *Logger) Warningf(format string, args ...interface{}) {
-	logger.log(fmt.Sprintf(format, args...), LevelWarning)
+func (logger *Logger) Warningf(scope string, format string, args ...interface{}) {
+	logger.log(scope, fmt.Sprintf(format, args...), LevelWarning)
 }
 
-func (logger *Logger) Error(msg string) {
-	logger.log(msg, LevelError)
+func (logger *Logger) Error(scope string, msg string) {
+	logger.log(scope, msg, LevelError)
 }
 
-func (logger *Logger) Errorf(format string, args ...interface{}) {
-	logger.log(fmt.Sprintf(format, args...), LevelError)
+func (logger *Logger) Errorf(scope string, format string, args ...interface{}) {
+	logger.log(scope, fmt.Sprintf(format, args...), LevelError)
 }
 
-func (logger *Logger) Debug(msg string) {
-	logger.log(msg, LevelDebug)
+func (logger *Logger) Debug(scope string, msg string) {
+	logger.log(scope, msg, LevelDebug)
 }
 
-func (logger *Logger) Debugf(format string, args ...interface{}) {
-	logger.log(fmt.Sprintf(format, args...), LevelDebug)
+func (logger *Logger) Debugf(scope string, format string, args ...interface{}) {
+	logger.log(scope, fmt.Sprintf(format, args...), LevelDebug)
 }
 
-func (logger *Logger) log(msg string, logLevel int) {
+func (logger *Logger) log(scope string, msg string, logLevel int) {
 	if logLevel >= logger.logLevel {
 		// Format log entry
 		timestamp := time.Now()
 		timestring := fmt.Sprintf("%d:%02d:%02d", timestamp.Hour(), timestamp.Minute(), timestamp.Second())
-		logText := fmt.Sprintf("%v ▶ <b>%v</> %v", timestring, logger.getFormattedLogLevelName(logLevel), msg)
+
+		var logText string
+		if len(scope) > 0 {
+			logText = fmt.Sprintf("%v %v ▶ <b>%v</> %v", timestring, scope, logger.getFormattedLogLevelName(logLevel), msg)
+		} else {
+			logText = fmt.Sprintf("%v ▶ <b>%v</> %v", timestring, logger.getFormattedLogLevelName(logLevel), msg)
+		}
 
 		// Print and log the message
 		tokens := logger.parseMessage(logText)

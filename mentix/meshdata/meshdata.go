@@ -12,8 +12,8 @@ import (
 )
 
 type MeshData struct {
-	Sites        []Site
-	ServiceTypes []ServiceType
+	Sites        []*Site
+	ServiceTypes []*ServiceType
 }
 
 func (meshData *MeshData) Clear() {

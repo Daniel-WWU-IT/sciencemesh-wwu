@@ -31,8 +31,13 @@ type Config struct {
 	Connectors struct {
 		GOCDB struct {
 			Address string `yaml:"address"`
+			Scope   string `yaml:"scope"`
 		} `yaml:"gocdb"`
 	} `yaml:"connectors"`
+
+	Network struct {
+		AllowInsecure bool `yaml:"allow-insecure"`
+	} `yaml:"network"`
 }
 
 func (config *Config) initialize(defaulter settingsDefaulter) error {

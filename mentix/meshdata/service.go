@@ -10,7 +10,7 @@ type Service struct {
 	ServiceEndpoint
 
 	Host                string
-	AdditionalEndpoints []ServiceEndpoint
+	AdditionalEndpoints []*ServiceEndpoint
 }
 
 type ServiceType struct {
@@ -19,9 +19,9 @@ type ServiceType struct {
 }
 
 type ServiceEndpoint struct {
-	Type       ServiceType
-	Name       string
-	Path       string
-	Monitored  bool
-	Properties map[string]string
+	Type        *ServiceType
+	Name        string
+	Path        string
+	IsMonitored bool
+	Properties  map[string]string
 }
