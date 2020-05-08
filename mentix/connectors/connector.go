@@ -10,7 +10,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/sciencemesh/mentix/core/config"
+	"github.com/sciencemesh/mentix/env"
 	"github.com/sciencemesh/mentix/meshdata"
 )
 
@@ -19,11 +19,23 @@ var (
 )
 
 type Connector interface {
-	Activate(config *config.MentixConfig) error
+	Activate(environ *env.Environment) error
+	RetrieveMeshData() (*meshdata.MeshData, error)
 
 	GetName() string
+}
 
-	RetrieveMeshData() (*meshdata.MeshData, error)
+type BaseConnector struct {
+	environment *env.Environment
+}
+
+func (connector *BaseConnector) Activate(environ *env.Environment) error {
+	if environ == nil {
+		return fmt.Errorf("no environment provided")
+	}
+	connector.environment = environ
+
+	return nil
 }
 
 func FindConnector(connectorID string) (Connector, error) {

@@ -1,13 +1,11 @@
 /**************************************************************************************************
- * File:   cli.go
- * Date:   2020-05-06
+ * File:   ids.go
+ * Date:   2020-05-08
  * Author: Daniel Müller (daniel.mueller@uni-muenster.de)
  *************************************************************************************************/
 
-package core
+package config
 
-import "flag"
-
-var (
-	CLI_ConfigFile = flag.String("config", "", "specifies the Mentix configuration file to use")
+const (
+	ConnectorID_GOCDB = "gocdb"
 )

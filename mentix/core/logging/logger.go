@@ -1,5 +1,5 @@
 /**************************************************************************************************
- * File:   log.go
+ * File:   logger.go
  * Date:   2020-05-06
  * Author: Daniel Müller (daniel.mueller@uni-muenster.de)
  *************************************************************************************************/
@@ -8,17 +8,16 @@ package logging
 
 import (
 	"fmt"
-	"log"
 	"os"
 	"strings"
 	"time"
 )
 
 const (
-	LogLevelDebug = iota
-	LogLevelInfo
-	LogLevelWarning
-	LogLevelError
+	LevelDebug = iota
+	LevelInfo
+	LevelWarning
+	LevelError
 )
 
 const (
@@ -27,11 +26,7 @@ const (
 	tagPop   = "/"
 )
 
-var (
-	loggerInstance *TextLogger
-)
-
-type TextLogger struct {
+type Logger struct {
 	attributeTags map[string]Attribute
 
 	logToFileEnabled bool
@@ -44,7 +39,7 @@ type messageToken struct {
 	attributes []Attribute
 }
 
-func (logger *TextLogger) initialize(logFilename string) error {
+func (logger *Logger) initialize(logFilename string) error {
 	logger.fillAttributeTags()
 
 	if logger.logToFileEnabled {
@@ -67,7 +62,7 @@ func (logger *TextLogger) initialize(logFilename string) error {
 	return nil
 }
 
-func (logger *TextLogger) fillAttributeTags() {
+func (logger *Logger) fillAttributeTags() {
 	logger.attributeTags = make(map[string]Attribute)
 
 	// Map tag names to color attributes
@@ -82,11 +77,11 @@ func (logger *TextLogger) fillAttributeTags() {
 	logger.attributeTags["cyan"] = FgCyan
 }
 
-func (logger *TextLogger) Close() {
+func (logger *Logger) Close() {
 	logger.closeLogFile()
 }
 
-func (logger *TextLogger) openLogFile(logFilename string) error {
+func (logger *Logger) openLogFile(logFilename string) error {
 	file, err := os.OpenFile(logFilename, os.O_CREATE|os.O_APPEND|os.O_WRONLY, os.ModePerm)
 	if err != nil {
 		return fmt.Errorf("unable to create log file '%v': %v", logFilename, err)
@@ -96,68 +91,68 @@ func (logger *TextLogger) openLogFile(logFilename string) error {
 	return nil
 }
 
-func (logger *TextLogger) closeLogFile() {
+func (logger *Logger) closeLogFile() {
 	if logger.logFile != nil {
 		logger.logFile.Close()
 	}
 }
 
-func (logger *TextLogger) writeSessionStart() {
+func (logger *Logger) writeSessionStart() {
 	// Write a line denoting the start of the current session
 	timestamp := time.Now()
 	timestring := fmt.Sprintf("--- Session started at %d-%02d-%02d %d:%02d:%02d ---", timestamp.Year(), timestamp.Month(), timestamp.Day(), timestamp.Hour(), timestamp.Minute(), timestamp.Second())
-	logger.writeMessage([]messageToken{{text: timestring}})
+	logger.logToFile([]messageToken{{text: timestring}})
 }
 
-func (logger *TextLogger) Info(msg string) {
-	logger.log(msg, LogLevelInfo)
+func (logger *Logger) Info(msg string) {
+	logger.log(msg, LevelInfo)
 }
 
-func (logger *TextLogger) Infof(format string, args ...interface{}) {
-	logger.log(fmt.Sprintf(format, args...), LogLevelInfo)
+func (logger *Logger) Infof(format string, args ...interface{}) {
+	logger.log(fmt.Sprintf(format, args...), LevelInfo)
 }
 
-func (logger *TextLogger) Warning(msg string) {
-	logger.log(msg, LogLevelWarning)
+func (logger *Logger) Warning(msg string) {
+	logger.log(msg, LevelWarning)
 }
 
-func (logger *TextLogger) Warningf(format string, args ...interface{}) {
-	logger.log(fmt.Sprintf(format, args...), LogLevelWarning)
+func (logger *Logger) Warningf(format string, args ...interface{}) {
+	logger.log(fmt.Sprintf(format, args...), LevelWarning)
 }
 
-func (logger *TextLogger) Error(msg string) {
-	logger.log(msg, LogLevelError)
+func (logger *Logger) Error(msg string) {
+	logger.log(msg, LevelError)
 }
 
-func (logger *TextLogger) Errorf(format string, args ...interface{}) {
-	logger.log(fmt.Sprintf(format, args...), LogLevelError)
+func (logger *Logger) Errorf(format string, args ...interface{}) {
+	logger.log(fmt.Sprintf(format, args...), LevelError)
 }
 
-func (logger *TextLogger) Debug(msg string) {
-	logger.log(msg, LogLevelDebug)
+func (logger *Logger) Debug(msg string) {
+	logger.log(msg, LevelDebug)
 }
 
-func (logger *TextLogger) Debugf(format string, args ...interface{}) {
-	logger.log(fmt.Sprintf(format, args...), LogLevelDebug)
+func (logger *Logger) Debugf(format string, args ...interface{}) {
+	logger.log(fmt.Sprintf(format, args...), LevelDebug)
 }
 
-func (logger *TextLogger) log(msg string, logLevel int) {
+func (logger *Logger) log(msg string, logLevel int) {
 	if logLevel >= logger.logLevel {
 		// Format log entry
 		timestamp := time.Now()
-		timestring := fmt.Sprintf("%d-%02d-%02d %d:%02d:%02d", timestamp.Year(), timestamp.Month(), timestamp.Day(), timestamp.Hour(), timestamp.Minute(), timestamp.Second())
-		logText := fmt.Sprintf("[%v] <b>%v:</> %v", timestring, logger.getFormattedLogLevelName(logLevel), msg)
+		timestring := fmt.Sprintf("%d:%02d:%02d", timestamp.Hour(), timestamp.Minute(), timestamp.Second())
+		logText := fmt.Sprintf("%v ▶ <b>%v</> %v", timestring, logger.getFormattedLogLevelName(logLevel), msg)
 
 		// Print and log the message
 		tokens := logger.parseMessage(logText)
-		logger.printMessage(tokens)
+		logger.logToOutput(tokens)
 		if logger.logToFileEnabled {
-			logger.writeMessage(tokens)
+			logger.logToFile(tokens)
 		}
 	}
 }
 
-func (logger *TextLogger) parseMessage(msg string) []messageToken {
+func (logger *Logger) parseMessage(msg string) []messageToken {
 	var tokens []messageToken
 
 	var attributeStack []string
@@ -196,7 +191,7 @@ func (logger *TextLogger) parseMessage(msg string) []messageToken {
 	return tokens
 }
 
-func (logger *TextLogger) printMessage(tokens []messageToken) {
+func (logger *Logger) logToOutput(tokens []messageToken) {
 	for _, token := range tokens {
 		// Print colorized text using the 'color' package
 		printer := NewColor(token.attributes...)
@@ -205,7 +200,7 @@ func (logger *TextLogger) printMessage(tokens []messageToken) {
 	fmt.Println("")
 }
 
-func (logger *TextLogger) writeMessage(tokens []messageToken) {
+func (logger *Logger) logToFile(tokens []messageToken) {
 	msg := ""
 	for _, token := range tokens {
 		msg += token.text
@@ -213,7 +208,7 @@ func (logger *TextLogger) writeMessage(tokens []messageToken) {
 	logger.logFile.WriteString(msg + "\n")
 }
 
-func (logger *TextLogger) getColorAttributes(attributes []string) []Attribute {
+func (logger *Logger) getColorAttributes(attributes []string) []Attribute {
 	var colorAttributes []Attribute
 
 	for _, attrs := range attributes {
@@ -228,18 +223,18 @@ func (logger *TextLogger) getColorAttributes(attributes []string) []Attribute {
 	return colorAttributes
 }
 
-func (logger *TextLogger) getFormattedLogLevelName(logLevel int) string {
+func (logger *Logger) getFormattedLogLevelName(logLevel int) string {
 	switch logLevel {
-	case LogLevelInfo:
+	case LevelInfo:
 		return "<green>INF</>"
 
-	case LogLevelWarning:
+	case LevelWarning:
 		return "<yellow>WRN</>"
 
-	case LogLevelError:
+	case LevelError:
 		return "<red>ERR</>"
 
-	case LogLevelDebug:
+	case LevelDebug:
 		return "<blue>DBG</>"
 
 	default:
@@ -247,23 +242,10 @@ func (logger *TextLogger) getFormattedLogLevelName(logLevel int) string {
 	}
 }
 
-func NewTextLogger(logDir string, logToFile bool, logLevel int) (*TextLogger, error) {
-	if loggerInstance != nil {
-		return loggerInstance, nil
-	} else {
-		loggerInstance = &TextLogger{logToFileEnabled: logToFile, logLevel: logLevel}
-		if err := loggerInstance.initialize(logDir); err != nil {
-			return nil, fmt.Errorf("unable to initialize the logger: %v", err)
-		}
-		return loggerInstance, nil
+func NewLogger(logDir string, logToFile bool, logLevel int) (*Logger, error) {
+	logger := &Logger{logToFileEnabled: logToFile, logLevel: logLevel}
+	if err := logger.initialize(logDir); err != nil {
+		return nil, fmt.Errorf("unable to initialize logger: %v", err)
 	}
-}
-
-func Log() *TextLogger {
-	if loggerInstance == nil {
-		// This should never happen
-		log.Fatal("Accessed uninitialized Mentix app")
-	}
-
-	return loggerInstance
+	return logger, nil
 }

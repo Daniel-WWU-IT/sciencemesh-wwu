@@ -10,15 +10,24 @@ import (
 	"log"
 
 	"github.com/sciencemesh/mentix/core"
+	"github.com/sciencemesh/mentix/env"
 )
 
 func main() {
-	app, err := core.NewMentixApp()
+	// Create the environment this application will run in
+	environ, err := env.NewEnvironment()
 	if err != nil {
-		log.Fatalf("Mentix could not be started: %v", err)
+		log.Fatalf("No environment could be created: %v", err)
+	}
+	defer environ.Close()
+
+	// Create the actual application
+	app, err := core.NewMentixApp(environ)
+	if err != nil {
+		log.Fatalf("Mentix app could not be created: %v", err)
 	}
 
-	// Just let the app run...
+	// Just let the app run and do its job
 	if err := app.Run(); err != nil {
 		log.Fatalf("An error occurred while running Mentix: %v", err)
 	}

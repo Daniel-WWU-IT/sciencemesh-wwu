@@ -9,14 +9,13 @@ package config
 import (
 	"fmt"
 	"os"
-	"path/filepath"
 
 	"gopkg.in/yaml.v2"
-
-	"github.com/sciencemesh/mentix/core/logging"
 )
 
-type mentixSettings struct {
+type settingsDefaulter func(config *Config) error
+
+type Config struct {
 	Core struct {
 		Logging struct {
 			Enabled   bool   `yaml:"enabled"`
@@ -36,22 +35,15 @@ type mentixSettings struct {
 	} `yaml:"connectors"`
 }
 
-type MentixConfig struct {
-	appDir string
+func (config *Config) initialize(defaulter settingsDefaulter) error {
+	if err := defaulter(config); err != nil {
+		return fmt.Errorf("unable to apply default settings: %v", err)
+	}
 
-	Settings mentixSettings
+	return nil
 }
 
-func (config *MentixConfig) initialize(appDir string) {
-	config.appDir = appDir
-
-	// Set default values
-	config.Settings.Core.Logging.Enabled = true
-	config.Settings.Core.Logging.Directory = config.ResolvePath(FN_LogsDir, "")
-	config.Settings.Core.Logging.Level = logging.LogLevelInfo
-}
-
-func (config *MentixConfig) Save(configFilename string) error {
+func (config *Config) Save(configFilename string) error {
 	// Create the configuration file and encode it using a YAML decoder
 	file, err := os.Create(configFilename)
 	if err != nil {
@@ -60,14 +52,14 @@ func (config *MentixConfig) Save(configFilename string) error {
 	defer file.Close()
 
 	encoder := yaml.NewEncoder(file)
-	if err := encoder.Encode(&config.Settings); err != nil {
+	if err := encoder.Encode(config); err != nil {
 		return fmt.Errorf("unable to encode the configuration: %v", err)
 	}
 
 	return nil
 }
 
-func (config *MentixConfig) Load(configFilename string) error {
+func (config *Config) Load(configFilename string) error {
 	// If the config file doesn't exist yet, create a default one
 	_, err := os.Stat(configFilename)
 	if os.IsNotExist(err) {
@@ -84,14 +76,14 @@ func (config *MentixConfig) Load(configFilename string) error {
 	defer file.Close()
 
 	decoder := yaml.NewDecoder(file)
-	if err := decoder.Decode(&config.Settings); err != nil {
+	if err := decoder.Decode(config); err != nil {
 		return fmt.Errorf("unable to decode the configuration: %v", err)
 	}
 
 	return nil
 }
 
-func (config *MentixConfig) createDefaultConfig(configFilename string) error {
+func (config *Config) createDefaultConfig(configFilename string) error {
 	if err := config.Save(configFilename); err != nil {
 		return fmt.Errorf("unable to create a default configuration: %v", err)
 	} else {
@@ -99,40 +91,11 @@ func (config *MentixConfig) createDefaultConfig(configFilename string) error {
 	}
 }
 
-func (config *MentixConfig) ResolveFilename(filename string) string {
-	dir, file := filepath.Split(filename)
-	return config.ResolvePath(dir, file)
-}
-
-func (config *MentixConfig) SafeResolveFilename(filename string) string {
-	dir, file := filepath.Split(filename)
-	return config.SafeResolvePath(dir, file)
-}
-
-func (config *MentixConfig) ResolvePath(dir string, filename string) string {
-	filename = filepath.Join(dir, filename)
-	if filepath.IsAbs(filename) {
-		return filename
-	} else {
-		return filepath.Join(config.appDir, filename)
-	}
-}
-
-func (config *MentixConfig) SafeResolvePath(dir string, filename string) string {
-	resolvedFilename := config.ResolvePath(dir, filename)
-
-	// Create directory tree
-	if len(filename) == 0 { // No filename provided
-		os.MkdirAll(resolvedFilename, os.ModePerm)
-	} else {
-		os.MkdirAll(filepath.Dir(resolvedFilename), os.ModePerm)
+func NewConfig(defaulter settingsDefaulter) (*Config, error) {
+	config := new(Config)
+	if err := config.initialize(defaulter); err != nil {
+		return nil, fmt.Errorf("unable to initialize configuraton: %v", err)
 	}
 
-	return resolvedFilename
-}
-
-func NewMentixConfig(appDir string) *MentixConfig {
-	config := new(MentixConfig)
-	config.initialize(appDir)
-	return config
+	return config, nil
 }

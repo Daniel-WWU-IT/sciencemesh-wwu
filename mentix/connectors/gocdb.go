@@ -9,23 +9,24 @@ package connectors
 import (
 	"fmt"
 
-	"github.com/sciencemesh/mentix/core/config"
-	"github.com/sciencemesh/mentix/core/logging"
+	"github.com/sciencemesh/mentix/env"
+	"github.com/sciencemesh/mentix/env/config"
 	"github.com/sciencemesh/mentix/meshdata"
 )
 
 type GOCDBConnector struct {
-	Connector
+	BaseConnector
 
 	gocdbAddress string
 }
 
-const (
-	GOCDBConnectorID = "gocdb"
-)
+func (connector *GOCDBConnector) Activate(environ *env.Environment) error {
+	if err := connector.BaseConnector.Activate(environ); err != nil {
+		return err
+	}
 
-func (connector *GOCDBConnector) Activate(config *config.MentixConfig) error {
-	connector.gocdbAddress = config.Settings.Connectors.GOCDB.Address
+	// Check and store GOCDB specific settings
+	connector.gocdbAddress = environ.Config().Connectors.GOCDB.Address
 	if len(connector.gocdbAddress) == 0 {
 		return fmt.Errorf("no GOCDB address configured")
 	}
@@ -34,22 +35,18 @@ func (connector *GOCDBConnector) Activate(config *config.MentixConfig) error {
 	return nil
 }
 
-func (connector *GOCDBConnector) GetName() string {
-	return "GOCDB"
-}
-
 func (connector *GOCDBConnector) RetrieveMeshData() (*meshdata.MeshData, error) {
 	return nil, nil
 }
 
-func (connector *GOCDBConnector) printInfo() {
-	logging.Log().Infof("\t\tAddress: %v", connector.gocdbAddress)
+func (connector *GOCDBConnector) GetName() string {
+	return "GOCDB"
 }
 
-func NewGOCDBConnector() *GOCDBConnector {
-	return &GOCDBConnector{}
+func (connector *GOCDBConnector) printInfo() {
+	connector.environment.Log().Infof("\t\tAddress: %v", connector.gocdbAddress)
 }
 
 func init() {
-	registerConnector(GOCDBConnectorID, &GOCDBConnector{})
+	registerConnector(config.ConnectorID_GOCDB, &GOCDBConnector{})
 }
