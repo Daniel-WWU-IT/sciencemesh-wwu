@@ -117,11 +117,11 @@ def copy_differing_files(files, source_dir, target_dir):
 
 if __name__ == "__main__":
     # Directory where the modified GOCDB files are located
-    source_dir = "/home/tak/proj/sciencemesh/gocdb-container/webserver/html.dev/gocdb"
+    source_dir = "/home/tak/proj/sciencemesh-wwu/gocdb-container/webserver/html.dev/gocdb"
     # Destination directory for download and extraction
     dest_dir = "/tmp"
     # Target directory for all modified and new files
-    target_dir = "/home/tak/proj/sciencemesh/gocdb-container/webserver/html/gocdb"
+    target_dir = "/home/tak/proj/sciencemesh-wwu/gocdb-container/webserver/html/gocdb"
 
     # Download the archive...
     gocdb_archive = fetch_gocdb(dest_dir)

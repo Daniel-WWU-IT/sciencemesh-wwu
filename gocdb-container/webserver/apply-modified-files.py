@@ -67,9 +67,9 @@ def copy_differing_files(files, source_dir, target_dir):
 
 if __name__ == "__main__":
     # Directory where the modified GOCDB files are located
-    source_dir = "/home/tak/proj/sciencemesh/gocdb-container/webserver/html/gocdb"
+    source_dir = "/home/tak/proj/sciencemesh-wwu/gocdb-container/webserver/html/gocdb"
     # Target directory for all modified and new files
-    target_dir = "/home/tak/proj/sciencemesh/gocdb-container/webserver/html.dev/gocdb"
+    target_dir = "/home/tak/proj/sciencemesh-wwu/gocdb-container/webserver/html.dev/gocdb"
 
     # Gather all differing and new files
     differing_files = gather_differing_files(source_dir)
