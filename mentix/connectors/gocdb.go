@@ -94,7 +94,7 @@ func (connector *GOCDBConnector) query(v interface{}, method string, isPrivate b
 }
 
 func (connector *GOCDBConnector) queryServiceTypes(meshData *meshdata.MeshData) error {
-	connector.environment.Log().Debug("con", "Querying service types...")
+	connector.environment.Log().Debug("con", "Querying service types")
 
 	var serviceTypes gocdb.ServiceTypes
 	if err := connector.query(&serviceTypes, "get_service_types", false, false, network.URLParams{}); err != nil {
@@ -115,7 +115,7 @@ func (connector *GOCDBConnector) queryServiceTypes(meshData *meshdata.MeshData) 
 }
 
 func (connector *GOCDBConnector) querySites(meshData *meshdata.MeshData) error {
-	connector.environment.Log().Debug("con", "Querying sites...")
+	connector.environment.Log().Debug("con", "Querying sites")
 
 	var sites gocdb.Sites
 	if err := connector.query(&sites, "get_site", false, true, network.URLParams{}); err != nil {
@@ -144,7 +144,7 @@ func (connector *GOCDBConnector) querySites(meshData *meshdata.MeshData) error {
 }
 
 func (connector *GOCDBConnector) queryServices(meshData *meshdata.MeshData, site *meshdata.Site) error {
-	connector.environment.Log().Debugf("con", "Querying services of site <b>%v</>...", site.Name)
+	connector.environment.Log().Debugf("con", "Querying services of site '%v'", site.Name)
 
 	var services gocdb.Services
 	if err := connector.query(&services, "get_service", false, true, network.URLParams{"sitename": site.Name}); err != nil {

@@ -9,6 +9,8 @@ package meshdata
 import (
 	"encoding/json"
 	"fmt"
+
+	"github.com/google/go-cmp/cmp"
 )
 
 type MeshData struct {
@@ -35,6 +37,10 @@ func (meshData *MeshData) FromJSON(data string) error {
 		return fmt.Errorf("unable to unmarshal the mesh data: %v", err)
 	}
 	return nil
+}
+
+func (meshData *MeshData) Compare(other *MeshData) bool {
+	return cmp.Equal(meshData, other)
 }
 
 func NewMeshData() *MeshData {

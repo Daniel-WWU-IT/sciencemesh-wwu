@@ -60,6 +60,7 @@ func (env *Environment) initConfiguration() error {
 		cfg.Core.Logging.Level = logging.LevelInfo
 
 		cfg.Engine.Connector = config.ConnectorID_GOCDB
+		cfg.Engine.UpdateInterval = "1h"
 
 		return nil
 	})

@@ -13,19 +13,6 @@ import (
 	"time"
 )
 
-const (
-	LevelDebug = iota
-	LevelInfo
-	LevelWarning
-	LevelError
-)
-
-const (
-	tagBegin = '<'
-	tagEnd   = '>'
-	tagPop   = "/"
-)
-
 type Logger struct {
 	attributeTags map[string]Attribute
 
@@ -39,27 +26,35 @@ type messageToken struct {
 	attributes []Attribute
 }
 
+const (
+	LevelDebug = iota
+	LevelInfo
+	LevelWarning
+	LevelError
+)
+
+const (
+	tagBegin = '<'
+	tagEnd   = '>'
+	tagPop   = "/"
+)
+
 func (logger *Logger) initialize(logFilename string) error {
 	logger.fillAttributeTags()
 
 	if logger.logToFileEnabled {
-		// Open the log file; if it already exists, new entries will be appended
-		if err := logger.openLogFile(logFilename); err != nil {
-			return fmt.Errorf("error while opening log file '%v': %v", logFilename, err)
-		}
-
-		// Ensure a new line at the end of the log
-		stats, err := os.Stat(logFilename)
-		if err == nil {
-			if stats.Size() > 0 {
-				logger.logFile.WriteString("\n")
-			}
+		if err := logger.enableLogToFile(logFilename); err != nil {
+			return fmt.Errorf("could not enable file logging: %v", err)
 		}
 
 		logger.writeSessionStart()
 	}
 
 	return nil
+}
+
+func (logger *Logger) Close() {
+	logger.closeLogFile()
 }
 
 func (logger *Logger) fillAttributeTags() {
@@ -77,8 +72,21 @@ func (logger *Logger) fillAttributeTags() {
 	logger.attributeTags["cyan"] = FgCyan
 }
 
-func (logger *Logger) Close() {
-	logger.closeLogFile()
+func (logger *Logger) enableLogToFile(logFilename string) error {
+	// Open the log file; if it already exists, new entries will be appended
+	if err := logger.openLogFile(logFilename); err != nil {
+		return fmt.Errorf("error while opening log file '%v': %v", logFilename, err)
+	}
+
+	// Ensure a new line at the end of the log
+	stats, err := os.Stat(logFilename)
+	if err == nil {
+		if stats.Size() > 0 {
+			logger.logFile.WriteString("\n")
+		}
+	}
+
+	return nil
 }
 
 func (logger *Logger) openLogFile(logFilename string) error {
@@ -144,9 +152,9 @@ func (logger *Logger) log(scope string, msg string, logLevel int) {
 
 		var logText string
 		if len(scope) > 0 {
-			logText = fmt.Sprintf("%v %v ▶ <b>%v</> %v", timestring, scope, logger.getFormattedLogLevelName(logLevel), msg)
+			logText = fmt.Sprintf("%v <b>%v</> ▶ %v %v", timestring, scope, logger.getFormattedLogLevelName(logLevel), msg)
 		} else {
-			logText = fmt.Sprintf("%v ▶ <b>%v</> %v", timestring, logger.getFormattedLogLevelName(logLevel), msg)
+			logText = fmt.Sprintf("%v ▶ %v %v", timestring, logger.getFormattedLogLevelName(logLevel), msg)
 		}
 
 		// Print and log the message
