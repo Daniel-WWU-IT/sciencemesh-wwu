@@ -9,3 +9,7 @@ package config
 const (
 	ConnectorID_GOCDB = "gocdb"
 )
+
+const (
+	ExporterID_PrometheusFileSD = "prom-filesd"
+)

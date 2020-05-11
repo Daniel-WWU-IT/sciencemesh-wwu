@@ -10,27 +10,30 @@ import (
 	"fmt"
 	"os"
 	"os/signal"
+	"strings"
 	"syscall"
 	"time"
 
 	"github.com/sciencemesh/mentix/connectors"
 	"github.com/sciencemesh/mentix/env"
+	"github.com/sciencemesh/mentix/exporters"
 	"github.com/sciencemesh/mentix/meshdata"
 	"github.com/sciencemesh/mentix/network"
+)
+
+const (
+	runLoopSleeptime = time.Millisecond * 250
 )
 
 type Engine struct {
 	environment *env.Environment
 
-	meshData *meshdata.MeshData
+	meshData  *meshdata.MeshData
+	connector connectors.Connector
+	exporters []exporters.Exporter
 
-	connector      connectors.Connector
 	updateInterval time.Duration
 }
-
-const (
-	runLoopSleeptime = time.Millisecond * 250
-)
 
 func (engine *Engine) initialize(environ *env.Environment) error {
 	if environ == nil {
@@ -49,6 +52,11 @@ func (engine *Engine) initialize(environ *env.Environment) error {
 	// Initialize the connector that will be used to gather the mesh data
 	if err := engine.initConnector(); err != nil {
 		return fmt.Errorf("unable to initialize connector: %v", err)
+	}
+
+	// Initialize the exporters
+	if err := engine.initExporters(); err != nil {
+		return fmt.Errorf("unable to initialize exporters: %v", err)
 	}
 
 	// Get the update interval
@@ -83,7 +91,51 @@ func (engine *Engine) initConnector() error {
 	return nil
 }
 
+func (engine *Engine) initExporters() error {
+	// Use all exporters exposed by the exporters package
+	exporters, err := exporters.AvailableExporters(engine.environment)
+	if err != nil {
+		return fmt.Errorf("unable to get registered exporters: %v", err)
+	}
+	var names []string
+	for _, exporter := range exporters {
+		names = append(names, exporter.GetName())
+	}
+	engine.exporters = exporters
+	engine.environment.Log().Infof("eng", "Exporters: %v", strings.Join(names, "; "))
+
+	// Activate all exporters
+	for _, exporter := range engine.exporters {
+		if err := exporter.Activate(engine.environment); err != nil {
+			return fmt.Errorf("unable to activate exporter '%v': %v", exporter.GetName(), err)
+		}
+	}
+
+	return nil
+}
+
+func (engine *Engine) startExporters() error {
+	// Start all exporters
+	for _, exporter := range engine.exporters {
+		if err := exporter.Start(); err != nil {
+			return fmt.Errorf("unable to start exporter '%v': %v", exporter.GetName(), err)
+		}
+	}
+
+	return nil
+}
+
+func (engine *Engine) stopExporters() {
+	// Stop all exporters
+	for _, exporter := range engine.exporters {
+		exporter.Stop()
+	}
+}
+
 func (engine *Engine) destroy() {
+	// Stop all exporters
+	engine.stopExporters()
+
 	engine.environment.Log().Info("eng", "Engine stopped")
 }
 
@@ -92,6 +144,11 @@ func (engine *Engine) Run() error {
 	defer engine.destroy()
 
 	engine.environment.Log().Info("eng", "Engine started")
+
+	// Start all exporters; they will be stopped in Engine.destroy
+	if err := engine.startExporters(); err != nil {
+		return fmt.Errorf("unable to start exporters: %v", err)
+	}
 
 	// Enable reacting to termination signals
 	signalReceiver := make(chan os.Signal, 1)

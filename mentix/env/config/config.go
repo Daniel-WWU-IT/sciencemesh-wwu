@@ -25,8 +25,9 @@ type Config struct {
 	} `yaml:"general"`
 
 	Engine struct {
-		Connector      string `yaml:"connector"`
-		UpdateInterval string `yaml:"update-interval"`
+		Connector      string   `yaml:"connector"`
+		Exporters      []string `yaml:"exporters"`
+		UpdateInterval string   `yaml:"update-interval"`
 	} `yaml:"engine"`
 
 	Connectors struct {

@@ -11,6 +11,7 @@ import (
 	"fmt"
 
 	"github.com/google/go-cmp/cmp"
+	"github.com/mohae/deepcopy"
 )
 
 type MeshData struct {
@@ -37,6 +38,10 @@ func (meshData *MeshData) FromJSON(data string) error {
 		return fmt.Errorf("unable to unmarshal the mesh data: %v", err)
 	}
 	return nil
+}
+
+func (meshData *MeshData) Clone() *MeshData {
+	return deepcopy.Copy(meshData).(*MeshData)
 }
 
 func (meshData *MeshData) Compare(other *MeshData) bool {
