@@ -70,6 +70,8 @@ func (exporter *WebAPIExporter) Stop() {
 }
 
 func (exporter *WebAPIExporter) serveQueryEndpoint(resp http.ResponseWriter, req *http.Request) {
+	exporter.printRequestInfo(req)
+
 	// Data is read, so acquire a read lock
 	exporter.locker.RLock()
 	defer exporter.locker.RUnlock()
@@ -85,6 +87,10 @@ func (exporter *WebAPIExporter) serveQueryEndpoint(resp http.ResponseWriter, req
 
 func (exporter *WebAPIExporter) GetName() string {
 	return "WebAPI"
+}
+
+func (exporter *WebAPIExporter) printRequestInfo(req *http.Request) {
+	exporter.environment.Log().Debugf(config.ExporterID_WebAPI, "%v -> %v?%v", req.RemoteAddr, req.URL.Path, req.URL.RawQuery)
 }
 
 func (exporter *WebAPIExporter) printInfo() {
