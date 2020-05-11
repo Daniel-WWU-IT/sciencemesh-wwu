@@ -10,6 +10,7 @@ import (
 	"fmt"
 	"os"
 	"strings"
+	"sync"
 	"time"
 )
 
@@ -19,6 +20,7 @@ type Logger struct {
 	logToFileEnabled bool
 	logLevel         int
 	logFile          *os.File
+	locker           sync.Mutex
 }
 
 type messageToken struct {
@@ -145,6 +147,10 @@ func (logger *Logger) Debugf(scope string, format string, args ...interface{}) {
 }
 
 func (logger *Logger) log(scope string, msg string, logLevel int) {
+	// Prevent messed-up log entries
+	logger.locker.Lock()
+	defer logger.locker.Unlock()
+
 	if logLevel >= logger.logLevel {
 		// Format log entry
 		timestamp := time.Now()

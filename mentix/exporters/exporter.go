@@ -31,8 +31,8 @@ type Exporter interface {
 type BaseExporter struct {
 	environment *env.Environment
 
-	locker   sync.RWMutex
 	meshData *meshdata.MeshData
+	locker   sync.RWMutex
 }
 
 type performFunc = func() error
