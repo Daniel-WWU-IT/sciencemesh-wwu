@@ -55,9 +55,9 @@ func (env *Environment) Close() {
 func (env *Environment) initConfiguration() error {
 	// Create the configuration and apply various default settings
 	cfg, err := config.NewConfig(func(cfg *config.Config) error {
-		cfg.Core.Logging.Enabled = true
-		cfg.Core.Logging.Directory = env.ResolvePath(config.FN_LogsDir, "")
-		cfg.Core.Logging.Level = logging.LevelInfo
+		cfg.General.Logging.Enabled = true
+		cfg.General.Logging.Directory = env.ResolvePath(config.FN_LogsDir, "")
+		cfg.General.Logging.Level = logging.LevelInfo
 
 		cfg.Engine.Connector = config.ConnectorID_GOCDB
 		cfg.Engine.Exporters = []string{config.ExporterID_PrometheusFileSD}
@@ -79,7 +79,7 @@ func (env *Environment) initConfiguration() error {
 }
 
 func (env *Environment) initLogging() error {
-	logger, err := logging.NewLogger(env.GetLogFilename(), env.config.Core.Logging.Enabled, env.config.Core.Logging.Level)
+	logger, err := logging.NewLogger(env.GetLogFilename(), env.config.General.Logging.Enabled, env.config.General.Logging.Level)
 	if err != nil {
 		return fmt.Errorf("unable to create a text logger: %v", err)
 	}
@@ -106,7 +106,7 @@ func (env *Environment) GetConfigFilename() string {
 func (env *Environment) GetLogFilename() string {
 	timestamp := time.Now()
 	filename := fmt.Sprintf("mentix-%d-%02d-%02d.log", timestamp.Year(), timestamp.Month(), timestamp.Day())
-	return env.SafeResolvePath(env.config.Core.Logging.Directory, filename)
+	return env.SafeResolvePath(env.config.General.Logging.Directory, filename)
 }
 
 func (env *Environment) ResolveFilename(filename string) string {

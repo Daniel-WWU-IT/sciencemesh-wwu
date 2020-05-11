@@ -24,12 +24,9 @@ type Exporter interface {
 	Stop()
 
 	UpdateMeshData(*meshdata.MeshData) error
-	meshDataUpdated() error
 
 	GetName() string
 }
-
-type performFunc = func(exporter *BaseExporter) error
 
 type BaseExporter struct {
 	environment *env.Environment
@@ -37,6 +34,8 @@ type BaseExporter struct {
 	locker   sync.RWMutex
 	meshData *meshdata.MeshData
 }
+
+type performFunc = func() error
 
 func (exporter *BaseExporter) Activate(environ *env.Environment) error {
 	if environ == nil {
@@ -61,11 +60,6 @@ func (exporter *BaseExporter) UpdateMeshData(meshData *meshdata.MeshData) error 
 		return fmt.Errorf("unable to store the mesh data: %v", err)
 	}
 
-	// Perform the meshDataUpdated function to notify the exporter about the new data
-	if err := exporter.perform((*BaseExporter).meshDataUpdated); err != nil {
-		return fmt.Errorf("an error occurred while updating the mesh data: %v", err)
-	}
-
 	return nil
 }
 
@@ -82,16 +76,12 @@ func (exporter *BaseExporter) storeMeshData(meshData *meshdata.MeshData) error {
 	return nil
 }
 
-func (exporter *BaseExporter) perform(f performFunc) error {
-	// Make sure that the data is locked for reading while performing f
+func (exporter *BaseExporter) safePerform(f performFunc) error {
+	// Make sure that the data is locked for reading when calling f
 	exporter.locker.RLock()
 	defer exporter.locker.RUnlock()
 
-	return f(exporter)
-}
-
-func (exporter *BaseExporter) meshDataUpdated() error {
-	return nil
+	return f()
 }
 
 func registerExporter(id string, exporter Exporter) {

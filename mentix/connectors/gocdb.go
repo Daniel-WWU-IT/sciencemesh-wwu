@@ -94,7 +94,7 @@ func (connector *GOCDBConnector) query(v interface{}, method string, isPrivate b
 }
 
 func (connector *GOCDBConnector) queryServiceTypes(meshData *meshdata.MeshData) error {
-	connector.environment.Log().Debug("con", "Querying service types")
+	connector.environment.Log().Debug("gocdb", "Querying service types")
 
 	var serviceTypes gocdb.ServiceTypes
 	if err := connector.query(&serviceTypes, "get_service_types", false, false, network.URLParams{}); err != nil {
@@ -109,13 +109,13 @@ func (connector *GOCDBConnector) queryServiceTypes(meshData *meshdata.MeshData) 
 			Description: serviceType.Description,
 		})
 	}
-	connector.environment.Log().Debugf("con", "%v service type(s) retrieved", len(meshData.ServiceTypes))
+	connector.environment.Log().Debugf("gocdb", "%v service type(s) retrieved", len(meshData.ServiceTypes))
 
 	return nil
 }
 
 func (connector *GOCDBConnector) querySites(meshData *meshdata.MeshData) error {
-	connector.environment.Log().Debug("con", "Querying sites")
+	connector.environment.Log().Debug("gocdb", "Querying sites")
 
 	var sites gocdb.Sites
 	if err := connector.query(&sites, "get_site", false, true, network.URLParams{}); err != nil {
@@ -138,13 +138,13 @@ func (connector *GOCDBConnector) querySites(meshData *meshdata.MeshData) error {
 		}
 		meshData.Sites = append(meshData.Sites, meshsite)
 	}
-	connector.environment.Log().Debugf("con", "%v site(s) retrieved", len(meshData.Sites))
+	connector.environment.Log().Debugf("gocdb", "%v site(s) retrieved", len(meshData.Sites))
 
 	return nil
 }
 
 func (connector *GOCDBConnector) queryServices(meshData *meshdata.MeshData, site *meshdata.Site) error {
-	connector.environment.Log().Debugf("con", "Querying services of site '%v'", site.Name)
+	connector.environment.Log().Debugf("gocdb", "Querying services of site '%v'", site.Name)
 
 	var services gocdb.Services
 	if err := connector.query(&services, "get_service", false, true, network.URLParams{"sitename": site.Name}); err != nil {
@@ -179,7 +179,7 @@ func (connector *GOCDBConnector) queryServices(meshData *meshdata.MeshData, site
 			AdditionalEndpoints: endpoints,
 		})
 	}
-	connector.environment.Log().Debugf("con", "%v service(s) retrieved", len(site.Services))
+	connector.environment.Log().Debugf("gocdb", "%v service(s) retrieved", len(site.Services))
 
 	return nil
 }
@@ -208,7 +208,7 @@ func (connector *GOCDBConnector) GetName() string {
 }
 
 func (connector *GOCDBConnector) printInfo() {
-	connector.environment.Log().Infof("con", "GOCDB address: %v", connector.gocdbAddress)
+	connector.environment.Log().Infof(config.ConnectorID_GOCDB, "GOCDB address: %v", connector.gocdbAddress)
 }
 
 func init() {

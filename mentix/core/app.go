@@ -55,17 +55,17 @@ func (app *MentixApp) Run() error {
 }
 
 func (app *MentixApp) logSessionStart() {
-	app.environment.Log().Info("cor", "Mentix session started")
-	app.environment.Log().Infof("cor", "Version: %v", GetVersionStringWithBuild())
-	app.environment.Log().Infof("cor", "Configuration: %v", app.environment.GetConfigFilename())
+	app.environment.Log().Info("core", "Mentix session started")
+	app.environment.Log().Infof("core", "Version: %v", GetVersionStringWithBuild())
+	app.environment.Log().Infof("core", "Configuration: %v", app.environment.GetConfigFilename())
 
-	if app.environment.Config().Core.Logging.Enabled {
-		app.environment.Log().Infof("cor", "log file: %v", app.environment.GetLogFilename())
+	if app.environment.Config().General.Logging.Enabled {
+		app.environment.Log().Infof("core", "log file: %v", app.environment.GetLogFilename())
 	}
 }
 
 func (app *MentixApp) logSessionEnd() {
-	app.environment.Log().Info("cor", "Mentix session ended")
+	app.environment.Log().Info("core", "Mentix session ended")
 }
 
 func NewMentixApp(environ *env.Environment) (*MentixApp, error) {

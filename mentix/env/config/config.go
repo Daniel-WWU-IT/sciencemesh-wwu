@@ -16,12 +16,16 @@ import (
 type settingsDefaulter func(config *Config) error
 
 type Config struct {
-	Core struct {
+	General struct {
 		Logging struct {
 			Enabled   bool   `yaml:"enabled"`
 			Directory string `yaml:"directory"`
 			Level     int    `yaml:"level"`
 		} `yaml:"logging"`
+
+		Network struct {
+			AllowInsecure bool `yaml:"allow-insecure"`
+		} `yaml:"network"`
 	} `yaml:"general"`
 
 	Engine struct {
@@ -37,9 +41,11 @@ type Config struct {
 		} `yaml:"gocdb"`
 	} `yaml:"connectors"`
 
-	Network struct {
-		AllowInsecure bool `yaml:"allow-insecure"`
-	} `yaml:"network"`
+	Exporters struct {
+		PrometheusFileSD struct {
+			OutputFile string `yaml:"output-file"`
+		} `yaml:"prom-filesd"`
+	} `yaml:"exporters"`
 }
 
 func (config *Config) initialize(defaulter settingsDefaulter) error {

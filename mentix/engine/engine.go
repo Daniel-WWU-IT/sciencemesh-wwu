@@ -44,7 +44,7 @@ func (engine *Engine) initialize(environ *env.Environment) error {
 	engine.environment.Log().Info("eng", "Initializing engine")
 
 	// Enable insecure connections if configured so
-	if engine.environment.Config().Network.AllowInsecure {
+	if engine.environment.Config().General.Network.AllowInsecure {
 		network.AllowInsecureConnections()
 		engine.environment.Log().Warning("eng", "Insecure connections allowed")
 	}
@@ -68,7 +68,7 @@ func (engine *Engine) initialize(environ *env.Environment) error {
 	engine.updateInterval = duration
 	engine.environment.Log().Infof("eng", "Update interval: %v", duration)
 
-	// Create the mesh data
+	// Create empty mesh data
 	engine.meshData = meshdata.NewMeshData()
 
 	return nil
@@ -166,11 +166,13 @@ loop:
 		default:
 		}
 
-		// If enough time has passed, retrieve the latest mesh data and apply it
+		// If enough time has passed, retrieve the latest mesh data and update it
 		if time.Since(updateTimestamp) >= engine.updateInterval {
 			meshData, err := engine.retrieveMeshData()
 			if err == nil {
-				engine.applyMeshData(meshData)
+				if err := engine.applyMeshData(meshData); err != nil {
+					engine.environment.Log().Errorf("eng", "Failed to apply mesh data: %v", err)
+				}
 			} else {
 				// Log the error, but do nothing otherwise
 				engine.environment.Log().Errorf("eng", "Failed to update mesh data: %v", err)
@@ -195,13 +197,21 @@ func (engine *Engine) retrieveMeshData() (*meshdata.MeshData, error) {
 	return meshData, nil
 }
 
-func (engine *Engine) applyMeshData(meshData *meshdata.MeshData) {
+func (engine *Engine) applyMeshData(meshData *meshdata.MeshData) error {
 	if !meshData.Compare(engine.meshData) {
-		engine.environment.Log().Debug("eng", "Applying new mesh data")
+		engine.environment.Log().Info("eng", "Mesh data changed, applying new data")
 		engine.meshData = meshData
+
+		for _, exporter := range engine.exporters {
+			if err := exporter.UpdateMeshData(meshData); err != nil {
+				return fmt.Errorf("unable to update mesh data on exporter '%v': %v", exporter.GetName(), err)
+			}
+		}
 	} else {
-		engine.environment.Log().Debug("eng", "Mesh data unchanged, skipping")
+		engine.environment.Log().Info("eng", "Mesh data unchanged, skipping")
 	}
+
+	return nil
 }
 
 func NewEngine(environ *env.Environment) (*Engine, error) {
