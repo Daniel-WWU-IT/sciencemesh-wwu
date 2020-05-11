@@ -126,7 +126,7 @@ func (exporter *PrometheusFileSDExporter) GetName() string {
 }
 
 func (exporter *PrometheusFileSDExporter) printInfo() {
-	exporter.environment.Log().Infof("prm-fsd", "Output filename: %v", exporter.outputFilename)
+	exporter.environment.Log().Infof(config.ExporterID_PrometheusFileSD, "Output filename: %v", exporter.outputFilename)
 }
 
 func init() {

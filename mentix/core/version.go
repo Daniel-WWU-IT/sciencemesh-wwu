@@ -12,7 +12,7 @@ const (
 	VersionMajor    = 0
 	VersionMinor    = 3
 	VersionRevision = 0
-	VersionBuild    = 20
+	VersionBuild    = 22
 )
 
 func GetVersionString() string {

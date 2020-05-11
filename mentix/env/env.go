@@ -60,7 +60,7 @@ func (env *Environment) initConfiguration() error {
 		cfg.General.Logging.Level = logging.LevelInfo
 
 		cfg.Engine.Connector = config.ConnectorID_GOCDB
-		cfg.Engine.Exporters = []string{config.ExporterID_PrometheusFileSD}
+		cfg.Engine.Exporters = []string{config.ExporterID_WebAPI, config.ExporterID_PrometheusFileSD}
 		cfg.Engine.UpdateInterval = "1h"
 
 		return nil

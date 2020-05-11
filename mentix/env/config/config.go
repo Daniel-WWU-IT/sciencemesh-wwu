@@ -42,6 +42,10 @@ type Config struct {
 	} `yaml:"connectors"`
 
 	Exporters struct {
+		WebAPI struct {
+			Port uint `yaml:"port"`
+		} `yaml:"webapi"`
+
 		PrometheusFileSD struct {
 			OutputFile string `yaml:"output-file"`
 		} `yaml:"prom-filesd"`
