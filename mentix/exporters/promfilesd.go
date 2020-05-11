@@ -49,16 +49,21 @@ func (exporter *PrometheusFileSDExporter) UpdateMeshData(meshData *meshdata.Mesh
 		return err
 	}
 
-	return exporter.safePerform(exporter.meshDataUpdated)
+	// Perform exporting the data asynchronously
+	go exporter.exportMeshData()
+	return nil
 }
 
-func (exporter *PrometheusFileSDExporter) meshDataUpdated() error {
+func (exporter *PrometheusFileSDExporter) exportMeshData() {
+	// Data is read, so acquire a read lock
+	exporter.locker.RLock()
+	defer exporter.locker.RUnlock()
+
 	scrapes := exporter.createScrapeConfigs()
 	if err := exporter.exportScrapeConfig(scrapes); err != nil {
-		return fmt.Errorf("unable to export mesh data: %v", err)
+		// Log any errors
+		exporter.environment.Log().Errorf(config.ExporterID_PrometheusFileSD, "Error while exporting the mesh data: %v", err)
 	}
-
-	return nil
 }
 
 func (exporter *PrometheusFileSDExporter) createScrapeConfigs() []*prometheus.ScrapeConfig {

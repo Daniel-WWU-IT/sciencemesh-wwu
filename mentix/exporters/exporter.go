@@ -76,14 +76,6 @@ func (exporter *BaseExporter) storeMeshData(meshData *meshdata.MeshData) error {
 	return nil
 }
 
-func (exporter *BaseExporter) safePerform(f performFunc) error {
-	// Make sure that the data is locked for reading when calling f
-	exporter.locker.RLock()
-	defer exporter.locker.RUnlock()
-
-	return f()
-}
-
 func registerExporter(id string, exporter Exporter) {
 	registeredExporters[id] = exporter
 }
