@@ -10,9 +10,9 @@ import "fmt"
 
 const (
 	VersionMajor    = 0
-	VersionMinor    = 3
+	VersionMinor    = 4
 	VersionRevision = 0
-	VersionBuild    = 22
+	VersionBuild    = 23
 )
 
 func GetVersionString() string {

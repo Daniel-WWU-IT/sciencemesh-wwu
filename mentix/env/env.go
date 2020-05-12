@@ -56,12 +56,14 @@ func (env *Environment) initConfiguration() error {
 	// Create the configuration and apply various default settings
 	cfg, err := config.NewConfig(func(cfg *config.Config) error {
 		cfg.General.Logging.Enabled = true
-		cfg.General.Logging.Directory = env.ResolvePath(config.FN_LogsDir, "")
+		cfg.General.Logging.Directory = filepath.Join(".", config.FN_LogsDir)
 		cfg.General.Logging.Level = logging.LevelInfo
 
 		cfg.Engine.Connector = config.ConnectorID_GOCDB
 		cfg.Engine.Exporters = []string{config.ExporterID_WebAPI, config.ExporterID_PrometheusFileSD}
 		cfg.Engine.UpdateInterval = "1h"
+
+		cfg.Exporters.WebAPI.Port = 9600
 
 		return nil
 	})

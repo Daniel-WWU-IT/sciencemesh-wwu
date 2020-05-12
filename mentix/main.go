@@ -8,15 +8,23 @@ package main
 
 import (
 	"log"
+	"os"
 
 	"github.com/sciencemesh/mentix/core"
 	"github.com/sciencemesh/mentix/env"
+)
+
+const (
+	ExitCodeSuccess = iota
+	ExitCodeErrAppCreation
+	ExitCodeErrAppRun
 )
 
 func main() {
 	// Create the environment this application will run in
 	environ, err := env.NewEnvironment()
 	if err != nil {
+		// Can't log this error, as the log doesn't exist yet
 		log.Fatalf("No environment could be created: %v", err)
 	}
 	defer environ.Close()
@@ -24,11 +32,13 @@ func main() {
 	// Create the actual application
 	app, err := core.NewMentixApp(environ)
 	if err != nil {
-		log.Fatalf("Mentix app could not be created: %v", err)
+		environ.Log().Errorf("", "Mentix app could not be created: %v", err)
+		os.Exit(ExitCodeErrAppCreation)
 	}
 
 	// Just let the app run and do its job
 	if err := app.Run(); err != nil {
-		log.Fatalf("An error occurred while running Mentix: %v", err)
+		environ.Log().Errorf("", "An error occurred while running Mentix: %v", err)
+		os.Exit(ExitCodeErrAppRun)
 	}
 }
