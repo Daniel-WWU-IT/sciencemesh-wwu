@@ -5,6 +5,7 @@ require (
 	github.com/mattn/go-colorable v0.1.6
 	github.com/mattn/go-isatty v0.0.12
 	github.com/mohae/deepcopy v0.0.0-20170929034955-c48cc78d4826
+	golang.org/x/tools v0.0.0-20200513022744-65e69ff2d148 // indirect
 	gopkg.in/yaml.v2 v2.2.8
 )
 
