@@ -1,7 +1,7 @@
-# IOP
-Helm charts to deploy the IOP on Kubernetes.
+# ScienceMesh
+Everything developed for the ScienceMesh project: https://www.cs3mesh4eosc.eu
 
-## Modifications
-These charts are heavily based on CESNET's work. Modifications were made to run on our own Kubernetes cluster.
-
-**Note:** These files are not _in-sync_ with the official ScienceMesh charts; they are only meant for testing purposes and to work with the Phoenix web interface.
+## Contents
+- **[gocdb-container](gocdb-container/README.md):** Dockerized version to locally run a GOCDB instance
+- **[mentix](mentix/README.md):** Go daemon to export mesh topology data
+- **[IOP](iop/README.md):** Helm charts to deploy the IOP on Kubernetes
