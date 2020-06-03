@@ -4,3 +4,4 @@ Everything developed for the ScienceMesh project: https://www.cs3mesh4eosc.eu
 ## Contents
 - **[gocdb-container](gocdb-container/README.md):** Dockerized version to locally run a GOCDB instance
 - **[mentix](mentix/README.md):** Go daemon to export mesh topology data
+- **[IOP](iop/README.md):** Helm charts to deploy the IOP on Kubernetes
