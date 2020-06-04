@@ -303,7 +303,7 @@ configFiles:
     address = "0.0.0.0:19001"
     
     [http.services.datagateway]
-    transfer_shared_secret = "replaced-replace-me-with-a-transfer-secret"
+    transfer_shared_secret = "replaced-replace-me-with-a-transfer-secret"    
   frontend.toml: |
     [shared]
     jwt_secret = "Pive-Fumkiu4"
@@ -388,6 +388,22 @@ configFiles:
     webdav_namespace = "/home"
     
     [http.services.ocs]
+    
+    [http.services.helloworld]
+    prefix = "hello"
+    message = "Hello from WWU!"
+    
+    [http.services.mentix]
+    prefix = "mentix"
+    connector = "gocdb"
+    exporters = ["webapi"]
+    update_interval = "15m"
+
+    [http.services.mentix.gocdb]
+    address = "https://sciencemesh-test.uni-muenster.de/gocdb/"
+
+    [http.services.mentix.webapi]
+    endpoint = "/"
 args:
     - "-dev-dir"
     - "."
