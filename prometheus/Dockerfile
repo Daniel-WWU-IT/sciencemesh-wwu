@@ -12,10 +12,10 @@ LABEL   description "Customized Prometheus"
 COPY    config/ /etc/prometheus
 
 CMD     [ \
-            "--config.file=/etc/prometheus/prometheus.yml", \
-            "--storage.tsdb.path=/prometheus", \
-            "--web.console.libraries=/usr/share/prometheus/console_libraries", \
-            "--web.console.templates=/usr/share/prometheus/consoles", \
-            "--web.external-url=https://sciencemesh-test.uni-muenster.de/prometheus", \
-            "--web.route-prefix=/" \
+            "--config.file", "/etc/prometheus/prometheus.yml", \
+            "--storage.tsdb.path", "/prometheus", \
+            "--web.console.libraries", "/usr/share/prometheus/console_libraries", \
+            "--web.console.templates", "/usr/share/prometheus/consoles", \
+            "--web.external-url", "http://sciencemesh-test.uni-muenster.de/prometheus", \
+            "--web.route-prefix", "/" \
         ]
