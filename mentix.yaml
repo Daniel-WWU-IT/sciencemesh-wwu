@@ -1,5 +1,0 @@
-core:
-  logging:
-    enabled: true
-    directory: F:\ScienceMesh\sciencemesh-wwu\mentix\bin\logs
-    level: 1
