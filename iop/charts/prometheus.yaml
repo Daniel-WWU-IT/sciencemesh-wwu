@@ -5,9 +5,26 @@ server:
     servicePort: 9090
   persistentVolume:
     enabled: false  # Should be changed later
+    storageClass: cephfs
   extraArgs:
     web.external-url: 'http://sciencemesh-test.uni-muenster.de/prometheus'
     web.route-prefix: '/'
+  extraVolumeMounts:
+    - name: scrape-configs
+      mountPath: /etc/prometheus/sciencemesh
+      readOnly: false
+  extraVolumes:
+    - name: scrape-configs
+      persistentVolumeClaim:
+        claimName: prom-shared-data
+  extraInitContainers:
+    - name: init-fs
+      image: busybox
+      command: ['/bin/chmod', '-Rv', '777', '/etc/prometheus/sciencemesh']
+      volumeMounts:
+        - name: scrape-configs
+          mountPath: /etc/prometheus/sciencemesh
+          readOnly: false
 
 # Disable services not needed
 configmapReload:

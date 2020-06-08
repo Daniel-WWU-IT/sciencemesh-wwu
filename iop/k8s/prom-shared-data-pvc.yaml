@@ -1,0 +1,11 @@
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+    name: prom-shared-data
+spec:
+    accessModes:
+      - ReadWriteMany
+    storageClassName: cephfs
+    resources:
+        requests:
+            storage: 100Mi
