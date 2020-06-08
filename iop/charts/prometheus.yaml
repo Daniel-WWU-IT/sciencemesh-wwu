@@ -1,0 +1,39 @@
+# General server settings
+server:
+  service:
+    type: 'NodePort'
+    servicePort: 9090
+  persistentVolume:
+    enabled: false  # Should be changed later
+  extraArgs:
+    web.external-url: 'http://sciencemesh-test.uni-muenster.de/prometheus'
+    web.route-prefix: '/'
+
+# Disable services not needed
+configmapReload:
+  prometheus:
+    enabled: false
+
+alertmanager:
+  enabled: false
+
+nodeExporter:
+  enabled: false
+
+pushgateway:
+  enabled: false
+
+kubeStateMetrics:
+  enabled: false
+
+# ScienceMesh scrape configurations
+extraScrapeConfigs: |
+  # Read all ScienceMesh scrape targets from any files located in /etc/prometheus/sciencemesh/
+  - job_name: 'sciencemesh'
+    scheme: 'https'
+    metrics_path: '/metrics'
+
+    file_sd_configs:
+    - refresh_interval: 30s
+      files:
+        - '/etc/prometheus/sciencemesh/*.json'
