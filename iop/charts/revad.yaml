@@ -332,6 +332,9 @@ configFiles:
     [http.services.mentix.prom_filesd]
     output_file = "/etc/revad/scrapes/services.json"
 
+    [http.services.prometheus]
+    prefix = "metrics"
+
 args:
     - "-dev-dir"
     - "."
