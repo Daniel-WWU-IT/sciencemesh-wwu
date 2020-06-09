@@ -320,7 +320,7 @@ configFiles:
     [http.services.mentix]
     prefix = "mentix"
     connector = "gocdb"
-    exporters = ["webapi"]
+    exporters = ["webapi", "prom_filesd"]
     update_interval = "15m"
 
     [http.services.mentix.gocdb]
@@ -328,6 +328,9 @@ configFiles:
 
     [http.services.mentix.webapi]
     endpoint = "/"
+
+    [http.services.mentix.prom_filesd]
+    output_file = "/etc/revad/scrapes/services.json"
 
 args:
     - "-dev-dir"

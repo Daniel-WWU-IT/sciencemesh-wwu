@@ -41,13 +41,17 @@ spec:
           {{- end }}
           volumeMounts:
             - name: {{ include "revad.fullname" . }}-configfiles
-              mountPath: /etc/revad/            
+              mountPath: /etc/revad/
             - name: {{ include "revad.fullname" . }}-data
               mountPath: /var/tmp/reva/data
+            - name: {{ template "revad.fullname" . }}-scrape-configs
+              mountPath: /etc/revad/scrapes
       volumes:
         - name: {{ include "revad.fullname" . }}-configfiles
           configMap:
             name: {{ template "revad.fullname" . }}-config
         - name: {{ include "revad.fullname" . }}-data
           emptyDir: {}
-
+        - name: {{ template "revad.fullname" . }}-scrape-configs
+          persistentVolumeClaim:
+            claimName: prom-shared-data
