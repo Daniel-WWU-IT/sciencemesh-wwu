@@ -1,0 +1,30 @@
+# General settings
+replicas: 1
+service:
+  type: 'NodePort'
+  port: 3030
+adminUser: admin
+adminPassword: admin
+
+# Grafana settings
+grafana.ini:
+  server:
+    domain: sciencemesh-test.uni-muenster.de
+    root_url: "%(protocol)s://%(domain)s/grafana"
+    serve_from_sub_path: true
+
+# Persistency
+persistence:
+  enabled: true
+  size: 100Mi
+
+# Prometheus data source
+datasources:
+  datasources.yaml:
+    apiVersion: 1
+    datasources:
+      - name: ScienceMesh
+        type: prometheus
+        url: https://sciencemesh-test.uni-muenster.de/prometheus
+        access: proxy
+        isDefault: true
