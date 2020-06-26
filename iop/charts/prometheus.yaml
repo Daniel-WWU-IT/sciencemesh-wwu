@@ -27,6 +27,28 @@ server:
           mountPath: /etc/prometheus/sciencemesh
         - name: storage-volume
           mountPath: /data
+  env:
+    # Adjust the proxy settings as needed (must also be set for the scrape config below)
+    - name: HTTPS_PROXY
+      value: 'http://wwwproxy.uni-muenster.de:80'
+    - name: HTTP_PROXY
+      value: 'http://wwwproxy.uni-muenster.de:80'
+    - name: AUTO_PROXY
+      value: 'http://www.uni-muenster.de/proxyforce.pac'
+    - name: https_proxy
+      value: 'http://wwwproxy.uni-muenster.de:80'
+    - name: http_proxy
+      value: 'http://wwwproxy.uni-muenster.de:80'
+    - name: auto_proxy
+      value: 'http://www.uni-muenster.de/proxyforce.pac'
+    - name: NO_PROXY
+      value: 'localhost,127.0.0.1,0.0.0.0,.wwu.de,.uni-muenster.de,.wwu.io,10.0.0.0/8,172.16.0.0/12,192.168.0.0/16,169.254.0.0/16,.svc,10.14.20.42,10.14.20.44,10.14.20.45'
+    - name: no_proxy
+      value: 'localhost,127.0.0.1,0.0.0.0,.wwu.de,.uni-muenster.de,.wwu.io,10.0.0.0/8,172.16.0.0/12,192.168.0.0/16,169.254.0.0/16,.svc,10.14.20.42,10.14.20.44,10.14.20.45'
+    - name: USE_PROXY
+      value: 'yes'
+    - name: use_proxy
+      value: 'yes'
 
 # Disable services not needed
 configmapReload:
@@ -50,7 +72,8 @@ extraScrapeConfigs: |
   # Read all ScienceMesh scrape targets from any files located in /etc/prometheus/sciencemesh/
   - job_name: 'sciencemesh'
     scheme: 'https'
-    metrics_path: '/metrics'
+    # Adjust the proxy as needed
+    proxy_url: 'http://wwwproxy.uni-muenster.de:80'
 
     file_sd_configs:
     - refresh_interval: 30s
