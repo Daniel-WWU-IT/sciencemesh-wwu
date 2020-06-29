@@ -72,6 +72,9 @@ extraScrapeConfigs: |
   # Read all ScienceMesh scrape targets from any files located in /etc/prometheus/sciencemesh/
   - job_name: 'sciencemesh'
     scheme: 'https'
+    # For testing, skip certificate verification
+    tls_config:
+      insecure_skip_verify: true
     # Adjust the proxy as needed
     proxy_url: 'http://wwwproxy.uni-muenster.de:80'
 
