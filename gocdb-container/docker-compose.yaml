@@ -33,7 +33,7 @@ services:
         environment:
             GOCDB_DATABASE_SERVER: gocdb-database
         ports:
-            - 80:80
+            - 8080:80
 
 volumes:
     db:
