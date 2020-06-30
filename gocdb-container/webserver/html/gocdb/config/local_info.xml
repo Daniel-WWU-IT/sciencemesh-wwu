@@ -15,9 +15,9 @@
           in your apache httpd config (see sample 'gocdbssl.conf' file).
         - Do not terminate these values with a '/' char.
         -->
-        <web_portal_url>https://192.168.0.110/gocdb/portal</web_portal_url>
-        <pi_url>https://192.168.0.110/gocdb/gocdbpi</pi_url>
-        <server_base_url>https://192.168.0.110/gocdb</server_base_url>
+        <web_portal_url>https://sciencemesh-test.uni-muenster.de/gocdb</web_portal_url>
+        <pi_url>https://sciencemesh-test.uni-muenster.de/gocdb/gocdbpi</pi_url>
+        <server_base_url>https://sciencemesh-test.uni-muenster.de/gocdb</server_base_url>
         <write_api_user_docs_url>https://wiki.egi.eu/wiki/GOCDB/Write_API/Technical_Documentation</write_api_user_docs_url>
 
         <optional_features>
@@ -96,14 +96,12 @@
             <max>20</max>
         </extensions>
 
-
         <!--
         Server send email true or false (set to false on a test server to avoid spamming users).
         Emails are sent by the server when managing/requesting roles, retrieving user
         accounts (e.g. associating a user account with a new cert DN).
         -->
         <send_email>false</send_email>
-
 
         </local_info>
 </schema>
