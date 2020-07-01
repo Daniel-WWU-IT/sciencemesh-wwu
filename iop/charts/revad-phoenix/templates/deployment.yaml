@@ -16,38 +16,42 @@ spec:
     spec:
       containers:
         - name: {{ .Chart.Name }}
-          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          image: "{{ .Values.image.repository }}:{{ .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
             - name: http
-              containerPort: {{ .Values.service.http.port }}
+              containerPort: 20080
               protocol: TCP
-            - name: grpc
-              containerPort: {{ .Values.service.grpc.port }}
+            - name: dataprovider
+              containerPort: 11001
               protocol: TCP
           command:
             - /go/bin/revad
           args:
+            {{- if .Values.args }}
+{{ toYaml .Values.args | indent 14 }}
+            {{- else }}
               - "-c"
               - "/etc/revad/revad.toml"
               - "-p"
               - "/var/run/revad.pid"
+            {{- end }}
+          {{- if .Values.workingDir }}
+          workingDir: {{ .Values.workingDir }}
+          {{- end }}
           volumeMounts:
             - name: {{ include "revad.fullname" . }}-configfiles
               mountPath: /etc/revad/
-            - name: {{ include "revad.fullname" . }}-datadir
-              mountPath: /var/tmp/reva/
-            # WWU specifics --
-            - name: {{ include "revad.fullname" . }}-scrape-configs
+            - name: {{ include "revad.fullname" . }}-data
+              mountPath: /var/tmp/reva/data
+            - name: {{ template "revad.fullname" . }}-scrape-configs
               mountPath: /etc/revad/scrapes
       volumes:
         - name: {{ include "revad.fullname" . }}-configfiles
           configMap:
             name: {{ template "revad.fullname" . }}-config
-        # TODO(SamuAlfageme): allow PersistentVolmeClaim custom Value
-        - name: {{ include "revad.fullname" . }}-datadir
+        - name: {{ include "revad.fullname" . }}-data
           emptyDir: {}
-        # WWU specifics --
-        - name: {{ include "revad.fullname" . }}-scrape-configs
+        - name: {{ template "revad.fullname" . }}-scrape-configs
           persistentVolumeClaim:
             claimName: prom-shared-data
