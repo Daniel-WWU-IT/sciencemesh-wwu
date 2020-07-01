@@ -37,9 +37,9 @@ spec:
               mountPath: /etc/revad/
             - name: {{ include "revad.fullname" . }}-datadir
               mountPath: /var/tmp/reva/
-            # WWU specifics --
-            - name: {{ include "revad.fullname" . }}-scrape-configs
-              mountPath: /etc/revad/scrapes
+            {{- if .Values.extraVolumeMounts }}
+              {{ toYaml .Values.extraVolumeMounts | nindent 12 }}
+            {{- end }}
       volumes:
         - name: {{ include "revad.fullname" . }}-configfiles
           configMap:
@@ -47,7 +47,6 @@ spec:
         # TODO(SamuAlfageme): allow PersistentVolmeClaim custom Value
         - name: {{ include "revad.fullname" . }}-datadir
           emptyDir: {}
-        # WWU specifics --
-        - name: {{ include "revad.fullname" . }}-scrape-configs
-          persistentVolumeClaim:
-            claimName: prom-shared-data
+        {{- if .Values.extraVolumes }}
+          {{ toYaml .Values.extraVolumes | nindent 8}}
+        {{- end }}

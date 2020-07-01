@@ -1,4 +1,12 @@
-# https://reva.link/docs/config/
+extraVolumeMounts:
+  - name: scrape-configs
+    mountPath: /etc/revad/scrapes
+
+extraVolumes:
+  - name: scrape-configs
+    persistentVolumeClaim:
+      claimName: prom-shared-data
+
 configFiles:
   revad.toml: |
     [grpc.services.gateway]
