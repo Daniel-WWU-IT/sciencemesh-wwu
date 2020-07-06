@@ -10,16 +10,25 @@ extraVolumes:
 configFiles:
   revad.toml: |
     [grpc.services.gateway]
+    datagateway = "https://sciencemesh-test.uni-muenster.de/api/datagateway"
+
     [grpc.services.storageregistry]
     [grpc.services.storageprovider]
+    data_server_url = "https://sciencemesh-test.uni-muenster.de/api/data"
     [grpc.services.authprovider]
     [grpc.services.authregistry]
     [grpc.services.userprovider]
     [grpc.services.usershareprovider]
     [grpc.services.publicshareprovider]
+    [grpc.services.ocmcore]
+    [grpc.services.ocmshareprovider]
+    [grpc.services.ocminvitemanager]
+    [grpc.services.ocmproviderauthorizer]
 
+    [http.services.datagateway]
     [http.services.dataprovider]
     [http.services.prometheus]
+    [http.services.ocmd]
 
     # WWU specifics --
 
@@ -45,18 +54,29 @@ configFiles:
     [
     	{
     		"id": {
-    			"opaque_id": "wwu42",
-    			"idp": "https://sciencemesh-test.uni-muenster.de/api"
+    			"opaque_id": "holger1234",
+    			"idp": "https://uni-muenster.de"
     		},
-    		"username": "wwu42",
-    		"secret": "wwu42",
-    		"mail": "daniel.mueller@uni-muenster.de",
-    		"display_name": "Daniel Mueller",
+    		"username": "holger",
+    		"secret": "holgerpass",
+    		"mail": "holger@uni-muenster.de",
+    		"display_name": "Holger",
     		"groups": ["sailing-lovers", "violin-haters", "physics-lovers"]
+    	},
+    	{
+    		"id": {
+    			"opaque_id": "daniel5678",
+    			"idp": "https://uni-muenster.de"
+    		},
+    		"username": "daniel",
+    		"secret": "danielpass",
+    		"mail": "daniel@uni-muenster.de",
+    		"display_name": "Daniel",
+    		"groups": ["radium-lovers", "polonium-lovers", "physics-lovers"]
     	}
     ]
 
-  providers.json: |
+  ocm-providers.json: |
     [
     	{
     		"name": "cernbox",
@@ -77,7 +97,7 @@ configFiles:
     					"isMonitored": true
     				},
     				"api_version": "0.0.1",
-    				"host": "https://sciencemesh.cernbox.cern.ch/"
+    				"host": "https://sciencemesh.cernbox.cern.ch/iop/"
     			}
     		]
     	},
@@ -96,11 +116,11 @@ configFiles:
     						"description": "CESNET Open Cloud Mesh API"
     					},
     					"name": "CESNET - OCM API",
-    					"path": "https://sciencemesh.cesnet.cz/ocm/",
+    					"path": "https://sciencemesh.cesnet.cz/iop/ocm/",
     					"isMonitored": true
     				},
     				"api_version": "0.0.1",
-    				"host": "https://sciencemesh.cesnet.cz/"
+    				"host": "https://sciencemesh.cesnet.cz/iop/"
     			}
     		]
     	},
@@ -119,11 +139,11 @@ configFiles:
     						"description": "WWU Open Cloud Mesh API"
     					},
     					"name": "WWU - OCM API",
-    					"path": "https://sciencemesh-test.uni-muenster.de/ocm/",
+    					"path": "https://sciencemesh-test.uni-muenster.de/api/ocm/",
     					"isMonitored": true
     				},
     				"api_version": "0.0.1",
-    				"host": "https://sciencemesh-test.uni-muenster.de/"
+    				"host": "https://sciencemesh-test.uni-muenster.de/api/"
     			}
     		]
     	},
@@ -142,11 +162,11 @@ configFiles:
     						"description": "Cubbit Open Cloud Mesh API"
     					},
     					"name": "Cubbit - OCM API",
-    					"path": "https://ocm.cubbit.io/ocm/",
+    					"path": "https://sciencemesh.cubbit.io/ocm/",
     					"isMonitored": true
     				},
     				"api_version": "0.0.1",
-    				"host": "https://ocm.cubbit.io/"
+    				"host": "https://sciencemesh.cubbit.io/"
     			}
     		]
     	},
@@ -165,11 +185,11 @@ configFiles:
     						"description": "Ailleron Open Cloud Mesh API"
     					},
     					"name": "Ailleron - OCM API",
-    					"path": "http://cs3mesh.softwaremind.com:19000/ocm/",
+    					"path": "https://cs3mesh.softwaremind.com/iop/ocm/",
     					"isMonitored": true
     				},
     				"api_version": "0.0.1",
-    				"host": "http://cs3mesh.softwaremind.com:19000/"
+    				"host": "https://cs3mesh.softwaremind.com/iop/"
     			}
     		]
     	},
@@ -188,11 +208,11 @@ configFiles:
     						"description": "Surfsara Open Cloud Mesh API"
     					},
     					"name": "Surfsara - OCM API",
-    					"path": "https://app.cs3mesh-iop.k8s.surfsara.nl/ocm/",
+    					"path": "https://app.cs3mesh-iop.k8s.surfsara.nl/iop/ocm/",
     					"isMonitored": true
     				},
     				"api_version": "0.0.1",
-    				"host": "https://app.cs3mesh-iop.k8s.surfsara.nl/"
+    				"host": "https://app.cs3mesh-iop.k8s.surfsara.nl/iop/"
     			}
     		]
     	}
