@@ -15,6 +15,7 @@ configFiles:
     [grpc.services.storageregistry]
     [grpc.services.storageprovider]
     data_server_url = "https://sciencemesh-test.uni-muenster.de/api/data"
+
     [grpc.services.authprovider]
     [grpc.services.authregistry]
     [grpc.services.userprovider]
