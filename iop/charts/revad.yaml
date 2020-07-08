@@ -53,7 +53,7 @@ configFiles:
     [http.services.dataprovider]
     [http.services.prometheus]
     [http.services.ocmd]
-
+    
     # WWU specifics --
 
     [http.services.helloworld]
