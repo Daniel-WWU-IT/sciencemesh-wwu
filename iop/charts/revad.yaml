@@ -44,10 +44,13 @@ configFiles:
     [grpc.services.publicshareprovider]
     [grpc.services.ocmcore]
     [grpc.services.ocmshareprovider]
-    insecure_connections = true
     [grpc.services.ocminvitemanager]
-    insecure_connections = true
     [grpc.services.ocmproviderauthorizer]
+
+    [grpc.services.ocmshareprovider.drivers.json]
+    insecure_connections = true
+    [grpc.services.ocminvitemanager.drivers.json]
+    insecure_connections = true
 
     [http.services.datagateway]
     [http.services.dataprovider]
