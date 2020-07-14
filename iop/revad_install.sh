@@ -1,2 +1,2 @@
 #!/bin/bash
-helm install iop charts/revad/ -f charts/revad.yaml
+helm install iop cs3org/revad -f charts/revad.yaml
