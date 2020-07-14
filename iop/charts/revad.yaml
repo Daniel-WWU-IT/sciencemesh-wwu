@@ -34,11 +34,9 @@ configFiles:
   revad.toml: |
     [grpc.services.gateway]
     datagateway = "https://sciencemesh-test.uni-muenster.de/api/datagateway"
-
     [grpc.services.storageregistry]
     [grpc.services.storageprovider]
     data_server_url = "https://sciencemesh-test.uni-muenster.de/api/data"
-
     [grpc.services.authprovider]
     [grpc.services.authregistry]
     [grpc.services.userprovider]
@@ -46,7 +44,9 @@ configFiles:
     [grpc.services.publicshareprovider]
     [grpc.services.ocmcore]
     [grpc.services.ocmshareprovider]
+    insecure_connections = true
     [grpc.services.ocminvitemanager]
+    insecure_connections = true
     [grpc.services.ocmproviderauthorizer]
 
     [http.services.datagateway]
