@@ -8,7 +8,7 @@ extraVolumes:
       claimName: prom-shared-data
 
 env:
-  # Adjust the proxy settings as needed (must also be set for the scrape config below)
+  # Adjust the proxy settings as needed
   - name: HTTPS_PROXY
     value: 'http://wwwproxy.uni-muenster.de:80'
   - name: HTTP_PROXY
