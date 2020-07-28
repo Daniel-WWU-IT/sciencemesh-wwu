@@ -1,0 +1,5 @@
+collabora:
+  domain: wopi-wopiserver\|zivowncloud2\\.uni-muenster\\.de\
+  server_name: sciencemesh-test\.uni-muenster\.de
+  username: admin
+  password: admin42
