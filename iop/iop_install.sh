@@ -1,6 +1,8 @@
 #!/bin/bash
+kubectl apply -f k8s/iop-data-pvc.yaml
 helm install iop sciencemesh/iop \
-    --set-file revad.configFiles.revad\\.toml=config/revad.toml \
-    --set-file revad.configFiles.users\\.json=config/users.json \
-    --set-file revad.configFiles.ocm-providers\\.json=config/ocm-providers.json \
+    --set-file gateway.configFiles.revad\\.toml=config/gateway.toml \
+    --set-file gateway.configFiles.users\\.json=config/users.json \
+    --set-file storageprovider-home.configFiles.revad\\.toml=config/storage-home.toml \
+    --set-file storageprovider-reva.configFiles.revad\\.toml=config/storage-reva.toml \
     -f charts/iop.yaml

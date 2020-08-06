@@ -1,9 +1,5 @@
-# Reva gateway --
-gateway:
-  persistentVolume:
-    enabled: true
-    existingClaim: iop-data
-
+# -- Reva daemon --
+revad:
   extraVolumeMounts:
     - name: scrape-configs
       mountPath: /etc/revad/scrapes
@@ -36,38 +32,6 @@ gateway:
     - name: use_proxy
       value: 'yes'
 
-# Storage providers --
-storageProviders:
-  home:
-    enabled: true
-
-  reva:
-    enabled: true
-
-# Home storage provider --
-storageprovider-home:
-  service:
-    grpc:
-      port: 17000
-    http:
-      port: 17001
-
-  persistentVolume:
-    enabled: true
-    existingClaim: iop-data
-
-# Reva storage provider --
-storageprovider-reva:
-  service:
-    grpc:
-      port: 18000
-    http:
-      port: 18001
-
-    persistentVolume:
-      enabled: true
-      existingClaim: iop-data
-
-# WOPI server --
+# -- WOPI server --
 wopiserver:
   enabled: false
