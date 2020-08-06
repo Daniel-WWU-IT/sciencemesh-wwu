@@ -33,6 +33,7 @@ sender_mail = "daniel.wwu.it@gmail.com"
 smtp_server = "smtp.gmail.com"
 smtp_port = 587
 disable_auth = true
+[http.services.sysinfo]
 
 # WWU specifics --
 
