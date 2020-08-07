@@ -15,7 +15,6 @@ home_provider = "/home"
 
 [grpc.services.authprovider]
 [grpc.services.authregistry]
-[grpc.services.appregistry]
 [grpc.services.userprovider]
 [grpc.services.usershareprovider]
 [grpc.services.publicshareprovider]
