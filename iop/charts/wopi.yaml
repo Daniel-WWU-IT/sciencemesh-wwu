@@ -1,5 +1,0 @@
-config:
-    appProviders:
-      codeurl: http://collabora-collabora-code:9980
-    cs3:
-      revahost: iop-revad:19000

@@ -1,5 +1,5 @@
 collabora:
-  domain: wopi-wopiserver\|sciencemesh-test\\.uni-muenster\\.de
+  domain: iop-wopiserver\|sciencemesh-test\\.uni-muenster\\.de
   server_name: sciencemesh-test\.uni-muenster\.de
   username: admin
   password: admin42
