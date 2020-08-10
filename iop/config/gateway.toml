@@ -39,9 +39,9 @@ refresh = 900
 [http.services.ocmd]
 mesh_directory_url = "https://sciencemesh.cesnet.cz/iop/meshdir"
 [http.services.ocmd.smtp_credentials]
-sender_mail = "daniel.wwu.it@gmail.com"
-smtp_server = "smtp.gmail.com"
-smtp_port = 587
+sender_mail = "daniel.mueller@uni-muenster.de"
+smtp_server = "mail.uni-muenster.de"
+smtp_port = 25
 disable_auth = true
 [http.services.sysinfo]
 
