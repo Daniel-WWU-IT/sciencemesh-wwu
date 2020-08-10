@@ -35,7 +35,7 @@ gateway:
       value: 'yes'
     - name: use_proxy
       value: 'yes'
-    
+
 # Storage providers --
 storageProviders:
   home:
@@ -64,9 +64,9 @@ storageprovider-reva:
     http:
       port: 18001
 
-    persistentVolume:
-      enabled: true
-      existingClaim: iop-data
+  persistentVolume:
+    enabled: true
+    existingClaim: iop-data
 
 # WOPI server --
 wopiserver:
