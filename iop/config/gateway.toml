@@ -41,7 +41,8 @@ refresh = 900
 
 [grpc.services.appprovider]
 driver = "demo"
-wopiurl = "https://sciencemesh-test.uni-muenster.de/"
+iopsecret = "nv7NUJc9ceHI4"
+wopiurl = "https://sciencemesh-test.uni-muenster.de/wopi/"
 
 [grpc.services.appregistry]
 driver = "static"
