@@ -25,6 +25,14 @@ spec:
         backend:
           serviceName: iop-wopiserver
           servicePort: 8880
+      - path: /data-home
+        backend:
+          serviceName: iop-storageprovider-home
+          servicePort: 17001
+      - path: /data-reva
+        backend:
+          serviceName: iop-storageprovider-reva
+          servicePort: 18001
 ---
 apiVersion: networking.k8s.io/v1beta1
 kind: Ingress

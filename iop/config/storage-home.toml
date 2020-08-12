@@ -5,7 +5,8 @@ address = "0.0.0.0:17000"
 driver = "localhome"
 mount_path = "/home"
 mount_id = "123e4567-e89b-12d3-a456-426655440000"
-data_server_url = "http://iop-storageprovider-home:17001/data"
+data_server_url = "https://sciencemesh-test.uni-muenster.de/data-home/data"
+expose_data_server = true
 
 [http]
 address = "0.0.0.0:17001"
