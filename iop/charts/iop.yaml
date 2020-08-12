@@ -14,6 +14,8 @@ gateway:
         claimName: prom-shared-data
 
   env:
+    - name: REVA_APPPROVIDER_IOPSECRET
+      value: 'nv7NUJc9ceHI4'
     # Adjust the proxy settings as needed
     - name: HTTPS_PROXY
       value: 'http://wwwproxy.uni-muenster.de:80'
@@ -70,9 +72,10 @@ storageprovider-reva:
 
 # WOPI server --
 wopiserver:
-  enabled: false
+  enabled: true
   config:
-      appProviders:
-        codeurl: http://collabora-collabora-code:9980
-      cs3:
-        revahost: iop-gateway:19000
+    appProviders:
+      codeurl: http://collabora-collabora-code:9980
+    cs3:
+      revahost: iop-gateway:19000
+    iopsecret: 'nv7NUJc9ceHI4'
