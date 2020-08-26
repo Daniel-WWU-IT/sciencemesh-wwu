@@ -55,6 +55,7 @@ driver = "static"
 
 # HTTP services --
 [http.services.datagateway]
+[http.services.ocdav]
 [http.services.prometheus]
 
 [http.services.ocmd]
