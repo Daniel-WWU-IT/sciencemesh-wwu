@@ -1,0 +1,20 @@
+# checkmk-docker-compose.yml -- Set up CheckMK as a container
+#
+# Author:   Daniel Mueller/University of Muenster (daniel.mueller@uni-muenster.de)
+# Date:     2020-09-03
+# Version:  1.0
+
+version: "3.4"
+
+# CheckMK comes as a single container
+services:
+    checkmk:
+        image: "checkmk/check-mk-raw:1.6.0-latest"
+        container_name: "checkmk"
+        restart: always
+        environment: {}
+        volumes:
+            - /home/tak/data/checkmk:/omd/sites
+            - /etc/localtime:/etc/localtime
+        ports:
+            - 5000:5000
