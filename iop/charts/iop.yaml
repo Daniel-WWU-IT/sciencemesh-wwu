@@ -71,6 +71,7 @@ storageprovider-reva:
 # WOPI server --
 wopiserver:
   enabled: true
+  wopiserverUrl: https://sciencemesh-test.uni-muenster.de/wopi
   config:
     appProviders:
       codeurl: http://collabora-collabora-code:9980
