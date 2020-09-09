@@ -13,6 +13,8 @@ The following list contains first results in no particular order from the evalua
 - Dynamic hosts can be added via an HTTP API
 - Remote checks (i.e., probes running on the monitoring server)
     - Own probes possible (Nagios-compliant)
+- Easy and extensuve local checks
+    - Might become interesting at a later stage
 - Aggregation of (service) states via Business Intelligence module
     - Can be created dynamically based on hosts or services
 - Availability built-in
@@ -23,6 +25,9 @@ The following list contains first results in no particular order from the evalua
     - Some parts, especially about writing custom probes, are missing
 - Free, but comes with no support
     - SLA module not included in free version
+    - Email notifications problematic
+        - Only SMTP relay server supported
+        - Configuration on the OS side, CheckMK simply uses the `sendmail` command
 - Notifications (various channels), events, basic logging etc.
 - Easy to setup and deploy
 - Lots of fine-tuning necessary
@@ -34,3 +39,7 @@ The following list contains first results in no particular order from the evalua
 - Mainly used for local system-level checks, not for remote probing
     - But it works well enough
 - Very fine-grained control of every detail, but steep learning curve
+- Further possibly interesting features
+    - Metrics
+    - Performance data
+    - Cluster monitoring
