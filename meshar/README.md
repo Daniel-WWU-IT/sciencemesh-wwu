@@ -13,7 +13,7 @@ The following list contains first results in no particular order from the evalua
 - Dynamic hosts can be added via an HTTP API
 - Remote checks (i.e., probes running on the monitoring server)
     - Own probes possible (Nagios-compliant)
-- Easy and extensuve local checks
+- Easy and extensive local checks
     - Might become interesting at a later stage
 - Aggregation of (service) states via Business Intelligence module
     - Can be created dynamically based on hosts or services
@@ -43,3 +43,30 @@ The following list contains first results in no particular order from the evalua
     - Metrics
     - Performance data
     - Cluster monitoring
+
+## Icinga
+[Icinga](https://icinga.com) is another monitoring platform that is being evaluated.
+
+### Evaluation
+Icinga has not yet been evaluated to a great extend. Below are a few first impressions:
+
+- Focused on automation
+    - Powerful REST API
+    - Fully configurable via a flexible configuration language
+- Distributed monitoring
+- Easier to use than CheckMK
+    - But less powerful
+    - Exact feature list unknown
+- Modern interface
+    - Not every aspect can be managed using this interface
+- Free (if used as an on-premise solution)
+    - Support is not free
+- Good documentation
+- Simple aggregation of services into a single status
+- Notifications seem to be supported, but hard to tell what they can do
+    - Integration with various DevOps tools
+- Uses Nagios probes
+- Not sure if users with different roles are supported
+- Supports scheduled downtimes
+- Seems to not offer Availability out-of-the-box
+- More tailored towards external checks
