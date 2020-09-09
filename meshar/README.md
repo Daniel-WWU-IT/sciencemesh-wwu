@@ -70,3 +70,18 @@ Icinga has not yet been evaluated to a great extend. Below are a few first impre
 - Supports scheduled downtimes
 - Seems to not offer Availability out-of-the-box
 - More tailored towards external checks
+
+## Sensu
+[Sensu](https://sensu.io) is yet another monitoring platform under evaluation.
+
+## Evaluation
+Sensu has not yet been evaluated, but already made a few impressions:
+
+- Focused on clouds
+- Supports Nagios probes
+- Philosophy unknown
+    - So far, it is hard to tell how it handles nodes and services
+- Free version only supports up to 100 nodes (unsure how these are defined)
+- Web interface only offers very few features
+    - Seems to be the least comfortable solution
+- Might still be worth further investigation
