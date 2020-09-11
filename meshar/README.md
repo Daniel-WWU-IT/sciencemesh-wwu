@@ -48,28 +48,53 @@ The following list contains first results in no particular order from the evalua
 [Icinga](https://icinga.com) is another monitoring platform that is being evaluated.
 
 ### Evaluation
-Icinga has not yet been evaluated to a great extend. Below are a few first impressions:
+The following list contains first results in no particular order from the evaluation:
 
-- Focused on automation
-    - Powerful REST API
-    - Fully configurable via a flexible configuration language
-- Distributed monitoring
-- Easier to use than CheckMK
-    - But less powerful
-    - Exact feature list unknown
-- Modern interface
-    - Not every aspect can be managed using this interface
+- Fully automatable
+    - Configuration via easy yet powerful DSL
+- More tailored towards remote checking
+- Deployment and setup more laborious
+    - Docker containers are available, but haven't been tested
+    - Customized containers will most likely be required
+    - Due to its support for full automization, configuration is easy once the stack has been deployed
+- Nagios-based
+    - All existing probes can be used
+    - Own probes easy to develop
+    - Supports simple statuses and performance data
+- Good documentation, but not always easy to follow
+- Distributed system
+    - Very scalable
+    - Harder to understand at first
+- Requires an external database system (MySQL/MariaDB or PostgreSQL)
+    - A more flexible adapter for other databases is in development
+- User-groups/-roles with different access rights
+- Offers an optional web interface
+    - Modern look & feel
+    - Requires a web server
+    - Not as "informative" as others
+    - Can be extended by many existing addons
+    - Usually only used to view, not to modify
+        - An addon (director) exists to also modify aspects of the infrastructure
+- Powerful scripting capabilities
+    - Makes configuration more difficult, but is also more transparent
+- All objects (hosts, services, commands, etc.) can be grouped
+- Flexible notification mechanisms
+    - Powerful rules can be defined
+    - Uses external commands to perform notifications
+- Business processes to aggregate hosts and services
+- Grafana integrations available
+- Availability only available through report generation
+    - Can be automated    
+- Downtimes are supported, but their effect is not clear yet
+- Difficult to retrieve the status of hosts and services from "the outside"
+    - Custom addons might be required for this
+    - Existing addons usually directly access the database
+- More development effort needed
+    - Addons written in PHP, many "examples" available
+    - Such addons can be created to perfectly fit our needs
+- Reliability not as easy to calculate
 - Free (if used as an on-premise solution)
     - Support is not free
-- Good documentation
-- Simple aggregation of services into a single status
-- Notifications seem to be supported, but hard to tell what they can do
-    - Integration with various DevOps tools
-- Uses Nagios probes
-- Not sure if users with different roles are supported
-- Supports scheduled downtimes
-- Seems to not offer Availability out-of-the-box
-- More tailored towards external checks
 
 ## Sensu
 [Sensu](https://sensu.io) is yet another monitoring platform under evaluation.
@@ -84,4 +109,3 @@ Sensu has not yet been evaluated, but already made a few impressions:
 - Free version only supports up to 100 nodes (unsure how these are defined)
 - Web interface only offers very few features
     - Seems to be the least comfortable solution
-- Might still be worth further investigation
