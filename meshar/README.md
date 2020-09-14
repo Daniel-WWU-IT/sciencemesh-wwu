@@ -96,16 +96,42 @@ The following list contains first results in no particular order from the evalua
 - Free (if used as an on-premise solution)
     - Support is not free
 
-## Sensu
-[Sensu](https://sensu.io) is yet another monitoring platform under evaluation.
+## Comparison
+First of all, both CheckMK and Icinga offer pretty much everything needed for the ScienceMesh project. They differ in many aspects, though. The following table tries to compare both candidates (in no particular order):
 
-## Evaluation
-Sensu has not yet been evaluated, but already made a few impressions:
-
-- Focused on clouds
-- Supports Nagios probes
-- Philosophy unknown
-    - So far, it is hard to tell how it handles nodes and services
-- Free version only supports up to 100 nodes (unsure how these are defined)
-- Web interface only offers very few features
-    - Seems to be the least comfortable solution
+| CheckMK | Icinga |
+| --- | --- |
+| _**General**_ | |
+| Limited automization | Full automization |
+| Easy deployment | More complex deployment |
+| Centralized system | Distributed system |
+| Not scalable | Easily scalable |
+| Free, but not all features available | Free as an on-premise solution |
+| Controlling via web interface | Controlling via powerful scripting |
+| _**Monitoring**_ | |
+| Focus on local checks | Focus on remote checks |
+| Nagios probes supported, but not ideal | Nagios probes fully supported |
+| Basic notifications | Flexible notifications |
+| _**Web interface**_ | |
+| Must-have | Optional |
+| Outdated look & feel | Modern |
+| Highly informative | Less informative |
+| Can't be extended | Easy to extend |
+| High learning curve | Easy to learn |
+| Advanced BI module | Basic BI module |
+| Lots of fine tuning | Everything's scripted |
+| Hard to understand | Transparent and easy to understand |
+| _**Other features**_ | |
+| Downtimes supported | Downtimes supported, but more rudimentary |
+| Users & Groups | Users & Groups |
+| User restrictions | Fully customizable user restrictions |
+| No Grafana integration in free version | Grafana integration |
+| _**External access**_ | |
+| Easy to retrieve information | Not so easy to retrieve information |
+| No extra effort needed | Use case-specific addon might be needed |
+| _**Additional development**_ | |
+| No custom addons | Custom addons for all purposes easy to create |
+| _**A&R**_ | |
+| Availability included | Availability only in BI reports |
+| Reliability easy to calculate | Reliability calculation requires some more work |
+| Detailed status statistics | Only current status available |
