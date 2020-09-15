@@ -135,3 +135,15 @@ First of all, both CheckMK and Icinga offer pretty much everything needed for th
 | Availability included | Availability only in BI reports |
 | Reliability easy to calculate | Reliability calculation requires some more work |
 | Detailed status statistics | Only current status available |
+
+Both solutions can be used for the ScienceMesh project, and none is a perfect match; both have their advantages and disadvantages. CheckMK is harder to learn but offers more features out-of-the-box, while Icinga is easier to understand and way more flexible, but requires a bit more extra development effort. Since Icinga is more focused on remote checks and is fully automizable, it should be slightly better suited for the project. While this requires some extra development, this also means that it can be tailored towards our needs better.
+
+## And what about Prometheus?
+The ScienceMesh already uses Prometheus for gathering and monitoring site metrics. So why not use it for health monitoring as well? While it is in theory possible, there are many huge disadvantages that discourage the use of Prometheus for this purpose:
+
+- Prometheus performs _passive gathering_: It collects metrics data from arbitrary HTML endpoints, meaning that we'd need probes that run constantly somewhere and which expose check results as metrics. This would require an additional component to manage these permanently running probes.
+- Prometheus is made for metrics, not for statuses: While a status can be exported as a metric, _working_ with these status-metric-hybrids is difficult and cumbersome in Prometheus.
+- Business Intelligence: It is extremely difficult to combine several service statuses into one site status within Prometheus. This would require comparatively more effort compared to above systems.
+- Logging: Prometheus simply cannot log service messages; it lacks the descriptive power of above systems. Yet another system would be needed to perform logging.
+- Use-case mismatch: Prometheus is simply not tailored towards health monitoring and thus lacks many other required features, like scheduled downtimes.
+- All in all, Prometheus could only be used as a database to store service statuses over time. All other tasks require new components, most (if not all) of which need to be developed by us.
