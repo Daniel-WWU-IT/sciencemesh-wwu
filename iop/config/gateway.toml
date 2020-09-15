@@ -56,6 +56,10 @@ driver = "static"
 # HTTP services --
 [http.services.datagateway]
 [http.services.ocdav]
+[http.services.metrics]
+metrics_data_driver_type = "dummy"
+metrics_data_location = ""
+metrics_record_interval = 5000
 [http.services.prometheus]
 
 [http.services.ocmd]
