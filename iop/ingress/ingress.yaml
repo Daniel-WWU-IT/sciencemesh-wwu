@@ -33,6 +33,10 @@ spec:
         backend:
           serviceName: iop-storageprovider-reva
           servicePort: 18001
+      - path: /blackbox
+        backend:
+          serviceName: blackbox-exporter-prometheus-blackbox-exporter
+          servicePort: 9115
 ---
 apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
