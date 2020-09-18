@@ -36,16 +36,9 @@ gateway:
     - name: use_proxy
       value: 'yes'
 
-# Storage providers --
-storageProviders:
-  home:
-    enabled: true
-
-  reva:
-    enabled: true
-
 # Home storage provider --
 storageprovider-home:
+  enabled: true
   service:
     grpc:
       port: 17000
@@ -58,6 +51,7 @@ storageprovider-home:
 
 # Reva storage provider --
 storageprovider-reva:
+  enabled: true
   service:
     grpc:
       port: 18000

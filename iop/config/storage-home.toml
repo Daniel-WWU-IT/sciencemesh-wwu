@@ -7,11 +7,11 @@ mount_path = "/home"
 mount_id = "123e4567-e89b-12d3-a456-426655440000"
 data_server_url = "https://sciencemesh-test.uni-muenster.de/data-home/data"
 expose_data_server = true
-disable_tus = true
+#disable_tus = true
 
 [http]
 address = "0.0.0.0:17001"
 
 [http.services.dataprovider]
 driver = "localhome"
-disable_tus = true
+#disable_tus = true
