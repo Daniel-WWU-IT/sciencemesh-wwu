@@ -9,5 +9,6 @@ config:
       http:
         proxy_url: http://wwwproxy.uni-muenster.de:80
         valid_http_versions: []
+        valid_status_codes: [200, 401]
         no_follow_redirects: false
         preferred_ip_protocol: "ip4"

@@ -1,5 +1,7 @@
 # Reva gateway --
 gateway:
+  image:
+    repository: omnivox/revad # cs3org/revad
   persistentVolume:
     enabled: true
     existingClaim: iop-data
@@ -39,6 +41,8 @@ gateway:
 # Home storage provider --
 storageprovider-home:
   enabled: true
+  image:
+    repository: omnivox/revad # cs3org/revad
   service:
     grpc:
       port: 17000
@@ -52,6 +56,8 @@ storageprovider-home:
 # Reva storage provider --
 storageprovider-reva:
   enabled: true
+  image:
+    repository: omnivox/revad # cs3org/revad
   service:
     grpc:
       port: 18000

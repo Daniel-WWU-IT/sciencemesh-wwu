@@ -81,4 +81,29 @@ extraScrapeConfigs: |
     file_sd_configs:
     - refresh_interval: 30s
       files:
-        - '/etc/prometheus/sciencemesh/*.json'
+        - '/etc/prometheus/sciencemesh/services.json'
+
+  - job_name: 'sciencemesh-health'
+    scheme: 'https'
+    metrics_path: /blackbox/probe
+    # For testing, skip certificate verification
+    tls_config:
+      insecure_skip_verify: true
+    # Adjust the proxy as needed
+    proxy_url: 'http://wwwproxy.uni-muenster.de:80'
+
+    params:
+      module: [http_2xx]
+
+    file_sd_configs:
+    - refresh_interval: 30s
+      files:
+        - '/etc/prometheus/sciencemesh/blackbox.json'
+
+    relabel_configs:
+      - source_labels: [__address__]
+        target_label: __param_target
+      - source_labels: [__param_target]
+        target_label: instance
+      - target_label: __address__
+        replacement: sciencemesh-test.uni-muenster.de
