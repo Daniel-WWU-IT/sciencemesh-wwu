@@ -69,7 +69,6 @@ kubeStateMetrics:
 
 # ScienceMesh scrape configurations
 extraScrapeConfigs: |
-  # Read all ScienceMesh scrape targets from any files located in /etc/prometheus/sciencemesh/
   - job_name: 'sciencemesh'
     scheme: 'https'
     # For testing, skip certificate verification
@@ -83,7 +82,7 @@ extraScrapeConfigs: |
       files:
         - '/etc/prometheus/sciencemesh/services.json'
 
-  - job_name: 'sciencemesh-health'
+  - job_name: 'sciencemesh-health-basic'
     scheme: 'https'
     metrics_path: /blackbox/probe
     # For testing, skip certificate verification
@@ -93,7 +92,7 @@ extraScrapeConfigs: |
     proxy_url: 'http://wwwproxy.uni-muenster.de:80'
 
     params:
-      module: [http_2xx]
+      module: [http_resp]
 
     file_sd_configs:
     - refresh_interval: 30s
@@ -103,6 +102,34 @@ extraScrapeConfigs: |
     relabel_configs:
       - source_labels: [__address__]
         target_label: __param_target
+      - source_labels: [__param_target]
+        target_label: instance
+      - target_label: __address__
+        replacement: sciencemesh-test.uni-muenster.de
+
+  - job_name: 'sciencemesh-health-auth'
+    scheme: 'https'
+    metrics_path: /blackbox/probe
+    # For testing, skip certificate verification
+    tls_config:
+      insecure_skip_verify: true
+    # Adjust the proxy as needed
+    proxy_url: 'http://wwwproxy.uni-muenster.de:80'
+
+    params:
+      module: [http_basic_auth]
+
+    file_sd_configs:
+    - refresh_interval: 30s
+      files:
+        - '/etc/prometheus/sciencemesh/blackbox.json'
+
+    relabel_configs:
+      - source_labels: [__address__]
+        target_label: __param_target
+      - source_labels: [__param_target]
+        target_label: __param_target
+        replacement: $1/ocm/invites
       - source_labels: [__param_target]
         target_label: instance
       - target_label: __address__

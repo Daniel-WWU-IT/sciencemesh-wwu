@@ -3,7 +3,7 @@ image:
 
 config:
   modules:
-    http_2xx:
+    http_resp:
       prober: http
       timeout: 5s
       http:
@@ -12,3 +12,16 @@ config:
         valid_status_codes: [200, 401]
         no_follow_redirects: false
         preferred_ip_protocol: "ip4"
+
+    http_basic_auth:
+      prober: http
+      timeout: 5s
+      http:
+        proxy_url: http://wwwproxy.uni-muenster.de:80
+        valid_http_versions: []
+        valid_status_codes: [200]
+        no_follow_redirects: false
+        preferred_ip_protocol: "ip4"
+        basic_auth:
+          username: daniel
+          password: danielpass
