@@ -1,0 +1,55 @@
+# General jobs
+- job_name: 'sciencemesh-metrics'
+  scheme: 'https'
+  proxy_url: 'http://wwwproxy.uni-muenster.de:80' # Adjust the proxy as needed
+
+  file_sd_configs:
+  - refresh_interval: 30s
+    files:
+      - '/etc/prometheus/sciencemesh/services.json'
+
+# Blackbox jobs
+- job_name: 'sciencemesh-health-basic'
+  scheme: 'https'
+  metrics_path: /blackbox/probe
+  proxy_url: 'http://wwwproxy.uni-muenster.de:80' # Adjust the proxy as needed
+
+  params:
+    module: [http_resp]
+
+  file_sd_configs:
+  - refresh_interval: 30s
+    files:
+      - '/etc/prometheus/sciencemesh/blackbox.json'
+
+  relabel_configs:
+    - source_labels: [__address__]
+      target_label: __param_target
+    - source_labels: [__param_target]
+      target_label: instance
+    - target_label: __address__
+      replacement: sciencemesh-test.uni-muenster.de
+
+- job_name: 'sciencemesh-health-auth'
+  scheme: 'https'
+  metrics_path: /blackbox/probe
+  proxy_url: 'http://wwwproxy.uni-muenster.de:80' # Adjust the proxy as needed
+
+  params:
+    module: [http_basic_auth]
+
+  file_sd_configs:
+  - refresh_interval: 30s
+    files:
+      - '/etc/prometheus/sciencemesh/blackbox.json'
+
+  relabel_configs:
+    - source_labels: [__address__]
+      target_label: __param_target
+    - source_labels: [__param_target]
+      target_label: __param_target
+      replacement: $1/ocm/invites
+    - source_labels: [__param_target]
+      target_label: instance
+    - target_label: __address__
+      replacement: sciencemesh-test.uni-muenster.de
