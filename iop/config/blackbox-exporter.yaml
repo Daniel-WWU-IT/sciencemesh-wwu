@@ -21,3 +21,14 @@ modules:
       basic_auth:
         username: daniel
         password: danielpass
+
+  nagios_test:
+    prober: nagios
+    timeout: 5s
+    nagios:
+      check: check_test
+      args:
+        - --version
+        - --test=$TEST$
+        - -h $TARGET$
+      treat_warnings_as_failure: false
