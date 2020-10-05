@@ -10,9 +10,8 @@
 
 # Blackbox jobs
 - job_name: 'sciencemesh-health-basic'
-  scheme: 'https'
-  metrics_path: /blackbox/probe
-  proxy_url: 'http://wwwproxy.uni-muenster.de:80' # Adjust the proxy as needed
+  scheme: 'http'
+  metrics_path: /probe
 
   params:
     module: [http_resp]
@@ -28,12 +27,11 @@
     - source_labels: [__param_target]
       target_label: instance
     - target_label: __address__
-      replacement: sciencemesh-test.uni-muenster.de
+      replacement: blackbox-exporter-prometheus-blackbox-exporter:9115
 
 - job_name: 'sciencemesh-health-auth'
-  scheme: 'https'
-  metrics_path: /blackbox/probe
-  proxy_url: 'http://wwwproxy.uni-muenster.de:80' # Adjust the proxy as needed
+  scheme: 'http'
+  metrics_path: /probe
 
   params:
     module: [http_basic_auth]
@@ -52,4 +50,4 @@
     - source_labels: [__param_target]
       target_label: instance
     - target_label: __address__
-      replacement: sciencemesh-test.uni-muenster.de
+      replacement: blackbox-exporter-prometheus-blackbox-exporter:9115

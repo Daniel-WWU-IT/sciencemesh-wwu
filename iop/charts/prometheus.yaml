@@ -42,9 +42,9 @@ server:
     - name: auto_proxy
       value: 'http://www.uni-muenster.de/proxyforce.pac'
     - name: NO_PROXY
-      value: 'localhost,127.0.0.1,0.0.0.0,.wwu.de,.uni-muenster.de,.wwu.io,10.0.0.0/8,172.16.0.0/12,192.168.0.0/16,169.254.0.0/16,.svc,10.14.20.42,10.14.20.44,10.14.20.45'
+      value: 'localhost,127.0.0.1,0.0.0.0,.wwu.de,.uni-muenster.de,.wwu.io,10.0.0.0/8,172.16.0.0/12,192.168.0.0/16,169.254.0.0/16,.svc,10.14.20.42,10.14.20.44,10.14.20.45,blackbox-exporter-prometheus-blackbox-exporter'
     - name: no_proxy
-      value: 'localhost,127.0.0.1,0.0.0.0,.wwu.de,.uni-muenster.de,.wwu.io,10.0.0.0/8,172.16.0.0/12,192.168.0.0/16,169.254.0.0/16,.svc,10.14.20.42,10.14.20.44,10.14.20.45'
+      value: 'localhost,127.0.0.1,0.0.0.0,.wwu.de,.uni-muenster.de,.wwu.io,10.0.0.0/8,172.16.0.0/12,192.168.0.0/16,169.254.0.0/16,.svc,10.14.20.42,10.14.20.44,10.14.20.45,blackbox-exporter-prometheus-blackbox-exporter'
     - name: USE_PROXY
       value: 'yes'
     - name: use_proxy
