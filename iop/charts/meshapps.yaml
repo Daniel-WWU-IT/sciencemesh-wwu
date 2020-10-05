@@ -1,0 +1,8 @@
+collabora-code:
+  enabled: true
+  image:
+    tag: latest
+  collabora:
+    domain: iop-wopiserver\|sciencemesh-test\\.uni-muenster\\.de
+    server_name: sciencemesh-test\.uni-muenster\.de
+    

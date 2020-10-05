@@ -65,7 +65,7 @@ wopiserver:
   wopiserverUrl: https://sciencemesh-test.uni-muenster.de/wopi
   config:
     appProviders:
-      codeurl: http://collabora-collabora-code:9980
+      codeurl: http://meshapps-collabora-code:9980
     cs3:
       revahost: iop-gateway:19000
     iopsecret: 'nv7NUJc9ceHI4'

@@ -50,15 +50,15 @@ spec:
       paths:
       - path: /loleaflet
         backend:
-          serviceName: collabora-collabora-code
+          serviceName: meshapps-collabora-code
           servicePort: 9980
       - path: /hosting
         backend:
-          serviceName: collabora-collabora-code
+          serviceName: meshapps-collabora-code
           servicePort: 9980
       - path: /lool
         backend:
-          serviceName: collabora-collabora-code
+          serviceName: meshapps-collabora-code
           servicePort: 9980
 ---
 apiVersion: networking.k8s.io/v1beta1
