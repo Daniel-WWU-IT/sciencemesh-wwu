@@ -2,12 +2,20 @@
 The **Mesh** **A**vailability & **R**eliability tool chain is a set of applications used to monitor the health of the sites and their respective services in the ScienceMesh.
 
 ## Design
-Various design considerations can be found in `design`.
+Various initial design considerations can be found in `design`.
 
-## CheckMK
+## The 'Blackbox Exporter' approach
+For the time being, a simple yet sufficient monitoring system based on a special fork of the [Blackbox Exporter](https://github.com/prometheus/blackbox_exporter) for Prometheus is used for health monitoring of all ScienceMesh sites.
+
+More details about this approach can be found [here](BLACKBOX.md).
+
+## Full-featured monitoring systems
+Two full-featured, industry-proven monitoring systems were so far evaluated for the ScienceMesh project: CheckMK and Icinga. Below is a brief summary and a comparison of both.
+
+### CheckMK
 [CheckMK](https://checkmk.com) is currently evaluated as a monitoring platform. Various scripts and Docker files can be found in `checkmk`.
 
-### Evaluation
+#### Evaluation
 The following list contains first results in no particular order from the evaluation:
 
 - Dynamic hosts can be added via an HTTP API
@@ -44,10 +52,10 @@ The following list contains first results in no particular order from the evalua
     - Performance data
     - Cluster monitoring
 
-## Icinga
+### Icinga
 [Icinga](https://icinga.com) is another monitoring platform that is being evaluated.
 
-### Evaluation
+#### Evaluation
 The following list contains first results in no particular order from the evaluation:
 
 - Fully automatable
@@ -96,7 +104,7 @@ The following list contains first results in no particular order from the evalua
 - Free (if used as an on-premise solution)
     - Support is not free
 
-## Comparison
+### Comparison
 First of all, both CheckMK and Icinga offer pretty much everything needed for the ScienceMesh project. They differ in many aspects, though. The following table tries to compare both candidates (in no particular order):
 
 | CheckMK | Icinga |
@@ -138,8 +146,8 @@ First of all, both CheckMK and Icinga offer pretty much everything needed for th
 
 Both solutions can be used for the ScienceMesh project, and none is a perfect match; both have their advantages and disadvantages. CheckMK is harder to learn but offers more features out-of-the-box, while Icinga is easier to understand and way more flexible, but requires a bit more extra development effort. Since Icinga is more focused on remote checks and is fully automizable, it should be slightly better suited for the project. While this requires some extra development, this also means that it can be tailored towards our needs better.
 
-## And what about Prometheus?
-The ScienceMesh already uses Prometheus for gathering and monitoring site metrics. So why not use it for health monitoring as well? While it is in theory possible, there are many huge disadvantages that discourage the use of Prometheus for this purpose:
+### And what about Prometheus?
+The ScienceMesh already uses Prometheus for gathering and monitoring site metrics. So why not use it for health monitoring as well? While it is in theory possible, there are many disadvantages that discourage the use of Prometheus for this purpose:
 
 - Prometheus performs _passive gathering_: It collects metrics data from arbitrary HTML endpoints, meaning that we'd need probes that run constantly somewhere and which expose check results as metrics. This would require an additional component to manage these permanently running probes.
 - Prometheus is made for metrics, not for statuses: While a status can be exported as a metric, _working_ with these status-metric-hybrids is difficult and cumbersome in Prometheus.
