@@ -65,6 +65,16 @@ wopiserver:
   config:
     appProviders:
       codeurl: http://meshapps-collabora-code:9980
+      wopibridgeurl: https://sciencemesh-test.uni-muenster.de/wopib
     cs3:
       revahost: iop-gateway:19000
     iopsecret: 'nv7NUJc9ceHI4'
+
+  # WOPI bridge --
+  wopibridge:
+    enabled: true
+    bridgeUrl: https://sciencemesh-test.uni-muenster.de
+    env:
+      APP_ROOT: /wopib
+      CODIMD_EXT_URL: https://sciencemesh-test.uni-muenster.de/codimd
+      CODIMD_INT_URL: http://meshapps-codimd
