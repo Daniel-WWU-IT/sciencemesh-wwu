@@ -13,7 +13,7 @@ codimd:
     CMD_ALLOW_ANONYMOUS_VIEWS: true
     CMD_ALLOW_EMAIL_REGISTER: false
     CMD_EMAIL: false
-    CMD_SAVE_WEBHOOK: https://sciencemesh-test.uni-muenster.de/wopib/save
+    CMD_SAVE_WEBHOOK: https://sciencemesh-test.uni-muenster.de/wbridge/save
     CMD_APPLIANCE_MODE: true
     CMD_URL_PATH: codimd
   versionCheck: false
