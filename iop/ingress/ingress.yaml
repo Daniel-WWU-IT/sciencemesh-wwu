@@ -29,15 +29,28 @@ spec:
         backend:
           serviceName: blackbox-exporter-prometheus-blackbox-exporter
           servicePort: 9115
-      - path: /codimd
-        backend:
-          serviceName: meshapps-codimd
-          servicePort: 6980
 ---
+
 apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
-  name: mesh-ingress-collabora
+  name: mesh-ingress-wopibridge
+  annotations:
+    kubernetes.io/ingress.class: traefik
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /wbridge
+        backend:
+          serviceName: iop-wopiserver-wopibridge
+          servicePort: 8000
+---
+
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: mesh-ingress-meshapps-collabora
   annotations:
     kubernetes.io/ingress.class: traefik
 spec:
@@ -56,11 +69,25 @@ spec:
         backend:
           serviceName: meshapps-collabora-code
           servicePort: 9980
-      - path: /wbridge
-        backend:
-          serviceName: iop-wopiserver-wopibridge
-          servicePort: 8000
 ---
+
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: mesh-ingress-meshapps-codimd
+  annotations:
+    kubernetes.io/ingress.class: traefik
+    traefik.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+  - http:
+      paths:
+        - path: /codimd
+          backend:
+            serviceName: meshapps-codimd
+            servicePort: 6980
+---
+
 apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
