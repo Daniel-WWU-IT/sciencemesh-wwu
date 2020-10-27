@@ -1,3 +1,4 @@
+---
 apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
@@ -29,8 +30,8 @@ spec:
         backend:
           serviceName: blackbox-exporter-prometheus-blackbox-exporter
           servicePort: 9115
----
 
+---
 apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
@@ -45,8 +46,8 @@ spec:
         backend:
           serviceName: iop-wopiserver-wopibridge
           servicePort: 8000
----
 
+---
 apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
@@ -69,8 +70,8 @@ spec:
         backend:
           serviceName: meshapps-collabora-code
           servicePort: 9980
----
 
+---
 apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
@@ -86,8 +87,8 @@ spec:
           backend:
             serviceName: meshapps-codimd
             servicePort: 6980
----
 
+---
 apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
