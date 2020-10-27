@@ -1,5 +1,5 @@
 # Health monitoring with the Blackbox Exporter
-To monitor the health of each site in the ScienceMesh, a [custom fork](https://github.com/Daniel-WWU-IT/blackbox_exporter) of the [Blackbox Exporter](https://github.com/prometheus/blackbox_exporter) for Prometheus is currently used.
+To monitor the health of each site in the ScienceMesh, a [custom fork](https://github.com/sciencemesh/blackbox_exporter) of the [Blackbox Exporter](https://github.com/prometheus/blackbox_exporter) for Prometheus is currently used.
 
 Put simply, the BBE runs a so-called _prober_ to perform a certain check on a provided target when called via URL:
 ```
@@ -41,7 +41,7 @@ Some further guidelines also apply:
 - Probes should not be too talkative; the first line of output is the most important one, the rest should help admins to find the reason for failed checks
 
 ### Support for Nagios probes in the BBE
-The original BBE does not support Nagios probes. This is why a [custom fork](https://github.com/Daniel-WWU-IT/blackbox_exporter) has been created that allows probers of a new `nagios` type that will launch an external Nagios probe and convert its results into Prometheus metrics. More details can be found in above repository.
+The original BBE does not support Nagios probes. This is why a [custom fork](https://github.com/sciencemesh/blackbox_exporter) has been created that allows probers of a new `nagios` type that will launch an external Nagios probe and convert its results into Prometheus metrics. More details can be found in above repository.
 
 ## How health monitoring works
 Here is a brief summary of how health monitoring works:
