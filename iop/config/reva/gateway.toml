@@ -81,12 +81,29 @@ timeout = 10
 refresh = 900
 
 # Mentix configuration --
+#[http.services.mentix]
+#connector = "gocdb"
+#exporters = ["webapi", "cs3api", "siteloc", "promsd"]
+#update_interval = "15m"
+#[http.services.mentix.gocdb]
+#address = "https://sciencemesh-test.uni-muenster.de/gocdb/"
+#[http.services.mentix.promsd]
+#metrics_output_file = "/etc/revad/scrapes/services.json"
+#blackbox_output_file = "/etc/revad/scrapes/blackbox.json"
 [http.services.mentix]
-connector = "gocdb"
-exporters = ["webapi", "cs3api", "siteloc", "promsd"]
-update_interval = "15m"
-[http.services.mentix.gocdb]
-address = "https://sciencemesh-test.uni-muenster.de/gocdb/"
-[http.services.mentix.promsd]
+update_interval = "5m"
+[http.services.mentix.connectors.gocdb]
+address = "http://sciencemesh-test.uni-muenster.de/gocdb/"
+[http.services.mentix.connectors.localfile]
+file = "/tmp/revad/vendors.json"
+[http.services.mentix.exporters.webapi]
+[http.services.mentix.exporters.cs3api]
+enabled_connectors = ["gocdb"]
+[http.services.mentix.exporters.siteloc]
+enabled_connectors = ["gocdb"]
+[http.services.mentix.exporters.promsd]
+enabled_connectors = ["gocdb"]
 metrics_output_file = "/etc/revad/scrapes/services.json"
 blackbox_output_file = "/etc/revad/scrapes/blackbox.json"
+[http.services.mentix.importers.webapi]
+enabled_connectors = ["localfile"]
