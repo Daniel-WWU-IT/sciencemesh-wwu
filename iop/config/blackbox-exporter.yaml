@@ -19,8 +19,8 @@ modules:
       no_follow_redirects: false
       preferred_ip_protocol: "ip4"
       basic_auth:
-        username: daniel
-        password: danielpass
+        username: test
+        password: testpass
 
   nagios_test:
     prober: nagios

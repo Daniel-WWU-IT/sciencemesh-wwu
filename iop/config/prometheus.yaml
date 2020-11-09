@@ -8,6 +8,16 @@
     files:
       - '/etc/prometheus/sciencemesh/services.json'
 
+  relabel_configs:
+    - source_labels: [__meta_site]
+      target_label: site
+    - source_labels: [__meta_site_type]
+      target_label: site_type
+    - source_labels: [__meta_country]
+      target_label: country
+    - source_labels: [__meta_service_type]
+      target_label: service_type
+
 # Blackbox jobs
 - job_name: 'sciencemesh-health-basic'
   scheme: 'http'
@@ -28,6 +38,14 @@
       target_label: instance
     - target_label: __address__
       replacement: blackbox-exporter-prometheus-blackbox-exporter:9115
+    - source_labels: [__meta_site]
+      target_label: site
+    - source_labels: [__meta_site_type]
+      target_label: site_type
+    - source_labels: [__meta_country]
+      target_label: country
+    - source_labels: [__meta_service_type]
+      target_label: service_type
 
 - job_name: 'sciencemesh-health-auth'
   scheme: 'http'
@@ -51,3 +69,11 @@
       target_label: instance
     - target_label: __address__
       replacement: blackbox-exporter-prometheus-blackbox-exporter:9115
+    - source_labels: [__meta_site]
+      target_label: site
+    - source_labels: [__meta_site_type]
+      target_label: site_type
+    - source_labels: [__meta_country]
+      target_label: country
+    - source_labels: [__meta_service_type]
+      target_label: service_type
