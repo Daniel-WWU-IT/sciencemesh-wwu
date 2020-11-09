@@ -9,13 +9,15 @@
       - '/etc/prometheus/sciencemesh/services.json'
 
   relabel_configs:
-    - source_labels: [__meta_site]
+    - source_labels: [__meta_mentix_site]
       target_label: site
-    - source_labels: [__meta_site_type]
+    - source_labels: [__meta_mentix_site_id]
+      target_label: site_id
+    - source_labels: [__meta_mentix_site_type]
       target_label: site_type
-    - source_labels: [__meta_country]
+    - source_labels: [__meta_mentix_country]
       target_label: country
-    - source_labels: [__meta_service_type]
+    - source_labels: [__meta_mentix_service_type]
       target_label: service_type
 
 # Blackbox jobs
@@ -38,13 +40,15 @@
       target_label: instance
     - target_label: __address__
       replacement: blackbox-exporter-prometheus-blackbox-exporter:9115
-    - source_labels: [__meta_site]
+    - source_labels: [__meta_mentix_site]
       target_label: site
-    - source_labels: [__meta_site_type]
+    - source_labels: [__meta_mentix_site_id]
+      target_label: site_id
+    - source_labels: [__meta_mentix_site_type]
       target_label: site_type
-    - source_labels: [__meta_country]
+    - source_labels: [__meta_mentix_country]
       target_label: country
-    - source_labels: [__meta_service_type]
+    - source_labels: [__meta_mentix_service_type]
       target_label: service_type
 
 - job_name: 'sciencemesh-health-auth'
@@ -69,11 +73,13 @@
       target_label: instance
     - target_label: __address__
       replacement: blackbox-exporter-prometheus-blackbox-exporter:9115
-    - source_labels: [__meta_site]
+    - source_labels: [__meta_mentix_site]
       target_label: site
-    - source_labels: [__meta_site_type]
+    - source_labels: [__meta_mentix_site_id]
+      target_label: site_id
+    - source_labels: [__meta_mentix_site_type]
       target_label: site_type
-    - source_labels: [__meta_country]
+    - source_labels: [__meta_mentix_country]
       target_label: country
-    - source_labels: [__meta_service_type]
+    - source_labels: [__meta_mentix_service_type]
       target_label: service_type
