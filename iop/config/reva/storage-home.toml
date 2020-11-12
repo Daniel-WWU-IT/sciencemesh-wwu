@@ -6,6 +6,8 @@ driver = "localhome"
 mount_path = "/home"
 mount_id = "123e4567-e89b-12d3-a456-426655440000"
 data_server_url = "http://iop-storageprovider-home:17001/data"
+[grpc.services.storageprovider.mimetypes]
+".zmd" = "application/compressed-markdown"
 
 [http]
 address = "0.0.0.0:17001"

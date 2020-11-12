@@ -49,6 +49,7 @@ driver = "static"
 [grpc.services.appregistry.static.rules]
 "text/plain" = "iop-gateway:19000"
 "text/markdown" = "iop-gateway:19000"
+"application/compressed-markdown" = "iop-gateway:19000"
 "application/vnd.oasis.opendocument.text" = "iop-gateway:19000"
 "application/vnd.oasis.opendocument.spreadsheet" = "iop-gateway:19000"
 "application/vnd.oasis.opendocument.presentation" = "iop-gateway:19000"
