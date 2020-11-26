@@ -82,15 +82,6 @@ timeout = 10
 refresh = 900
 
 # Mentix configuration --
-#[http.services.mentix]
-#connector = "gocdb"
-#exporters = ["webapi", "cs3api", "siteloc", "promsd"]
-#update_interval = "15m"
-#[http.services.mentix.gocdb]
-#address = "https://sciencemesh-test.uni-muenster.de/gocdb/"
-#[http.services.mentix.promsd]
-#metrics_output_file = "/etc/revad/scrapes/services.json"
-#blackbox_output_file = "/etc/revad/scrapes/blackbox.json"
 [http.services.mentix]
 update_interval = "5m"
 [http.services.mentix.connectors.gocdb]
