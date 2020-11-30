@@ -10,11 +10,16 @@ gateway:
   extraVolumeMounts:
     - name: scrape-configs
       mountPath: /etc/revad/scrapes
+    - name: mentix-data
+      mountPath: /tmp/mentix
 
   extraVolumes:
     - name: scrape-configs
       persistentVolumeClaim:
         claimName: prom-shared-data
+    - name: mentix-data
+      persistentVolumeClaim:
+        claimName: mentix-data
 
   env:
     # Adjust the proxy settings as needed
