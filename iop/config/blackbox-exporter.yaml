@@ -31,4 +31,5 @@ modules:
         - -target=$TARGET$
         - -user=test
         - -pass=testpass
+      proxy_url: http://wwwproxy.uni-muenster.de:80
       treat_warnings_as_failure: false
