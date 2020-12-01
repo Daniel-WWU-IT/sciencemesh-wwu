@@ -2,7 +2,6 @@
 gateway:
   # image:
   #   repository: omnivox/revad
-  #   tag: mentix
   persistentVolume:
     enabled: true
     existingClaim: iop-data
@@ -39,7 +38,6 @@ storageprovider-home:
   enabled: true
   # image:
   #   repository: omnivox/revad
-  #   tag: mentix
   service:
     grpc:
       port: 17000
@@ -55,7 +53,6 @@ storageprovider-reva:
   enabled: true
   # image:
   #   repository: omnivox/revad
-  #   tag: mentix
   service:
     grpc:
       port: 18000
