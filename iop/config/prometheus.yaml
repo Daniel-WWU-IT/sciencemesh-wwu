@@ -56,7 +56,7 @@
   metrics_path: /probe
 
   params:
-    module: [http_basic_auth]
+    module: [iop_login]
 
   file_sd_configs:
   - refresh_interval: 30s
@@ -64,11 +64,9 @@
       - '/etc/prometheus/sciencemesh/blackbox.json'
 
   relabel_configs:
-    - source_labels: [__address__]
+    - source_labels: [__meta_mentix_host, __meta_mentix_grpc_port]
+      separator: ':'
       target_label: __param_target
-    - source_labels: [__param_target]
-      target_label: __param_target
-      replacement: $1/ocm/invites
     - source_labels: [__param_target]
       target_label: instance
     - target_label: __address__

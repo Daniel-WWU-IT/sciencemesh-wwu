@@ -22,13 +22,13 @@ modules:
         username: test
         password: testpass
 
-  nagios_test:
+  iop_login:
     prober: nagios
     timeout: 5s
     nagios:
-      check: check_test
+      check: check_ioplogin
       args:
-        - --version
-        - --test=$TEST$
-        - -h $TARGET$
+        - -target=$TARGET$
+        - -user=test
+        - -pass=testpass
       treat_warnings_as_failure: false
