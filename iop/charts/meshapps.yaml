@@ -5,3 +5,25 @@ collabora-code:
   collabora:
     domain: iop-wopiserver\|sciencemesh-test\\.uni-muenster\\.de
     server_name: sciencemesh-test\.uni-muenster\.de
+
+codimd:
+  enabled: true
+  codimd:
+    connection:
+      domain: sciencemesh-test.uni-muenster.de
+      protocolUseSSL: true
+    extraEnvironmentVariables:
+      CMD_SAVE_WEBHOOK: https://sciencemesh-test.uni-muenster.de/wbridge/save
+      CMD_URL_PATH: codimd
+  service:
+    port: 6980
+  postgresql:
+    enabled: false
+  mariadb:
+    enabled: true
+    master:
+      persistence:
+        enabled: false
+    slave:
+      persistence:
+        enabled: false
