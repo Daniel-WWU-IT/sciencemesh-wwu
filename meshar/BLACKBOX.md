@@ -19,7 +19,7 @@ Nagios probes can be used to perform checks on specific targets; these can inclu
 - No library is necessary to write these probes; in many cases, a probe comes as a simple bash script
 
 ### Writing custom probes
-Nagios probes do not require a special library to be used. Instead, they follow two simple conventions (we are leaving out support for performance data here, as it is currently not needed in the ScienceMesh project):
+Nagios probes do not require a special library to be used. Instead, they follow three simple conventions:
 
 - The return code of the probe determines its status:
   - `0` = Success
@@ -27,6 +27,7 @@ Nagios probes do not require a special library to be used. Instead, they follow 
   - `2` = Error
   - `3` = Unknown
 - The _first_ line of output (to `stdout`) is considered as the probe's status message; any further output is considered as additional information
+- A probe can also export so-called _performance data_ by appending it to the output, separated by a pipe (`|`); values have the form `key=value`, multiple values can be separated by a space
 
 When writing a probe for the ScienceMesh project, these additional rules apply:
 
