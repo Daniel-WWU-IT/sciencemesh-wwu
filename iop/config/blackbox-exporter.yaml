@@ -1,28 +1,23 @@
 modules:
-  http_resp:
-    prober: http
+  http_ping:
+    # Ping via HTTP; do not check the actual HTTP status, just ensure that the host is reachable through HTTP
+    # Note: Request must be routed through the WWU proxy
+    prober: nagios
     timeout: 5s
-    http:
+    nagios:
+      check: check_http
+      args:
+        - -H wwwproxy.uni-muenster.de:80
+        - -u $TARGET$
+        - -N
+        - -e HTTP
+        - -w 3.0
+        - -c 5.0
+        - -t 5
       proxy_url: http://wwwproxy.uni-muenster.de:80
-      valid_http_versions: []
-      valid_status_codes: [200, 401]
-      no_follow_redirects: false
-      preferred_ip_protocol: "ip4"
-
-  http_basic_auth:
-    prober: http
-    timeout: 5s
-    http:
-      proxy_url: http://wwwproxy.uni-muenster.de:80
-      valid_http_versions: []
-      valid_status_codes: [200]
-      no_follow_redirects: false
-      preferred_ip_protocol: "ip4"
-      basic_auth:
-        username: test
-        password: testpass
 
   iop_login:
+    # Try logging in to the IOP using the omnipresent 'test' user
     prober: nagios
     timeout: 5s
     nagios:
@@ -32,4 +27,3 @@ modules:
         - -user=test
         - -pass=testpass
       proxy_url: http://wwwproxy.uni-muenster.de:80
-      treat_warnings_as_failure: false

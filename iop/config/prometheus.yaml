@@ -1,4 +1,5 @@
-# General jobs
+# -- General Jobs --
+
 - job_name: 'sciencemesh-metrics'
   scheme: 'https'
   proxy_url: 'http://wwwproxy.uni-muenster.de:80' # Adjust the proxy as needed
@@ -20,13 +21,15 @@
     - source_labels: [__meta_mentix_service_type]
       target_label: service_type
 
-# Blackbox jobs
-- job_name: 'sciencemesh-health-basic'
+
+# -- Health Check Jobs --
+
+- job_name: 'sciencemesh-hcheck-http-ping'
   scheme: 'http'
   metrics_path: /probe
 
   params:
-    module: [http_resp]
+    module: [http_ping]
 
   file_sd_configs:
   - refresh_interval: 30s
@@ -51,7 +54,7 @@
     - source_labels: [__meta_mentix_service_type]
       target_label: service_type
 
-- job_name: 'sciencemesh-health-auth'
+- job_name: 'sciencemesh-hcheck-iop-login'
   scheme: 'http'
   metrics_path: /probe
 
