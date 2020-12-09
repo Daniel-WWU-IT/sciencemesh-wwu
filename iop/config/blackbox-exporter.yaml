@@ -3,7 +3,7 @@ modules:
     # Ping via HTTP; do not check the actual HTTP status, just ensure that the host is reachable through HTTP
     # Note: Request must be routed through the WWU proxy
     prober: nagios
-    timeout: 5s
+    timeout: 10s
     nagios:
       check: check_http
       args:
@@ -11,15 +11,15 @@ modules:
         - -u $TARGET$
         - -N
         - -e HTTP
-        - -w 3.0
-        - -c 5.0
-        - -t 5
+        - -w 5.0
+        - -c 10.0
+        - -t 10
       proxy_url: http://wwwproxy.uni-muenster.de:80
 
   iop_login:
     # Try logging in to the IOP using the omnipresent 'test' user
     prober: nagios
-    timeout: 5s
+    timeout: 10s
     nagios:
       check: check_ioplogin
       args:

@@ -27,14 +27,16 @@ Nagios probes do not require a special library to be used. Instead, they follow 
   - `2` = Error
   - `3` = Unknown
 - The _first_ line of output (to `stdout`) is considered as the probe's status message; any further output is considered as additional information
-- A probe can also export so-called _performance data_ by appending it to the output, separated by a pipe (`|`); values have the form `key=value`, multiple values can be separated by a space
+- A probe can also export so-called _performance data_ by appending it to the output, separated by a pipe (`|`); values have the form `key=value`, multiple values can be separated by a space: `Some output|time=20.13s size=12MB`
 
 When writing a probe for the ScienceMesh project, these additional rules apply:
 
 - A probe can be anything executable; it doesn't matter if it is a Go binary or Shell script - but it should not have any dependencies on external libraries to keep deployment simple
-- Nagios probes are controlled solely via commandline arguments; they should never use any kind of configuration file or similar
-- The host (i.e., the target to be checked) is a _mandatory_ commandline argument (e.g, `--host`)
-- If a check requires authentication on the target, the credentials should also be passed via commandline arguments; if this is not possible or wanted, use **test/testpass** for the time being (note that this is likely to change in the future!)
+- Nagios probes are controlled solely via command-line arguments; they should never use any kind of configuration file or similar
+- The host (i.e., the target to be checked) is a _mandatory_ command-line argument (e.g, `--host`)
+- If a check requires authentication on the target, the credentials should also be passed via command-line arguments; if this is not possible or wanted, use **test/testpass** for the time being (note that this is likely to change in the future!)
+- If a test performs some kind of measurement (like execution time or upload speed), this information should be exposed as performance data (see above)
+    - If the measured value is to be used as an indicator for the probe's status (e.g., an execution time between 100-500ms could result in a warning, while anything above in an error), the thresholds should always be specifiable via command-line
 
 Some further guidelines also apply:
 
