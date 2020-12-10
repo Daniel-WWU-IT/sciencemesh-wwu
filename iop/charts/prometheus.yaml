@@ -3,6 +3,10 @@ server:
   service:
     type: 'NodePort'
     servicePort: 9090
+  global:
+    scrape_interval: 30s
+    scrape_timeout: 15s
+    evaluation_interval: 30s
   extraArgs:
     web.external-url: 'http://sciencemesh-test.uni-muenster.de/prometheus'  # Change this to your needs
     web.route-prefix: '/'
@@ -49,6 +53,10 @@ server:
       value: 'yes'
     - name: use_proxy
       value: 'yes'
+
+serverFiles:
+  recording_rules.yml:
+    # -- REC_RULES --
 
 # Disable services not needed
 configmapReload:

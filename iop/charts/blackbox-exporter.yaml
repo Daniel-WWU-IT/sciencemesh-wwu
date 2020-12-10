@@ -2,7 +2,5 @@ image:
   repository: omnivox/blackbox_exporter
   tag: latest
   pullPolicy: Always
-
-# Keep the following always at the very end of this file
 config:
-  # -- INSERT CONFIG HERE --
+  # -- MODULES --
