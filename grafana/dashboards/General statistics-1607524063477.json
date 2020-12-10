@@ -128,7 +128,7 @@
       },
       "targets": [
         {
-          "expr": "revad_cs3_org_sciencemesh_site_total_num_users",
+          "expr": "revad_sys_info  ",
           "instant": true,
           "interval": "",
           "legendFormat": "{{site}}",
@@ -166,7 +166,44 @@
             ]
           }
         },
-        "overrides": []
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Country"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 83
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Reva version"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 108
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Site"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 114
+              }
+            ]
+          }
+        ]
       },
       "gridPos": {
         "h": 14,
@@ -209,23 +246,27 @@
               "country": false,
               "instance": true,
               "job": true,
-              "service_type": true
+              "service_type": true,
+              "site_id": true,
+              "site_type": true
             },
             "indexByName": {
-              "Time": 3,
-              "Value": 8,
-              "__name__": 4,
+              "Time": 4,
+              "Value": 9,
+              "__name__": 5,
               "country": 1,
-              "instance": 5,
-              "job": 6,
+              "instance": 6,
+              "job": 7,
+              "reva_build_date": 3,
               "reva_version": 2,
-              "service_type": 7,
+              "service_type": 8,
               "site": 0
             },
             "renameByName": {
               "Value": "",
               "country": "Country",
               "instance": "",
+              "reva_build_date": "Build date",
               "reva_version": "Reva version",
               "site": "Site"
             }
@@ -515,7 +556,7 @@
     ]
   },
   "timezone": "utc",
-  "title": "ScienceMesh",
+  "title": "General statistics",
   "uid": "HD3NmHMMk",
-  "version": 35
+  "version": 42
 }
