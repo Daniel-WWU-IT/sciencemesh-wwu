@@ -26,8 +26,34 @@ groups:
       expr: max by (site,service_type) ((probe_nagios_result{job="sciencemesh-hcheck-http-ping", service_type="REVAD"} >=bool 2) or (probe_nagios_result{job="sciencemesh-hcheck-iop-login", service_type="REVAD"} >=bool 2)) * 3
       labels:
         status_type: CRIT
+
+    # -- Overall service status --
     - record: sciencemesh_hcheck_service_status
       # The highest status is the final status of the service (the higher, the worse)
-      expr: max by (site,service_type) (sciencemesh_hcheck_service_status{service_type="REVAD", status_type=~"OK|WARN|CRIT"})
+      expr: max by (site,service_type) (sciencemesh_hcheck_service_status{status_type=~"OK|WARN|CRIT"})
+      labels:
+        status_type: RESULT
+
+    # -- Site rules --
+    - record: sciencemesh_hcheck_site_status
+      # OK: REVAD OK
+      expr: min by (site) ((sciencemesh_hcheck_service_status{service_type="REVAD", status_type="RESULT"} ==bool 1)) * 1
+      labels:
+        status_type: OK
+    - record: sciencemesh_hcheck_site_status
+      # WARN: REVAD WARN
+      expr: min by (site) ((sciencemesh_hcheck_service_status{service_type="REVAD", status_type="RESULT"} ==bool 2)) * 2
+      labels:
+        status_type: WARN
+    - record: sciencemesh_hcheck_site_status
+      # CRIT: REVAD CRIT
+      expr: min by (site) ((sciencemesh_hcheck_service_status{service_type="REVAD", status_type="RESULT"} ==bool 3)) * 3
+      labels:
+        status_type: OK
+
+    # -- Overall site status --
+    - record: sciencemesh_hcheck_site_status
+      # The highest status is the final status of the site (the higher, the worse)
+      expr: max by (site) (sciencemesh_hcheck_service_status{status_type=~"OK|WARN|CRIT"})
       labels:
         status_type: RESULT
