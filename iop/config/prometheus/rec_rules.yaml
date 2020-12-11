@@ -33,6 +33,11 @@ groups:
       expr: max by (site,service_type) (sciencemesh_hcheck_service_status{status_type=~"OK|WARN|CRIT"})
       labels:
         status_type: RESULT
+    - record: sciencemesh_hcheck_service_status
+      # A service is considered to be UP if it is either in an OK or WARN state
+      expr: sciencemesh_hcheck_service_status{status_type="RESULT"} <=bool 2
+      labels:
+        status_type: UP
 
     # -- Site rules --
     - record: sciencemesh_hcheck_site_status
@@ -57,3 +62,19 @@ groups:
       expr: max by (site) (sciencemesh_hcheck_service_status{status_type=~"OK|WARN|CRIT"})
       labels:
         status_type: RESULT
+    - record: sciencemesh_hcheck_site_status
+      # A site is considered to be UP if it is either in an OK or WARN state
+      expr: sciencemesh_hcheck_site_status{status_type="RESULT"} <=bool 2
+      labels:
+        status_type: UP
+
+    # -- Availabilities --
+    # Availability is the relative time of being in an UP state over the course of 30 days
+    - record: sciencemesh_hcheck_service_status
+      expr: sum_over_time(sciencemesh_hcheck_service_status{status_type="UP"}[30d]) / count_over_time(sciencemesh_hcheck_service_status{status_type="UP"}[30d])
+      labels:
+        status_type: AVAIL
+    - record: sciencemesh_hcheck_site_status
+      expr: sum_over_time(sciencemesh_hcheck_site_status{status_type="UP"}[30d]) / count_over_time(sciencemesh_hcheck_site_status{status_type="UP"}[30d])
+      labels:
+        status_type: AVAIL
