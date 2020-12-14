@@ -54,7 +54,7 @@ groups:
       # CRIT: REVAD CRIT
       expr: min by (site) ((sciencemesh_hcheck_service_status{service_type="REVAD", status_type="RESULT"} ==bool 3)) * 3
       labels:
-        status_type: OK
+        status_type: CRIT
 
     # -- Overall site status --
     - record: sciencemesh_hcheck_site_status
