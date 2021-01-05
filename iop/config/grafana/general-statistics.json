@@ -16,7 +16,7 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
-  "id": 1,
+  "id": 2,
   "links": [],
   "panels": [
     {
@@ -153,7 +153,8 @@
         "defaults": {
           "custom": {
             "align": "left",
-            "displayMode": "auto"
+            "displayMode": "auto",
+            "filterable": false
           },
           "mappings": [],
           "thresholds": {
@@ -221,7 +222,7 @@
           }
         ]
       },
-      "pluginVersion": "7.0.3",
+      "pluginVersion": "7.3.5",
       "targets": [
         {
           "expr": "revad_sys_info",
@@ -315,7 +316,7 @@
         },
         "showUnfilled": true
       },
-      "pluginVersion": "7.0.3",
+      "pluginVersion": "7.3.5",
       "targets": [
         {
           "expr": "sort_desc(revad_cs3_org_sciencemesh_site_total_num_users)",
@@ -374,9 +375,10 @@
           ],
           "fields": "",
           "values": false
-        }
+        },
+        "textMode": "auto"
       },
-      "pluginVersion": "7.0.3",
+      "pluginVersion": "7.3.5",
       "targets": [
         {
           "expr": "revad_cs3_org_sciencemesh_site_total_num_users",
@@ -444,7 +446,7 @@
         "showThresholdLabels": false,
         "showThresholdMarkers": false
       },
-      "pluginVersion": "7.0.3",
+      "pluginVersion": "7.3.5",
       "targets": [
         {
           "expr": "sort_desc(revad_cs3_org_sciencemesh_site_total_amount_storage)",
@@ -501,9 +503,10 @@
           ],
           "fields": "",
           "values": false
-        }
+        },
+        "textMode": "auto"
       },
-      "pluginVersion": "7.0.3",
+      "pluginVersion": "7.3.5",
       "targets": [
         {
           "expr": "revad_cs3_org_sciencemesh_site_total_amount_storage",
@@ -532,7 +535,7 @@
     }
   ],
   "refresh": "30s",
-  "schemaVersion": 25,
+  "schemaVersion": 26,
   "style": "dark",
   "tags": [],
   "templating": {
@@ -558,5 +561,5 @@
   "timezone": "utc",
   "title": "General statistics",
   "uid": "HD3NmHMMk",
-  "version": 42
+  "version": 1
 }

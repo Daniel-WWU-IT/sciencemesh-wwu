@@ -15,8 +15,8 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
-  "id": 2,
-  "iteration": 1609848777937,
+  "id": 3,
+  "iteration": 1609853720904,
   "links": [],
   "panels": [
     {
@@ -25,7 +25,8 @@
         "defaults": {
           "custom": {
             "align": "left",
-            "displayMode": "color-background"
+            "displayMode": "auto",
+            "filterable": false
           },
           "mappings": [
             {
@@ -113,6 +114,10 @@
               {
                 "id": "custom.align",
                 "value": "center"
+              },
+              {
+                "id": "custom.displayMode",
+                "value": "color-background"
               }
             ]
           },
@@ -191,7 +196,7 @@
           }
         ]
       },
-      "pluginVersion": "7.0.3",
+      "pluginVersion": "7.3.5",
       "targets": [
         {
           "expr": "sciencemesh_hcheck_site_status{status_type=\"RESULT\"}",
@@ -226,8 +231,14 @@
           "options": {
             "excludeByName": {
               "Time": true,
+              "Time 1": true,
+              "Time 2": true,
               "__name__": true,
-              "status_type": true
+              "__name__ 1": true,
+              "__name__ 2": true,
+              "status_type": true,
+              "status_type 1": true,
+              "status_type 2": true
             },
             "indexByName": {
               "Time": 3,
@@ -254,7 +265,8 @@
         "defaults": {
           "custom": {
             "align": "left",
-            "displayMode": "color-background"
+            "displayMode": "auto",
+            "filterable": false
           },
           "mappings": [
             {
@@ -342,6 +354,10 @@
               {
                 "id": "custom.align",
                 "value": "center"
+              },
+              {
+                "id": "custom.displayMode",
+                "value": "color-background"
               }
             ]
           },
@@ -419,7 +435,7 @@
           }
         ]
       },
-      "pluginVersion": "7.0.3",
+      "pluginVersion": "7.3.5",
       "repeat": "sites",
       "repeatDirection": "v",
       "scopedVars": {
@@ -463,9 +479,17 @@
           "options": {
             "excludeByName": {
               "Time": true,
+              "Time 1": true,
+              "Time 2": true,
               "__name__": true,
+              "__name__ 1": true,
+              "__name__ 2": true,
               "site": true,
-              "status_type": true
+              "site 1": true,
+              "site 2": true,
+              "status_type": true,
+              "status_type 1": true,
+              "status_type 2": true
             },
             "indexByName": {
               "Time": 3,
@@ -493,7 +517,8 @@
         "defaults": {
           "custom": {
             "align": "left",
-            "displayMode": "color-background"
+            "displayMode": "auto",
+            "filterable": false
           },
           "decimals": 0,
           "mappings": [
@@ -600,6 +625,10 @@
               {
                 "id": "custom.align",
                 "value": "center"
+              },
+              {
+                "id": "custom.displayMode",
+                "value": "color-background"
               }
             ]
           }
@@ -621,7 +650,7 @@
           }
         ]
       },
-      "pluginVersion": "7.0.3",
+      "pluginVersion": "7.3.5",
       "repeat": "sites",
       "repeatDirection": "v",
       "scopedVars": {
@@ -691,7 +720,8 @@
         "defaults": {
           "custom": {
             "align": "left",
-            "displayMode": "color-background"
+            "displayMode": "auto",
+            "filterable": false
           },
           "mappings": [
             {
@@ -837,6 +867,18 @@
                 "value": []
               }
             ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Status"
+            },
+            "properties": [
+              {
+                "id": "custom.displayMode",
+                "value": "color-background"
+              }
+            ]
           }
         ]
       },
@@ -856,10 +898,9 @@
           }
         ]
       },
-      "pluginVersion": "7.0.3",
-      "repeat": null,
+      "pluginVersion": "7.3.5",
       "repeatDirection": "v",
-      "repeatIteration": 1609848777937,
+      "repeatIteration": 1609853720904,
       "repeatPanelId": 11,
       "scopedVars": {
         "sites": {
@@ -902,9 +943,17 @@
           "options": {
             "excludeByName": {
               "Time": true,
+              "Time 1": true,
+              "Time 2": true,
               "__name__": true,
+              "__name__ 1": true,
+              "__name__ 2": true,
               "site": true,
-              "status_type": true
+              "site 1": true,
+              "site 2": true,
+              "status_type": true,
+              "status_type 1": true,
+              "status_type 2": true
             },
             "indexByName": {
               "Time": 3,
@@ -932,7 +981,8 @@
         "defaults": {
           "custom": {
             "align": "left",
-            "displayMode": "color-background"
+            "displayMode": "auto",
+            "filterable": false
           },
           "decimals": 0,
           "mappings": [
@@ -1039,6 +1089,10 @@
               {
                 "id": "custom.align",
                 "value": "center"
+              },
+              {
+                "id": "custom.displayMode",
+                "value": "color-background"
               }
             ]
           }
@@ -1060,10 +1114,9 @@
           }
         ]
       },
-      "pluginVersion": "7.0.3",
-      "repeat": null,
+      "pluginVersion": "7.3.5",
       "repeatDirection": "v",
-      "repeatIteration": 1609848777937,
+      "repeatIteration": 1609853720904,
       "repeatPanelId": 4,
       "scopedVars": {
         "sites": {
@@ -1132,7 +1185,8 @@
         "defaults": {
           "custom": {
             "align": "left",
-            "displayMode": "color-background"
+            "displayMode": "auto",
+            "filterable": false
           },
           "mappings": [
             {
@@ -1278,6 +1332,18 @@
                 "value": []
               }
             ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Status"
+            },
+            "properties": [
+              {
+                "id": "custom.displayMode",
+                "value": "color-background"
+              }
+            ]
           }
         ]
       },
@@ -1297,10 +1363,9 @@
           }
         ]
       },
-      "pluginVersion": "7.0.3",
-      "repeat": null,
+      "pluginVersion": "7.3.5",
       "repeatDirection": "v",
-      "repeatIteration": 1609848777937,
+      "repeatIteration": 1609853720904,
       "repeatPanelId": 11,
       "scopedVars": {
         "sites": {
@@ -1343,9 +1408,17 @@
           "options": {
             "excludeByName": {
               "Time": true,
+              "Time 1": true,
+              "Time 2": true,
               "__name__": true,
+              "__name__ 1": true,
+              "__name__ 2": true,
               "site": true,
-              "status_type": true
+              "site 1": true,
+              "site 2": true,
+              "status_type": true,
+              "status_type 1": true,
+              "status_type 2": true
             },
             "indexByName": {
               "Time": 3,
@@ -1373,7 +1446,8 @@
         "defaults": {
           "custom": {
             "align": "left",
-            "displayMode": "color-background"
+            "displayMode": "auto",
+            "filterable": false
           },
           "decimals": 0,
           "mappings": [
@@ -1480,6 +1554,10 @@
               {
                 "id": "custom.align",
                 "value": "center"
+              },
+              {
+                "id": "custom.displayMode",
+                "value": "color-background"
               }
             ]
           }
@@ -1501,10 +1579,9 @@
           }
         ]
       },
-      "pluginVersion": "7.0.3",
-      "repeat": null,
+      "pluginVersion": "7.3.5",
       "repeatDirection": "v",
-      "repeatIteration": 1609848777937,
+      "repeatIteration": 1609853720904,
       "repeatPanelId": 4,
       "scopedVars": {
         "sites": {
@@ -1661,7 +1738,8 @@
         "defaults": {
           "custom": {
             "align": "left",
-            "displayMode": "color-background"
+            "displayMode": "auto",
+            "filterable": false
           },
           "mappings": [
             {
@@ -1805,6 +1883,18 @@
               {
                 "id": "mappings",
                 "value": []
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Status"
+            },
+            "properties": [
+              {
+                "id": "custom.displayMode",
+                "value": "color-background"
               }
             ]
           }
@@ -1826,10 +1916,9 @@
           }
         ]
       },
-      "pluginVersion": "7.0.3",
-      "repeat": null,
+      "pluginVersion": "7.3.5",
       "repeatDirection": "v",
-      "repeatIteration": 1609848777937,
+      "repeatIteration": 1609853720904,
       "repeatPanelId": 11,
       "scopedVars": {
         "sites": {
@@ -1872,9 +1961,17 @@
           "options": {
             "excludeByName": {
               "Time": true,
+              "Time 1": true,
+              "Time 2": true,
               "__name__": true,
+              "__name__ 1": true,
+              "__name__ 2": true,
               "site": true,
-              "status_type": true
+              "site 1": true,
+              "site 2": true,
+              "status_type": true,
+              "status_type 1": true,
+              "status_type 2": true
             },
             "indexByName": {
               "Time": 3,
@@ -1902,7 +1999,8 @@
         "defaults": {
           "custom": {
             "align": "left",
-            "displayMode": "color-background"
+            "displayMode": "auto",
+            "filterable": false
           },
           "decimals": 0,
           "mappings": [
@@ -2009,6 +2107,10 @@
               {
                 "id": "custom.align",
                 "value": "center"
+              },
+              {
+                "id": "custom.displayMode",
+                "value": "color-background"
               }
             ]
           }
@@ -2030,10 +2132,9 @@
           }
         ]
       },
-      "pluginVersion": "7.0.3",
-      "repeat": null,
+      "pluginVersion": "7.3.5",
       "repeatDirection": "v",
-      "repeatIteration": 1609848777937,
+      "repeatIteration": 1609853720904,
       "repeatPanelId": 4,
       "scopedVars": {
         "sites": {
@@ -2102,7 +2203,8 @@
         "defaults": {
           "custom": {
             "align": "left",
-            "displayMode": "color-background"
+            "displayMode": "auto",
+            "filterable": false
           },
           "mappings": [
             {
@@ -2246,6 +2348,18 @@
               {
                 "id": "mappings",
                 "value": []
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Status"
+            },
+            "properties": [
+              {
+                "id": "custom.displayMode",
+                "value": "color-background"
               }
             ]
           }
@@ -2267,10 +2381,9 @@
           }
         ]
       },
-      "pluginVersion": "7.0.3",
-      "repeat": null,
+      "pluginVersion": "7.3.5",
       "repeatDirection": "v",
-      "repeatIteration": 1609848777937,
+      "repeatIteration": 1609853720904,
       "repeatPanelId": 11,
       "scopedVars": {
         "sites": {
@@ -2313,9 +2426,17 @@
           "options": {
             "excludeByName": {
               "Time": true,
+              "Time 1": true,
+              "Time 2": true,
               "__name__": true,
+              "__name__ 1": true,
+              "__name__ 2": true,
               "site": true,
-              "status_type": true
+              "site 1": true,
+              "site 2": true,
+              "status_type": true,
+              "status_type 1": true,
+              "status_type 2": true
             },
             "indexByName": {
               "Time": 3,
@@ -2343,7 +2464,8 @@
         "defaults": {
           "custom": {
             "align": "left",
-            "displayMode": "color-background"
+            "displayMode": "auto",
+            "filterable": false
           },
           "decimals": 0,
           "mappings": [
@@ -2450,6 +2572,10 @@
               {
                 "id": "custom.align",
                 "value": "center"
+              },
+              {
+                "id": "custom.displayMode",
+                "value": "color-background"
               }
             ]
           }
@@ -2471,10 +2597,9 @@
           }
         ]
       },
-      "pluginVersion": "7.0.3",
-      "repeat": null,
+      "pluginVersion": "7.3.5",
       "repeatDirection": "v",
-      "repeatIteration": 1609848777937,
+      "repeatIteration": 1609853720904,
       "repeatPanelId": 4,
       "scopedVars": {
         "sites": {
@@ -2543,7 +2668,8 @@
         "defaults": {
           "custom": {
             "align": "left",
-            "displayMode": "color-background"
+            "displayMode": "auto",
+            "filterable": false
           },
           "mappings": [
             {
@@ -2689,6 +2815,18 @@
                 "value": []
               }
             ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Status"
+            },
+            "properties": [
+              {
+                "id": "custom.displayMode",
+                "value": "color-background"
+              }
+            ]
           }
         ]
       },
@@ -2708,10 +2846,9 @@
           }
         ]
       },
-      "pluginVersion": "7.0.3",
-      "repeat": null,
+      "pluginVersion": "7.3.5",
       "repeatDirection": "v",
-      "repeatIteration": 1609848777937,
+      "repeatIteration": 1609853720904,
       "repeatPanelId": 11,
       "scopedVars": {
         "sites": {
@@ -2754,9 +2891,17 @@
           "options": {
             "excludeByName": {
               "Time": true,
+              "Time 1": true,
+              "Time 2": true,
               "__name__": true,
+              "__name__ 1": true,
+              "__name__ 2": true,
               "site": true,
-              "status_type": true
+              "site 1": true,
+              "site 2": true,
+              "status_type": true,
+              "status_type 1": true,
+              "status_type 2": true
             },
             "indexByName": {
               "Time": 3,
@@ -2784,7 +2929,8 @@
         "defaults": {
           "custom": {
             "align": "left",
-            "displayMode": "color-background"
+            "displayMode": "auto",
+            "filterable": false
           },
           "decimals": 0,
           "mappings": [
@@ -2891,6 +3037,10 @@
               {
                 "id": "custom.align",
                 "value": "center"
+              },
+              {
+                "id": "custom.displayMode",
+                "value": "color-background"
               }
             ]
           }
@@ -2912,10 +3062,9 @@
           }
         ]
       },
-      "pluginVersion": "7.0.3",
-      "repeat": null,
+      "pluginVersion": "7.3.5",
       "repeatDirection": "v",
-      "repeatIteration": 1609848777937,
+      "repeatIteration": 1609853720904,
       "repeatPanelId": 4,
       "scopedVars": {
         "sites": {
@@ -2984,7 +3133,8 @@
         "defaults": {
           "custom": {
             "align": "left",
-            "displayMode": "color-background"
+            "displayMode": "auto",
+            "filterable": false
           },
           "mappings": [
             {
@@ -3130,6 +3280,18 @@
                 "value": []
               }
             ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Status"
+            },
+            "properties": [
+              {
+                "id": "custom.displayMode",
+                "value": "color-background"
+              }
+            ]
           }
         ]
       },
@@ -3149,10 +3311,9 @@
           }
         ]
       },
-      "pluginVersion": "7.0.3",
-      "repeat": null,
+      "pluginVersion": "7.3.5",
       "repeatDirection": "v",
-      "repeatIteration": 1609848777937,
+      "repeatIteration": 1609853720904,
       "repeatPanelId": 11,
       "scopedVars": {
         "sites": {
@@ -3195,9 +3356,17 @@
           "options": {
             "excludeByName": {
               "Time": true,
+              "Time 1": true,
+              "Time 2": true,
               "__name__": true,
+              "__name__ 1": true,
+              "__name__ 2": true,
               "site": true,
-              "status_type": true
+              "site 1": true,
+              "site 2": true,
+              "status_type": true,
+              "status_type 1": true,
+              "status_type 2": true
             },
             "indexByName": {
               "Time": 3,
@@ -3225,7 +3394,8 @@
         "defaults": {
           "custom": {
             "align": "left",
-            "displayMode": "color-background"
+            "displayMode": "auto",
+            "filterable": false
           },
           "decimals": 0,
           "mappings": [
@@ -3332,6 +3502,10 @@
               {
                 "id": "custom.align",
                 "value": "center"
+              },
+              {
+                "id": "custom.displayMode",
+                "value": "color-background"
               }
             ]
           }
@@ -3353,10 +3527,9 @@
           }
         ]
       },
-      "pluginVersion": "7.0.3",
-      "repeat": null,
+      "pluginVersion": "7.3.5",
       "repeatDirection": "v",
-      "repeatIteration": 1609848777937,
+      "repeatIteration": 1609853720904,
       "repeatPanelId": 4,
       "scopedVars": {
         "sites": {
@@ -3419,7 +3592,7 @@
       "type": "table"
     }
   ],
-  "schemaVersion": 25,
+  "schemaVersion": 26,
   "style": "dark",
   "tags": [],
   "templating": {
@@ -3428,13 +3601,16 @@
         "allValue": null,
         "current": {
           "selected": true,
-          "text": "All",
+          "text": [
+            "All"
+          ],
           "value": [
             "$__all"
           ]
         },
         "datasource": "ScienceMesh",
         "definition": "revad_sys_info",
+        "error": null,
         "hide": 2,
         "includeAll": true,
         "label": "Sites",
@@ -3474,5 +3650,5 @@
   "timezone": "",
   "title": "Health monitoring",
   "uid": "gOBKvuOGz",
-  "version": 43
+  "version": 5
 }
