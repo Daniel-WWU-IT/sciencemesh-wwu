@@ -15,8 +15,8 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
-  "id": 3,
-  "iteration": 1609853720904,
+  "id": 2,
+  "iteration": 1609858100958,
   "links": [],
   "panels": [
     {
@@ -609,6 +609,16 @@
               {
                 "id": "custom.width",
                 "value": 235
+              },
+              {
+                "id": "links",
+                "value": [
+                  {
+                    "targetBlank": true,
+                    "title": "Show check history",
+                    "url": "d/rUGu4caMz/check-history?var-site=${sites}&var-service=${__data.fields.Service}&var-check=${__data.fields.Check}"
+                  }
+                ]
               }
             ]
           },
@@ -809,6 +819,10 @@
               {
                 "id": "custom.align",
                 "value": "center"
+              },
+              {
+                "id": "custom.displayMode",
+                "value": "color-background"
               }
             ]
           },
@@ -867,18 +881,6 @@
                 "value": []
               }
             ]
-          },
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "Status"
-            },
-            "properties": [
-              {
-                "id": "custom.displayMode",
-                "value": "color-background"
-              }
-            ]
           }
         ]
       },
@@ -900,7 +902,7 @@
       },
       "pluginVersion": "7.3.5",
       "repeatDirection": "v",
-      "repeatIteration": 1609853720904,
+      "repeatIteration": 1609858100958,
       "repeatPanelId": 11,
       "scopedVars": {
         "sites": {
@@ -1073,6 +1075,16 @@
               {
                 "id": "custom.width",
                 "value": 235
+              },
+              {
+                "id": "links",
+                "value": [
+                  {
+                    "targetBlank": true,
+                    "title": "Show check history",
+                    "url": "d/rUGu4caMz/check-history?var-site=${sites}&var-service=${__data.fields.Service}&var-check=${__data.fields.Check}"
+                  }
+                ]
               }
             ]
           },
@@ -1116,7 +1128,7 @@
       },
       "pluginVersion": "7.3.5",
       "repeatDirection": "v",
-      "repeatIteration": 1609853720904,
+      "repeatIteration": 1609858100958,
       "repeatPanelId": 4,
       "scopedVars": {
         "sites": {
@@ -1274,6 +1286,10 @@
               {
                 "id": "custom.align",
                 "value": "center"
+              },
+              {
+                "id": "custom.displayMode",
+                "value": "color-background"
               }
             ]
           },
@@ -1332,18 +1348,6 @@
                 "value": []
               }
             ]
-          },
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "Status"
-            },
-            "properties": [
-              {
-                "id": "custom.displayMode",
-                "value": "color-background"
-              }
-            ]
           }
         ]
       },
@@ -1365,7 +1369,7 @@
       },
       "pluginVersion": "7.3.5",
       "repeatDirection": "v",
-      "repeatIteration": 1609853720904,
+      "repeatIteration": 1609858100958,
       "repeatPanelId": 11,
       "scopedVars": {
         "sites": {
@@ -1538,6 +1542,16 @@
               {
                 "id": "custom.width",
                 "value": 235
+              },
+              {
+                "id": "links",
+                "value": [
+                  {
+                    "targetBlank": true,
+                    "title": "Show check history",
+                    "url": "d/rUGu4caMz/check-history?var-site=${sites}&var-service=${__data.fields.Service}&var-check=${__data.fields.Check}"
+                  }
+                ]
               }
             ]
           },
@@ -1581,7 +1595,7 @@
       },
       "pluginVersion": "7.3.5",
       "repeatDirection": "v",
-      "repeatIteration": 1609853720904,
+      "repeatIteration": 1609858100958,
       "repeatPanelId": 4,
       "scopedVars": {
         "sites": {
@@ -1827,6 +1841,10 @@
               {
                 "id": "custom.align",
                 "value": "center"
+              },
+              {
+                "id": "custom.displayMode",
+                "value": "color-background"
               }
             ]
           },
@@ -1885,18 +1903,6 @@
                 "value": []
               }
             ]
-          },
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "Status"
-            },
-            "properties": [
-              {
-                "id": "custom.displayMode",
-                "value": "color-background"
-              }
-            ]
           }
         ]
       },
@@ -1918,7 +1924,7 @@
       },
       "pluginVersion": "7.3.5",
       "repeatDirection": "v",
-      "repeatIteration": 1609853720904,
+      "repeatIteration": 1609858100958,
       "repeatPanelId": 11,
       "scopedVars": {
         "sites": {
@@ -2091,6 +2097,16 @@
               {
                 "id": "custom.width",
                 "value": 235
+              },
+              {
+                "id": "links",
+                "value": [
+                  {
+                    "targetBlank": true,
+                    "title": "Show check history",
+                    "url": "d/rUGu4caMz/check-history?var-site=${sites}&var-service=${__data.fields.Service}&var-check=${__data.fields.Check}"
+                  }
+                ]
               }
             ]
           },
@@ -2134,7 +2150,7 @@
       },
       "pluginVersion": "7.3.5",
       "repeatDirection": "v",
-      "repeatIteration": 1609853720904,
+      "repeatIteration": 1609858100958,
       "repeatPanelId": 4,
       "scopedVars": {
         "sites": {
@@ -2292,6 +2308,10 @@
               {
                 "id": "custom.align",
                 "value": "center"
+              },
+              {
+                "id": "custom.displayMode",
+                "value": "color-background"
               }
             ]
           },
@@ -2350,18 +2370,6 @@
                 "value": []
               }
             ]
-          },
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "Status"
-            },
-            "properties": [
-              {
-                "id": "custom.displayMode",
-                "value": "color-background"
-              }
-            ]
           }
         ]
       },
@@ -2383,7 +2391,7 @@
       },
       "pluginVersion": "7.3.5",
       "repeatDirection": "v",
-      "repeatIteration": 1609853720904,
+      "repeatIteration": 1609858100958,
       "repeatPanelId": 11,
       "scopedVars": {
         "sites": {
@@ -2556,6 +2564,16 @@
               {
                 "id": "custom.width",
                 "value": 235
+              },
+              {
+                "id": "links",
+                "value": [
+                  {
+                    "targetBlank": true,
+                    "title": "Show check history",
+                    "url": "d/rUGu4caMz/check-history?var-site=${sites}&var-service=${__data.fields.Service}&var-check=${__data.fields.Check}"
+                  }
+                ]
               }
             ]
           },
@@ -2599,7 +2617,7 @@
       },
       "pluginVersion": "7.3.5",
       "repeatDirection": "v",
-      "repeatIteration": 1609853720904,
+      "repeatIteration": 1609858100958,
       "repeatPanelId": 4,
       "scopedVars": {
         "sites": {
@@ -2757,6 +2775,10 @@
               {
                 "id": "custom.align",
                 "value": "center"
+              },
+              {
+                "id": "custom.displayMode",
+                "value": "color-background"
               }
             ]
           },
@@ -2815,18 +2837,6 @@
                 "value": []
               }
             ]
-          },
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "Status"
-            },
-            "properties": [
-              {
-                "id": "custom.displayMode",
-                "value": "color-background"
-              }
-            ]
           }
         ]
       },
@@ -2848,7 +2858,7 @@
       },
       "pluginVersion": "7.3.5",
       "repeatDirection": "v",
-      "repeatIteration": 1609853720904,
+      "repeatIteration": 1609858100958,
       "repeatPanelId": 11,
       "scopedVars": {
         "sites": {
@@ -3021,6 +3031,16 @@
               {
                 "id": "custom.width",
                 "value": 235
+              },
+              {
+                "id": "links",
+                "value": [
+                  {
+                    "targetBlank": true,
+                    "title": "Show check history",
+                    "url": "d/rUGu4caMz/check-history?var-site=${sites}&var-service=${__data.fields.Service}&var-check=${__data.fields.Check}"
+                  }
+                ]
               }
             ]
           },
@@ -3064,7 +3084,7 @@
       },
       "pluginVersion": "7.3.5",
       "repeatDirection": "v",
-      "repeatIteration": 1609853720904,
+      "repeatIteration": 1609858100958,
       "repeatPanelId": 4,
       "scopedVars": {
         "sites": {
@@ -3222,6 +3242,10 @@
               {
                 "id": "custom.align",
                 "value": "center"
+              },
+              {
+                "id": "custom.displayMode",
+                "value": "color-background"
               }
             ]
           },
@@ -3280,18 +3304,6 @@
                 "value": []
               }
             ]
-          },
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "Status"
-            },
-            "properties": [
-              {
-                "id": "custom.displayMode",
-                "value": "color-background"
-              }
-            ]
           }
         ]
       },
@@ -3313,7 +3325,7 @@
       },
       "pluginVersion": "7.3.5",
       "repeatDirection": "v",
-      "repeatIteration": 1609853720904,
+      "repeatIteration": 1609858100958,
       "repeatPanelId": 11,
       "scopedVars": {
         "sites": {
@@ -3486,6 +3498,16 @@
               {
                 "id": "custom.width",
                 "value": 235
+              },
+              {
+                "id": "links",
+                "value": [
+                  {
+                    "targetBlank": true,
+                    "title": "Show check history",
+                    "url": "d/rUGu4caMz/check-history?var-site=${sites}&var-service=${__data.fields.Service}&var-check=${__data.fields.Check}"
+                  }
+                ]
               }
             ]
           },
@@ -3529,7 +3551,7 @@
       },
       "pluginVersion": "7.3.5",
       "repeatDirection": "v",
-      "repeatIteration": 1609853720904,
+      "repeatIteration": 1609858100958,
       "repeatPanelId": 4,
       "scopedVars": {
         "sites": {
@@ -3650,5 +3672,5 @@
   "timezone": "",
   "title": "Health monitoring",
   "uid": "gOBKvuOGz",
-  "version": 5
+  "version": 12
 }
