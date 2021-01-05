@@ -34,6 +34,19 @@ datasources:
         access: proxy
         isDefault: true
 
+dashboardProviders:
+  dashboardproviders.yaml:
+    apiVersion: 1
+    providers:
+    - name: 'sciencemesh'
+      orgId: 1
+      folder: 'ScienceMesh'
+      type: file
+      disableDeletion: false
+      editable: true
+      options:
+        path: /var/lib/grafana/dashboards/sciencemesh
+
 env:
   # Adjust the proxy settings as needed
   HTTPS_PROXY: 'http://wwwproxy.uni-muenster.de:80'
