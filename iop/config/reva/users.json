@@ -23,6 +23,17 @@
 	},
 	{
 		"id": {
+			"opaque_id": "peter0815",
+			"idp": "uni-muenster.de"
+		},
+		"username": "peter",
+		"secret": "peterpass",
+		"mail": "peter@uni-muenster.de",
+		"display_name": "Peter",
+		"groups": ["starwars-lovers", "bug-heaters"]
+	},
+	{
+		"id": {
 			"opaque_id": "test4242",
 			"idp": "uni-muenster.de"
 		},
