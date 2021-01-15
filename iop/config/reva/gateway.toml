@@ -97,3 +97,6 @@ metrics_output_file = "/etc/revad/scrapes/services.json"
 blackbox_output_file = "/etc/revad/scrapes/blackbox.json"
 [http.services.mentix.importers.webapi]
 enabled_connectors = ["localfile"]
+[http.services.mentix.importers.adminapi]
+enabled_connectors = ["localfile"]
+is_protected = true
