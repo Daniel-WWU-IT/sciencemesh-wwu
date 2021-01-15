@@ -2,6 +2,7 @@
 This document contains details about the pecularities of managing sites and services of the ScienceMesh.
 
 ## Sites
+- **Authorization status:** Sites must be authorized in order to be included in the exposed ScienceMesh data; this can be done by setting the `AUTHORIZED` property to `true`. Sites coming from the GOCDB are always authorized, while sites registered through Mentix must be authorized manually.
 - **Organization name:** By default, the full name of the site will be used as the organization name; this can be overriden by adding an `ORGANIZATION` property to the site.
 
 ## Services
