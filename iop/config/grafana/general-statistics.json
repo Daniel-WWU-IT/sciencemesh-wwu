@@ -309,7 +309,7 @@
         "orientation": "horizontal",
         "reduceOptions": {
           "calcs": [
-            "lastNotNull"
+            "last"
           ],
           "fields": "",
           "values": false
@@ -423,7 +423,7 @@
               }
             ]
           },
-          "unit": "dectbytes"
+          "unit": "decbytes"
         },
         "overrides": []
       },
@@ -438,7 +438,7 @@
         "orientation": "auto",
         "reduceOptions": {
           "calcs": [
-            "mean"
+            "last"
           ],
           "fields": "",
           "values": false
@@ -468,6 +468,7 @@
       "fieldConfig": {
         "defaults": {
           "custom": {},
+          "decimals": 5,
           "mappings": [],
           "thresholds": {
             "mode": "absolute",
@@ -478,7 +479,7 @@
               }
             ]
           },
-          "unit": "dectbytes"
+          "unit": "decbytes"
         },
         "overrides": []
       },
@@ -509,7 +510,7 @@
       "pluginVersion": "7.3.5",
       "targets": [
         {
-          "expr": "revad_cs3_org_sciencemesh_site_total_amount_storage",
+          "expr": "  revad_cs3_org_sciencemesh_site_total_amount_storage",
           "instant": true,
           "interval": "",
           "legendFormat": "{{site}}",
@@ -561,5 +562,5 @@
   "timezone": "utc",
   "title": "General statistics",
   "uid": "HD3NmHMMk",
-  "version": 1
+  "version": 2
 }
