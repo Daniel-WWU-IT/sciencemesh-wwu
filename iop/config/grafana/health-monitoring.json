@@ -15,8 +15,8 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
-  "id": 2,
-  "iteration": 1610996050838,
+  "id": 4,
+  "iteration": 1611063462317,
   "links": [],
   "panels": [
     {
@@ -902,7 +902,7 @@
       },
       "pluginVersion": "7.3.5",
       "repeatDirection": "v",
-      "repeatIteration": 1610996050838,
+      "repeatIteration": 1611063462317,
       "repeatPanelId": 11,
       "scopedVars": {
         "sites": {
@@ -1128,7 +1128,7 @@
       },
       "pluginVersion": "7.3.5",
       "repeatDirection": "v",
-      "repeatIteration": 1610996050838,
+      "repeatIteration": 1611063462317,
       "repeatPanelId": 4,
       "scopedVars": {
         "sites": {
@@ -1369,7 +1369,7 @@
       },
       "pluginVersion": "7.3.5",
       "repeatDirection": "v",
-      "repeatIteration": 1610996050838,
+      "repeatIteration": 1611063462317,
       "repeatPanelId": 11,
       "scopedVars": {
         "sites": {
@@ -1595,7 +1595,7 @@
       },
       "pluginVersion": "7.3.5",
       "repeatDirection": "v",
-      "repeatIteration": 1610996050838,
+      "repeatIteration": 1611063462317,
       "repeatPanelId": 4,
       "scopedVars": {
         "sites": {
@@ -1924,7 +1924,7 @@
       },
       "pluginVersion": "7.3.5",
       "repeatDirection": "v",
-      "repeatIteration": 1610996050838,
+      "repeatIteration": 1611063462317,
       "repeatPanelId": 11,
       "scopedVars": {
         "sites": {
@@ -2150,7 +2150,7 @@
       },
       "pluginVersion": "7.3.5",
       "repeatDirection": "v",
-      "repeatIteration": 1610996050838,
+      "repeatIteration": 1611063462317,
       "repeatPanelId": 4,
       "scopedVars": {
         "sites": {
@@ -2391,7 +2391,7 @@
       },
       "pluginVersion": "7.3.5",
       "repeatDirection": "v",
-      "repeatIteration": 1610996050838,
+      "repeatIteration": 1611063462317,
       "repeatPanelId": 11,
       "scopedVars": {
         "sites": {
@@ -2617,7 +2617,7 @@
       },
       "pluginVersion": "7.3.5",
       "repeatDirection": "v",
-      "repeatIteration": 1610996050838,
+      "repeatIteration": 1611063462317,
       "repeatPanelId": 4,
       "scopedVars": {
         "sites": {
@@ -2858,7 +2858,7 @@
       },
       "pluginVersion": "7.3.5",
       "repeatDirection": "v",
-      "repeatIteration": 1610996050838,
+      "repeatIteration": 1611063462317,
       "repeatPanelId": 11,
       "scopedVars": {
         "sites": {
@@ -3084,7 +3084,7 @@
       },
       "pluginVersion": "7.3.5",
       "repeatDirection": "v",
-      "repeatIteration": 1610996050838,
+      "repeatIteration": 1611063462317,
       "repeatPanelId": 4,
       "scopedVars": {
         "sites": {
@@ -3325,7 +3325,7 @@
       },
       "pluginVersion": "7.3.5",
       "repeatDirection": "v",
-      "repeatIteration": 1610996050838,
+      "repeatIteration": 1611063462317,
       "repeatPanelId": 11,
       "scopedVars": {
         "sites": {
@@ -3551,7 +3551,7 @@
       },
       "pluginVersion": "7.3.5",
       "repeatDirection": "v",
-      "repeatIteration": 1610996050838,
+      "repeatIteration": 1611063462317,
       "repeatPanelId": 4,
       "scopedVars": {
         "sites": {
@@ -3792,7 +3792,7 @@
       },
       "pluginVersion": "7.3.5",
       "repeatDirection": "v",
-      "repeatIteration": 1610996050838,
+      "repeatIteration": 1611063462317,
       "repeatPanelId": 11,
       "scopedVars": {
         "sites": {
@@ -4018,7 +4018,7 @@
       },
       "pluginVersion": "7.3.5",
       "repeatDirection": "v",
-      "repeatIteration": 1610996050838,
+      "repeatIteration": 1611063462317,
       "repeatPanelId": 4,
       "scopedVars": {
         "sites": {
@@ -4098,7 +4098,7 @@
           ]
         },
         "datasource": "ScienceMesh",
-        "definition": "revad_sys_info",
+        "definition": "sciencemesh_hcheck_site_status",
         "error": null,
         "hide": 2,
         "includeAll": true,
@@ -4106,7 +4106,7 @@
         "multi": true,
         "name": "sites",
         "options": [],
-        "query": "revad_sys_info",
+        "query": "sciencemesh_hcheck_site_status",
         "refresh": 1,
         "regex": ".*site=\\\"(.*?)\\\".*",
         "skipUrlSync": false,
@@ -4139,5 +4139,5 @@
   "timezone": "",
   "title": "Health monitoring",
   "uid": "gOBKvuOGz",
-  "version": 12
+  "version": 2
 }

@@ -433,6 +433,7 @@
         "x": 0,
         "y": 23
       },
+      "hideTimeOverride": false,
       "id": 4,
       "options": {
         "orientation": "auto",
@@ -562,5 +563,5 @@
   "timezone": "utc",
   "title": "General statistics",
   "uid": "HD3NmHMMk",
-  "version": 3
+  "version": 4
 }
