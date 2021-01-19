@@ -371,7 +371,7 @@
         "orientation": "auto",
         "reduceOptions": {
           "calcs": [
-            "lastNotNull"
+            "last"
           ],
           "fields": "",
           "values": false
@@ -500,7 +500,7 @@
         "orientation": "auto",
         "reduceOptions": {
           "calcs": [
-            "lastNotNull"
+            "last"
           ],
           "fields": "",
           "values": false
@@ -562,5 +562,5 @@
   "timezone": "utc",
   "title": "General statistics",
   "uid": "HD3NmHMMk",
-  "version": 2
+  "version": 3
 }
