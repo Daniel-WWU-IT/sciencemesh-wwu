@@ -12,6 +12,10 @@ grafana.ini:
     domain: sciencemesh-test.uni-muenster.de
     root_url: '%(protocol)s://%(domain)s/grafana'
     serve_from_sub_path: true
+  auth.anonymous:
+    enabled: true
+    org_name: ScienceMesh
+    org_role: Viewer
 
 # Persistency
 persistence:

@@ -16,7 +16,7 @@
   "gnetId": null,
   "graphTooltip": 0,
   "id": 4,
-  "iteration": 1609858123772,
+  "iteration": 1610996062910,
   "links": [],
   "panels": [
     {
@@ -222,7 +222,11 @@
   "templating": {
     "list": [
       {
-        "current": {},
+        "current": {
+          "selected": false,
+          "text": "CERN",
+          "value": "CERN"
+        },
         "error": null,
         "hide": 2,
         "label": null,

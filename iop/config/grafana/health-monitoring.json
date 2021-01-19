@@ -16,7 +16,7 @@
   "gnetId": null,
   "graphTooltip": 0,
   "id": 2,
-  "iteration": 1609858100958,
+  "iteration": 1610996050838,
   "links": [],
   "panels": [
     {
@@ -902,7 +902,7 @@
       },
       "pluginVersion": "7.3.5",
       "repeatDirection": "v",
-      "repeatIteration": 1609858100958,
+      "repeatIteration": 1610996050838,
       "repeatPanelId": 11,
       "scopedVars": {
         "sites": {
@@ -1116,7 +1116,7 @@
         "x": 8,
         "y": 4
       },
-      "id": 45,
+      "id": 46,
       "options": {
         "showHeader": true,
         "sortBy": [
@@ -1128,7 +1128,7 @@
       },
       "pluginVersion": "7.3.5",
       "repeatDirection": "v",
-      "repeatIteration": 1609858100958,
+      "repeatIteration": 1610996050838,
       "repeatPanelId": 4,
       "scopedVars": {
         "sites": {
@@ -1369,7 +1369,7 @@
       },
       "pluginVersion": "7.3.5",
       "repeatDirection": "v",
-      "repeatIteration": 1609858100958,
+      "repeatIteration": 1610996050838,
       "repeatPanelId": 11,
       "scopedVars": {
         "sites": {
@@ -1583,7 +1583,7 @@
         "x": 8,
         "y": 8
       },
-      "id": 46,
+      "id": 47,
       "options": {
         "showHeader": true,
         "sortBy": [
@@ -1595,7 +1595,7 @@
       },
       "pluginVersion": "7.3.5",
       "repeatDirection": "v",
-      "repeatIteration": 1609858100958,
+      "repeatIteration": 1610996050838,
       "repeatPanelId": 4,
       "scopedVars": {
         "sites": {
@@ -1924,7 +1924,7 @@
       },
       "pluginVersion": "7.3.5",
       "repeatDirection": "v",
-      "repeatIteration": 1609858100958,
+      "repeatIteration": 1610996050838,
       "repeatPanelId": 11,
       "scopedVars": {
         "sites": {
@@ -2138,7 +2138,7 @@
         "x": 8,
         "y": 12
       },
-      "id": 47,
+      "id": 48,
       "options": {
         "showHeader": true,
         "sortBy": [
@@ -2150,7 +2150,7 @@
       },
       "pluginVersion": "7.3.5",
       "repeatDirection": "v",
-      "repeatIteration": 1609858100958,
+      "repeatIteration": 1610996050838,
       "repeatPanelId": 4,
       "scopedVars": {
         "sites": {
@@ -2391,13 +2391,13 @@
       },
       "pluginVersion": "7.3.5",
       "repeatDirection": "v",
-      "repeatIteration": 1609858100958,
+      "repeatIteration": 1610996050838,
       "repeatPanelId": 11,
       "scopedVars": {
         "sites": {
           "selected": false,
-          "text": "SURFSARA",
-          "value": "SURFSARA"
+          "text": "DTU",
+          "value": "DTU"
         }
       },
       "targets": [
@@ -2605,7 +2605,7 @@
         "x": 8,
         "y": 16
       },
-      "id": 48,
+      "id": 49,
       "options": {
         "showHeader": true,
         "sortBy": [
@@ -2617,13 +2617,13 @@
       },
       "pluginVersion": "7.3.5",
       "repeatDirection": "v",
-      "repeatIteration": 1609858100958,
+      "repeatIteration": 1610996050838,
       "repeatPanelId": 4,
       "scopedVars": {
         "sites": {
           "selected": false,
-          "text": "SURFSARA",
-          "value": "SURFSARA"
+          "text": "DTU",
+          "value": "DTU"
         }
       },
       "targets": [
@@ -2858,13 +2858,13 @@
       },
       "pluginVersion": "7.3.5",
       "repeatDirection": "v",
-      "repeatIteration": 1609858100958,
+      "repeatIteration": 1610996050838,
       "repeatPanelId": 11,
       "scopedVars": {
         "sites": {
           "selected": false,
-          "text": "SWITCH",
-          "value": "SWITCH"
+          "text": "SURFSARA",
+          "value": "SURFSARA"
         }
       },
       "targets": [
@@ -3072,7 +3072,7 @@
         "x": 8,
         "y": 20
       },
-      "id": 49,
+      "id": 50,
       "options": {
         "showHeader": true,
         "sortBy": [
@@ -3084,13 +3084,13 @@
       },
       "pluginVersion": "7.3.5",
       "repeatDirection": "v",
-      "repeatIteration": 1609858100958,
+      "repeatIteration": 1610996050838,
       "repeatPanelId": 4,
       "scopedVars": {
         "sites": {
           "selected": false,
-          "text": "SWITCH",
-          "value": "SWITCH"
+          "text": "SURFSARA",
+          "value": "SURFSARA"
         }
       },
       "targets": [
@@ -3325,7 +3325,474 @@
       },
       "pluginVersion": "7.3.5",
       "repeatDirection": "v",
-      "repeatIteration": 1609858100958,
+      "repeatIteration": 1610996050838,
+      "repeatPanelId": 11,
+      "scopedVars": {
+        "sites": {
+          "selected": false,
+          "text": "SWITCH",
+          "value": "SWITCH"
+        }
+      },
+      "targets": [
+        {
+          "expr": "sciencemesh_hcheck_service_status{site=\"$sites\", status_type=\"RESULT\"}",
+          "format": "table",
+          "instant": true,
+          "interval": "",
+          "intervalFactor": 1,
+          "legendFormat": "",
+          "refId": "A"
+        },
+        {
+          "expr": "sciencemesh_hcheck_service_status{site=\"$sites\", status_type=\"AVAIL\"}",
+          "format": "table",
+          "instant": true,
+          "interval": "",
+          "legendFormat": "",
+          "refId": "B"
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Service status: $sites",
+      "transformations": [
+        {
+          "id": "seriesToColumns",
+          "options": {
+            "byField": "service_type"
+          }
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "Time": true,
+              "Time 1": true,
+              "Time 2": true,
+              "__name__": true,
+              "__name__ 1": true,
+              "__name__ 2": true,
+              "site": true,
+              "site 1": true,
+              "site 2": true,
+              "status_type": true,
+              "status_type 1": true,
+              "status_type 2": true
+            },
+            "indexByName": {
+              "Time": 3,
+              "Value #A": 1,
+              "Value #B": 2,
+              "__name__": 4,
+              "service_type": 0,
+              "site": 5,
+              "status_type": 6
+            },
+            "renameByName": {
+              "Value #A": "Status",
+              "Value #B": "Availability",
+              "service_type": "Service"
+            }
+          }
+        }
+      ],
+      "type": "table"
+    },
+    {
+      "datasource": null,
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "align": "left",
+            "displayMode": "auto",
+            "filterable": false
+          },
+          "decimals": 0,
+          "mappings": [
+            {
+              "from": "",
+              "id": 0,
+              "operator": "",
+              "text": "OK",
+              "to": "",
+              "type": 1,
+              "value": "0"
+            },
+            {
+              "from": "",
+              "id": 1,
+              "operator": "",
+              "text": "WARNING",
+              "to": "",
+              "type": 1,
+              "value": "1"
+            },
+            {
+              "from": "",
+              "id": 2,
+              "operator": "",
+              "text": "ERROR",
+              "to": "",
+              "type": 1,
+              "value": "2"
+            },
+            {
+              "from": "",
+              "id": 3,
+              "operator": "",
+              "text": "UNKNOWN",
+              "to": "",
+              "type": 1,
+              "value": "3"
+            }
+          ],
+          "max": 3,
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "blue",
+                "value": null
+              },
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "#EAB839",
+                "value": 1
+              },
+              {
+                "color": "red",
+                "value": 2
+              },
+              {
+                "color": "rgb(143, 143, 143)",
+                "value": 3
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Service"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 130
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Check"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 235
+              },
+              {
+                "id": "links",
+                "value": [
+                  {
+                    "targetBlank": true,
+                    "title": "Show check history",
+                    "url": "d/rUGu4caMz/check-history?var-site=${sites}&var-service=${__data.fields.Service}&var-check=${__data.fields.Check}"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Status"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 180
+              },
+              {
+                "id": "custom.align",
+                "value": "center"
+              },
+              {
+                "id": "custom.displayMode",
+                "value": "color-background"
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 16,
+        "x": 8,
+        "y": 24
+      },
+      "id": 51,
+      "options": {
+        "showHeader": true,
+        "sortBy": [
+          {
+            "desc": false,
+            "displayName": "Service"
+          }
+        ]
+      },
+      "pluginVersion": "7.3.5",
+      "repeatDirection": "v",
+      "repeatIteration": 1610996050838,
+      "repeatPanelId": 4,
+      "scopedVars": {
+        "sites": {
+          "selected": false,
+          "text": "SWITCH",
+          "value": "SWITCH"
+        }
+      },
+      "targets": [
+        {
+          "expr": "probe_nagios_result{site=\"$sites\"}",
+          "format": "table",
+          "instant": true,
+          "interval": "",
+          "intervalFactor": 1,
+          "legendFormat": "",
+          "refId": "A"
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Check status: $sites",
+      "transformations": [
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "Time": true,
+              "__name__": true,
+              "country": true,
+              "instance": true,
+              "site": true,
+              "site_id": true,
+              "site_type": true
+            },
+            "indexByName": {
+              "Time": 0,
+              "Value": 5,
+              "__name__": 6,
+              "country": 7,
+              "instance": 8,
+              "job": 3,
+              "output": 4,
+              "service_type": 2,
+              "site": 1,
+              "site_id": 9,
+              "site_type": 10
+            },
+            "renameByName": {
+              "Value": "Status",
+              "__name__": "",
+              "job": "Check",
+              "output": "Output",
+              "service_type": "Service",
+              "site": "Site"
+            }
+          }
+        }
+      ],
+      "type": "table"
+    },
+    {
+      "datasource": null,
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "align": "left",
+            "displayMode": "auto",
+            "filterable": false
+          },
+          "mappings": [
+            {
+              "from": "",
+              "id": 0,
+              "operator": "",
+              "text": "UNKNOWN",
+              "to": "",
+              "type": 1,
+              "value": "0"
+            },
+            {
+              "from": "",
+              "id": 1,
+              "operator": "",
+              "text": "HEALTHY",
+              "to": "",
+              "type": 1,
+              "value": "1"
+            },
+            {
+              "from": "",
+              "id": 2,
+              "operator": "",
+              "text": "WARNING",
+              "to": "",
+              "type": 1,
+              "value": "2"
+            },
+            {
+              "from": "",
+              "id": 3,
+              "operator": "",
+              "text": "CRITICAL",
+              "to": "",
+              "type": 1,
+              "value": "3"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "blue",
+                "value": null
+              },
+              {
+                "color": "rgb(163, 163, 163)",
+                "value": 0
+              },
+              {
+                "color": "green",
+                "value": 1
+              },
+              {
+                "color": "yellow",
+                "value": 2
+              },
+              {
+                "color": "red",
+                "value": 3
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Service"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 107
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Status"
+            },
+            "properties": [
+              {
+                "id": "custom.align",
+                "value": "center"
+              },
+              {
+                "id": "custom.displayMode",
+                "value": "color-background"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Availability"
+            },
+            "properties": [
+              {
+                "id": "custom.align",
+                "value": "right"
+              },
+              {
+                "id": "unit",
+                "value": "percentunit"
+              },
+              {
+                "id": "decimals",
+                "value": 1
+              },
+              {
+                "id": "custom.displayMode",
+                "value": "color-text"
+              },
+              {
+                "id": "custom.width",
+                "value": 100
+              },
+              {
+                "id": "thresholds",
+                "value": {
+                  "mode": "percentage",
+                  "steps": [
+                    {
+                      "color": "red",
+                      "value": null
+                    },
+                    {
+                      "color": "orange",
+                      "value": 65
+                    },
+                    {
+                      "color": "yellow",
+                      "value": 80
+                    },
+                    {
+                      "color": "green",
+                      "value": 95
+                    }
+                  ]
+                }
+              },
+              {
+                "id": "mappings",
+                "value": []
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 4,
+        "x": 4,
+        "y": 28
+      },
+      "id": 45,
+      "options": {
+        "showHeader": true,
+        "sortBy": [
+          {
+            "desc": false,
+            "displayName": "Service"
+          }
+        ]
+      },
+      "pluginVersion": "7.3.5",
+      "repeatDirection": "v",
+      "repeatIteration": 1610996050838,
       "repeatPanelId": 11,
       "scopedVars": {
         "sites": {
@@ -3537,9 +4004,9 @@
         "h": 4,
         "w": 16,
         "x": 8,
-        "y": 24
+        "y": 28
       },
-      "id": 50,
+      "id": 52,
       "options": {
         "showHeader": true,
         "sortBy": [
@@ -3551,7 +4018,7 @@
       },
       "pluginVersion": "7.3.5",
       "repeatDirection": "v",
-      "repeatIteration": 1609858100958,
+      "repeatIteration": 1610996050838,
       "repeatPanelId": 4,
       "scopedVars": {
         "sites": {
