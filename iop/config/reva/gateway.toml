@@ -83,7 +83,7 @@ refresh = 900
 
 # Mentix configuration --
 [http.services.mentix]
-update_interval = "5m"
+update_interval = "1m"
 [http.services.mentix.connectors.gocdb]
 address = "http://sciencemesh-test.uni-muenster.de/gocdb/"
 [http.services.mentix.connectors.localfile]
