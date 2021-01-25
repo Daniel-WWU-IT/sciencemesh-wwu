@@ -16,6 +16,8 @@ grafana.ini:
     enabled: true
     org_name: ScienceMesh
     org_role: Viewer
+  security:
+    allow_embedding: true
 
 # Persistency
 persistence:
