@@ -20,6 +20,32 @@
   "links": [],
   "panels": [
     {
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 2,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 15,
+      "options": {
+        "content": "<h3 style=\"text-align: center; color: #3F92CB;\">\r\n    This dashboard is still work-in-progress!\r\n</h3>",
+        "mode": "html"
+      },
+      "pluginVersion": "7.3.5",
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Notice",
+      "transparent": true,
+      "type": "text"
+    },
+    {
       "circleMaxSize": "50",
       "circleMinSize": "5",
       "colors": [
@@ -40,7 +66,7 @@
         "h": 14,
         "w": 10,
         "x": 0,
-        "y": 0
+        "y": 2
       },
       "hideEmpty": false,
       "hideZero": false,
@@ -63,7 +89,7 @@
       },
       "targets": [
         {
-          "expr": "revad_cs3_org_sciencemesh_site_total_num_users",
+          "expr": "sum by(country) (revad_cs3_org_sciencemesh_site_total_num_users)",
           "instant": true,
           "interval": "",
           "legendFormat": "{{country}}",
@@ -102,7 +128,7 @@
         "h": 14,
         "w": 9,
         "x": 10,
-        "y": 0
+        "y": 2
       },
       "hideEmpty": false,
       "hideZero": false,
@@ -183,24 +209,12 @@
           {
             "matcher": {
               "id": "byName",
-              "options": "Reva version"
-            },
-            "properties": [
-              {
-                "id": "custom.width",
-                "value": 108
-              }
-            ]
-          },
-          {
-            "matcher": {
-              "id": "byName",
               "options": "Site"
             },
             "properties": [
               {
                 "id": "custom.width",
-                "value": 114
+                "value": 200
               }
             ]
           }
@@ -210,7 +224,7 @@
         "h": 14,
         "w": 5,
         "x": 19,
-        "y": 0
+        "y": 2
       },
       "id": 13,
       "options": {
@@ -247,6 +261,8 @@
               "country": false,
               "instance": true,
               "job": true,
+              "reva_build_date": true,
+              "reva_version": true,
               "service_type": true,
               "site_id": true,
               "site_type": true
@@ -301,7 +317,7 @@
         "h": 9,
         "w": 19,
         "x": 0,
-        "y": 14
+        "y": 16
       },
       "id": 2,
       "options": {
@@ -309,7 +325,7 @@
         "orientation": "horizontal",
         "reduceOptions": {
           "calcs": [
-            "last"
+            "lastNotNull"
           ],
           "fields": "",
           "values": false
@@ -329,6 +345,7 @@
       "timeFrom": null,
       "timeShift": null,
       "title": "Users per site",
+      "transformations": [],
       "type": "bargauge"
     },
     {
@@ -358,7 +375,7 @@
         "h": 9,
         "w": 5,
         "x": 19,
-        "y": 14
+        "y": 16
       },
       "id": 6,
       "interval": null,
@@ -428,10 +445,10 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 9,
+        "h": 7,
         "w": 19,
         "x": 0,
-        "y": 23
+        "y": 25
       },
       "hideTimeOverride": false,
       "id": 4,
@@ -485,10 +502,10 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 9,
+        "h": 7,
         "w": 5,
         "x": 19,
-        "y": 23
+        "y": 25
       },
       "id": 8,
       "interval": null,
@@ -563,5 +580,5 @@
   "timezone": "utc",
   "title": "General statistics",
   "uid": "HD3NmHMMk",
-  "version": 4
+  "version": 5
 }
