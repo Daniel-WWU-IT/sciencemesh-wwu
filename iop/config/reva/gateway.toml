@@ -83,6 +83,19 @@ insecure = false
 timeout = 10
 refresh = 900
 
+# Accounts --
+[http.services.accounts]
+notifications_mail = "science.mesh@uni-muenster.de"
+[http.services.accounts.smtp]
+sender_mail = "science.mesh@uni-muenster.de"
+smtp_server = "mail.uni-muenster.de"
+smtp_port = 25
+disable_auth = true
+[http.services.accounts.storage]
+driver = "file"
+[http.services.accounts.storage.file]
+file = "/tmp/accounts/accounts.json"
+
 # Mentix configuration --
 [http.services.mentix]
 update_interval = "1m"
