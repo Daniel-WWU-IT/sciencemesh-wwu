@@ -94,7 +94,7 @@ disable_auth = true
 [http.services.accounts.storage]
 driver = "file"
 [http.services.accounts.storage.file]
-file = "/tmp/accounts/accounts.json"
+file = "/tmp/mentix/accounts.json"
 
 # Mentix configuration --
 [http.services.mentix]
