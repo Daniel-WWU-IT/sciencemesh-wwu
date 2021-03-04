@@ -157,7 +157,7 @@
           "expr": "avg_over_time(revad_sys_info[5m])",
           "instant": true,
           "interval": "",
-          "legendFormat": "{{site}}",
+          "legendFormat": "{{site_id}}",
           "refId": "A"
         }
       ],
@@ -580,5 +580,5 @@
   "timezone": "utc",
   "title": "General statistics",
   "uid": "HD3NmHMMk",
-  "version": 6
+  "version": 7
 }
