@@ -83,18 +83,18 @@ insecure = false
 timeout = 10
 refresh = 900
 
-# Accounts --
-# [http.services.accounts]
-# notifications_mail = "science.mesh@uni-muenster.de"
-# [http.services.accounts.smtp]
-# sender_mail = "science.mesh@uni-muenster.de"
-# smtp_server = "mail.uni-muenster.de"
-# smtp_port = 25
-# disable_auth = true
-# [http.services.accounts.storage]
-# driver = "file"
-# [http.services.accounts.storage.file]
-# file = "/tmp/mentix/accounts.json"
+# Site Accounts --
+[http.services.siteacc]
+notifications_mail = "science.mesh@uni-muenster.de"
+[http.services.siteacc.smtp]
+sender_mail = "science.mesh@uni-muenster.de"
+smtp_server = "mail.uni-muenster.de"
+smtp_port = 25
+disable_auth = true
+[http.services.siteacc.storage]
+driver = "file"
+[http.services.siteacc.storage.file]
+file = "/tmp/mentix/accounts.json"
 
 # Mentix configuration --
 [http.services.mentix]
@@ -110,15 +110,10 @@ enabled_connectors = ["gocdb"]
 [http.services.mentix.exporters.promsd]
 metrics_output_file = "/etc/revad/scrapes/services.json"
 blackbox_output_file = "/etc/revad/scrapes/blackbox.json"
-[http.services.mentix.importers.webapi]
+[http.services.mentix.importers.sitereg]
 enabled_connectors = ["localfile"]
-[http.services.mentix.importers.adminapi]
-enabled_connectors = ["localfile"]
-is_protected = true
-# [http.services.mentix.importers.sitereg]
-# enabled_connectors = ["localfile"]
-# ignore_sm_sites = false
-# [http.services.mentix.accounts]
-# url = "https://sciencemesh-test.uni-muenster.de/api/accounts"
-# user = "..."
-# password = "..."
+ignore_sm_sites = false
+[http.services.mentix.accounts]
+url = "https://sciencemesh-test.uni-muenster.de/api/accounts"
+user = "..."
+password = "..."
