@@ -1,6 +1,6 @@
 # gRPC services --
 [grpc.services.gateway]
-datagateway = "https://sciencemesh-test.uni-muenster.de/api/datagateway"
+datagateway = "https://iop.sciencemesh.uni-muenster.de/datagateway"
 appprovidersvc = "iop-gateway:19000"
 appregistry = "iop-gateway:19000"
 commit_share_to_storage_grant = true
@@ -33,7 +33,7 @@ insecure_connections = true
 [grpc.services.ocmproviderauthorizer]
 driver = "mentix"
 [grpc.services.ocmproviderauthorizer.drivers.mentix]
-url = "https://sciencemesh-test.uni-muenster.de/api/mentix/cs3"
+url = "https://iop.sciencemesh.uni-muenster.de/mentix/cs3"
 verify_request_hostname = true
 insecure = false
 timeout = 10
@@ -42,7 +42,7 @@ refresh = 900
 [grpc.services.appprovider]
 driver = "demo"
 iopsecret = "nv7NUJc9ceHI4"
-wopiurl = "https://sciencemesh-test.uni-muenster.de/wopi/"
+wopiurl = "https://iop.sciencemesh.uni-muenster.de/wopi/"
 
 [grpc.services.appregistry]
 driver = "static"
@@ -78,7 +78,7 @@ disable_auth = true
 [http.middlewares.providerauthorizer]
 driver = "mentix"
 [http.middlewares.providerauthorizer.drivers.mentix]
-url = "https://sciencemesh-test.uni-muenster.de/api/mentix/cs3"
+url = "https://iop.sciencemesh.uni-muenster.de/mentix/cs3"
 insecure = false
 timeout = 10
 refresh = 900
@@ -108,12 +108,12 @@ file = "/tmp/mentix/vendors.json"
 enabled_connectors = ["gocdb"]
 [http.services.mentix.exporters.siteloc]
 [http.services.mentix.exporters.promsd]
-metrics_output_file = "/etc/revad/scrapes/services.json"
-blackbox_output_file = "/etc/revad/scrapes/blackbox.json"
+metrics_output_file = "/tmp/scrapes/services.json"
+blackbox_output_file = "/tmp/scrapes/blackbox.json"
 [http.services.mentix.importers.sitereg]
 enabled_connectors = ["localfile"]
 ignore_sm_sites = false
 [http.services.mentix.accounts]
-url = "https://sciencemesh-test.uni-muenster.de/api/accounts"
-user = "..."
-password = "..."
+url = "https://iop.sciencemesh.uni-muenster.de/accounts"
+user = "daniel"
+password = "danielpass"

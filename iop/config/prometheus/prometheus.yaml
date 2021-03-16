@@ -2,12 +2,11 @@
 
 - job_name: 'sciencemesh-metrics'
   scheme: 'https'
-  proxy_url: 'http://wwwproxy.uni-muenster.de:80' # Adjust the proxy as needed
 
   file_sd_configs:
   - refresh_interval: 30s
     files:
-      - '/etc/prometheus/sciencemesh/services.json'
+      - '/tmp/sciencemesh/services.json'
 
   relabel_configs:
     - source_labels: [__meta_mentix_site]
@@ -34,7 +33,7 @@
   file_sd_configs:
   - refresh_interval: 30s
     files:
-      - '/etc/prometheus/sciencemesh/blackbox.json'
+      - '/tmp/sciencemesh/blackbox.json'
 
   relabel_configs:
     - source_labels: [__address__]
@@ -64,7 +63,7 @@
   file_sd_configs:
   - refresh_interval: 30s
     files:
-      - '/etc/prometheus/sciencemesh/blackbox.json'
+      - '/tmp/sciencemesh/blackbox.json'
 
   relabel_configs:
     - source_labels: [__meta_mentix_host, __meta_mentix_grpc_port]
