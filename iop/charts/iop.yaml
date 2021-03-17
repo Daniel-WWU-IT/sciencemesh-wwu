@@ -67,16 +67,30 @@ wopiserver:
   config:
     appProviders:
       codeurl: http://meshapps-collabora-code:9980
-      wopibridgeurl: https://iop.sciencemesh.uni-muenster.de/wopibridge
+      wopibridgeurl: https://iop.sciencemesh.uni-muenster.de/wopib
     cs3:
       revahost: iop-gateway:19000
     iopsecret: 'nv7NUJc9ceHI4'
+  ingress:
+    enabled: true
+    annotations:
+      kubernetes.io/ingress.class: nginx
+      nginx.ingress.kubernetes.io/ssl-redirect: "true"
+    hostname: iop.sciencemesh.uni-muenster.de
+    path: /wopi
 
   # WOPI bridge --
   wopibridge:
     enabled: true
     bridgeUrl: https://iop.sciencemesh.uni-muenster.de
     env:
-      APP_ROOT: /wopibridge
+      APP_ROOT: /wopib
       CODIMD_EXT_URL: https://codimd.sciencemesh.uni-muenster.de
-      CODIMD_INT_URL: http://meshapps-codimd:6980
+      CODIMD_INT_URL: http://meshapps-codimd
+    ingress:
+      enabled: true
+      annotations:
+        kubernetes.io/ingress.class: nginx
+        nginx.ingress.kubernetes.io/ssl-redirect: "true"
+      hostname: iop.sciencemesh.uni-muenster.de
+      path: /wopib

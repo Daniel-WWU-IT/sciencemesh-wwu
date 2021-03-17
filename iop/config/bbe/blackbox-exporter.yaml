@@ -7,11 +7,13 @@ modules:
     nagios:
       check: check_http
       args:
-        - -u $TARGET$
+        - -H $TARGET_HOST$
+        - -u $TARGET_PATH$
+        - -S
         - -N
         - -e HTTP
-        - -w 5.0
-        - -c 10.0
+        - -w 3.0
+        - -c 8.0
         - -t 10
 
   iop_login:
