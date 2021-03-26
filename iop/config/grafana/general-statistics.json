@@ -38,7 +38,7 @@
         "content": "<h3 style=\"text-align: center; color: #3F92CB;\">\r\n    This dashboard is still work-in-progress!\r\n</h3>",
         "mode": "html"
       },
-      "pluginVersion": "7.4.3",
+      "pluginVersion": "7.3.5",
       "timeFrom": null,
       "timeShift": null,
       "title": "Notice",
@@ -134,7 +134,7 @@
       "hideZero": false,
       "id": 11,
       "initialZoom": "4",
-      "jsonUrl": "https://iop.sciencemesh.uni-muenster.de/mentix/loc",
+      "jsonUrl": "https://sciencemesh-test.uni-muenster.de/api/mentix/loc",
       "jsonpCallback": "",
       "jsonpUrl": "https://sciencemesh-test.uni-muenster.de/api/mentix/loc",
       "locationData": "json endpoint",
@@ -155,6 +155,7 @@
       "targets": [
         {
           "expr": "avg_over_time(revad_sys_info[5m])",
+          "hide": false,
           "instant": true,
           "interval": "",
           "legendFormat": "{{site_id}}",
@@ -236,7 +237,7 @@
           }
         ]
       },
-      "pluginVersion": "7.4.3",
+      "pluginVersion": "7.3.5",
       "targets": [
         {
           "expr": "avg_over_time(revad_sys_info[5m])",
@@ -330,10 +331,9 @@
           "fields": "",
           "values": false
         },
-        "showUnfilled": true,
-        "text": {}
+        "showUnfilled": true
       },
-      "pluginVersion": "7.4.3",
+      "pluginVersion": "7.3.5",
       "targets": [
         {
           "expr": "sort_desc(avg_over_time(revad_cs3_org_sciencemesh_site_total_num_users[5m]))",
@@ -355,7 +355,9 @@
       "description": "Displays the total number of all users",
       "fieldConfig": {
         "defaults": {
-          "custom": {},
+          "custom": {
+            "align": null
+          },
           "mappings": [],
           "thresholds": {
             "mode": "absolute",
@@ -392,10 +394,9 @@
           "fields": "",
           "values": false
         },
-        "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "7.4.3",
+      "pluginVersion": "7.3.5",
       "targets": [
         {
           "expr": "avg_over_time(revad_cs3_org_sciencemesh_site_total_num_users[5m])",
@@ -462,10 +463,9 @@
           "values": false
         },
         "showThresholdLabels": false,
-        "showThresholdMarkers": false,
-        "text": {}
+        "showThresholdMarkers": false
       },
-      "pluginVersion": "7.4.3",
+      "pluginVersion": "7.3.5",
       "targets": [
         {
           "expr": "sort_desc(avg_over_time(revad_cs3_org_sciencemesh_site_total_amount_storage[5m]))",
@@ -524,10 +524,9 @@
           "fields": "",
           "values": false
         },
-        "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "7.4.3",
+      "pluginVersion": "7.3.5",
       "targets": [
         {
           "expr": "avg_over_time(revad_cs3_org_sciencemesh_site_total_amount_storage[5m])",
@@ -556,7 +555,7 @@
     }
   ],
   "refresh": "30s",
-  "schemaVersion": 27,
+  "schemaVersion": 26,
   "style": "dark",
   "tags": [],
   "templating": {
@@ -582,5 +581,5 @@
   "timezone": "utc",
   "title": "General statistics",
   "uid": "HD3NmHMMk",
-  "version": 2
+  "version": 8
 }
