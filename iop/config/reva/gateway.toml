@@ -85,6 +85,7 @@ refresh = 900
 
 # Site Accounts --
 [http.services.siteacc]
+enable_registration_form = true
 notifications_mail = "science.mesh@uni-muenster.de"
 [http.services.siteacc.smtp]
 sender_mail = "science.mesh@uni-muenster.de"
@@ -114,6 +115,6 @@ blackbox_output_file = "/etc/revad/scrapes/blackbox.json"
 enabled_connectors = ["localfile"]
 ignore_sm_sites = false
 [http.services.mentix.accounts]
-url = "https://sciencemesh-test.uni-muenster.de/api/accounts"
+url = "https://sciencemesh-test.uni-muenster.de/api/siteacc"
 user = "..."
 password = "..."
