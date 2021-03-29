@@ -96,6 +96,8 @@ disable_auth = true
 driver = "file"
 [http.services.siteacc.storage.file]
 file = "/tmp/mentix/accounts.json"
+[http.services.siteacc.sitereg]
+url = "https://sciencemesh-test.uni-muenster.de/api/mentix/sitereg"
 
 # Mentix configuration --
 [http.services.mentix]
