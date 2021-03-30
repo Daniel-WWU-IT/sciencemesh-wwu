@@ -9,11 +9,12 @@ commit_share_to_storage_ref = true
 [grpc.services.storageregistry]
 [grpc.services.storageregistry.drivers.static]
 home_provider = "/home"
-
-[grpc.services.storageregistry.drivers.static.rules]
-"/home" = "iop-storageprovider-home:17000"
-"/reva" = "iop-storageprovider-reva:18000"
-"123e4567-e89b-12d3-a456-426655440000" = "iop-storageprovider-reva:18000"
+[grpc.services.storageregistry.drivers.static.rules."/home"]
+address = "iop-storageprovider-home:17000"
+[grpc.services.storageregistry.drivers.static.rules."/reva"]
+address = "iop-storageprovider-reva:18000"
+[grpc.services.storageregistry.drivers.static.rules."123e4567-e89b-12d3-a456-426655440000"]
+address = "iop-storageprovider-reva:18000"
 
 [grpc.services.authprovider]
 [grpc.services.authregistry]
@@ -85,6 +86,7 @@ refresh = 900
 
 # Site Accounts --
 [http.services.siteacc]
+enable_registration_form = true
 notifications_mail = "science.mesh@uni-muenster.de"
 [http.services.siteacc.smtp]
 sender_mail = "science.mesh@uni-muenster.de"
@@ -95,6 +97,8 @@ disable_auth = true
 driver = "file"
 [http.services.siteacc.storage.file]
 file = "/tmp/mentix/accounts.json"
+[http.services.siteacc.sitereg]
+url = "https://sciencemesh-test.uni-muenster.de/api/mentix/sitereg"
 
 # Mentix configuration --
 [http.services.mentix]
@@ -114,6 +118,6 @@ blackbox_output_file = "/tmp/scrapes/blackbox.json"
 enabled_connectors = ["localfile"]
 ignore_sm_sites = false
 [http.services.mentix.accounts]
-url = "https://iop.sciencemesh.uni-muenster.de/accounts"
-user = "daniel"
-password = "danielpass"
+url = "https://iop.sciencemesh.uni-muenster.de/siteacc"
+user = "..."
+password = "..."
