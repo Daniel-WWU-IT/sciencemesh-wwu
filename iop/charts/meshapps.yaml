@@ -19,6 +19,10 @@ collabora-code:
     - /lool
     - /lool/adminws
     - /lool/(.*)/ws$
+    tls:
+      - secretName: sciencemesh-tls
+        hosts:
+          - collabora.sciencemesh.uni-muenster.de
 
 codimd:
   enabled: true
@@ -30,12 +34,18 @@ codimd:
       CMD_SAVE_WEBHOOK: https://iop.sciencemesh.uni-muenster.de/wopib/save
       CMD_URL_PATH: codimd
   ingress:
+    enabled: true
     annotations:
       kubernetes.io/ingress.class: nginx
       nginx.ingress.kubernetes.io/ssl-redirect: "true"
-    enabled: true
     hosts:
     - host: codimd.sciencemesh.uni-muenster.de
+      paths:
+      - /codimd(/|$)(.*)
+    tls:
+      - secretName: sciencemesh-tls
+        hosts:
+          - codimd.sciencemesh.uni-muenster.de
   postgresql:
     enabled: false
   mariadb:

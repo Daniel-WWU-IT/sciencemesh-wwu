@@ -5,13 +5,21 @@ ingress:
     http:
       hostname: iop.sciencemesh.uni-muenster.de
       path: /
+      tls:
+        - secretName: sciencemesh-tls
+          hosts:
+            - iop.sciencemesh.uni-muenster.de
     grpc:
       hostname: iop.sciencemesh.uni-muenster.de
+      tls:
+        - secretName: sciencemesh-tls
+          hosts:
+            - iop.sciencemesh.uni-muenster.de
 
 # Reva gateway --
 gateway:
-  # image:
-  #   repository: omnivox/revad
+  image:
+    repository: omnivox/revad
   persistentVolume:
     enabled: true
     existingClaim: iop-data
@@ -33,8 +41,8 @@ gateway:
 # Home storage provider --
 storageprovider-home:
   enabled: true
-  # image:
-  #   repository: omnivox/revad
+  image:
+    repository: omnivox/revad
   service:
     grpc:
       port: 17000
@@ -48,8 +56,8 @@ storageprovider-home:
 # Reva storage provider --
 storageprovider-reva:
   enabled: true
-  # image:
-  #   repository: omnivox/revad
+  image:
+    repository: omnivox/revad
   service:
     grpc:
       port: 18000
@@ -70,7 +78,6 @@ wopiserver:
       wopibridgeurl: https://iop.sciencemesh.uni-muenster.de/wopib
     cs3:
       revahost: iop-gateway:19000
-    iopsecret: 'nv7NUJc9ceHI4'
   ingress:
     enabled: true
     annotations:
@@ -78,6 +85,10 @@ wopiserver:
       nginx.ingress.kubernetes.io/ssl-redirect: "true"
     hostname: iop.sciencemesh.uni-muenster.de
     path: /wopi
+    tls:
+      - secretName: sciencemesh-tls
+        hosts:
+          - iop.sciencemesh.uni-muenster.de
 
   # WOPI bridge --
   wopibridge:

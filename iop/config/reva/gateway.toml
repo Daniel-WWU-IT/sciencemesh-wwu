@@ -98,11 +98,11 @@ driver = "file"
 [http.services.siteacc.storage.file]
 file = "/tmp/mentix/accounts.json"
 [http.services.siteacc.sitereg]
-url = "https://sciencemesh-test.uni-muenster.de/api/mentix/sitereg"
+url = "https://iop.sciencemesh.uni-muenster.de/mentix/sitereg"
 
 # Mentix configuration --
 [http.services.mentix]
-update_interval = "1m"
+update_interval = "5m"
 [http.services.mentix.connectors.gocdb]
 address = "http://sciencemesh-test.uni-muenster.de/gocdb/"
 [http.services.mentix.connectors.localfile]
@@ -119,5 +119,5 @@ enabled_connectors = ["localfile"]
 ignore_sm_sites = false
 [http.services.mentix.accounts]
 url = "https://iop.sciencemesh.uni-muenster.de/siteacc"
-user = "..."
-password = "..."
+user = "daniel"
+password = "danielpass"

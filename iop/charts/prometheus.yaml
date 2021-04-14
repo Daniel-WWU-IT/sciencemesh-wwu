@@ -4,6 +4,10 @@ server:
     enabled: true
     hosts:
       - prometheus.sciencemesh.uni-muenster.de
+    tls:
+      - secretName: sciencemesh-tls
+        hosts:
+          - prometheus.sciencemesh.uni-muenster.de
   persistentVolume:
     enabled: true
     storageClass: rbd
@@ -21,7 +25,7 @@ server:
     - name: scrape-configs
       persistentVolumeClaim:
         claimName: prom-shared-data
-  
+
 serverFiles:
   recording_rules.yml:
     # -- REC_RULES --
