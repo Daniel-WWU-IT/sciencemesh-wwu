@@ -73,7 +73,6 @@ wopiserver:
       wopibridgeurl: https://sciencemesh-test.uni-muenster.de/wbridge
     cs3:
       revahost: iop-gateway:19000
-    iopsecret: 'nv7NUJc9ceHI4'
 
   # WOPI bridge --
   wopibridge:
