@@ -102,7 +102,7 @@ url = "https://sciencemesh-test.uni-muenster.de/api/mentix/sitereg"
 
 # Mentix configuration --
 [http.services.mentix]
-update_interval = "1m"
+update_interval = "5m"
 [http.services.mentix.connectors.gocdb]
 address = "http://sciencemesh-test.uni-muenster.de/gocdb/"
 [http.services.mentix.connectors.localfile]
