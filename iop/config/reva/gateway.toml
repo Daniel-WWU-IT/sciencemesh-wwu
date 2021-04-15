@@ -107,6 +107,8 @@ update_interval = "1m"
 address = "http://sciencemesh-test.uni-muenster.de/gocdb/"
 [http.services.mentix.connectors.localfile]
 file = "/tmp/mentix/vendors.json"
+[http.services.mentix.services]
+critical_types = ["REVAD"]
 [http.services.mentix.exporters.webapi]
 [http.services.mentix.exporters.cs3api]
 enabled_connectors = ["gocdb"]
@@ -114,6 +116,7 @@ enabled_connectors = ["gocdb"]
 [http.services.mentix.exporters.promsd]
 metrics_output_file = "/etc/revad/scrapes/services.json"
 blackbox_output_file = "/etc/revad/scrapes/blackbox.json"
+[http.services.mentix.exporters.metrics]
 [http.services.mentix.importers.sitereg]
 enabled_connectors = ["localfile"]
 ignore_sm_sites = false
