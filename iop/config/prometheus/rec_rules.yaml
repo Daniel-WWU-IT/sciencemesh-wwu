@@ -78,3 +78,15 @@ groups:
       expr: sum_over_time(sciencemesh_hcheck_site_status{status_type="UP"}[30d]) / count_over_time(sciencemesh_hcheck_site_status{status_type="UP"}[30d])
       labels:
         status_type: AVAIL
+
+    # -- Reliability status --
+    # Record the UP status with respect to scheduled downtimes
+    - record: sciencemesh_hcheck_site_reliablity_status
+      expr: sciencemesh_hcheck_site_status{status_type="UP"} and on(site) revad_site_is_scheduled == 1
+
+    # -- Reliabilities --
+    # Reliability is the relative time with respect to scheduled downtimes of being in an UP state over the course of 30 days
+    - record: sciencemesh_hcheck_site_status
+      expr: sum_over_time(sciencemesh_hcheck_site_reliablity_status[30d]) / count_over_time(sciencemesh_hcheck_site_reliablity_status[30d])
+      labels:
+        status_type: RELIAB
