@@ -8,6 +8,7 @@
     files:
       - '/tmp/sciencemesh/services.json'
 
+  honor_labels: true
   relabel_configs:
     - source_labels: [__meta_mentix_site]
       target_label: site
