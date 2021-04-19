@@ -16,7 +16,7 @@
   "gnetId": null,
   "graphTooltip": 0,
   "id": 4,
-  "iteration": 1611063462317,
+  "iteration": 1618838022105,
   "links": [],
   "panels": [
     {
@@ -176,12 +176,72 @@
                 "value": 100
               }
             ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Reliability"
+            },
+            "properties": [
+              {
+                "id": "custom.align",
+                "value": "right"
+              },
+              {
+                "id": "unit",
+                "value": "percentunit"
+              },
+              {
+                "id": "decimals",
+                "value": 1
+              },
+              {
+                "id": "custom.displayMode",
+                "value": "color-text"
+              },
+              {
+                "id": "thresholds",
+                "value": {
+                  "mode": "percentage",
+                  "steps": [
+                    {
+                      "color": "red",
+                      "value": null
+                    },
+                    {
+                      "color": "orange",
+                      "value": 65
+                    },
+                    {
+                      "color": "yellow",
+                      "value": 80
+                    },
+                    {
+                      "color": "green",
+                      "value": 95
+                    }
+                  ]
+                }
+              },
+              {
+                "id": "custom.width",
+                "value": 100
+              },
+              {
+                "id": "mappings",
+                "value": []
+              },
+              {
+                "id": "noValue",
+                "value": "0%"
+              }
+            ]
           }
         ]
       },
       "gridPos": {
         "h": 12,
-        "w": 4,
+        "w": 5,
         "x": 0,
         "y": 0
       },
@@ -214,6 +274,14 @@
           "interval": "",
           "legendFormat": "",
           "refId": "B"
+        },
+        {
+          "expr": "sciencemesh_hcheck_site_status{status_type=\"RELIAB\"}",
+          "format": "table",
+          "instant": true,
+          "interval": "",
+          "legendFormat": "",
+          "refId": "C"
         }
       ],
       "timeFrom": null,
@@ -233,24 +301,36 @@
               "Time": true,
               "Time 1": true,
               "Time 2": true,
+              "Time 3": true,
               "__name__": true,
               "__name__ 1": true,
               "__name__ 2": true,
+              "__name__ 3": true,
               "status_type": true,
               "status_type 1": true,
-              "status_type 2": true
+              "status_type 2": true,
+              "status_type 3": true
             },
             "indexByName": {
-              "Time": 3,
+              "Time 1": 4,
+              "Time 2": 7,
+              "Time 3": 10,
               "Value #A": 1,
               "Value #B": 2,
-              "__name__": 4,
+              "Value #C": 3,
+              "__name__ 1": 5,
+              "__name__ 2": 8,
+              "__name__ 3": 11,
               "site": 0,
-              "status_type": 5
+              "status_type 1": 6,
+              "status_type 2": 9,
+              "status_type 3": 12
             },
             "renameByName": {
+              "Time 1": "",
               "Value #A": "Status",
               "Value #B": "Availability",
+              "Value #C": "Reliability",
               "site": "Site"
             }
           }
@@ -422,7 +502,7 @@
       "gridPos": {
         "h": 4,
         "w": 4,
-        "x": 4,
+        "x": 5,
         "y": 0
       },
       "id": 11,
@@ -646,8 +726,8 @@
       },
       "gridPos": {
         "h": 4,
-        "w": 16,
-        "x": 8,
+        "w": 15,
+        "x": 9,
         "y": 0
       },
       "id": 4,
@@ -887,7 +967,7 @@
       "gridPos": {
         "h": 4,
         "w": 4,
-        "x": 4,
+        "x": 5,
         "y": 4
       },
       "id": 39,
@@ -902,7 +982,7 @@
       },
       "pluginVersion": "7.3.5",
       "repeatDirection": "v",
-      "repeatIteration": 1611063462317,
+      "repeatIteration": 1618838022105,
       "repeatPanelId": 11,
       "scopedVars": {
         "sites": {
@@ -1112,8 +1192,8 @@
       },
       "gridPos": {
         "h": 4,
-        "w": 16,
-        "x": 8,
+        "w": 15,
+        "x": 9,
         "y": 4
       },
       "id": 46,
@@ -1128,7 +1208,7 @@
       },
       "pluginVersion": "7.3.5",
       "repeatDirection": "v",
-      "repeatIteration": 1611063462317,
+      "repeatIteration": 1618838022105,
       "repeatPanelId": 4,
       "scopedVars": {
         "sites": {
@@ -1354,7 +1434,7 @@
       "gridPos": {
         "h": 4,
         "w": 4,
-        "x": 4,
+        "x": 5,
         "y": 8
       },
       "id": 40,
@@ -1369,7 +1449,7 @@
       },
       "pluginVersion": "7.3.5",
       "repeatDirection": "v",
-      "repeatIteration": 1611063462317,
+      "repeatIteration": 1618838022105,
       "repeatPanelId": 11,
       "scopedVars": {
         "sites": {
@@ -1579,8 +1659,8 @@
       },
       "gridPos": {
         "h": 4,
-        "w": 16,
-        "x": 8,
+        "w": 15,
+        "x": 9,
         "y": 8
       },
       "id": 47,
@@ -1595,7 +1675,7 @@
       },
       "pluginVersion": "7.3.5",
       "repeatDirection": "v",
-      "repeatIteration": 1611063462317,
+      "repeatIteration": 1618838022105,
       "repeatPanelId": 4,
       "scopedVars": {
         "sites": {
@@ -1695,7 +1775,7 @@
       "format": "none",
       "gridPos": {
         "h": 8,
-        "w": 4,
+        "w": 5,
         "x": 0,
         "y": 12
       },
@@ -1909,7 +1989,7 @@
       "gridPos": {
         "h": 4,
         "w": 4,
-        "x": 4,
+        "x": 5,
         "y": 12
       },
       "id": 41,
@@ -1924,7 +2004,7 @@
       },
       "pluginVersion": "7.3.5",
       "repeatDirection": "v",
-      "repeatIteration": 1611063462317,
+      "repeatIteration": 1618838022105,
       "repeatPanelId": 11,
       "scopedVars": {
         "sites": {
@@ -2134,8 +2214,8 @@
       },
       "gridPos": {
         "h": 4,
-        "w": 16,
-        "x": 8,
+        "w": 15,
+        "x": 9,
         "y": 12
       },
       "id": 48,
@@ -2150,7 +2230,7 @@
       },
       "pluginVersion": "7.3.5",
       "repeatDirection": "v",
-      "repeatIteration": 1611063462317,
+      "repeatIteration": 1618838022105,
       "repeatPanelId": 4,
       "scopedVars": {
         "sites": {
@@ -2376,7 +2456,7 @@
       "gridPos": {
         "h": 4,
         "w": 4,
-        "x": 4,
+        "x": 5,
         "y": 16
       },
       "id": 42,
@@ -2391,7 +2471,7 @@
       },
       "pluginVersion": "7.3.5",
       "repeatDirection": "v",
-      "repeatIteration": 1611063462317,
+      "repeatIteration": 1618838022105,
       "repeatPanelId": 11,
       "scopedVars": {
         "sites": {
@@ -2601,8 +2681,8 @@
       },
       "gridPos": {
         "h": 4,
-        "w": 16,
-        "x": 8,
+        "w": 15,
+        "x": 9,
         "y": 16
       },
       "id": 49,
@@ -2617,7 +2697,7 @@
       },
       "pluginVersion": "7.3.5",
       "repeatDirection": "v",
-      "repeatIteration": 1611063462317,
+      "repeatIteration": 1618838022105,
       "repeatPanelId": 4,
       "scopedVars": {
         "sites": {
@@ -2843,7 +2923,7 @@
       "gridPos": {
         "h": 4,
         "w": 4,
-        "x": 4,
+        "x": 5,
         "y": 20
       },
       "id": 43,
@@ -2858,7 +2938,7 @@
       },
       "pluginVersion": "7.3.5",
       "repeatDirection": "v",
-      "repeatIteration": 1611063462317,
+      "repeatIteration": 1618838022105,
       "repeatPanelId": 11,
       "scopedVars": {
         "sites": {
@@ -3068,8 +3148,8 @@
       },
       "gridPos": {
         "h": 4,
-        "w": 16,
-        "x": 8,
+        "w": 15,
+        "x": 9,
         "y": 20
       },
       "id": 50,
@@ -3084,7 +3164,7 @@
       },
       "pluginVersion": "7.3.5",
       "repeatDirection": "v",
-      "repeatIteration": 1611063462317,
+      "repeatIteration": 1618838022105,
       "repeatPanelId": 4,
       "scopedVars": {
         "sites": {
@@ -3310,7 +3390,7 @@
       "gridPos": {
         "h": 4,
         "w": 4,
-        "x": 4,
+        "x": 5,
         "y": 24
       },
       "id": 44,
@@ -3325,7 +3405,7 @@
       },
       "pluginVersion": "7.3.5",
       "repeatDirection": "v",
-      "repeatIteration": 1611063462317,
+      "repeatIteration": 1618838022105,
       "repeatPanelId": 11,
       "scopedVars": {
         "sites": {
@@ -3535,8 +3615,8 @@
       },
       "gridPos": {
         "h": 4,
-        "w": 16,
-        "x": 8,
+        "w": 15,
+        "x": 9,
         "y": 24
       },
       "id": 51,
@@ -3551,7 +3631,7 @@
       },
       "pluginVersion": "7.3.5",
       "repeatDirection": "v",
-      "repeatIteration": 1611063462317,
+      "repeatIteration": 1618838022105,
       "repeatPanelId": 4,
       "scopedVars": {
         "sites": {
@@ -3777,7 +3857,7 @@
       "gridPos": {
         "h": 4,
         "w": 4,
-        "x": 4,
+        "x": 5,
         "y": 28
       },
       "id": 45,
@@ -3792,7 +3872,7 @@
       },
       "pluginVersion": "7.3.5",
       "repeatDirection": "v",
-      "repeatIteration": 1611063462317,
+      "repeatIteration": 1618838022105,
       "repeatPanelId": 11,
       "scopedVars": {
         "sites": {
@@ -4002,8 +4082,8 @@
       },
       "gridPos": {
         "h": 4,
-        "w": 16,
-        "x": 8,
+        "w": 15,
+        "x": 9,
         "y": 28
       },
       "id": 52,
@@ -4018,7 +4098,7 @@
       },
       "pluginVersion": "7.3.5",
       "repeatDirection": "v",
-      "repeatIteration": 1611063462317,
+      "repeatIteration": 1618838022105,
       "repeatPanelId": 4,
       "scopedVars": {
         "sites": {
@@ -4139,5 +4219,5 @@
   "timezone": "",
   "title": "Health monitoring",
   "uid": "gOBKvuOGz",
-  "version": 2
+  "version": 5
 }
