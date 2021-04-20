@@ -1,2 +1,3 @@
 #!/bin/bash
-kubectl create secret tls sciencemesh-tls --cert=sciencemesh.cert --key=sciencemesh.key
+# Chain consists of Server cert + Chain + Root
+kubectl create secret tls sciencemesh-tls --cert=sciencemesh-chain.cert --key=sciencemesh.key

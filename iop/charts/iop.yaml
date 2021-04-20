@@ -5,26 +5,25 @@ ingress:
     http:
       hostname: iop.sciencemesh.uni-muenster.de
       path: /
-      tls:
-        - secretName: sciencemesh-tls
-          hosts:
-            - iop.sciencemesh.uni-muenster.de
       annotations:
         nginx.ingress.kubernetes.io/enable-cors: "true"
         nginx.ingress.kubernetes.io/cors-allow-methods: "PUT, GET, POST, OPTIONS"
         nginx.ingress.kubernetes.io/cors-allow-origin: "https://grafana.sciencemesh.uni-muenster.de"
         nginx.ingress.kubernetes.io/cors-allow-credentials: "true"
-    grpc:
-      hostname: iop.sciencemesh.uni-muenster.de
-      path: /
       tls:
         - secretName: sciencemesh-tls
           hosts:
             - iop.sciencemesh.uni-muenster.de
+    grpc:
+      hostname: iop.sciencemesh.uni-muenster.de
+      path: /
       annotations:
-        kubernetes.io/ingress.class: nginx
         nginx.ingress.kubernetes.io/ssl-redirect: "true"
         nginx.ingress.kubernetes.io/backend-protocol: "GRPC"
+      tls:
+        - secretName: sciencemesh-tls
+          hosts:
+            - iop.sciencemesh.uni-muenster.de
 
 # Reva gateway --
 gateway:
