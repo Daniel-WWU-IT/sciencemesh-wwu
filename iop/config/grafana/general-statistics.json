@@ -22,9 +22,7 @@
     {
       "datasource": null,
       "fieldConfig": {
-        "defaults": {
-          "custom": {}
-        },
+        "defaults": {},
         "overrides": []
       },
       "gridPos": {
@@ -38,7 +36,7 @@
         "content": "<h3 style=\"text-align: center; color: #3F92CB;\">\r\n    This dashboard is still work-in-progress!\r\n</h3>",
         "mode": "html"
       },
-      "pluginVersion": "7.3.5",
+      "pluginVersion": "7.5.3",
       "timeFrom": null,
       "timeShift": null,
       "title": "Notice",
@@ -57,9 +55,7 @@
       "description": "Displays the distribution of ScienceMesh users across the world",
       "esMetric": "Count",
       "fieldConfig": {
-        "defaults": {
-          "custom": {}
-        },
+        "defaults": {},
         "overrides": []
       },
       "gridPos": {
@@ -119,9 +115,7 @@
       "description": "Displays the locations of all sites in the ScienceMesh",
       "esMetric": "Count",
       "fieldConfig": {
-        "defaults": {
-          "custom": {}
-        },
+        "defaults": {},
         "overrides": []
       },
       "gridPos": {
@@ -134,9 +128,9 @@
       "hideZero": false,
       "id": 11,
       "initialZoom": "4",
-      "jsonUrl": "https://sciencemesh-test.uni-muenster.de/api/mentix/loc",
+      "jsonUrl": "https://iop.sciencemesh.uni-muenster.de/mentix/loc",
       "jsonpCallback": "",
-      "jsonpUrl": "https://sciencemesh-test.uni-muenster.de/api/mentix/loc",
+      "jsonpUrl": "https://iop.sciencemesh.uni-muenster.de/mentix/loc",
       "locationData": "json endpoint",
       "mapCenter": "Europe",
       "mapCenterLatitude": 46,
@@ -154,7 +148,8 @@
       },
       "targets": [
         {
-          "expr": "avg_over_time(revad_sys_info[5m])",
+          "exemplar": true,
+          "expr": "avg_over_time(revad_sys_info[5m])  ",
           "hide": false,
           "instant": true,
           "interval": "",
@@ -237,7 +232,7 @@
           }
         ]
       },
-      "pluginVersion": "7.3.5",
+      "pluginVersion": "7.5.3",
       "targets": [
         {
           "expr": "avg_over_time(revad_sys_info[5m])",
@@ -298,7 +293,6 @@
       "description": "Displays the number of users per site",
       "fieldConfig": {
         "defaults": {
-          "custom": {},
           "mappings": [],
           "min": 0,
           "thresholds": {
@@ -331,9 +325,10 @@
           "fields": "",
           "values": false
         },
-        "showUnfilled": true
+        "showUnfilled": true,
+        "text": {}
       },
-      "pluginVersion": "7.3.5",
+      "pluginVersion": "7.5.3",
       "targets": [
         {
           "expr": "sort_desc(avg_over_time(revad_cs3_org_sciencemesh_site_total_num_users[5m]))",
@@ -355,9 +350,6 @@
       "description": "Displays the total number of all users",
       "fieldConfig": {
         "defaults": {
-          "custom": {
-            "align": null
-          },
           "mappings": [],
           "thresholds": {
             "mode": "absolute",
@@ -394,9 +386,10 @@
           "fields": "",
           "values": false
         },
+        "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "7.3.5",
+      "pluginVersion": "7.5.3",
       "targets": [
         {
           "expr": "avg_over_time(revad_cs3_org_sciencemesh_site_total_num_users[5m])",
@@ -429,7 +422,6 @@
       "description": "Displays the storage per site",
       "fieldConfig": {
         "defaults": {
-          "custom": {},
           "decimals": 3,
           "mappings": [],
           "thresholds": {
@@ -463,9 +455,10 @@
           "values": false
         },
         "showThresholdLabels": false,
-        "showThresholdMarkers": false
+        "showThresholdMarkers": false,
+        "text": {}
       },
-      "pluginVersion": "7.3.5",
+      "pluginVersion": "7.5.3",
       "targets": [
         {
           "expr": "sort_desc(avg_over_time(revad_cs3_org_sciencemesh_site_total_amount_storage[5m]))",
@@ -486,7 +479,6 @@
       "description": "Displays the total storage of all sites",
       "fieldConfig": {
         "defaults": {
-          "custom": {},
           "decimals": 5,
           "mappings": [],
           "thresholds": {
@@ -524,9 +516,10 @@
           "fields": "",
           "values": false
         },
+        "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "7.3.5",
+      "pluginVersion": "7.5.3",
       "targets": [
         {
           "expr": "avg_over_time(revad_cs3_org_sciencemesh_site_total_amount_storage[5m])",
@@ -555,7 +548,7 @@
     }
   ],
   "refresh": "30s",
-  "schemaVersion": 26,
+  "schemaVersion": 27,
   "style": "dark",
   "tags": [],
   "templating": {
@@ -581,5 +574,5 @@
   "timezone": "utc",
   "title": "General statistics",
   "uid": "HD3NmHMMk",
-  "version": 9
+  "version": 2
 }
