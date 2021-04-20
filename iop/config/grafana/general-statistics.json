@@ -154,7 +154,7 @@
           "instant": true,
           "interval": "",
           "legendFormat": "{{site_id}}",
-          "refId": "A"
+          "refId": "B"
         }
       ],
       "thresholds": "",
@@ -574,5 +574,5 @@
   "timezone": "utc",
   "title": "General statistics",
   "uid": "HD3NmHMMk",
-  "version": 2
+  "version": 3
 }
