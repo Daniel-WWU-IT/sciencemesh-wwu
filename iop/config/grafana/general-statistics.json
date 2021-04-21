@@ -128,7 +128,7 @@
       "hideZero": false,
       "id": 11,
       "initialZoom": "4",
-      "jsonUrl": "https://iop.sciencemesh.uni-muenster.de/mentix/loc",
+      "jsonUrl": "https://iop.sciencemesh.uni-muenster.de/iop/mentix/loc",
       "jsonpCallback": "",
       "jsonpUrl": "https://iop.sciencemesh.uni-muenster.de/mentix/loc",
       "locationData": "json endpoint",
