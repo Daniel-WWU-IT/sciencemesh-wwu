@@ -9,7 +9,7 @@ ingress:
   tls:
     - secretName: sciencemesh-tls
       hosts:
-        - grafana.sciencemesh.uni-muenster.de
+        - bbe.sciencemesh.uni-muenster.de
 pspEnabled: false
 config:
   # -- MODULES --

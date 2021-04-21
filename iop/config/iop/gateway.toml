@@ -1,6 +1,6 @@
 # gRPC services --
 [grpc.services.gateway]
-datagateway = "https://iop.sciencemesh.uni-muenster.de/datagateway"
+datagateway = "https://iop.sciencemesh.uni-muenster.de/iop/datagateway"
 appprovidersvc = "iop-gateway:19000"
 appregistry = "iop-gateway:19000"
 commit_share_to_storage_grant = true
@@ -34,7 +34,7 @@ insecure_connections = true
 [grpc.services.ocmproviderauthorizer]
 driver = "mentix"
 [grpc.services.ocmproviderauthorizer.drivers.mentix]
-url = "https://iop.sciencemesh.uni-muenster.de/mentix/cs3"
+url = "https://iop.sciencemesh.uni-muenster.de/iop/mentix/cs3"
 verify_request_hostname = true
 insecure = false
 timeout = 10
@@ -79,7 +79,7 @@ disable_auth = true
 [http.middlewares.providerauthorizer]
 driver = "mentix"
 [http.middlewares.providerauthorizer.drivers.mentix]
-url = "https://iop.sciencemesh.uni-muenster.de/mentix/cs3"
+url = "https://iop.sciencemesh.uni-muenster.de/iop/mentix/cs3"
 insecure = false
 timeout = 10
 refresh = 900
@@ -98,7 +98,7 @@ driver = "file"
 [http.services.siteacc.storage.file]
 file = "/tmp/mentix/accounts.json"
 [http.services.siteacc.sitereg]
-url = "https://iop.sciencemesh.uni-muenster.de/mentix/sitereg"
+url = "https://iop.sciencemesh.uni-muenster.de/iop/mentix/sitereg"
 
 # Mentix configuration --
 [http.services.mentix]
