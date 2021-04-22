@@ -119,8 +119,8 @@ blackbox_output_file = "/tmp/scrapes/blackbox.json"
 [http.services.mentix.exporters.metrics]
 [http.services.mentix.importers.sitereg]
 enabled_connectors = ["localfile"]
-ignore_sm_sites = true
+ignore_sm_sites = false
 [http.services.mentix.accounts]
-url = "https://sciencemesh-test.uni-muenster.de/api/siteacc"
+url = "https://iop.sciencemesh.uni-muenster.de/iop/siteacc"
 user = "..."
 password = "..."
