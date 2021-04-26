@@ -1,17 +1,31 @@
 # General settings
-replicas: 1
-service:
-  type: 'NodePort'
-  port: 3030
 adminUser: admin
 adminPassword: admin
+
+ingress:
+  enabled: true
+  hosts:
+    - grafana.sciencemesh.uni-muenster.de
+  tls:
+    - secretName: sciencemesh-tls
+      hosts:
+        - grafana.sciencemesh.uni-muenster.de
+  annotations:
+    nginx.ingress.kubernetes.io/enable-cors: "true"
+    nginx.ingress.kubernetes.io/cors-allow-methods: "PUT, GET, POST, OPTIONS"
+    nginx.ingress.kubernetes.io/cors-allow-origin: "https://iop.sciencemesh.uni-muenster.de"
+    nginx.ingress.kubernetes.io/cors-allow-credentials: "true"
+
+rbac:
+  create: false
+  pspEnabled: false
 
 # Grafana settings
 grafana.ini:
   server:
-    domain: sciencemesh-test.uni-muenster.de
-    root_url: '%(protocol)s://%(domain)s/grafana'
-    serve_from_sub_path: true
+    domain: grafana.sciencemesh.uni-muenster.de
+    root_url: '%(protocol)s://%(domain)s'
+    serve_from_sub_path: false
   auth.anonymous:
     enabled: true
     org_name: ScienceMesh
@@ -22,7 +36,7 @@ grafana.ini:
 # Persistency
 persistence:
   enabled: true
-  size: 100Mi
+  storageClassName: rbd
 
 # Plugins
 plugins:
@@ -36,8 +50,7 @@ datasources:
     datasources:
       - name: ScienceMesh
         type: prometheus
-        url: https://sciencemesh-test.uni-muenster.de/prometheus
-        access: proxy
+        url: http://prometheus-server.iop.svc
         isDefault: true
 
 dashboardProviders:
@@ -53,16 +66,3 @@ dashboardProviders:
       allowUiUpdates: true
       options:
         path: /var/lib/grafana/dashboards/sciencemesh
-
-env:
-  # Adjust the proxy settings as needed
-  HTTPS_PROXY: 'http://wwwproxy.uni-muenster.de:80'
-  HTTP_PROXY: 'http://wwwproxy.uni-muenster.de:80'
-  AUTO_PROXY: 'http://www.uni-muenster.de/proxyforce.pac'
-  https_proxy: 'http://wwwproxy.uni-muenster.de:80'
-  http_proxy: 'http://wwwproxy.uni-muenster.de:80'
-  auto_proxy: 'http://www.uni-muenster.de/proxyforce.pac'
-  NO_PROXY: 'localhost,127.0.0.1,0.0.0.0,.wwu.de,.uni-muenster.de,.wwu.io,10.0.0.0/8,172.16.0.0/12,192.168.0.0/16,169.254.0.0/16,.svc,10.14.20.42,10.14.20.44,10.14.20.45'
-  no_proxy: 'localhost,127.0.0.1,0.0.0.0,.wwu.de,.uni-muenster.de,.wwu.io,10.0.0.0/8,172.16.0.0/12,192.168.0.0/16,169.254.0.0/16,.svc,10.14.20.42,10.14.20.44,10.14.20.45'
-  USE_PROXY: 'yes'
-  use_proxy: 'yes'

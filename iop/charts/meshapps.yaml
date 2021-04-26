@@ -3,20 +3,49 @@ collabora-code:
   image:
     tag: latest
   collabora:
-    domain: iop-wopiserver\|sciencemesh-test\\.uni-muenster\\.de
-    server_name: sciencemesh-test\.uni-muenster\.de
+    domain: iop-wopiserver\|collabora\\.sciencemesh\\.uni-muenster\\.de
+    server_name: collabora\.sciencemesh\.uni-muenster\.de
+  ingress:
+    enabled: true
+    annotations:
+      kubernetes.io/ingress.class: nginx
+      nginx.ingress.kubernetes.io/ssl-redirect: "true"
+    hosts:
+    - collabora.sciencemesh.uni-muenster.de
+    paths:
+    - /loleaflet
+    - /hosting/discovery
+    - /hosting/capabilities
+    - /lool
+    - /lool/adminws
+    - /lool/(.*)/ws$
+    tls:
+      - secretName: sciencemesh-tls
+        hosts:
+          - collabora.sciencemesh.uni-muenster.de
 
 codimd:
   enabled: true
   codimd:
     connection:
-      domain: sciencemesh-test.uni-muenster.de
+      domain: codimd.sciencemesh.uni-muenster.de
       protocolUseSSL: true
     extraEnvironmentVariables:
-      CMD_SAVE_WEBHOOK: https://sciencemesh-test.uni-muenster.de/wbridge/save
+      CMD_SAVE_WEBHOOK: https://iop.sciencemesh.uni-muenster.de/wopib/save
       CMD_URL_PATH: codimd
-  service:
-    port: 6980
+  ingress:
+    enabled: true
+    annotations:
+      kubernetes.io/ingress.class: nginx
+      nginx.ingress.kubernetes.io/ssl-redirect: "true"
+    hosts:
+    - host: codimd.sciencemesh.uni-muenster.de
+      paths:
+      - /codimd(/|$)(.*)
+    tls:
+      - secretName: sciencemesh-tls
+        hosts:
+          - codimd.sciencemesh.uni-muenster.de
   postgresql:
     enabled: false
   mariadb:

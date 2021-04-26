@@ -1,3 +1,33 @@
+# Ingress --
+ingress:
+  enabled: true
+  services:
+    grpc:
+      hostname: iop.sciencemesh.uni-muenster.de
+      path: /
+      annotations:
+        nginx.ingress.kubernetes.io/ssl-redirect: "true"
+        nginx.ingress.kubernetes.io/backend-protocol: "GRPC"
+      tls:
+        - secretName: sciencemesh-tls
+          hosts:
+            - iop.sciencemesh.uni-muenster.de
+    http:
+      hostname: iop.sciencemesh.uni-muenster.de
+      path: /iop(/|$)(.*)
+      annotations:
+        nginx.ingress.kubernetes.io/ssl-redirect: "true"
+        nginx.ingress.kubernetes.io/use-regex: "true"
+        nginx.ingress.kubernetes.io/rewrite-target: /$2
+        nginx.ingress.kubernetes.io/enable-cors: "true"
+        nginx.ingress.kubernetes.io/cors-allow-methods: "PUT, GET, POST, OPTIONS"
+        nginx.ingress.kubernetes.io/cors-allow-origin: "https://grafana.sciencemesh.uni-muenster.de"
+        nginx.ingress.kubernetes.io/cors-allow-credentials: "true"
+      tls:
+        - secretName: sciencemesh-tls
+          hosts:
+            - iop.sciencemesh.uni-muenster.de
+
 # Reva gateway --
 gateway:
   image:
@@ -8,7 +38,7 @@ gateway:
 
   extraVolumeMounts:
     - name: scrape-configs
-      mountPath: /etc/revad/scrapes
+      mountPath: /tmp/scrapes
     - name: mentix-data
       mountPath: /tmp/mentix
 
@@ -19,19 +49,6 @@ gateway:
     - name: mentix-data
       persistentVolumeClaim:
         claimName: mentix-data
-
-  env:
-    # Adjust the proxy settings as needed
-    HTTPS_PROXY: 'http://wwwproxy.uni-muenster.de:80'
-    HTTP_PROXY: 'http://wwwproxy.uni-muenster.de:80'
-    AUTO_PROXY: 'http://www.uni-muenster.de/proxyforce.pac'
-    https_proxy: 'http://wwwproxy.uni-muenster.de:80'
-    http_proxy: 'http://wwwproxy.uni-muenster.de:80'
-    auto_proxy: 'http://www.uni-muenster.de/proxyforce.pac'
-    NO_PROXY: 'localhost,::1,127.0.0.1,0.0.0.0,.wwu.de,.uni-muenster.de,.wwu.io,10.0.0.0/8,172.16.0.0/12,192.168.0.0/16,169.254.0.0/16,.svc,10.14.20.42,10.14.20.44,10.14.20.45,iop-storageprovider-home,iop-storageprovider-reva,iop-gateway,iop-wopiserver,iop-wopiserver-wopibridge,meshapps-collabora-code,meshapps-codimd'
-    no_proxy: 'localhost,::1,127.0.0.1,0.0.0.0,.wwu.de,.uni-muenster.de,.wwu.io,10.0.0.0/8,172.16.0.0/12,192.168.0.0/16,169.254.0.0/16,.svc,10.14.20.42,10.14.20.44,10.14.20.45,iop-storageprovider-home,iop-storageprovider-reva,iop-gateway,iop-wopiserver,iop-wopiserver-wopibridge,meshapps-collabora-code,meshapps-codimd'
-    USE_PROXY: 'yes'
-    use_proxy: 'yes'
 
 # Home storage provider --
 storageprovider-home:
@@ -66,19 +83,37 @@ storageprovider-reva:
 # WOPI server --
 wopiserver:
   enabled: true
-  wopiserverUrl: https://sciencemesh-test.uni-muenster.de/wopi
+  image:
+    tag: v6.4.0
+  wopiserverUrl: https://iop.sciencemesh.uni-muenster.de/wopi
   config:
     appProviders:
       codeurl: http://meshapps-collabora-code:9980
-      wopibridgeurl: https://sciencemesh-test.uni-muenster.de/wbridge
+      wopibridgeurl: https://iop.sciencemesh.uni-muenster.de/wopib
     cs3:
       revahost: iop-gateway:19000
+  ingress:
+    enabled: true
+    annotations:
+      nginx.ingress.kubernetes.io/ssl-redirect: "true"
+    hostname: iop.sciencemesh.uni-muenster.de
+    path: /wopi
+    tls:
+      - secretName: sciencemesh-tls
+        hosts:
+          - iop.sciencemesh.uni-muenster.de
 
   # WOPI bridge --
   wopibridge:
     enabled: true
-    bridgeUrl: https://sciencemesh-test.uni-muenster.de
+    bridgeUrl: https://iop.sciencemesh.uni-muenster.de
     env:
-      APP_ROOT: /wbridge
-      CODIMD_EXT_URL: https://sciencemesh-test.uni-muenster.de/codimd
-      CODIMD_INT_URL: http://meshapps-codimd:6980
+      APP_ROOT: /wopib
+      CODIMD_EXT_URL: https://codimd.sciencemesh.uni-muenster.de
+      CODIMD_INT_URL: http://meshapps-codimd
+    ingress:
+      enabled: true
+      annotations:
+        nginx.ingress.kubernetes.io/ssl-redirect: "true"
+      hostname: iop.sciencemesh.uni-muenster.de
+      path: /wopib

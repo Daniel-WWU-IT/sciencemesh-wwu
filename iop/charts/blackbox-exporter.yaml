@@ -2,5 +2,14 @@ image:
   repository: omnivox/blackbox_exporter
   tag: latest
   pullPolicy: Always
+ingress:
+  enabled: true
+  hosts:
+    - bbe.sciencemesh.uni-muenster.de
+  tls:
+    - secretName: sciencemesh-tls
+      hosts:
+        - bbe.sciencemesh.uni-muenster.de
+pspEnabled: false
 config:
   # -- MODULES --

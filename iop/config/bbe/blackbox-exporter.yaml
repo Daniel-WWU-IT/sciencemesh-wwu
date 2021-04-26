@@ -7,14 +7,14 @@ modules:
     nagios:
       check: check_http
       args:
-        - -H wwwproxy.uni-muenster.de:80
-        - -u $TARGET$
+        - -H $TARGET_HOST$
+        - -u $TARGET_PATH$
+        - -S
         - -N
         - -e HTTP
-        - -w 5.0
-        - -c 10.0
+        - -w 3.0
+        - -c 8.0
         - -t 10
-      proxy_url: http://wwwproxy.uni-muenster.de:80
 
   iop_login:
     # Try logging in to the IOP using the omnipresent 'test' user
@@ -26,4 +26,3 @@ modules:
         - -target=$TARGET$
         - -user=test
         - -pass=testpass
-      proxy_url: http://wwwproxy.uni-muenster.de:80
