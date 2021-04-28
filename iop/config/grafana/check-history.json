@@ -15,8 +15,8 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
-  "id": 4,
-  "iteration": 1610996062910,
+  "id": 2,
+  "iteration": 1619608278831,
   "links": [],
   "panels": [
     {
@@ -105,7 +105,7 @@
             "properties": [
               {
                 "id": "custom.width",
-                "value": 150
+                "value": 190
               },
               {
                 "id": "unit",
@@ -150,19 +150,15 @@
       "interval": "",
       "options": {
         "showHeader": true,
-        "sortBy": [
-          {
-            "desc": false,
-            "displayName": "Service"
-          }
-        ]
+        "sortBy": []
       },
-      "pluginVersion": "7.3.5",
+      "pluginVersion": "7.5.3",
       "repeat": "sites",
       "repeatDirection": "v",
       "targets": [
         {
-          "expr": "probe_nagios_result{site=\"$site\",job=\"$check\",service_type=\"$service\"}",
+          "exemplar": true,
+          "expr": "probe_nagios_result{site_id=\"$site\",job=\"$check\",service_type=\"$service\"}",
           "format": "table",
           "instant": false,
           "interval": "",
@@ -173,7 +169,7 @@
       ],
       "timeFrom": "30d",
       "timeShift": null,
-      "title": "Check history: $site -- $check on $service",
+      "title": "Check history: $site_name -- $check on $service",
       "transformations": [
         {
           "id": "organize",
@@ -191,7 +187,7 @@
             },
             "indexByName": {
               "Time": 0,
-              "Value": 5,
+              "Value #A": 5,
               "__name__": 6,
               "country": 7,
               "instance": 8,
@@ -204,11 +200,13 @@
             },
             "renameByName": {
               "Value": "Status",
+              "Value #A": "Status",
               "__name__": "",
               "job": "Check",
               "output": "Output",
               "service_type": "Service",
-              "site": "Site"
+              "site": "Site",
+              "site_type": ""
             }
           }
         }
@@ -216,52 +214,47 @@
       "type": "table"
     }
   ],
-  "schemaVersion": 26,
+  "schemaVersion": 27,
   "style": "dark",
   "tags": [],
   "templating": {
     "list": [
       {
-        "current": {
-          "selected": false,
-          "text": "CERN",
-          "value": "CERN"
-        },
+        "description": null,
         "error": null,
         "hide": 2,
         "label": null,
         "name": "site",
-        "options": [],
         "query": "",
         "skipUrlSync": false,
         "type": "constant"
       },
       {
-        "current": {
-          "selected": false,
-          "text": "REVAD",
-          "value": "REVAD"
-        },
+        "description": null,
         "error": null,
         "hide": 2,
         "label": null,
         "name": "service",
-        "options": [],
         "query": "",
         "skipUrlSync": false,
         "type": "constant"
       },
       {
-        "current": {
-          "selected": false,
-          "text": "sciencemesh-hcheck-http-ping",
-          "value": "sciencemesh-hcheck-http-ping"
-        },
+        "description": null,
         "error": null,
         "hide": 2,
         "label": null,
         "name": "check",
-        "options": [],
+        "query": "",
+        "skipUrlSync": false,
+        "type": "constant"
+      },
+      {
+        "description": null,
+        "error": null,
+        "hide": 2,
+        "label": null,
+        "name": "site_name",
         "query": "",
         "skipUrlSync": false,
         "type": "constant"
@@ -276,5 +269,5 @@
   "timezone": "",
   "title": "Check history",
   "uid": "rUGu4caMz",
-  "version": 8
+  "version": 6
 }

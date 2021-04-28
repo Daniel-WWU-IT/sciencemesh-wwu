@@ -16,7 +16,7 @@
   "gnetId": null,
   "graphTooltip": 0,
   "id": 4,
-  "iteration": 1618838022105,
+  "iteration": 1619608124885,
   "links": [],
   "panels": [
     {
@@ -102,6 +102,10 @@
               {
                 "id": "custom.width",
                 "value": 133
+              },
+              {
+                "id": "mappings",
+                "value": []
               }
             ]
           },
@@ -256,9 +260,10 @@
           }
         ]
       },
-      "pluginVersion": "7.3.5",
+      "pluginVersion": "7.5.3",
       "targets": [
         {
+          "exemplar": true,
           "expr": "sciencemesh_hcheck_site_status{status_type=\"RESULT\"}",
           "format": "table",
           "hide": false,
@@ -291,7 +296,7 @@
         {
           "id": "seriesToColumns",
           "options": {
-            "byField": "site"
+            "byField": "site_id"
           }
         },
         {
@@ -306,32 +311,40 @@
               "__name__ 1": true,
               "__name__ 2": true,
               "__name__ 3": true,
+              "site 2": true,
+              "site 3": true,
+              "site_id": true,
               "status_type": true,
               "status_type 1": true,
               "status_type 2": true,
               "status_type 3": true
             },
             "indexByName": {
-              "Time 1": 4,
-              "Time 2": 7,
-              "Time 3": 10,
-              "Value #A": 1,
-              "Value #B": 2,
-              "Value #C": 3,
-              "__name__ 1": 5,
-              "__name__ 2": 8,
-              "__name__ 3": 11,
-              "site": 0,
-              "status_type 1": 6,
-              "status_type 2": 9,
-              "status_type 3": 12
+              "Time 1": 5,
+              "Time 2": 8,
+              "Time 3": 11,
+              "Value #A": 2,
+              "Value #B": 3,
+              "Value #C": 4,
+              "__name__ 1": 6,
+              "__name__ 2": 9,
+              "__name__ 3": 12,
+              "site 1": 1,
+              "site 2": 14,
+              "site 3": 15,
+              "site_id": 0,
+              "status_type 1": 7,
+              "status_type 2": 10,
+              "status_type 3": 13
             },
             "renameByName": {
               "Time 1": "",
               "Value #A": "Status",
               "Value #B": "Availability",
               "Value #C": "Reliability",
-              "site": "Site"
+              "site": "Site",
+              "site 1": "Site",
+              "site_id": ""
             }
           }
         }
@@ -515,19 +528,20 @@
           }
         ]
       },
-      "pluginVersion": "7.3.5",
+      "pluginVersion": "7.5.3",
       "repeat": "sites",
       "repeatDirection": "v",
       "scopedVars": {
         "sites": {
           "selected": false,
           "text": "AILLERON",
-          "value": "AILLERON"
+          "value": "0007"
         }
       },
       "targets": [
         {
-          "expr": "sciencemesh_hcheck_service_status{site=\"$sites\", status_type=\"RESULT\"}",
+          "exemplar": true,
+          "expr": "sciencemesh_hcheck_service_status{site_id=\"$sites\", status_type=\"RESULT\"}",
           "format": "table",
           "instant": true,
           "interval": "",
@@ -536,7 +550,8 @@
           "refId": "A"
         },
         {
-          "expr": "sciencemesh_hcheck_service_status{site=\"$sites\", status_type=\"AVAIL\"}",
+          "exemplar": true,
+          "expr": "sciencemesh_hcheck_service_status{site_id=\"$sites\", status_type=\"AVAIL\"}",
           "format": "table",
           "instant": true,
           "interval": "",
@@ -567,6 +582,8 @@
               "site": true,
               "site 1": true,
               "site 2": true,
+              "site_id 1": true,
+              "site_id 2": true,
               "status_type": true,
               "status_type 1": true,
               "status_type 2": true
@@ -696,7 +713,7 @@
                   {
                     "targetBlank": true,
                     "title": "Show check history",
-                    "url": "d/rUGu4caMz/check-history?var-site=${sites}&var-service=${__data.fields.Service}&var-check=${__data.fields.Check}"
+                    "url": "d/rUGu4caMz/check-history?var-site=${sites}&var-site_name=${sites:text}&var-service=${__data.fields.Service}&var-check=${__data.fields.Check}"
                   }
                 ]
               }
@@ -721,6 +738,18 @@
                 "value": "color-background"
               }
             ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Site"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 1
+              }
+            ]
           }
         ]
       },
@@ -740,19 +769,20 @@
           }
         ]
       },
-      "pluginVersion": "7.3.5",
+      "pluginVersion": "7.5.3",
       "repeat": "sites",
       "repeatDirection": "v",
       "scopedVars": {
         "sites": {
           "selected": false,
           "text": "AILLERON",
-          "value": "AILLERON"
+          "value": "0007"
         }
       },
       "targets": [
         {
-          "expr": "probe_nagios_result{site=\"$sites\"}",
+          "exemplar": true,
+          "expr": "probe_nagios_result{site_id=\"$sites\"}",
           "format": "table",
           "instant": true,
           "interval": "",
@@ -778,7 +808,7 @@
               "site_type": true
             },
             "indexByName": {
-              "Time": 0,
+              "Time": 1,
               "Value": 5,
               "__name__": 6,
               "country": 7,
@@ -786,7 +816,7 @@
               "job": 3,
               "output": 4,
               "service_type": 2,
-              "site": 1,
+              "site": 0,
               "site_id": 9,
               "site_type": 10
             },
@@ -980,20 +1010,21 @@
           }
         ]
       },
-      "pluginVersion": "7.3.5",
+      "pluginVersion": "7.5.3",
       "repeatDirection": "v",
-      "repeatIteration": 1618838022105,
+      "repeatIteration": 1619608124885,
       "repeatPanelId": 11,
       "scopedVars": {
         "sites": {
           "selected": false,
           "text": "CERN",
-          "value": "CERN"
+          "value": "0004"
         }
       },
       "targets": [
         {
-          "expr": "sciencemesh_hcheck_service_status{site=\"$sites\", status_type=\"RESULT\"}",
+          "exemplar": true,
+          "expr": "sciencemesh_hcheck_service_status{site_id=\"$sites\", status_type=\"RESULT\"}",
           "format": "table",
           "instant": true,
           "interval": "",
@@ -1002,7 +1033,8 @@
           "refId": "A"
         },
         {
-          "expr": "sciencemesh_hcheck_service_status{site=\"$sites\", status_type=\"AVAIL\"}",
+          "exemplar": true,
+          "expr": "sciencemesh_hcheck_service_status{site_id=\"$sites\", status_type=\"AVAIL\"}",
           "format": "table",
           "instant": true,
           "interval": "",
@@ -1033,6 +1065,8 @@
               "site": true,
               "site 1": true,
               "site 2": true,
+              "site_id 1": true,
+              "site_id 2": true,
               "status_type": true,
               "status_type 1": true,
               "status_type 2": true
@@ -1162,7 +1196,7 @@
                   {
                     "targetBlank": true,
                     "title": "Show check history",
-                    "url": "d/rUGu4caMz/check-history?var-site=${sites}&var-service=${__data.fields.Service}&var-check=${__data.fields.Check}"
+                    "url": "d/rUGu4caMz/check-history?var-site=${sites}&var-site_name=${sites:text}&var-service=${__data.fields.Service}&var-check=${__data.fields.Check}"
                   }
                 ]
               }
@@ -1187,6 +1221,18 @@
                 "value": "color-background"
               }
             ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Site"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 1
+              }
+            ]
           }
         ]
       },
@@ -1206,20 +1252,21 @@
           }
         ]
       },
-      "pluginVersion": "7.3.5",
+      "pluginVersion": "7.5.3",
       "repeatDirection": "v",
-      "repeatIteration": 1618838022105,
+      "repeatIteration": 1619608124885,
       "repeatPanelId": 4,
       "scopedVars": {
         "sites": {
           "selected": false,
           "text": "CERN",
-          "value": "CERN"
+          "value": "0004"
         }
       },
       "targets": [
         {
-          "expr": "probe_nagios_result{site=\"$sites\"}",
+          "exemplar": true,
+          "expr": "probe_nagios_result{site_id=\"$sites\"}",
           "format": "table",
           "instant": true,
           "interval": "",
@@ -1245,7 +1292,7 @@
               "site_type": true
             },
             "indexByName": {
-              "Time": 0,
+              "Time": 1,
               "Value": 5,
               "__name__": 6,
               "country": 7,
@@ -1253,7 +1300,7 @@
               "job": 3,
               "output": 4,
               "service_type": 2,
-              "site": 1,
+              "site": 0,
               "site_id": 9,
               "site_type": 10
             },
@@ -1447,20 +1494,21 @@
           }
         ]
       },
-      "pluginVersion": "7.3.5",
+      "pluginVersion": "7.5.3",
       "repeatDirection": "v",
-      "repeatIteration": 1618838022105,
+      "repeatIteration": 1619608124885,
       "repeatPanelId": 11,
       "scopedVars": {
         "sites": {
           "selected": false,
           "text": "CESNET",
-          "value": "CESNET"
+          "value": "0003"
         }
       },
       "targets": [
         {
-          "expr": "sciencemesh_hcheck_service_status{site=\"$sites\", status_type=\"RESULT\"}",
+          "exemplar": true,
+          "expr": "sciencemesh_hcheck_service_status{site_id=\"$sites\", status_type=\"RESULT\"}",
           "format": "table",
           "instant": true,
           "interval": "",
@@ -1469,7 +1517,8 @@
           "refId": "A"
         },
         {
-          "expr": "sciencemesh_hcheck_service_status{site=\"$sites\", status_type=\"AVAIL\"}",
+          "exemplar": true,
+          "expr": "sciencemesh_hcheck_service_status{site_id=\"$sites\", status_type=\"AVAIL\"}",
           "format": "table",
           "instant": true,
           "interval": "",
@@ -1500,6 +1549,8 @@
               "site": true,
               "site 1": true,
               "site 2": true,
+              "site_id 1": true,
+              "site_id 2": true,
               "status_type": true,
               "status_type 1": true,
               "status_type 2": true
@@ -1629,7 +1680,7 @@
                   {
                     "targetBlank": true,
                     "title": "Show check history",
-                    "url": "d/rUGu4caMz/check-history?var-site=${sites}&var-service=${__data.fields.Service}&var-check=${__data.fields.Check}"
+                    "url": "d/rUGu4caMz/check-history?var-site=${sites}&var-site_name=${sites:text}&var-service=${__data.fields.Service}&var-check=${__data.fields.Check}"
                   }
                 ]
               }
@@ -1654,6 +1705,18 @@
                 "value": "color-background"
               }
             ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Site"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 1
+              }
+            ]
           }
         ]
       },
@@ -1673,20 +1736,21 @@
           }
         ]
       },
-      "pluginVersion": "7.3.5",
+      "pluginVersion": "7.5.3",
       "repeatDirection": "v",
-      "repeatIteration": 1618838022105,
+      "repeatIteration": 1619608124885,
       "repeatPanelId": 4,
       "scopedVars": {
         "sites": {
           "selected": false,
           "text": "CESNET",
-          "value": "CESNET"
+          "value": "0003"
         }
       },
       "targets": [
         {
-          "expr": "probe_nagios_result{site=\"$sites\"}",
+          "exemplar": true,
+          "expr": "probe_nagios_result{site_id=\"$sites\"}",
           "format": "table",
           "instant": true,
           "interval": "",
@@ -1712,7 +1776,7 @@
               "site_type": true
             },
             "indexByName": {
-              "Time": 0,
+              "Time": 1,
               "Value": 5,
               "__name__": 6,
               "country": 7,
@@ -1720,7 +1784,7 @@
               "job": 3,
               "output": 4,
               "service_type": 2,
-              "site": 1,
+              "site": 0,
               "site_id": 9,
               "site_type": 10
             },
@@ -1756,19 +1820,7 @@
       "decimals": null,
       "description": "",
       "fieldConfig": {
-        "defaults": {
-          "custom": {},
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "blue",
-                "value": null
-              }
-            ]
-          }
-        },
+        "defaults": {},
         "overrides": []
       },
       "fontSize": "80%",
@@ -2002,20 +2054,21 @@
           }
         ]
       },
-      "pluginVersion": "7.3.5",
+      "pluginVersion": "7.5.3",
       "repeatDirection": "v",
-      "repeatIteration": 1618838022105,
+      "repeatIteration": 1619608124885,
       "repeatPanelId": 11,
       "scopedVars": {
         "sites": {
           "selected": false,
           "text": "CUBBIT",
-          "value": "CUBBIT"
+          "value": "0006"
         }
       },
       "targets": [
         {
-          "expr": "sciencemesh_hcheck_service_status{site=\"$sites\", status_type=\"RESULT\"}",
+          "exemplar": true,
+          "expr": "sciencemesh_hcheck_service_status{site_id=\"$sites\", status_type=\"RESULT\"}",
           "format": "table",
           "instant": true,
           "interval": "",
@@ -2024,7 +2077,8 @@
           "refId": "A"
         },
         {
-          "expr": "sciencemesh_hcheck_service_status{site=\"$sites\", status_type=\"AVAIL\"}",
+          "exemplar": true,
+          "expr": "sciencemesh_hcheck_service_status{site_id=\"$sites\", status_type=\"AVAIL\"}",
           "format": "table",
           "instant": true,
           "interval": "",
@@ -2055,6 +2109,8 @@
               "site": true,
               "site 1": true,
               "site 2": true,
+              "site_id 1": true,
+              "site_id 2": true,
               "status_type": true,
               "status_type 1": true,
               "status_type 2": true
@@ -2184,7 +2240,7 @@
                   {
                     "targetBlank": true,
                     "title": "Show check history",
-                    "url": "d/rUGu4caMz/check-history?var-site=${sites}&var-service=${__data.fields.Service}&var-check=${__data.fields.Check}"
+                    "url": "d/rUGu4caMz/check-history?var-site=${sites}&var-site_name=${sites:text}&var-service=${__data.fields.Service}&var-check=${__data.fields.Check}"
                   }
                 ]
               }
@@ -2209,6 +2265,18 @@
                 "value": "color-background"
               }
             ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Site"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 1
+              }
+            ]
           }
         ]
       },
@@ -2228,20 +2296,21 @@
           }
         ]
       },
-      "pluginVersion": "7.3.5",
+      "pluginVersion": "7.5.3",
       "repeatDirection": "v",
-      "repeatIteration": 1618838022105,
+      "repeatIteration": 1619608124885,
       "repeatPanelId": 4,
       "scopedVars": {
         "sites": {
           "selected": false,
           "text": "CUBBIT",
-          "value": "CUBBIT"
+          "value": "0006"
         }
       },
       "targets": [
         {
-          "expr": "probe_nagios_result{site=\"$sites\"}",
+          "exemplar": true,
+          "expr": "probe_nagios_result{site_id=\"$sites\"}",
           "format": "table",
           "instant": true,
           "interval": "",
@@ -2267,7 +2336,7 @@
               "site_type": true
             },
             "indexByName": {
-              "Time": 0,
+              "Time": 1,
               "Value": 5,
               "__name__": 6,
               "country": 7,
@@ -2275,7 +2344,7 @@
               "job": 3,
               "output": 4,
               "service_type": 2,
-              "site": 1,
+              "site": 0,
               "site_id": 9,
               "site_type": 10
             },
@@ -2469,20 +2538,21 @@
           }
         ]
       },
-      "pluginVersion": "7.3.5",
+      "pluginVersion": "7.5.3",
       "repeatDirection": "v",
-      "repeatIteration": 1618838022105,
+      "repeatIteration": 1619608124885,
       "repeatPanelId": 11,
       "scopedVars": {
         "sites": {
           "selected": false,
           "text": "DTU",
-          "value": "DTU"
+          "value": "0002"
         }
       },
       "targets": [
         {
-          "expr": "sciencemesh_hcheck_service_status{site=\"$sites\", status_type=\"RESULT\"}",
+          "exemplar": true,
+          "expr": "sciencemesh_hcheck_service_status{site_id=\"$sites\", status_type=\"RESULT\"}",
           "format": "table",
           "instant": true,
           "interval": "",
@@ -2491,7 +2561,8 @@
           "refId": "A"
         },
         {
-          "expr": "sciencemesh_hcheck_service_status{site=\"$sites\", status_type=\"AVAIL\"}",
+          "exemplar": true,
+          "expr": "sciencemesh_hcheck_service_status{site_id=\"$sites\", status_type=\"AVAIL\"}",
           "format": "table",
           "instant": true,
           "interval": "",
@@ -2522,6 +2593,8 @@
               "site": true,
               "site 1": true,
               "site 2": true,
+              "site_id 1": true,
+              "site_id 2": true,
               "status_type": true,
               "status_type 1": true,
               "status_type 2": true
@@ -2651,7 +2724,7 @@
                   {
                     "targetBlank": true,
                     "title": "Show check history",
-                    "url": "d/rUGu4caMz/check-history?var-site=${sites}&var-service=${__data.fields.Service}&var-check=${__data.fields.Check}"
+                    "url": "d/rUGu4caMz/check-history?var-site=${sites}&var-site_name=${sites:text}&var-service=${__data.fields.Service}&var-check=${__data.fields.Check}"
                   }
                 ]
               }
@@ -2676,6 +2749,18 @@
                 "value": "color-background"
               }
             ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Site"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 1
+              }
+            ]
           }
         ]
       },
@@ -2695,20 +2780,21 @@
           }
         ]
       },
-      "pluginVersion": "7.3.5",
+      "pluginVersion": "7.5.3",
       "repeatDirection": "v",
-      "repeatIteration": 1618838022105,
+      "repeatIteration": 1619608124885,
       "repeatPanelId": 4,
       "scopedVars": {
         "sites": {
           "selected": false,
           "text": "DTU",
-          "value": "DTU"
+          "value": "0002"
         }
       },
       "targets": [
         {
-          "expr": "probe_nagios_result{site=\"$sites\"}",
+          "exemplar": true,
+          "expr": "probe_nagios_result{site_id=\"$sites\"}",
           "format": "table",
           "instant": true,
           "interval": "",
@@ -2734,7 +2820,7 @@
               "site_type": true
             },
             "indexByName": {
-              "Time": 0,
+              "Time": 1,
               "Value": 5,
               "__name__": 6,
               "country": 7,
@@ -2742,7 +2828,7 @@
               "job": 3,
               "output": 4,
               "service_type": 2,
-              "site": 1,
+              "site": 0,
               "site_id": 9,
               "site_type": 10
             },
@@ -2936,20 +3022,21 @@
           }
         ]
       },
-      "pluginVersion": "7.3.5",
+      "pluginVersion": "7.5.3",
       "repeatDirection": "v",
-      "repeatIteration": 1618838022105,
+      "repeatIteration": 1619608124885,
       "repeatPanelId": 11,
       "scopedVars": {
         "sites": {
           "selected": false,
           "text": "SURFSARA",
-          "value": "SURFSARA"
+          "value": "0005"
         }
       },
       "targets": [
         {
-          "expr": "sciencemesh_hcheck_service_status{site=\"$sites\", status_type=\"RESULT\"}",
+          "exemplar": true,
+          "expr": "sciencemesh_hcheck_service_status{site_id=\"$sites\", status_type=\"RESULT\"}",
           "format": "table",
           "instant": true,
           "interval": "",
@@ -2958,7 +3045,8 @@
           "refId": "A"
         },
         {
-          "expr": "sciencemesh_hcheck_service_status{site=\"$sites\", status_type=\"AVAIL\"}",
+          "exemplar": true,
+          "expr": "sciencemesh_hcheck_service_status{site_id=\"$sites\", status_type=\"AVAIL\"}",
           "format": "table",
           "instant": true,
           "interval": "",
@@ -2989,6 +3077,8 @@
               "site": true,
               "site 1": true,
               "site 2": true,
+              "site_id 1": true,
+              "site_id 2": true,
               "status_type": true,
               "status_type 1": true,
               "status_type 2": true
@@ -3118,7 +3208,7 @@
                   {
                     "targetBlank": true,
                     "title": "Show check history",
-                    "url": "d/rUGu4caMz/check-history?var-site=${sites}&var-service=${__data.fields.Service}&var-check=${__data.fields.Check}"
+                    "url": "d/rUGu4caMz/check-history?var-site=${sites}&var-site_name=${sites:text}&var-service=${__data.fields.Service}&var-check=${__data.fields.Check}"
                   }
                 ]
               }
@@ -3143,6 +3233,18 @@
                 "value": "color-background"
               }
             ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Site"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 1
+              }
+            ]
           }
         ]
       },
@@ -3162,20 +3264,21 @@
           }
         ]
       },
-      "pluginVersion": "7.3.5",
+      "pluginVersion": "7.5.3",
       "repeatDirection": "v",
-      "repeatIteration": 1618838022105,
+      "repeatIteration": 1619608124885,
       "repeatPanelId": 4,
       "scopedVars": {
         "sites": {
           "selected": false,
           "text": "SURFSARA",
-          "value": "SURFSARA"
+          "value": "0005"
         }
       },
       "targets": [
         {
-          "expr": "probe_nagios_result{site=\"$sites\"}",
+          "exemplar": true,
+          "expr": "probe_nagios_result{site_id=\"$sites\"}",
           "format": "table",
           "instant": true,
           "interval": "",
@@ -3201,7 +3304,7 @@
               "site_type": true
             },
             "indexByName": {
-              "Time": 0,
+              "Time": 1,
               "Value": 5,
               "__name__": 6,
               "country": 7,
@@ -3209,7 +3312,7 @@
               "job": 3,
               "output": 4,
               "service_type": 2,
-              "site": 1,
+              "site": 0,
               "site_id": 9,
               "site_type": 10
             },
@@ -3403,20 +3506,21 @@
           }
         ]
       },
-      "pluginVersion": "7.3.5",
+      "pluginVersion": "7.5.3",
       "repeatDirection": "v",
-      "repeatIteration": 1618838022105,
+      "repeatIteration": 1619608124885,
       "repeatPanelId": 11,
       "scopedVars": {
         "sites": {
           "selected": false,
           "text": "SWITCH",
-          "value": "SWITCH"
+          "value": "0008"
         }
       },
       "targets": [
         {
-          "expr": "sciencemesh_hcheck_service_status{site=\"$sites\", status_type=\"RESULT\"}",
+          "exemplar": true,
+          "expr": "sciencemesh_hcheck_service_status{site_id=\"$sites\", status_type=\"RESULT\"}",
           "format": "table",
           "instant": true,
           "interval": "",
@@ -3425,7 +3529,8 @@
           "refId": "A"
         },
         {
-          "expr": "sciencemesh_hcheck_service_status{site=\"$sites\", status_type=\"AVAIL\"}",
+          "exemplar": true,
+          "expr": "sciencemesh_hcheck_service_status{site_id=\"$sites\", status_type=\"AVAIL\"}",
           "format": "table",
           "instant": true,
           "interval": "",
@@ -3456,6 +3561,8 @@
               "site": true,
               "site 1": true,
               "site 2": true,
+              "site_id 1": true,
+              "site_id 2": true,
               "status_type": true,
               "status_type 1": true,
               "status_type 2": true
@@ -3585,7 +3692,7 @@
                   {
                     "targetBlank": true,
                     "title": "Show check history",
-                    "url": "d/rUGu4caMz/check-history?var-site=${sites}&var-service=${__data.fields.Service}&var-check=${__data.fields.Check}"
+                    "url": "d/rUGu4caMz/check-history?var-site=${sites}&var-site_name=${sites:text}&var-service=${__data.fields.Service}&var-check=${__data.fields.Check}"
                   }
                 ]
               }
@@ -3610,6 +3717,18 @@
                 "value": "color-background"
               }
             ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Site"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 1
+              }
+            ]
           }
         ]
       },
@@ -3629,20 +3748,21 @@
           }
         ]
       },
-      "pluginVersion": "7.3.5",
+      "pluginVersion": "7.5.3",
       "repeatDirection": "v",
-      "repeatIteration": 1618838022105,
+      "repeatIteration": 1619608124885,
       "repeatPanelId": 4,
       "scopedVars": {
         "sites": {
           "selected": false,
           "text": "SWITCH",
-          "value": "SWITCH"
+          "value": "0008"
         }
       },
       "targets": [
         {
-          "expr": "probe_nagios_result{site=\"$sites\"}",
+          "exemplar": true,
+          "expr": "probe_nagios_result{site_id=\"$sites\"}",
           "format": "table",
           "instant": true,
           "interval": "",
@@ -3668,7 +3788,7 @@
               "site_type": true
             },
             "indexByName": {
-              "Time": 0,
+              "Time": 1,
               "Value": 5,
               "__name__": 6,
               "country": 7,
@@ -3676,7 +3796,7 @@
               "job": 3,
               "output": 4,
               "service_type": 2,
-              "site": 1,
+              "site": 0,
               "site_id": 9,
               "site_type": 10
             },
@@ -3870,20 +3990,21 @@
           }
         ]
       },
-      "pluginVersion": "7.3.5",
+      "pluginVersion": "7.5.3",
       "repeatDirection": "v",
-      "repeatIteration": 1618838022105,
+      "repeatIteration": 1619608124885,
       "repeatPanelId": 11,
       "scopedVars": {
         "sites": {
           "selected": false,
           "text": "WWU",
-          "value": "WWU"
+          "value": "0001"
         }
       },
       "targets": [
         {
-          "expr": "sciencemesh_hcheck_service_status{site=\"$sites\", status_type=\"RESULT\"}",
+          "exemplar": true,
+          "expr": "sciencemesh_hcheck_service_status{site_id=\"$sites\", status_type=\"RESULT\"}",
           "format": "table",
           "instant": true,
           "interval": "",
@@ -3892,7 +4013,8 @@
           "refId": "A"
         },
         {
-          "expr": "sciencemesh_hcheck_service_status{site=\"$sites\", status_type=\"AVAIL\"}",
+          "exemplar": true,
+          "expr": "sciencemesh_hcheck_service_status{site_id=\"$sites\", status_type=\"AVAIL\"}",
           "format": "table",
           "instant": true,
           "interval": "",
@@ -3923,6 +4045,8 @@
               "site": true,
               "site 1": true,
               "site 2": true,
+              "site_id 1": true,
+              "site_id 2": true,
               "status_type": true,
               "status_type 1": true,
               "status_type 2": true
@@ -4052,7 +4176,7 @@
                   {
                     "targetBlank": true,
                     "title": "Show check history",
-                    "url": "d/rUGu4caMz/check-history?var-site=${sites}&var-service=${__data.fields.Service}&var-check=${__data.fields.Check}"
+                    "url": "d/rUGu4caMz/check-history?var-site=${sites}&var-site_name=${sites:text}&var-service=${__data.fields.Service}&var-check=${__data.fields.Check}"
                   }
                 ]
               }
@@ -4077,6 +4201,18 @@
                 "value": "color-background"
               }
             ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Site"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 1
+              }
+            ]
           }
         ]
       },
@@ -4096,20 +4232,21 @@
           }
         ]
       },
-      "pluginVersion": "7.3.5",
+      "pluginVersion": "7.5.3",
       "repeatDirection": "v",
-      "repeatIteration": 1618838022105,
+      "repeatIteration": 1619608124885,
       "repeatPanelId": 4,
       "scopedVars": {
         "sites": {
           "selected": false,
           "text": "WWU",
-          "value": "WWU"
+          "value": "0001"
         }
       },
       "targets": [
         {
-          "expr": "probe_nagios_result{site=\"$sites\"}",
+          "exemplar": true,
+          "expr": "probe_nagios_result{site_id=\"$sites\"}",
           "format": "table",
           "instant": true,
           "interval": "",
@@ -4135,7 +4272,7 @@
               "site_type": true
             },
             "indexByName": {
-              "Time": 0,
+              "Time": 1,
               "Value": 5,
               "__name__": 6,
               "country": 7,
@@ -4143,7 +4280,7 @@
               "job": 3,
               "output": 4,
               "service_type": 2,
-              "site": 1,
+              "site": 0,
               "site_id": 9,
               "site_type": 10
             },
@@ -4161,7 +4298,7 @@
       "type": "table"
     }
   ],
-  "schemaVersion": 26,
+  "schemaVersion": 27,
   "style": "dark",
   "tags": [],
   "templating": {
@@ -4179,6 +4316,7 @@
         },
         "datasource": "ScienceMesh",
         "definition": "sciencemesh_hcheck_site_status",
+        "description": null,
         "error": null,
         "hide": 2,
         "includeAll": true,
@@ -4186,9 +4324,12 @@
         "multi": true,
         "name": "sites",
         "options": [],
-        "query": "sciencemesh_hcheck_site_status",
+        "query": {
+          "query": "sciencemesh_hcheck_site_status",
+          "refId": "StandardVariableQuery"
+        },
         "refresh": 1,
-        "regex": ".*site=\\\"(.*?)\\\".*",
+        "regex": "/site_id=\\\"(?<value>.*?)\\\"|site=\\\"(?<text>.*?)\\\"/g",
         "skipUrlSync": false,
         "sort": 5,
         "tagValuesQuery": "",
@@ -4219,5 +4360,5 @@
   "timezone": "",
   "title": "Health monitoring",
   "uid": "gOBKvuOGz",
-  "version": 5
+  "version": 13
 }
