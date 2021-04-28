@@ -16,7 +16,7 @@ server:
     scrape_timeout: 15s
     evaluation_interval: 30s
   extraArgs:
-    web.external-url: 'https://prometheus.sciencemesh.uni-muenster.de'  # Change this to your needs
+    web.external-url: 'https://prometheus.sciencemesh.uni-muenster.de'
     web.route-prefix: '/'
   extraVolumeMounts:
     - name: scrape-configs
