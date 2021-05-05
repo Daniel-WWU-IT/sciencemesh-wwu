@@ -83,8 +83,6 @@ storageprovider-reva:
 # WOPI server --
 wopiserver:
   enabled: true
-  image:
-    tag: v6.4.0
   wopiserverUrl: https://iop.sciencemesh.uni-muenster.de/wopi
   config:
     appProviders:

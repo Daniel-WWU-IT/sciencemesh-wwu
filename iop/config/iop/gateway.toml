@@ -104,7 +104,7 @@ url = "https://iop.sciencemesh.uni-muenster.de/iop/mentix/sitereg"
 [http.services.mentix]
 update_interval = "5m"
 [http.services.mentix.connectors.gocdb]
-address = "http://sciencemesh-test.uni-muenster.de/gocdb/"
+address = "http://gocdb.sciencemesh.uni-muenster.de"
 [http.services.mentix.connectors.localfile]
 file = "/tmp/mentix/sites.json"
 [http.services.mentix.services]
