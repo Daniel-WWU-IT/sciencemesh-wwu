@@ -1,37 +1,8 @@
-# Ingress --
-ingress:
-  enabled: true
-  services:
-    grpc:
-      hostname: iop.sciencemesh.uni-muenster.de
-      path: /
-      annotations:
-        nginx.ingress.kubernetes.io/ssl-redirect: "true"
-        nginx.ingress.kubernetes.io/backend-protocol: "GRPC"
-      tls:
-        - secretName: sciencemesh-tls
-          hosts:
-            - iop.sciencemesh.uni-muenster.de
-    http:
-      hostname: iop.sciencemesh.uni-muenster.de
-      path: /iop(/|$)(.*)
-      annotations:
-        nginx.ingress.kubernetes.io/ssl-redirect: "true"
-        nginx.ingress.kubernetes.io/use-regex: "true"
-        nginx.ingress.kubernetes.io/rewrite-target: /$2
-        nginx.ingress.kubernetes.io/enable-cors: "true"
-        nginx.ingress.kubernetes.io/cors-allow-methods: "PUT, GET, POST, OPTIONS"
-        nginx.ingress.kubernetes.io/cors-allow-origin: "https://grafana.sciencemesh.uni-muenster.de"
-        nginx.ingress.kubernetes.io/cors-allow-credentials: "true"
-      tls:
-        - secretName: sciencemesh-tls
-          hosts:
-            - iop.sciencemesh.uni-muenster.de
-
 # Reva gateway --
 gateway:
   image:
     repository: omnivox/revad
+    tag: latest
   persistentVolume:
     enabled: true
     existingClaim: iop-data
@@ -50,11 +21,41 @@ gateway:
       persistentVolumeClaim:
         claimName: mentix-data
 
+  ingress:
+    enabled: true
+    services:
+      grpc:
+        hostname: iop.sciencemesh.uni-muenster.de
+        path: /
+        annotations:
+          nginx.ingress.kubernetes.io/ssl-redirect: "true"
+          nginx.ingress.kubernetes.io/backend-protocol: "GRPC"
+        tls:
+          - secretName: sciencemesh-tls
+            hosts:
+              - iop.sciencemesh.uni-muenster.de
+      http:
+        hostname: iop.sciencemesh.uni-muenster.de
+        path: /iop(/|$)(.*)
+        annotations:
+          nginx.ingress.kubernetes.io/ssl-redirect: "true"
+          nginx.ingress.kubernetes.io/use-regex: "true"
+          nginx.ingress.kubernetes.io/rewrite-target: /$2
+          nginx.ingress.kubernetes.io/enable-cors: "true"
+          nginx.ingress.kubernetes.io/cors-allow-methods: "PUT, GET, POST, OPTIONS"
+          nginx.ingress.kubernetes.io/cors-allow-origin: "https://grafana.sciencemesh.uni-muenster.de"
+          nginx.ingress.kubernetes.io/cors-allow-credentials: "true"
+        tls:
+          - secretName: sciencemesh-tls
+            hosts:
+              - iop.sciencemesh.uni-muenster.de
+
 # Home storage provider --
 storageprovider-home:
   enabled: true
   image:
     repository: omnivox/revad
+    tag: latest
   service:
     grpc:
       port: 17000
@@ -70,6 +71,7 @@ storageprovider-reva:
   enabled: true
   image:
     repository: omnivox/revad
+    tag: latest
   service:
     grpc:
       port: 18000
