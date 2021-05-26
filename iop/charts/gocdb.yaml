@@ -1,0 +1,16 @@
+url: "https://gocdb.sciencemesh.uni-muenster.de"
+
+ingress:
+  enabled: true
+  hostname: gocdb.sciencemesh.uni-muenster.de
+  tls:
+    - secretName: sciencemesh-tls
+      hosts:
+        - gocdb.sciencemesh.uni-muenster.de
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+
+database:
+  global:
+    storageClass: rbd
