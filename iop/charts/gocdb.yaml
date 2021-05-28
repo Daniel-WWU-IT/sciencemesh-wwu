@@ -1,4 +1,5 @@
 url: "https://gocdb.sciencemesh.uni-muenster.de"
+defaultScope: "SM"
 
 ingress:
   enabled: true
