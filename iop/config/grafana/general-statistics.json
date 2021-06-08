@@ -166,7 +166,7 @@
       "unitPlural": "users",
       "unitSingle": "",
       "unitSingular": "user",
-      "valueName": "avg"
+      "valueName": "current"
     },
     {
       "datasource": "ScienceMesh",
@@ -392,11 +392,10 @@
       "pluginVersion": "7.5.3",
       "targets": [
         {
-          "exemplar": true,
           "expr": "avg_over_time(revad_cs3_org_sciencemesh_site_total_num_users[5m])",
           "instant": true,
           "interval": "",
-          "legendFormat": "",
+          "legendFormat": "{{site}}",
           "refId": "A"
         }
       ],
@@ -523,11 +522,10 @@
       "pluginVersion": "7.5.3",
       "targets": [
         {
-          "exemplar": true,
           "expr": "avg_over_time(revad_cs3_org_sciencemesh_site_total_amount_storage[5m])",
           "instant": true,
           "interval": "",
-          "legendFormat": "",
+          "legendFormat": "{{site}}",
           "refId": "A"
         }
       ],
@@ -576,5 +574,5 @@
   "timezone": "utc",
   "title": "General statistics",
   "uid": "HD3NmHMMk",
-  "version": 4
+  "version": 6
 }
