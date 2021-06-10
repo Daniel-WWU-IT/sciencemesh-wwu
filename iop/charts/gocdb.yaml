@@ -1,6 +1,3 @@
-image:
-  tag: user-auth
-
 url: "https://gocdb.sciencemesh.uni-muenster.de"
 defaultScope: "SM"
 
