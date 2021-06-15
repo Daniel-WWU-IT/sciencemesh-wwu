@@ -42,8 +42,9 @@ refresh = 900
 
 [grpc.services.appprovider]
 driver = "demo"
-iopsecret = "nv7NUJc9ceHI4"
-wopiurl = "https://iop.sciencemesh.uni-muenster.de/wopi/"
+wopiurl = "https://iop.sciencemesh.uni-muenster.de"
+wopibridgeurl = "https://iop.sciencemesh.uni-muenster.de/wopib"
+iopsecret = "vniuwn7u76354n"
 
 [grpc.services.appregistry]
 driver = "static"
@@ -122,5 +123,5 @@ enabled_connectors = ["localfile"]
 ignore_sm_sites = false
 [http.services.mentix.accounts]
 url = "https://iop.sciencemesh.uni-muenster.de/iop/siteacc"
-user = "..."
-password = "..."
+user = "daniel"
+password = "danielpass"

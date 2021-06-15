@@ -85,13 +85,16 @@ storageprovider-reva:
 # WOPI server --
 wopiserver:
   enabled: true
-  wopiserverUrl: https://iop.sciencemesh.uni-muenster.de/wopi
+  wopiserverUrl: https://iop.sciencemesh.uni-muenster.de
   config:
     appProviders:
       codeurl: http://meshapps-collabora-code:9980
+      codimdurl: http://meshapps-codimd
       wopibridgeurl: https://iop.sciencemesh.uni-muenster.de/wopib
     cs3:
       revahost: iop-gateway:19000
+    wopisecret: fwenu87z23nu
+    iopsecret: vniuwn7u76354n
   ingress:
     enabled: true
     annotations:
@@ -111,6 +114,9 @@ wopiserver:
       APP_ROOT: /wopib
       CODIMD_EXT_URL: https://codimd.sciencemesh.uni-muenster.de
       CODIMD_INT_URL: http://meshapps-codimd
+    secrets:
+      wbsecret: uivnwe76nucv
+      codimd_apikey: nuionedvb78h
     ingress:
       enabled: true
       annotations:
