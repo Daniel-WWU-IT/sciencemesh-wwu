@@ -3,7 +3,7 @@ collabora-code:
   image:
     tag: latest
   collabora:
-    domain: iop-wopiserver\|collabora\\.sciencemesh\\.uni-muenster\\.de
+    domain: iop-wopiserver\|collabora\\.sciencemesh\\.uni-muenster\\.de\|iop\\.sciencemesh\\.uni-muenster\\.de
     server_name: collabora\.sciencemesh\.uni-muenster\.de
   ingress:
     enabled: true
