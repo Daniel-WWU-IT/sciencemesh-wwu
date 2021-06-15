@@ -89,7 +89,6 @@ wopiserver:
   config:
     appProviders:
       codeurl: http://meshapps-collabora-code:9980
-      codimdurl: http://meshapps-codimd
       wopibridgeurl: https://iop.sciencemesh.uni-muenster.de/wopib
     cs3:
       revahost: iop-gateway:19000
@@ -116,7 +115,6 @@ wopiserver:
       CODIMD_INT_URL: http://meshapps-codimd
     secrets:
       wbsecret: uivnwe76nucv
-      codimd_apikey: nuionedvb78h
     ingress:
       enabled: true
       annotations:

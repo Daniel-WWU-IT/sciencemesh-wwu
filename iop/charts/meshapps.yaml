@@ -30,6 +30,8 @@ codimd:
     connection:
       domain: codimd.sciencemesh.uni-muenster.de
       protocolUseSSL: true
+    noteCreation:
+      freeUrlEnabled: true
     extraEnvironmentVariables:
       CMD_SAVE_WEBHOOK: https://iop.sciencemesh.uni-muenster.de/wopib/save
   ingress:
