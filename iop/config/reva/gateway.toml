@@ -87,8 +87,11 @@ refresh = 900
 # Site Accounts --
 [http.services.siteacc]
 enable_registration_form = true
+[http.services.siteacc.email]
 notifications_mail = "science.mesh@uni-muenster.de"
-[http.services.siteacc.smtp]
+accounts_address = "https://sciencemesh-test.uni-muenster.de/api/siteacc/account/"
+gocdb_address = "https://sciencemesh-test.uni-muenster.de/testdb/gocdb/"
+[http.services.siteacc.email.smtp]
 sender_mail = "science.mesh@uni-muenster.de"
 smtp_server = "mail.uni-muenster.de"
 smtp_port = 25
@@ -99,6 +102,8 @@ driver = "file"
 file = "/tmp/mentix/accounts.json"
 [http.services.siteacc.sitereg]
 url = "https://sciencemesh-test.uni-muenster.de/api/mentix/sitereg"
+[http.services.siteacc.webserver]
+log_sessions = true
 
 # Mentix configuration --
 [http.services.mentix]
