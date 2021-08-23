@@ -86,8 +86,11 @@ timeout = 10
 refresh = 900
 
 # Site Accounts --
-[http.services.siteacc]
-enable_registration_form = true
+[http.services.siteacc.gocdb]
+url = "https://gocdb.sciencemesh.uni-muenster.de/gocdb/"
+write_url = "https://gocdb.sciencemesh.uni-muenster.de/gocdbpi/"
+apikey = "nkuNKJ87fev5"
+[http.services.siteacc.email]
 notifications_mail = "science.mesh@uni-muenster.de"
 [http.services.siteacc.smtp]
 sender_mail = "science.mesh@uni-muenster.de"
@@ -100,6 +103,8 @@ driver = "file"
 file = "/tmp/mentix/accounts.json"
 [http.services.siteacc.sitereg]
 url = "https://iop.sciencemesh.uni-muenster.de/iop/mentix/sitereg"
+[http.services.siteacc.webserver]
+url = "https://iop.sciencemesh.uni-muenster.de/iop/siteacc/"
 
 # Mentix configuration --
 [http.services.mentix]

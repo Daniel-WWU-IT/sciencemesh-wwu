@@ -1,3 +1,11 @@
+# Image overrides
+image:
+  repository: harbor.uni-muenster.de/proxy-docker/grafana/grafana
+
+initChownData:
+  image:
+    repository: harbor.uni-muenster.de/proxy-docker/library/busybox
+
 # General settings
 adminUser: admin
 adminPassword: admin

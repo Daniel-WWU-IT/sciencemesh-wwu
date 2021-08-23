@@ -1,5 +1,7 @@
 url: "https://gocdb.sciencemesh.uni-muenster.de"
 defaultScope: "SM"
+apiKey: "nkuNKJ87fev5"
+siteaccApi: "https://iop.sciencemesh.uni-muenster.de/iop/siteacc"
 
 ingress:
   enabled: true

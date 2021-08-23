@@ -1,11 +1,14 @@
 image:
-  repository: omnivox/blackbox_exporter
+  repository: harbor.uni-muenster.de/proxy-docker/omnivox/blackbox_exporter
   tag: latest
   pullPolicy: Always
 ingress:
   enabled: true
   hosts:
-    - bbe.sciencemesh.uni-muenster.de
+    - host: bbe.sciencemesh.uni-muenster.de
+      paths:
+          - path: /
+            pathType: ImplementationSpecific
   tls:
     - secretName: sciencemesh-tls
       hosts:
