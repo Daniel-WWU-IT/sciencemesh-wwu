@@ -92,7 +92,7 @@ write_url = "https://gocdb.sciencemesh.uni-muenster.de/gocdbpi/"
 apikey = "nkuNKJ87fev5"
 [http.services.siteacc.email]
 notifications_mail = "science.mesh@uni-muenster.de"
-[http.services.siteacc.smtp]
+[http.services.siteacc.email.smtp]
 sender_mail = "science.mesh@uni-muenster.de"
 smtp_server = "mail.uni-muenster.de"
 smtp_port = 25
