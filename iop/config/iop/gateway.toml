@@ -111,6 +111,7 @@ url = "https://iop.sciencemesh.uni-muenster.de/iop/siteacc/"
 update_interval = "5m"
 [http.services.mentix.connectors.gocdb]
 address = "http://gocdb.sciencemesh.uni-muenster.de"
+apikey = "nkuNKJ87fev5"
 [http.services.mentix.connectors.localfile]
 file = "/tmp/mentix/sites.json"
 [http.services.mentix.services]
