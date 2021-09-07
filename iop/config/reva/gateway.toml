@@ -100,8 +100,8 @@ disable_auth = true
 driver = "file"
 [http.services.siteacc.storage.file]
 file = "/tmp/mentix/accounts.json"
-[http.services.siteacc.sitereg]
-url = "https://sciencemesh-test.uni-muenster.de/api/mentix/sitereg"
+[http.services.siteacc.mentix]
+url = "https://sciencemesh-test.uni-muenster.de/api/mentix/"
 [http.services.siteacc.webserver]
 url = "https://sciencemesh-test.uni-muenster.de/api/siteacc/"
 log_sessions = true
