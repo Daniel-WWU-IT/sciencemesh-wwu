@@ -8,6 +8,12 @@
         "hide": true,
         "iconColor": "rgba(0, 211, 255, 1)",
         "name": "Annotations & Alerts",
+        "target": {
+          "limit": 100,
+          "matchAny": false,
+          "tags": [],
+          "type": "dashboard"
+        },
         "type": "dashboard"
       }
     ]
@@ -16,7 +22,7 @@
   "gnetId": null,
   "graphTooltip": 0,
   "id": 2,
-  "iteration": 1619608278831,
+  "iteration": 1631530202889,
   "links": [],
   "panels": [
     {
@@ -32,40 +38,21 @@
           "decimals": 0,
           "mappings": [
             {
-              "from": "",
-              "id": 0,
-              "operator": "",
-              "text": "OK",
-              "to": "",
-              "type": 1,
-              "value": "0"
-            },
-            {
-              "from": "",
-              "id": 1,
-              "operator": "",
-              "text": "WARNING",
-              "to": "",
-              "type": 1,
-              "value": "1"
-            },
-            {
-              "from": "",
-              "id": 2,
-              "operator": "",
-              "text": "ERROR",
-              "to": "",
-              "type": 1,
-              "value": "2"
-            },
-            {
-              "from": "",
-              "id": 3,
-              "operator": "",
-              "text": "UNKNOWN",
-              "to": "",
-              "type": 1,
-              "value": "3"
+              "options": {
+                "0": {
+                  "text": "OK"
+                },
+                "1": {
+                  "text": "WARNING"
+                },
+                "2": {
+                  "text": "ERROR"
+                },
+                "3": {
+                  "text": "UNKNOWN"
+                }
+              },
+              "type": "value"
             }
           ],
           "max": 3,
@@ -152,7 +139,7 @@
         "showHeader": true,
         "sortBy": []
       },
-      "pluginVersion": "7.5.3",
+      "pluginVersion": "8.1.0",
       "repeat": "sites",
       "repeatDirection": "v",
       "targets": [
@@ -214,7 +201,7 @@
       "type": "table"
     }
   ],
-  "schemaVersion": 27,
+  "schemaVersion": 30,
   "style": "dark",
   "tags": [],
   "templating": {
@@ -269,5 +256,5 @@
   "timezone": "",
   "title": "Check history",
   "uid": "rUGu4caMz",
-  "version": 6
+  "version": 2
 }

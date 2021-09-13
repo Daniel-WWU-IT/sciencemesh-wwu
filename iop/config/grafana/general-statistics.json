@@ -8,6 +8,12 @@
         "hide": true,
         "iconColor": "rgba(0, 211, 255, 1)",
         "name": "Annotations & Alerts",
+        "target": {
+          "limit": 100,
+          "matchAny": false,
+          "tags": [],
+          "type": "dashboard"
+        },
         "type": "dashboard"
       }
     ]
@@ -21,10 +27,6 @@
   "panels": [
     {
       "datasource": null,
-      "fieldConfig": {
-        "defaults": {},
-        "overrides": []
-      },
       "gridPos": {
         "h": 2,
         "w": 24,
@@ -36,7 +38,7 @@
         "content": "<h3 style=\"text-align: center; color: #3F92CB;\">\r\n    This dashboard is still work-in-progress!\r\n</h3>",
         "mode": "html"
       },
-      "pluginVersion": "7.5.3",
+      "pluginVersion": "8.1.0",
       "timeFrom": null,
       "timeShift": null,
       "title": "Notice",
@@ -54,10 +56,6 @@
       "decimals": 0,
       "description": "Displays the distribution of ScienceMesh users across the world",
       "esMetric": "Count",
-      "fieldConfig": {
-        "defaults": {},
-        "overrides": []
-      },
       "gridPos": {
         "h": 14,
         "w": 10,
@@ -114,10 +112,6 @@
       "decimals": 0,
       "description": "Displays the locations of all sites in the ScienceMesh",
       "esMetric": "Count",
-      "fieldConfig": {
-        "defaults": {},
-        "overrides": []
-      },
       "gridPos": {
         "h": 14,
         "w": 9,
@@ -232,7 +226,7 @@
           }
         ]
       },
-      "pluginVersion": "7.5.3",
+      "pluginVersion": "8.1.0",
       "targets": [
         {
           "expr": "avg_over_time(revad_sys_info[5m])",
@@ -328,7 +322,7 @@
         "showUnfilled": true,
         "text": {}
       },
-      "pluginVersion": "7.5.3",
+      "pluginVersion": "8.1.0",
       "targets": [
         {
           "expr": "sort_desc(avg_over_time(revad_cs3_org_sciencemesh_site_total_num_users[5m]))",
@@ -389,7 +383,7 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "7.5.3",
+      "pluginVersion": "8.1.0",
       "targets": [
         {
           "expr": "avg_over_time(revad_cs3_org_sciencemesh_site_total_num_users[5m])",
@@ -458,7 +452,7 @@
         "showThresholdMarkers": false,
         "text": {}
       },
-      "pluginVersion": "7.5.3",
+      "pluginVersion": "8.1.0",
       "targets": [
         {
           "expr": "sort_desc(avg_over_time(revad_cs3_org_sciencemesh_site_total_amount_storage[5m]))",
@@ -519,7 +513,7 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "7.5.3",
+      "pluginVersion": "8.1.0",
       "targets": [
         {
           "expr": "avg_over_time(revad_cs3_org_sciencemesh_site_total_amount_storage[5m])",
@@ -548,7 +542,7 @@
     }
   ],
   "refresh": "30s",
-  "schemaVersion": 27,
+  "schemaVersion": 30,
   "style": "dark",
   "tags": [],
   "templating": {
@@ -574,5 +568,5 @@
   "timezone": "utc",
   "title": "General statistics",
   "uid": "HD3NmHMMk",
-  "version": 6
+  "version": 1
 }

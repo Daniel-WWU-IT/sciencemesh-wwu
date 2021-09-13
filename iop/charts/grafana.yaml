@@ -74,3 +74,12 @@ dashboardProviders:
       allowUiUpdates: true
       options:
         path: /var/lib/grafana/dashboards/sciencemesh
+    - name: 'sciencemesh-health'
+      orgId: 1
+      folder: 'SciecenMesh Health'
+      type: file
+      disableDeletion: true
+      editable: true
+      allowUiUpdates: true
+      options:
+        path: /var/lib/grafana/dashboards/sciencemesh-health
