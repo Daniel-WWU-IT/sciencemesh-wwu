@@ -1,0 +1,39 @@
+# General settings
+persistence:
+  enabled: true
+  storageClass: rbd
+
+ingress:
+  enabled: true
+  hosts:
+    - host: 'test.sciencemesh.uni-muenster.de'
+      paths:
+      - '/'
+  tls:
+    - secretName: sciencemesh-tls
+      hosts:
+      - test.sciencemesh.uni-muenster.de
+
+# Alertmanager configuration
+config:
+  global: {}
+
+  templates:
+    - '/etc/alertmanager/*.tmpl'
+
+  route:
+    receiver: siteacc-dispatcher
+    group_by: ['site']
+    group_wait: 30s
+    group_interval: 5m
+    repeat_interval: 3h
+
+  receivers:
+    - name: siteacc-dispatcher
+      webhook_configs:
+      - url: 'https://iop.sciencemesh.uni-muenster.de/iop/siteacc/dispatch-alert'
+        send_resolved: true
+        http_config:
+          basic_auth:
+            username: 'daniel'
+            password: 'danielpass'

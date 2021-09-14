@@ -101,10 +101,10 @@ disable_auth = true
 driver = "file"
 [http.services.siteacc.storage.file]
 file = "/tmp/mentix/accounts.json"
-[http.services.siteacc.sitereg]
-url = "https://iop.sciencemesh.uni-muenster.de/iop/mentix/sitereg"
 [http.services.siteacc.webserver]
 url = "https://iop.sciencemesh.uni-muenster.de/iop/siteacc/"
+[http.services.siteacc.mentix]
+url = "https://iop.sciencemesh.uni-muenster.de/iop/mentix/"
 
 # Mentix configuration --
 [http.services.mentix]
