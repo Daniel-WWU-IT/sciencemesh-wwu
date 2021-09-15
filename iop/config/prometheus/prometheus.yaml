@@ -21,7 +21,6 @@
     - source_labels: [__meta_mentix_service_type]
       target_label: service_type
 
-
 # -- Health Check Jobs --
 
 - job_name: 'sciencemesh-hcheck-http-ping'

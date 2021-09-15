@@ -29,14 +29,49 @@ server:
 serverFiles:
   recording_rules.yml:
     # -- REC_RULES --
+  alerting_rules.yml:
+    # -- ALERT_RULES --
+
+# Alertmanager configuration
+alertmanager:
+  enabled: true
+  persistentVolume:
+    enabled: true
+    storageClass: rbd
+  ingress:
+    enabled: true
+    hosts:
+      - 'alerts.sciencemesh.uni-muenster.de'
+    tls:
+      - secretName: sciencemesh-tls
+        hosts:
+        - alerts.sciencemesh.uni-muenster.de
+
+alertmanagerFiles:
+  alertmanager.yml:
+    global: {}
+
+    route:
+      receiver: siteacc-dispatcher
+      group_by: ['site']
+      group_wait: 30s
+      group_interval: 5m
+      repeat_interval: 3h
+
+    receivers:
+      - name: siteacc-dispatcher
+        webhook_configs:
+        - url: 'https://iop.sciencemesh.uni-muenster.de/iop/siteacc/dispatch-alert'
+          send_resolved: true
+          http_config:
+            basic_auth:
+              username: 'daniel'
+              password: 'danielpass'
 
 # Disable services not needed
 configmapReload:
   prometheus:
     enabled: false
-
-alertmanager:
-  enabled: false
 
 nodeExporter:
   enabled: false
