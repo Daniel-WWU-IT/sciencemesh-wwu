@@ -15,6 +15,10 @@ server:
     scrape_interval: 30s
     scrape_timeout: 15s
     evaluation_interval: 30s
+  alertmanagers:
+    - static_configs:
+        - targets: ['prometheus-alertmanager:80']
+          labels: {}
   extraArgs:
     web.external-url: 'https://prometheus.sciencemesh.uni-muenster.de'
     web.route-prefix: '/'
@@ -69,10 +73,6 @@ alertmanagerFiles:
               password: 'danielpass'
 
 # Disable services not needed
-configmapReload:
-  prometheus:
-    enabled: false
-
 nodeExporter:
   enabled: false
 

@@ -1,3 +1,37 @@
 # -- Alerting rules --
 
-groups: []
+# Alerts need to be streamlined to be consumed further by other services. To do so, add the following labels and annotations to every alert:
+#  Labels:
+#   * severity: low|medium|high
+#  Annotations:
+#   * summary: <short text describing the alert>
+#   * description: <more detailed text describing the alert>
+
+groups:
+- name: hcheck_probe_alerts
+  rules:
+  - alert: LoginFailed
+    expr: probe_nagios_result{job="sciencemesh-hcheck-iop-login"} == 2
+    for: 1m # Testing only
+    labels:
+      severity: high
+    annotations:
+      summary: "IOP login on {{$labels.instance}} @ {{$labels.site}} failed"
+      description: |
+        The IOP login (probe: {{$labels.job}}) failed on {{$labels.instance}} @ {{$labels.site}}.
+
+        The probe returned the following information:
+            {{$labels.output}}
+
+  - alert: PingFailed
+    expr: probe_nagios_result{job="sciencemesh-hcheck-http-ping"} == 2
+    for: 1m # Testing only
+    labels:
+      severity: medium
+    annotations:
+      summary: "HTTP ping on {{$labels.instance}} @ {{$labels.site}} failed"
+      description: |
+        The HTTP ping (probe: {{$labels.job}}) failed on {{$labels.instance}} @ {{$labels.site}}.
+
+        The probe returned the following information:
+            {{$labels.output}}
