@@ -15,7 +15,7 @@ The `REVAD` service exposes various additional endpoints that also must be confi
 
 | Name | Description | URL (common value)| Interface | Monitored? |
 | ---  | --- | --- | --- | --- |
-| **GATEWAY** | Main gRPC endpoint; note that the gRPC port must _always_ be specified | `<host>:<port>` | GATEWAY | Yes |
+| **GATEWAY** | Main gRPC endpoint; note that the protocol (`grpc://`) and the gRPC port must _always_ be specified | `grpc://<host>:<port>` | GATEWAY | Yes |
 | **METRICS** | Prometheus metrics endpoint | `metrics` | METRICS | Yes |
 | **OCM** | OpenCloudMesh endpoint | `ocm` | OCM | No |
 | **WEBDAV** | Webdav endpoint | `remote.php/webdav` | WEBDAV | No |
