@@ -20,7 +20,7 @@ The `REVAD` service exposes various additional endpoints that also must be confi
 | **OCM** | OpenCloudMesh endpoint | `ocm` | OCM | No |
 | **WEBDAV** | Webdav endpoint | `remote.php/webdav` | WEBDAV | No |
 
-Only the URLs of the endpoints may differ from above examples.
+Only the URLs of the endpoints may differ from above common values; all endpoints need to be added, and their names, interfaces and monitoring need to exactly match what is listed above.
 
 ### Additional properties
 - **API version:** The current API version of the service needs to be specified via the `API_VERSION` property. Note that this property might be removed in future iterations.
