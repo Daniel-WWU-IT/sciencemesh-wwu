@@ -127,7 +127,7 @@ CREATE TABLE `ArchivedServices` (
   `production` tinyint(1) DEFAULT NULL,
   `originalCreationDate` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -136,7 +136,7 @@ CREATE TABLE `ArchivedServices` (
 
 LOCK TABLES `ArchivedServices` WRITE;
 /*!40000 ALTER TABLE `ArchivedServices` DISABLE KEYS */;
-INSERT INTO `ArchivedServices` VALUES (1,'admin','2020-05-14 13:30:35','megamentix.mega.de','MENTIX','SM','WWU',1,0,1,'2020-05-14 13:25:17'),(2,'admin','2020-06-09 09:32:04','sciencemesh-test.uni-muenster.de','MENTIX','SM','WWU',1,0,1,'2020-05-13 14:59:27'),(3,'admin','2020-06-09 09:32:12','sciencemesh-test.uni-muenster.de','OCM','SM','WWU',1,0,1,'2020-05-18 12:11:42'),(4,'admin','2020-06-24 08:49:11','localtest.de.xy','REVAD','SM','WWU',1,0,1,'2020-06-24 08:47:40'),(5,'admin','2021-01-12 11:40:54','sciencemesh-test.uni-muenster.de','Gateway','SM','WWU',0,0,0,'2020-09-08 09:46:02'),(6,'admin','2021-01-12 11:41:03','sciencemesh.cernbox.cern.ch','Gateway','SM','CERN',0,0,0,'2020-09-08 09:44:59'),(7,'admin','2021-01-26 12:52:51','sciencemesh-test.uni-muenster.de','GATEWAY','SM','AILLERON',0,0,0,'2021-01-26 12:51:51');
+INSERT INTO `ArchivedServices` VALUES (1,'admin','2020-05-14 13:30:35','megamentix.mega.de','MENTIX','SM','WWU',1,0,1,'2020-05-14 13:25:17'),(2,'admin','2020-06-09 09:32:04','sciencemesh-test.uni-muenster.de','MENTIX','SM','WWU',1,0,1,'2020-05-13 14:59:27'),(3,'admin','2020-06-09 09:32:12','sciencemesh-test.uni-muenster.de','OCM','SM','WWU',1,0,1,'2020-05-18 12:11:42'),(4,'admin','2020-06-24 08:49:11','localtest.de.xy','REVAD','SM','WWU',1,0,1,'2020-06-24 08:47:40'),(5,'admin','2021-01-12 11:40:54','sciencemesh-test.uni-muenster.de','Gateway','SM','WWU',0,0,0,'2020-09-08 09:46:02'),(6,'admin','2021-01-12 11:41:03','sciencemesh.cernbox.cern.ch','Gateway','SM','CERN',0,0,0,'2020-09-08 09:44:59'),(7,'admin','2021-01-26 12:52:51','sciencemesh-test.uni-muenster.de','GATEWAY','SM','AILLERON',0,0,0,'2021-01-26 12:51:51'),(8,'admin','2021-10-29 10:25:51','iop.sciencemesh.uni-muenster.de','GATEWAY','SM','WWU',0,0,0,'2021-01-26 12:53:25'),(9,'admin','2021-10-29 10:25:56','iop.sciencemesh.uni-muenster.de','Webdav','SM','WWU',0,0,0,'2020-07-28 07:36:26'),(10,'admin','2021-10-29 10:25:59','iop.sciencemesh.uni-muenster.de','OCM','SM','WWU',0,0,0,'2020-06-22 09:02:45'),(11,'admin','2021-11-04 11:23:25','app.cs3mesh-iop.k8s.surfsara.nl','OCM','SM','SURFSARA',0,0,0,'2020-06-29 08:01:49'),(12,'admin','2021-11-04 11:23:30','app.cs3mesh-iop.k8s.surfsara.nl','GATEWAY','SM','SURFSARA',0,0,0,'2021-01-26 12:51:11'),(13,'admin','2021-11-04 11:23:34','app.cs3mesh-iop.k8s.surfsara.nl','WEBDAV','SM','SURFSARA',0,0,0,'2020-07-28 07:39:31'),(14,'admin','2021-11-04 11:28:19','cs3mesh.sciencedata.dk','OCM','SM','DTU',0,0,0,'2021-01-12 11:46:43'),(15,'admin','2021-11-04 11:28:22','cs3mesh.sciencedata.dk','WEBDAV','SM','DTU',0,0,0,'2021-01-12 11:45:56'),(16,'admin','2021-11-04 11:29:59','sciencemesh-test.switch.ch','OCM','SM','SWITCH',0,0,0,'2020-09-01 11:37:00'),(17,'admin','2021-11-04 11:30:39','sciencemesh-test.switch.ch','WEBDAV','SM','SWITCH',0,0,0,'2020-09-01 11:37:29'),(18,'admin','2021-11-04 11:32:03','sciencemesh.cernbox.cern.ch','OCM','SM','CERN',0,0,0,'2020-06-26 09:52:34'),(19,'admin','2021-11-04 11:32:45','sciencemesh.cernbox.cern.ch','GATEWAY','SM','CERN',0,0,0,'2021-01-26 12:52:25'),(20,'admin','2021-11-04 11:33:11','sciencemesh.cernbox.cern.ch','WEBDAV','SM','CERN',0,0,0,'2020-07-28 07:34:34'),(21,'admin','2021-11-04 11:34:28','sciencemesh.cesnet.cz','OCM','SM','CESNET',0,0,0,'2020-06-16 14:48:20'),(22,'admin','2021-11-04 11:35:19','sciencemesh.cesnet.cz','WEBDAV','SM','CESNET',0,0,0,'2020-07-28 07:35:21'),(23,'admin','2021-11-04 11:37:38','sciencemesh.cubbit.io','WEBDAV','SM','CUBBIT',0,0,0,'2020-07-28 07:38:07'),(24,'admin','2021-11-04 11:37:41','sciencemesh.cubbit.io','OCM','SM','CUBBIT',0,0,0,'2020-07-01 08:47:14'),(25,'admin','2021-11-04 11:39:36','sciencemesh.softwaremind.com','WEBDAV','SM','AILLERON',0,0,0,'2020-07-28 07:38:46'),(26,'admin','2021-11-04 11:39:39','sciencemesh.softwaremind.com','OCM','SM','AILLERON',0,0,0,'2020-07-01 10:46:23');
 /*!40000 ALTER TABLE `ArchivedServices` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -272,7 +272,7 @@ CREATE TABLE `Downtimes` (
   `primaryKey` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `UNIQ_AC786DACF5422415` (`primaryKey`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -281,7 +281,7 @@ CREATE TABLE `Downtimes` (
 
 LOCK TABLES `Downtimes` WRITE;
 /*!40000 ALTER TABLE `Downtimes` DISABLE KEYS */;
-INSERT INTO `Downtimes` VALUES (1,'Test outage','OUTAGE','UNSCHEDULED','2021-04-13 10:26:05','2021-04-13 22:00:00','2021-04-15 00:00:00','9G0'),(2,'Another test','OUTAGE','UNSCHEDULED','2021-04-13 11:58:27','2021-04-13 08:00:00','2021-04-17 05:00:00','10G0'),(3,'Nochn Test','OUTAGE','UNSCHEDULED','2021-04-13 12:51:39','2021-04-13 12:00:00','2021-04-15 13:00:00','11G0'),(4,'Test outage','OUTAGE','UNSCHEDULED','2021-04-19 12:12:34','2021-04-19 12:00:00','2021-04-20 12:00:00','12G0'),(5,'Test outage','OUTAGE','UNSCHEDULED','2021-04-19 12:13:26','2021-04-19 12:00:00','2021-04-19 15:00:00','13G0'),(6,'Test outage','OUTAGE','UNSCHEDULED','2021-04-19 12:38:10','2021-04-19 12:00:00','2021-04-20 12:00:00','14G0');
+INSERT INTO `Downtimes` VALUES (1,'Test outage','OUTAGE','UNSCHEDULED','2021-04-13 10:26:05','2021-04-13 22:00:00','2021-04-15 00:00:00','9G0'),(2,'Another test','OUTAGE','UNSCHEDULED','2021-04-13 11:58:27','2021-04-13 08:00:00','2021-04-17 05:00:00','10G0'),(3,'Nochn Test','OUTAGE','UNSCHEDULED','2021-04-13 12:51:39','2021-04-13 12:00:00','2021-04-15 13:00:00','11G0'),(4,'Test outage','OUTAGE','UNSCHEDULED','2021-04-19 12:12:34','2021-04-19 12:00:00','2021-04-20 12:00:00','12G0'),(5,'Test outage','OUTAGE','UNSCHEDULED','2021-04-19 12:13:26','2021-04-19 12:00:00','2021-04-19 15:00:00','13G0'),(6,'Test outage','OUTAGE','UNSCHEDULED','2021-04-19 12:38:10','2021-04-19 12:00:00','2021-04-20 12:00:00','14G0'),(7,'Test outage','OUTAGE','UNSCHEDULED','2021-05-05 10:28:10','2021-05-05 00:00:00','2021-05-08 00:00:00','15G0');
 /*!40000 ALTER TABLE `Downtimes` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -336,7 +336,7 @@ CREATE TABLE `Downtimes_Services` (
 
 LOCK TABLES `Downtimes_Services` WRITE;
 /*!40000 ALTER TABLE `Downtimes_Services` DISABLE KEYS */;
-INSERT INTO `Downtimes_Services` VALUES (1,4),(1,34),(2,4),(2,6),(2,19),(2,34),(3,4),(3,6),(3,19),(3,34),(4,9),(4,10),(4,17),(4,33),(5,4),(5,6),(5,19),(5,34),(6,13),(6,14),(6,20);
+INSERT INTO `Downtimes_Services` VALUES (1,4),(2,4),(3,4),(4,9),(5,4),(6,13),(7,28);
 /*!40000 ALTER TABLE `Downtimes_Services` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -359,7 +359,7 @@ CREATE TABLE `EndpointLocations` (
   PRIMARY KEY (`id`),
   KEY `IDX_498F8DB5ED5CA9E6` (`service_id`),
   CONSTRAINT `FK_498F8DB5ED5CA9E6` FOREIGN KEY (`service_id`) REFERENCES `Services` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -368,6 +368,7 @@ CREATE TABLE `EndpointLocations` (
 
 LOCK TABLES `EndpointLocations` WRITE;
 /*!40000 ALTER TABLE `EndpointLocations` DISABLE KEYS */;
+INSERT INTO `EndpointLocations` VALUES (1,4,'METRICS','metrics','METRICS','',1,''),(2,4,'OCM','ocm','OCM','',0,''),(3,4,'GATEWAY','grpc://iop.sciencemesh.uni-muenster.de:443','GATEWAY','',1,''),(4,4,'WEBDAV','remote.php/webdav','WEBDAV','',0,''),(5,11,'METRICS','metrics','METRICS','',1,''),(6,11,'OCM','ocm','OCM','',0,''),(7,11,'GATEWAY','grpc://app.cs3mesh-iop.k8s.surfsara.nl:443','GATEWAY','',1,''),(8,11,'WEBDAV','remote.php/webdav','WEBDAV','',0,''),(9,28,'METRICS','metrics','METRICS','',1,''),(10,28,'OCM','ocm','OCM','',0,''),(11,28,'GATEWAY','grpc://cs3mesh.sciencedata.dk:19000','GATEWAY','',1,''),(12,28,'WEBDAV','remote.php/webdav','WEBDAV','',0,''),(13,23,'METRICS','metrics','METRICS','',1,''),(14,23,'OCM','ocm','OCM','',0,''),(15,23,'GATEWAY','grpc://sciencemesh-test.switch.ch:443','GATEWAY','',1,''),(16,23,'WEBDAV','remote.php/webdav','WEBDAV','',0,''),(17,9,'METRICS','metrics','METRICS','',1,''),(18,9,'OCM','ocm','OCM','',0,''),(19,9,'GATEWAY','grpc://sciencemesh.cernbox.cern.ch:443','GATEWAY','',1,''),(20,9,'WEBDAV','remote.php/webdav','WEBDAV','',0,''),(21,7,'METRICS','metrics','METRICS','',1,''),(22,7,'OCM','ocm','OCM','',0,''),(23,7,'GATEWAY','grpc://sciencemesh.cesnet.cz:443','GATEWAY','',1,''),(24,7,'WEBDAV','remote.php/webdav','WEBDAV','',0,''),(25,13,'METRICS','metrics','METRICS','',1,''),(26,13,'OCM','ocm','OCM','',0,''),(27,13,'GATEWAY','grpc://sciencemesh.cubbit.io:443','GATEWAY','',1,''),(28,13,'WEBDAV','remote.php/webdav','WEBDAV','',0,''),(29,15,'METRICS','metrics','METRICS','',1,''),(30,15,'OCM','ocm','OCM','',0,''),(31,15,'GATEWAY','grpc://sciencemesh.softwaremind.com:443','GATEWAY','',1,''),(32,15,'WEBDAV','remote.php/webdav','WEBDAV','',0,'');
 /*!40000 ALTER TABLE `EndpointLocations` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -519,7 +520,7 @@ DROP TABLE IF EXISTS `PrimaryKeys`;
 CREATE TABLE `PrimaryKeys` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -528,7 +529,7 @@ CREATE TABLE `PrimaryKeys` (
 
 LOCK TABLES `PrimaryKeys` WRITE;
 /*!40000 ALTER TABLE `PrimaryKeys` DISABLE KEYS */;
-INSERT INTO `PrimaryKeys` VALUES (1),(2),(3),(4),(5),(6),(7),(8),(9),(10),(11),(12),(13),(14);
+INSERT INTO `PrimaryKeys` VALUES (1),(2),(3),(4),(5),(6),(7),(8),(9),(10),(11),(12),(13),(14),(15);
 /*!40000 ALTER TABLE `PrimaryKeys` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -855,7 +856,7 @@ CREATE TABLE `ServiceTypes` (
   `description` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `UNIQ_13A6B93B5E237E06` (`name`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -864,7 +865,7 @@ CREATE TABLE `ServiceTypes` (
 
 LOCK TABLES `ServiceTypes` WRITE;
 /*!40000 ALTER TABLE `ServiceTypes` DISABLE KEYS */;
-INSERT INTO `ServiceTypes` VALUES (3,'REVAD','Reva Daemon Service'),(4,'OCM','OpenCloudMesh Service'),(5,'Webdav','Web Distributed Authoring and Versioning Service'),(7,'GATEWAY','CS3 Gateway Service');
+INSERT INTO `ServiceTypes` VALUES (3,'REVAD','Reva Daemon Service'),(4,'OCM','OpenCloudMesh Service'),(5,'WEBDAV','Web Distributed Authoring and Versioning Service'),(7,'GATEWAY','CS3 Gateway Service'),(8,'METRICS','Prometheus metrics provider');
 /*!40000 ALTER TABLE `ServiceTypes` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -884,7 +885,7 @@ CREATE TABLE `Service_Properties` (
   UNIQUE KEY `serv_keypairs` (`parentService_id`,`keyName`),
   KEY `IDX_389B3931ED624C5` (`parentService_id`),
   CONSTRAINT `FK_389B3931ED624C5` FOREIGN KEY (`parentService_id`) REFERENCES `Services` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -893,7 +894,7 @@ CREATE TABLE `Service_Properties` (
 
 LOCK TABLES `Service_Properties` WRITE;
 /*!40000 ALTER TABLE `Service_Properties` DISABLE KEYS */;
-INSERT INTO `Service_Properties` VALUES (2,'METRICS_PATH','/iop/metrics',4),(3,'METRICS_PATH','/iop/metrics',7),(4,'METRICS_PATH','/iop/metrics',9),(5,'METRICS_PATH','/iop/metrics',11),(6,'METRICS_PATH','/iop/metrics',15),(7,'API_VERSION','0.1.0',4),(8,'METRICS_PATH','/iop/metrics',23),(9,'ENABLE_HEALTH_CHECKS','true',15),(10,'ENABLE_HEALTH_CHECKS','true',11),(11,'ENABLE_HEALTH_CHECKS','true',23),(12,'ENABLE_HEALTH_CHECKS','true',4),(13,'ENABLE_HEALTH_CHECKS','true',9),(14,'ENABLE_HEALTH_CHECKS','true',7),(15,'ENABLE_HEALTH_CHECKS','true',13),(16,'GRPC_PORT','443',11),(17,'GRPC_PORT','443',23),(18,'GRPC_PORT','443',4),(19,'GRPC_PORT','443',9),(20,'GRPC_PORT','443',7),(21,'GRPC_PORT','443',13),(22,'GRPC_PORT','443',15),(23,'ENABLE_HEALTH_CHECKS','true',28),(24,'GRPC_PORT','19000',28);
+INSERT INTO `Service_Properties` VALUES (7,'API_VERSION','0.1.0',4),(25,'API_VERSION','0.1.0',11),(26,'API_VERSION','0.1.0',28),(27,'API_VERSION','0.1.0',23),(28,'API_VERSION','0.1.0',9),(29,'API_VERSION','0.1.0',7),(30,'API_VERSION','0.1.0',13),(31,'API_VERSION','0.1.0',15);
 /*!40000 ALTER TABLE `Service_Properties` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -936,7 +937,7 @@ CREATE TABLE `Services` (
 
 LOCK TABLES `Services` WRITE;
 /*!40000 ALTER TABLE `Services` DISABLE KEYS */;
-INSERT INTO `Services` VALUES (4,'iop.sciencemesh.uni-muenster.de','Reva Daemon @ WWU',1,0,1,'','','','','','daniel.mueller@uni-muenster.de',0,'https://iop.sciencemesh.uni-muenster.de/iop','2020-06-09 09:37:03',3,3),(5,'sciencemesh.cesnet.cz','CESNET ScienceMesh Test',0,0,0,'','','','','','du-support@cesnet.cz',0,'https://sciencemesh.cesnet.cz/iop/ocm','2020-06-16 14:48:20',4,4),(6,'iop.sciencemesh.uni-muenster.de','OCM API service',0,0,0,'','','','','','daniel.mueller@uni-muenster.de',0,'https://iop.sciencemesh.uni-muenster.de/iop/ocm','2020-06-22 09:02:45',3,4),(7,'sciencemesh.cesnet.cz','REVAD IOP service',1,0,1,'','','','','','du-support@cesnet.cz',0,'https://sciencemesh.cesnet.cz/iop','2020-06-22 16:01:10',4,3),(9,'sciencemesh.cernbox.cern.ch','CERN ScienceMesh IOP',1,0,1,'','','','','','cernbox-service-ops@cern.ch',0,'https://sciencemesh.cernbox.cern.ch/iop','2020-06-26 09:50:58',7,3),(10,'sciencemesh.cernbox.cern.ch','CERN ScienceMesh OCM',0,0,0,'','','','','','cernbox-service-ops@cern.ch',0,'https://sciencemesh.cernbox.cern.ch/iop/ocm','2020-06-26 09:52:34',7,4),(11,'app.cs3mesh-iop.k8s.surfsara.nl','Surfsara IOP',1,0,1,'','','','','','thirsa.deboer@surf.nl',0,'https://app.cs3mesh-iop.k8s.surfsara.nl/iop','2020-06-29 08:00:25',9,3),(12,'app.cs3mesh-iop.k8s.surfsara.nl','Surfsara OCM',0,0,0,'','','','','','thirsa.deboer@surf.nl',0,'https://app.cs3mesh-iop.k8s.surfsara.nl/iop/ocm','2020-06-29 08:01:49',9,4),(13,'sciencemesh.cubbit.io','Cubbit IOP',1,0,1,'','','','','','hello@cubbit.io',0,'https://sciencemesh.cubbit.io','2020-07-01 08:45:55',11,3),(14,'sciencemesh.cubbit.io','Cubbit OCM',0,0,0,'','','','','','hello@cubbit.io',0,'https://sciencemesh.cubbit.io/ocm','2020-07-01 08:47:14',11,4),(15,'sciencemesh.softwaremind.com','Ailleron IOP',1,0,1,'','','','','','dawid.golosz@softwaremind.com',1,'https://sciencemesh.softwaremind.com/iop/','2020-07-01 10:45:41',14,3),(16,'sciencemesh.softwaremind.com','Ailleron OCM',0,0,0,'','','','','','dawid.golosz@softwaremind.com',0,'https://sciencemesh.softwaremind.com/iop/ocm','2020-07-01 10:46:23',14,4),(17,'sciencemesh.cernbox.cern.ch','Reva WebDAV service',0,0,0,'','','','','','cernbox-service-ops@cern.ch',0,'https://sciencemesh.cernbox.cern.ch/iop/remote.php/webdav/','2020-07-28 07:34:34',7,5),(18,'sciencemesh.cesnet.cz','Reva WebDAV service',0,0,0,'','','','','','du-support@cesnet.cz',0,'https://sciencemesh.cesnet.cz/iop/remote.php/webdav/','2020-07-28 07:35:21',4,5),(19,'iop.sciencemesh.uni-muenster.de','Reva WebDAV service',0,0,0,'','','','','','daniel.mueller@uni-muenster.de',0,'https://iop.sciencemesh.uni-muenster.de/iop/remote.php/webdav/','2020-07-28 07:36:26',3,5),(20,'sciencemesh.cubbit.io','Reva WebDAV service',0,0,0,'','','','','','hello@cubbit.io',0,'https://sciencemesh.cubbit.io/remote.php/webdav/','2020-07-28 07:38:07',11,5),(21,'sciencemesh.softwaremind.com','Reva WebDAV service',0,0,0,'','','','','','dawid.golosz@softwaremind.com',0,'https://sciencemesh.softwaremind.com/iop/remote.php/webdav/','2020-07-28 07:38:46',14,5),(22,'app.cs3mesh-iop.k8s.surfsara.nl','Reva WebDAV service',0,0,0,'','','','','','thirsa.deboer@surf.nl',0,'https://app.cs3mesh-iop.k8s.surfsara.nl/iop/remote.php/webdav/','2020-07-28 07:39:31',9,5),(23,'sciencemesh-test.switch.ch','Reva service',1,0,1,'','','','','','fergus.kerins@switch.ch',0,'https://sciencemesh-test.switch.ch/iop/','2020-09-01 11:36:35',16,3),(24,'sciencemesh-test.switch.ch','Reva OCM service',0,0,0,'','','','','','fergus.kerins@switch.ch',0,'https://sciencemesh-test.switch.ch/iop/ocm/','2020-09-01 11:37:00',16,4),(25,'sciencemesh-test.switch.ch','Reva WebDAV service',0,0,0,'','','','','','fergus.kerins@switch.ch',0,'https://sciencemesh-test.switch.ch/iop/remote.php/webdav/','2020-09-01 11:37:29',16,5),(28,'cs3mesh.sciencedata.dk','DTU IOP',1,0,1,'','',NULL,'','','marpap@dtu.dk',0,'http://cs3mesh.sciencedata.dk:20001','2021-01-12 11:43:15',18,3),(29,'cs3mesh.sciencedata.dk','Reva WebDAV service',0,0,0,'','',NULL,'','','marpap@dtu.dk',0,'http://cs3mesh.sciencedata.dk:20001/remote.php/webdav/','2021-01-12 11:45:56',18,5),(30,'cs3mesh.sciencedata.dk','OCM API service',0,0,0,'','',NULL,'','','marpap@dtu.dk',0,'http://cs3mesh.sciencedata.dk:20001/ocm','2021-01-12 11:46:43',18,4),(31,'app.cs3mesh-iop.k8s.surfsara.nl','Gateway service',0,0,0,'','','','','','thirsa.deboer@surf.nl',0,'app.cs3mesh-iop.k8s.surfsara.nl','2021-01-26 12:51:11',9,7),(33,'sciencemesh.cernbox.cern.ch','Gateway service',0,0,0,'','','','','','cernbox-service-ops@cern.ch',0,'sciencemesh.cernbox.cern.ch','2021-01-26 12:52:25',7,7),(34,'iop.sciencemesh.uni-muenster.de','Gateway service',0,0,0,'','','','','','daniel.mueller@uni-muenster.de',0,'iop.sciencemesh.uni-muenster.de:443','2021-01-26 12:53:25',3,7);
+INSERT INTO `Services` VALUES (4,'iop.sciencemesh.uni-muenster.de','WWU IOP',1,0,1,'','','','','','daniel.mueller@uni-muenster.de',0,'https://iop.sciencemesh.uni-muenster.de/iop','2020-06-09 09:37:03',3,3),(7,'sciencemesh.cesnet.cz','Cesnet IOP',1,0,1,'','','','','','du-support@cesnet.cz',0,'https://sciencemesh.cesnet.cz/iop','2020-06-22 16:01:10',4,3),(9,'sciencemesh.cernbox.cern.ch','CERN IOP',1,0,1,'','','','','','cernbox-service-ops@cern.ch',0,'https://sciencemesh.cernbox.cern.ch/iop','2020-06-26 09:50:58',7,3),(11,'app.cs3mesh-iop.k8s.surfsara.nl','Surfsara IOP',1,0,1,'','','','','','thirsa.deboer@surf.nl',0,'https://app.cs3mesh-iop.k8s.surfsara.nl/iop','2020-06-29 08:00:25',9,3),(13,'sciencemesh.cubbit.io','Cubbit IOP',1,0,1,'','','','','','hello@cubbit.io',0,'https://sciencemesh.cubbit.io','2020-07-01 08:45:55',11,3),(15,'sciencemesh.softwaremind.com','Ailleron IOP',1,0,1,'','','','','','dawid.golosz@softwaremind.com',0,'https://sciencemesh.softwaremind.com/iop','2020-07-01 10:45:41',14,3),(23,'sciencemesh-test.switch.ch','Switch IOP',1,0,1,'','','','','','fergus.kerins@switch.ch',0,'https://sciencemesh-test.switch.ch/iop','2020-09-01 11:36:35',16,3),(28,'cs3mesh.sciencedata.dk','DTU IOP',1,0,1,'','','','','','marpap@dtu.dk',0,'https://cs3mesh.sciencedata.dk','2021-01-12 11:43:15',18,3);
 /*!40000 ALTER TABLE `Services` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -964,7 +965,7 @@ CREATE TABLE `Services_Scopes` (
 
 LOCK TABLES `Services_Scopes` WRITE;
 /*!40000 ALTER TABLE `Services_Scopes` DISABLE KEYS */;
-INSERT INTO `Services_Scopes` VALUES (4,1),(5,1),(6,1),(7,1),(9,1),(10,1),(11,1),(12,1),(13,1),(14,1),(15,1),(16,1),(17,1),(18,1),(19,1),(20,1),(21,1),(22,1),(23,1),(24,1),(25,1),(28,1),(29,1),(30,1),(31,1),(33,1),(34,1);
+INSERT INTO `Services_Scopes` VALUES (4,1),(7,1),(9,1),(11,1),(13,1),(15,1),(23,1),(28,1);
 /*!40000 ALTER TABLE `Services_Scopes` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1207,7 +1208,7 @@ CREATE TABLE `Users` (
 
 LOCK TABLES `Users` WRITE;
 /*!40000 ALTER TABLE `Users` DISABLE KEYS */;
-INSERT INTO `Users` VALUES (1,'Super','User','Prof','super.user@sciencemesh.eu','',NULL,NULL,'admin',NULL,1,'2020-04-22 14:10:43','2021-05-04 12:25:05',NULL);
+-- INSERT INTO `Users` VALUES (1,'Super','User','Prof','super.user@sciencemesh.eu','',NULL,NULL,'admin',NULL,1,'2020-04-22 14:10:43','2021-11-04 11:50:27',NULL);
 /*!40000 ALTER TABLE `Users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -1220,4 +1221,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-05-04 13:19:33
+-- Dump completed on 2021-11-04 12:04:28
