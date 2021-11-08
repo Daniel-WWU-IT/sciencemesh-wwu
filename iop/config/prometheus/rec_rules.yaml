@@ -10,20 +10,20 @@
 groups:
   - name: sciencemesh-hcheck
     rules:
-    # -- REVAD rules --
+    # -- GATEWAY rules --
     - record: sciencemesh_hcheck_service_status
       # OK: Ping max. at warning, login must be ok
-      expr: min by (site_id,site,service_type) ((probe_nagios_result{job="sciencemesh-hcheck-http-ping", service_type="REVAD"} <=bool 1) or (probe_nagios_result{job="sciencemesh-hcheck-iop-login", service_type="REVAD"} ==bool 0)) * 1
+      expr: min by (site_id,site,service_type) ((probe_nagios_result{job="sciencemesh-hcheck-http-ping", service_type="GATEWAY"} <=bool 1) or (probe_nagios_result{job="sciencemesh-hcheck-iop-login", service_type="GATEWAY"} ==bool 0)) * 1
       labels:
         status_type: OK
     - record: sciencemesh_hcheck_service_status
       # WARN: Ping max. at warning, login at warning
-      expr: min by (site_id,site,service_type) ((probe_nagios_result{job="sciencemesh-hcheck-http-ping", service_type="REVAD"} <=bool 1) or (probe_nagios_result{job="sciencemesh-hcheck-iop-login", service_type="REVAD"} ==bool 1)) * 2
+      expr: min by (site_id,site,service_type) ((probe_nagios_result{job="sciencemesh-hcheck-http-ping", service_type="GATEWAY"} <=bool 1) or (probe_nagios_result{job="sciencemesh-hcheck-iop-login", service_type="GATEWAY"} ==bool 1)) * 2
       labels:
         status_type: WARN
     - record: sciencemesh_hcheck_service_status
       # CRIT: Ping or login at error or unknown
-      expr: max by (site_id,site,service_type) ((probe_nagios_result{job="sciencemesh-hcheck-http-ping", service_type="REVAD"} >=bool 2) or (probe_nagios_result{job="sciencemesh-hcheck-iop-login", service_type="REVAD"} >=bool 2)) * 3
+      expr: max by (site_id,site,service_type) ((probe_nagios_result{job="sciencemesh-hcheck-http-ping", service_type="GATEWAY"} >=bool 2) or (probe_nagios_result{job="sciencemesh-hcheck-iop-login", service_type="GATEWAY"} >=bool 2)) * 3
       labels:
         status_type: CRIT
 
@@ -41,18 +41,18 @@ groups:
 
     # -- Site rules --
     - record: sciencemesh_hcheck_site_status
-      # OK: REVAD OK
-      expr: min by (site_id,site) ((sciencemesh_hcheck_service_status{service_type="REVAD", status_type="RESULT"} ==bool 1)) * 1
+      # OK: GATEWAY OK
+      expr: min by (site_id,site) ((sciencemesh_hcheck_service_status{service_type="GATEWAY", status_type="RESULT"} ==bool 1)) * 1
       labels:
         status_type: OK
     - record: sciencemesh_hcheck_site_status
-      # WARN: REVAD WARN
-      expr: min by (site_id,site) ((sciencemesh_hcheck_service_status{service_type="REVAD", status_type="RESULT"} ==bool 2)) * 2
+      # WARN: GATEWAY WARN
+      expr: min by (site_id,site) ((sciencemesh_hcheck_service_status{service_type="GATEWAY", status_type="RESULT"} ==bool 2)) * 2
       labels:
         status_type: WARN
     - record: sciencemesh_hcheck_site_status
-      # CRIT: REVAD CRIT
-      expr: min by (site_id,site) ((sciencemesh_hcheck_service_status{service_type="REVAD", status_type="RESULT"} ==bool 3)) * 3
+      # CRIT: GATEWAY CRIT
+      expr: min by (site_id,site) ((sciencemesh_hcheck_service_status{service_type="GATEWAY", status_type="RESULT"} ==bool 3)) * 3
       labels:
         status_type: CRIT
 

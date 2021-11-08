@@ -119,6 +119,7 @@ critical_types = ["REVAD"]
 [http.services.mentix.exporters.webapi]
 [http.services.mentix.exporters.cs3api]
 enabled_connectors = ["gocdb"]
+elevated_service_types = ["GATEWAY", "WEBDAV", "OCM"]
 [http.services.mentix.exporters.siteloc]
 [http.services.mentix.exporters.promsd]
 metrics_output_file = "/tmp/scrapes/services.json"

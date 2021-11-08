@@ -1,4 +1,4 @@
-# -- General Jobs --
+# -- Metrics --
 
 - job_name: 'sciencemesh-metrics'
   scheme: 'https'
@@ -10,18 +10,22 @@
 
   honor_labels: true
   relabel_configs:
+    - source_labels: [__meta_mentix_path]
+      target_label: __metrics_path__
+    - source_labels: [__meta_mentix_scheme]
+      target_label: __scheme__
     - source_labels: [__meta_mentix_site]
       target_label: site
     - source_labels: [__meta_mentix_site_id]
       target_label: site_id
     - source_labels: [__meta_mentix_site_type]
       target_label: site_type
-    - source_labels: [__meta_mentix_country]
+    - source_labels: [__meta_mentix_site_country]
       target_label: country
-    - source_labels: [__meta_mentix_service_type]
+    - source_labels: [__meta_mentix_type]
       target_label: service_type
 
-# -- Health Check Jobs --
+# -- Health Checks --
 
 - job_name: 'sciencemesh-hcheck-http-ping'
   scheme: 'http'
@@ -36,9 +40,9 @@
       - '/tmp/sciencemesh/blackbox.json'
 
   relabel_configs:
-    - source_labels: [__address__]
+    - source_labels: [__meta_mentix_service_url]
       target_label: __param_target
-    - source_labels: [__param_target]
+    - source_labels: [__meta_mentix_service_host]
       target_label: instance
     - target_label: __address__
       replacement: blackbox-exporter-prometheus-blackbox-exporter:9115
@@ -48,9 +52,9 @@
       target_label: site_id
     - source_labels: [__meta_mentix_site_type]
       target_label: site_type
-    - source_labels: [__meta_mentix_country]
+    - source_labels: [__meta_mentix_site_country]
       target_label: country
-    - source_labels: [__meta_mentix_service_type]
+    - source_labels: [__meta_mentix_type]
       target_label: service_type
 
 - job_name: 'sciencemesh-hcheck-iop-login'
@@ -66,10 +70,10 @@
       - '/tmp/sciencemesh/blackbox.json'
 
   relabel_configs:
-    - source_labels: [__meta_mentix_host, __meta_mentix_grpc_port]
+    - source_labels: [__meta_mentix_host, __meta_mentix_port]
       separator: ':'
       target_label: __param_target
-    - source_labels: [__param_target]
+    - source_labels: [__meta_mentix_host]
       target_label: instance
     - target_label: __address__
       replacement: blackbox-exporter-prometheus-blackbox-exporter:9115
@@ -79,7 +83,7 @@
       target_label: site_id
     - source_labels: [__meta_mentix_site_type]
       target_label: site_type
-    - source_labels: [__meta_mentix_country]
+    - source_labels: [__meta_mentix_site_country]
       target_label: country
-    - source_labels: [__meta_mentix_service_type]
+    - source_labels: [__meta_mentix_type]
       target_label: service_type
