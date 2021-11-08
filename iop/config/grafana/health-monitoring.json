@@ -21,8 +21,8 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
-  "id": 4,
-  "iteration": 1631530223615,
+  "id": 5,
+  "iteration": 1636375357935,
   "links": [],
   "panels": [
     {
@@ -141,7 +141,7 @@
               {
                 "id": "thresholds",
                 "value": {
-                  "mode": "percentage",
+                  "mode": "absolute",
                   "steps": [
                     {
                       "color": "red",
@@ -149,15 +149,15 @@
                     },
                     {
                       "color": "orange",
-                      "value": 65
+                      "value": 0.65
                     },
                     {
                       "color": "yellow",
-                      "value": 80
+                      "value": 0.8
                     },
                     {
                       "color": "green",
-                      "value": 95
+                      "value": 0.95
                     }
                   ]
                 }
@@ -193,7 +193,7 @@
               {
                 "id": "thresholds",
                 "value": {
-                  "mode": "percentage",
+                  "mode": "absolute",
                   "steps": [
                     {
                       "color": "red",
@@ -201,15 +201,15 @@
                     },
                     {
                       "color": "orange",
-                      "value": 65
+                      "value": 0.65
                     },
                     {
                       "color": "yellow",
-                      "value": 80
+                      "value": 0.8
                     },
                     {
                       "color": "green",
-                      "value": 95
+                      "value": 0.95
                     }
                   ]
                 }
@@ -451,7 +451,7 @@
               {
                 "id": "thresholds",
                 "value": {
-                  "mode": "percentage",
+                  "mode": "absolute",
                   "steps": [
                     {
                       "color": "red",
@@ -459,15 +459,15 @@
                     },
                     {
                       "color": "orange",
-                      "value": 65
+                      "value": 0.65
                     },
                     {
                       "color": "yellow",
-                      "value": 80
+                      "value": 0.8
                     },
                     {
                       "color": "green",
-                      "value": 95
+                      "value": 0.95
                     }
                   ]
                 }
