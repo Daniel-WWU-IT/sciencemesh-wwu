@@ -60,11 +60,9 @@ driver = "static"
 [http.services.datagateway]
 [http.services.ocdav]
 [http.services.metrics]
-metrics_data_driver_type = "xcloud"
-metrics_data_location = ""
+metrics_data_driver_type = "json"
+metrics_data_location = "/var/tmp/reva/metrics/metricsdata.json"
 metrics_record_interval = 5000
-xcloud_instance = "https://uni-muenster.sciebo.de"
-xcloud_interval = 60
 [http.services.prometheus]
 
 [http.services.ocmd]
