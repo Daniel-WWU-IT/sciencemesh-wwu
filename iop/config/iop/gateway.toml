@@ -110,8 +110,6 @@ update_interval = "5m"
 [http.services.mentix.connectors.gocdb]
 address = "http://gocdb.sciencemesh.uni-muenster.de"
 apikey = "nkuNKJ87fev5"
-[http.services.mentix.connectors.localfile]
-file = "/tmp/mentix/sites.json"
 [http.services.mentix.services]
 critical_types = ["REVAD"]
 [http.services.mentix.exporters.webapi]
@@ -123,9 +121,6 @@ elevated_service_types = ["GATEWAY", "WEBDAV", "OCM"]
 metrics_output_file = "/tmp/scrapes/services.json"
 blackbox_output_file = "/tmp/scrapes/blackbox.json"
 [http.services.mentix.exporters.metrics]
-[http.services.mentix.importers.sitereg]
-enabled_connectors = ["localfile"]
-ignore_sm_sites = false
 [http.services.mentix.accounts]
 url = "https://iop.sciencemesh.uni-muenster.de/iop/siteacc"
 user = "daniel"
