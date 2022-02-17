@@ -6,7 +6,7 @@
   file_sd_configs:
   - refresh_interval: 30s
     files:
-      - '/tmp/sciencemesh/services.json'
+      - '/tmp/sciencemesh/svc_metrics.json'
 
   honor_labels: true
   relabel_configs:
@@ -37,12 +37,13 @@
   file_sd_configs:
   - refresh_interval: 30s
     files:
-      - '/tmp/sciencemesh/blackbox.json'
+      - '/tmp/sciencemesh/svc_revad.json'
+      - '/tmp/sciencemesh/svc_meshdir.json'
 
   relabel_configs:
-    - source_labels: [__meta_mentix_service_url]
+    - source_labels: [__meta_mentix_url]
       target_label: __param_target
-    - source_labels: [__meta_mentix_service_host]
+    - source_labels: [__meta_mentix_host]
       target_label: instance
     - target_label: __address__
       replacement: blackbox-exporter-prometheus-blackbox-exporter:9115
@@ -67,7 +68,7 @@
   file_sd_configs:
   - refresh_interval: 30s
     files:
-      - '/tmp/sciencemesh/blackbox.json'
+      - '/tmp/sciencemesh/svc_gateway.json'
 
   relabel_configs:
     - source_labels: [__meta_mentix_host, __meta_mentix_port]
