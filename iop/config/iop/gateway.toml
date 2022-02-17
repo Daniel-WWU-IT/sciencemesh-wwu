@@ -118,8 +118,7 @@ enabled_connectors = ["gocdb"]
 elevated_service_types = ["GATEWAY", "WEBDAV", "OCM"]
 [http.services.mentix.exporters.siteloc]
 [http.services.mentix.exporters.promsd]
-metrics_output_file = "/tmp/scrapes/services.json"
-blackbox_output_file = "/tmp/scrapes/blackbox.json"
+output_path = "/tmp/scrapes"
 [http.services.mentix.exporters.metrics]
 [http.services.mentix.accounts]
 url = "https://iop.sciencemesh.uni-muenster.de/iop/siteacc"
