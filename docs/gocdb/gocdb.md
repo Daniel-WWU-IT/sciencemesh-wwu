@@ -22,5 +22,12 @@ The `REVAD` service exposes various additional endpoints that also must be confi
 
 Only the URLs of the endpoints may differ from above common values; all endpoints need to be added, and their names, interfaces and monitoring need to exactly match what is listed above.
 
+#### Optional endpoints
+There are also a few optional endpoints that you might need to add depending on your deployment. If in doubt, simply do not add them.
+
+| Name | Description | URL (common value)| Interface | Monitored? |
+| ---  | --- | --- | --- | --- |
+| **MESHDIR** | Mesh directory endpoint | `meshdir` | MESHDIR | Yes |
+
 ### Additional properties
 - **API version:** The current API version of the service needs to be specified via the `API_VERSION` property. Note that this property might be removed in future iterations.
