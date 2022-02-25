@@ -22,7 +22,7 @@
   "gnetId": null,
   "graphTooltip": 0,
   "id": 5,
-  "iteration": 1636375357935,
+  "iteration": 1645795764060,
   "links": [],
   "panels": [
     {
@@ -902,5 +902,5 @@
   "timezone": "",
   "title": "Health monitoring",
   "uid": "gOBKvuOGz",
-  "version": 2
+  "version": 3
 }

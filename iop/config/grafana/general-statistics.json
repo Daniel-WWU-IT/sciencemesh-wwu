@@ -22,29 +22,9 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
-  "id": 3,
+  "id": 2,
   "links": [],
   "panels": [
-    {
-      "datasource": null,
-      "gridPos": {
-        "h": 2,
-        "w": 24,
-        "x": 0,
-        "y": 0
-      },
-      "id": 15,
-      "options": {
-        "content": "<h3 style=\"text-align: center; color: #3F92CB;\">\r\n    This dashboard is still work-in-progress!\r\n</h3>",
-        "mode": "html"
-      },
-      "pluginVersion": "8.1.0",
-      "timeFrom": null,
-      "timeShift": null,
-      "title": "Notice",
-      "transparent": true,
-      "type": "text"
-    },
     {
       "circleMaxSize": "50",
       "circleMinSize": "5",
@@ -60,7 +40,7 @@
         "h": 14,
         "w": 10,
         "x": 0,
-        "y": 2
+        "y": 0
       },
       "hideEmpty": false,
       "hideZero": false,
@@ -116,7 +96,7 @@
         "h": 14,
         "w": 9,
         "x": 10,
-        "y": 2
+        "y": 0
       },
       "hideEmpty": false,
       "hideZero": false,
@@ -157,9 +137,9 @@
       "title": "Site locations",
       "transformations": [],
       "type": "grafana-worldmap-panel",
-      "unitPlural": "users",
+      "unitPlural": "",
       "unitSingle": "",
-      "unitSingular": "user",
+      "unitSingular": "",
       "valueName": "current"
     },
     {
@@ -207,6 +187,18 @@
                 "value": 200
               }
             ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Reva version"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 180
+              }
+            ]
           }
         ]
       },
@@ -214,7 +206,7 @@
         "h": 14,
         "w": 5,
         "x": 19,
-        "y": 2
+        "y": 0
       },
       "id": 13,
       "options": {
@@ -251,8 +243,8 @@
               "country": false,
               "instance": true,
               "job": true,
-              "reva_build_date": true,
-              "reva_version": true,
+              "reva_build_date": false,
+              "reva_version": false,
               "service_type": true,
               "site_id": true,
               "site_type": true
@@ -306,7 +298,7 @@
         "h": 9,
         "w": 19,
         "x": 0,
-        "y": 16
+        "y": 14
       },
       "id": 2,
       "options": {
@@ -362,7 +354,7 @@
         "h": 9,
         "w": 5,
         "x": 19,
-        "y": 16
+        "y": 14
       },
       "id": 6,
       "interval": null,
@@ -386,10 +378,11 @@
       "pluginVersion": "8.1.0",
       "targets": [
         {
+          "exemplar": true,
           "expr": "avg_over_time(revad_cs3_org_sciencemesh_site_total_num_users[5m])",
           "instant": true,
           "interval": "",
-          "legendFormat": "{{site}}",
+          "legendFormat": "{{site_id}}",
           "refId": "A"
         }
       ],
@@ -435,7 +428,7 @@
         "h": 7,
         "w": 19,
         "x": 0,
-        "y": 25
+        "y": 23
       },
       "hideTimeOverride": false,
       "id": 4,
@@ -492,7 +485,7 @@
         "h": 7,
         "w": 5,
         "x": 19,
-        "y": 25
+        "y": 23
       },
       "id": 8,
       "interval": null,
@@ -516,10 +509,11 @@
       "pluginVersion": "8.1.0",
       "targets": [
         {
+          "exemplar": true,
           "expr": "avg_over_time(revad_cs3_org_sciencemesh_site_total_amount_storage[5m])",
           "instant": true,
           "interval": "",
-          "legendFormat": "{{site}}",
+          "legendFormat": "{{site_id}}",
           "refId": "A"
         }
       ],
@@ -568,5 +562,5 @@
   "timezone": "utc",
   "title": "General statistics",
   "uid": "HD3NmHMMk",
-  "version": 1
+  "version": 7
 }
