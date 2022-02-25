@@ -996,7 +996,7 @@ CREATE TABLE `Site_Properties` (
 
 LOCK TABLES `Site_Properties` WRITE;
 /*!40000 ALTER TABLE `Site_Properties` DISABLE KEYS */;
-INSERT INTO `Site_Properties` VALUES (1,'ORGANIZATION','WWU Muenster',3),(2,'SITE_ID','0001',3),(3,'SITE_ID','0002',18),(4,'SITE_ID','0003',4),(5,'SITE_ID','0004',7),(6,'SITE_ID','0005',9),(7,'SITE_ID','0006',11),(8,'SITE_ID','0007',14),(9,'SITE_ID','0008',16),(10,'ORGANIZATION','Stichting Ponder Source',20),(11,'SITE_ID','0010',20);
+INSERT INTO `Site_Properties` VALUES (1,'ORGANIZATION','WWU Muenster',3),(10,'ORGANIZATION','Stichting Ponder Source',20);
 /*!40000 ALTER TABLE `Site_Properties` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1210,7 +1210,7 @@ CREATE TABLE `Users` (
 
 LOCK TABLES `Users` WRITE;
 /*!40000 ALTER TABLE `Users` DISABLE KEYS */;
-INSERT INTO `Users` VALUES (3,'Michiel','de Jong','Mr','michiel@pondersource.com','616329893',NULL,NULL,'michiel@pondersource.com',NULL,0,'2021-11-09 15:10:54','2021-11-30 15:23:44',NULL),(4,'Ron','Trompert','Mr','ron.trompert@surf.nl','+31619039009',NULL,NULL,'ron.trompert@surf.nl',NULL,0,'2021-11-11 11:18:40','2022-02-14 15:45:23',NULL),(6,'Daniel','Mueller','Mr','daniel.mueller@uni-muenster.de','0251-830',NULL,NULL,'daniel.mueller@uni-muenster.de',NULL,1,'2022-01-11 14:24:17','2022-02-17 11:49:08',NULL),(7,'Miroslav','Bauer','Mr','bauer@cesnet.cz','',NULL,NULL,'bauer@cesnet.cz',NULL,0,'2022-02-14 13:00:32','2022-02-16 09:44:07',NULL),(8,'David','Antos','Mr','david.antos@cesnet.cz','+420602953079',NULL,NULL,'david.antos@cesnet.cz',NULL,0,'2022-02-15 11:48:26','2022-02-16 09:44:29',NULL),(9,'Milan','Danecek','Mr','milan.danecek@cesnet.cz','+420234680252',NULL,NULL,'milan.danecek@cesnet.cz',NULL,0,'2022-02-16 09:27:26','2022-02-16 09:59:17',NULL),(10,'Holger','Angenent','Mr','holger.angenent@uni-muenster.de','+49 251 8331569',NULL,NULL,'holger.angenent@uni-muenster.de',NULL,0,'2022-02-16 11:01:34','2022-02-17 10:20:24',NULL),(11,'Fergus','Kerins','Mr','fergus.kerins@switch.ch','+41 44 268 1542',NULL,NULL,'fergus.kerins@switch.ch',NULL,0,'2022-02-16 11:01:50','2022-02-16 13:27:10',NULL),(12,'Dawid','Golosz','Mr','dagl@softwaremind.com','',NULL,NULL,'dagl@softwaremind.com',NULL,0,'2022-02-16 11:02:02',NULL,NULL);
+INSERT INTO `Users` VALUES (3,'Michiel','de Jong','Mr','michiel@pondersource.com','616329893',NULL,NULL,'michiel@pondersource.com',NULL,0,'2021-11-09 15:10:54','2021-11-30 15:23:44',NULL),(4,'Ron','Trompert','Mr','ron.trompert@surf.nl','+31619039009',NULL,NULL,'ron.trompert@surf.nl',NULL,0,'2021-11-11 11:18:40','2022-02-14 15:45:23',NULL),(6,'Daniel','Mueller','Mr','daniel.mueller@uni-muenster.de','0251-830',NULL,NULL,'daniel.mueller@uni-muenster.de',NULL,1,'2022-01-11 14:24:17','2022-02-25 13:55:26',NULL),(7,'Miroslav','Bauer','Mr','bauer@cesnet.cz','',NULL,NULL,'bauer@cesnet.cz',NULL,0,'2022-02-14 13:00:32','2022-02-16 09:44:07',NULL),(8,'David','Antos','Mr','david.antos@cesnet.cz','+420602953079',NULL,NULL,'david.antos@cesnet.cz',NULL,0,'2022-02-15 11:48:26','2022-02-17 15:39:39',NULL),(9,'Milan','Danecek','Mr','milan.danecek@cesnet.cz','+420234680252',NULL,NULL,'milan.danecek@cesnet.cz',NULL,0,'2022-02-16 09:27:26','2022-02-18 18:34:04',NULL),(10,'Holger','Angenent','Mr','holger.angenent@uni-muenster.de','+49 251 8331569',NULL,NULL,'holger.angenent@uni-muenster.de',NULL,0,'2022-02-16 11:01:34','2022-02-17 10:20:24',NULL),(11,'Fergus','Kerins','Mr','fergus.kerins@switch.ch','+41 44 268 1542',NULL,NULL,'fergus.kerins@switch.ch',NULL,0,'2022-02-16 11:01:50','2022-02-16 13:27:10',NULL),(12,'Dawid','Golosz','Mr','dagl@softwaremind.com','',NULL,NULL,'dagl@softwaremind.com',NULL,0,'2022-02-16 11:02:02','2022-02-17 16:20:07',NULL);
 /*!40000 ALTER TABLE `Users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -1223,4 +1223,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-02-17 11:50:54
+-- Dump completed on 2022-02-25 14:00:12
