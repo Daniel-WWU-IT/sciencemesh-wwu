@@ -1,29 +1,51 @@
 # -- Health checking recording rules --
 
-# For every service, a boolean is calculated based on fixed rules for each of the three possible states (OK, WARN, CRIT).
+# For every service (type), a boolean is calculated based on fixed rules for each of the three possible states (OK, WARN, CRIT).
 # This value is then multiplied by 1, 2, or 3, respectively. The maximum value of these three determines the overall service status.
 
 # Notes:
 #   The min operator acts as a logical AND operation
 #   The max operator acts as a logical OR operation
+#
+#   If a site doesn't have expose a certain service type to monitoring (e.g., the service type is optional), the respective metrics
+#   will be missing and thus not influence check results (i.e., missing service types are ignored). Service types are therefore
+#   independently evaluated.
 
 groups:
   - name: sciencemesh-hcheck
     rules:
     # -- GATEWAY rules --
     - record: sciencemesh_hcheck_service_status
-      # OK: Ping max. at warning, login must be ok
-      expr: min by (site_id,site,service_type) ((probe_nagios_result{job="sciencemesh-hcheck-http-ping", service_type="GATEWAY"} <=bool 1) or (probe_nagios_result{job="sciencemesh-hcheck-iop-login", service_type="GATEWAY"} ==bool 0)) * 1
+      # OK: GATEWAY -> Ping max. at warning, login must be ok
+      #     MESHDIR -> Ping must be ok
+      expr: >-
+          min by (site_id,site,service_type) (
+          (probe_nagios_result{job="sciencemesh-hcheck-http-ping", service_type="GATEWAY"} <=bool 1) or
+          (probe_nagios_result{job="sciencemesh-hcheck-iop-login", service_type="GATEWAY"} ==bool 0) or
+          (probe_nagios_result{job="sciencemesh-hcheck-http-ping", service_type="MESHDIR"} ==bool 0)
+          ) * 1
       labels:
         status_type: OK
     - record: sciencemesh_hcheck_service_status
-      # WARN: Ping max. at warning, login at warning
-      expr: min by (site_id,site,service_type) ((probe_nagios_result{job="sciencemesh-hcheck-http-ping", service_type="GATEWAY"} <=bool 1) or (probe_nagios_result{job="sciencemesh-hcheck-iop-login", service_type="GATEWAY"} ==bool 1)) * 2
+      # WARN: GATEWAY -> Ping max. at warning, login at warning
+      #       MESHDIR -> Ping at warning
+      expr: >-
+          min by (site_id,site,service_type) (
+          (probe_nagios_result{job="sciencemesh-hcheck-http-ping", service_type="GATEWAY"} <=bool 1) or
+          (probe_nagios_result{job="sciencemesh-hcheck-iop-login", service_type="GATEWAY"} ==bool 1) or
+          (probe_nagios_result{job="sciencemesh-hcheck-http-ping", service_type="MESHDIR"} ==bool 1)
+          ) * 2
       labels:
         status_type: WARN
     - record: sciencemesh_hcheck_service_status
-      # CRIT: Ping or login at error or unknown
-      expr: max by (site_id,site,service_type) ((probe_nagios_result{job="sciencemesh-hcheck-http-ping", service_type="GATEWAY"} >=bool 2) or (probe_nagios_result{job="sciencemesh-hcheck-iop-login", service_type="GATEWAY"} >=bool 2)) * 3
+      # CRIT: GATEWAY -> Ping or login at error or unknown
+      #       MESHDIR -> Ping at error or unknown
+      expr: >-
+          max by (site_id,site,service_type) (
+          (probe_nagios_result{job="sciencemesh-hcheck-http-ping", service_type="GATEWAY"} >=bool 2) or
+          (probe_nagios_result{job="sciencemesh-hcheck-iop-login", service_type="GATEWAY"} >=bool 2) or
+          (probe_nagios_result{job="sciencemesh-hcheck-http-ping", service_type="MESHDIR"} >=bool 2)
+          ) * 3
       labels:
         status_type: CRIT
 
@@ -41,18 +63,33 @@ groups:
 
     # -- Site rules --
     - record: sciencemesh_hcheck_site_status
-      # OK: GATEWAY OK
-      expr: min by (site_id,site) ((sciencemesh_hcheck_service_status{service_type="GATEWAY", status_type="RESULT"} ==bool 1)) * 1
+      # OK: GATEWAY -> OK
+      #     MESHDIR -> OK
+      expr: >-
+          min by (site_id,site) (
+          (sciencemesh_hcheck_service_status{service_type="GATEWAY", status_type="RESULT"} ==bool 1) or
+          (sciencemesh_hcheck_service_status{service_type="MESHDIR", status_type="RESULT"} ==bool 1)
+          ) * 1
       labels:
         status_type: OK
     - record: sciencemesh_hcheck_site_status
-      # WARN: GATEWAY WARN
-      expr: min by (site_id,site) ((sciencemesh_hcheck_service_status{service_type="GATEWAY", status_type="RESULT"} ==bool 2)) * 2
+      # WARN: GATEWAY -> WARN
+      #       MESHDIR -> WARN
+      expr: >-
+          max by (site_id,site) (
+          (sciencemesh_hcheck_service_status{service_type="GATEWAY", status_type="RESULT"} ==bool 2) or
+          (sciencemesh_hcheck_service_status{service_type="MESHDIR", status_type="RESULT"} ==bool 2)
+          ) * 2
       labels:
         status_type: WARN
     - record: sciencemesh_hcheck_site_status
-      # CRIT: GATEWAY CRIT
-      expr: min by (site_id,site) ((sciencemesh_hcheck_service_status{service_type="GATEWAY", status_type="RESULT"} ==bool 3)) * 3
+      # CRIT: GATEWAY -> CRIT
+      #       MESHDIR -> CRIT
+      expr: >-
+          max by (site_id,site) (
+          (sciencemesh_hcheck_service_status{service_type="GATEWAY", status_type="RESULT"} ==bool 3) or
+          (sciencemesh_hcheck_service_status{service_type="MESHDIR", status_type="RESULT"} ==bool 3)
+          ) * 3
       labels:
         status_type: CRIT
 

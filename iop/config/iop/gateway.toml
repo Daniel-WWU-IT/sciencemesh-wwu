@@ -111,7 +111,7 @@ update_interval = "5m"
 address = "http://gocdb.sciencemesh.uni-muenster.de"
 apikey = "nkuNKJ87fev5"
 [http.services.mentix.services]
-critical_types = ["REVAD"]
+critical_types = ["REVAD", "MESHDIR"]
 [http.services.mentix.exporters.webapi]
 [http.services.mentix.exporters.cs3api]
 enabled_connectors = ["gocdb"]
