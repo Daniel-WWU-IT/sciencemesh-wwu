@@ -49,6 +49,8 @@
       target_label: site
     - source_labels: [__meta_mentix_site_id]
       target_label: site_id
+    - source_labels: [site_id]
+      target_label: __param_site
     - source_labels: [__meta_mentix_site_country]
       target_label: country
     - source_labels: [__meta_mentix_type]
@@ -78,6 +80,8 @@
       target_label: site
     - source_labels: [__meta_mentix_site_id]
       target_label: site_id
+    - source_labels: [site_id]
+      target_label: __param_site
     - source_labels: [__meta_mentix_site_country]
       target_label: country
     - source_labels: [__meta_mentix_type]

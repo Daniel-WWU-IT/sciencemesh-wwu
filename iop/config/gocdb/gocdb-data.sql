@@ -1,6 +1,6 @@
 -- MariaDB dump 10.19  Distrib 10.5.10-MariaDB, for Linux (x86_64)
 --
--- Host: localhost    Database: gocdb
+-- Host: localhost    Database:
 -- ------------------------------------------------------
 -- Server version	10.5.10-MariaDB
 
@@ -359,7 +359,7 @@ CREATE TABLE `EndpointLocations` (
   PRIMARY KEY (`id`),
   KEY `IDX_498F8DB5ED5CA9E6` (`service_id`),
   CONSTRAINT `FK_498F8DB5ED5CA9E6` FOREIGN KEY (`service_id`) REFERENCES `Services` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -368,7 +368,7 @@ CREATE TABLE `EndpointLocations` (
 
 LOCK TABLES `EndpointLocations` WRITE;
 /*!40000 ALTER TABLE `EndpointLocations` DISABLE KEYS */;
-INSERT INTO `EndpointLocations` VALUES (1,4,'METRICS','metrics','METRICS','',1,''),(2,4,'OCM','ocm','OCM','',0,''),(3,4,'GATEWAY','grpc://iop.sciencemesh.uni-muenster.de:443','GATEWAY','',1,''),(4,4,'WEBDAV','remote.php/webdav','WEBDAV','',0,''),(5,11,'METRICS','metrics','METRICS','',1,''),(6,11,'OCM','ocm','OCM','',0,''),(7,11,'GATEWAY','grpc://app.cs3mesh-iop.k8s.surfsara.nl:443','GATEWAY','',1,''),(8,11,'WEBDAV','remote.php/webdav','WEBDAV','',0,''),(9,28,'METRICS','metrics','METRICS','',1,''),(10,28,'OCM','ocm','OCM','',0,''),(11,28,'GATEWAY','grpc://cs3mesh.sciencedata.dk:19000','GATEWAY','',1,''),(12,28,'WEBDAV','remote.php/webdav','WEBDAV','',0,''),(13,23,'METRICS','metrics','METRICS','',1,''),(14,23,'OCM','ocm','OCM','',0,''),(15,23,'GATEWAY','grpc://sciencemesh-test.switch.ch:443','GATEWAY','',1,''),(16,23,'WEBDAV','remote.php/webdav','WEBDAV','',0,''),(17,9,'METRICS','metrics','METRICS','',1,''),(18,9,'OCM','ocm','OCM','',0,''),(19,9,'GATEWAY','grpc://sciencemesh.cernbox.cern.ch:443','GATEWAY','',1,''),(20,9,'WEBDAV','remote.php/webdav','WEBDAV','',0,''),(21,7,'METRICS','metrics','METRICS','',1,''),(22,7,'OCM','ocm','OCM','',0,''),(23,7,'GATEWAY','grpc://sciencemesh.cesnet.cz:443','GATEWAY','',1,''),(24,7,'WEBDAV','remote.php/webdav','WEBDAV','',0,''),(25,13,'METRICS','metrics','METRICS','',1,''),(26,13,'OCM','ocm','OCM','',0,''),(27,13,'GATEWAY','grpc://sciencemesh.cubbit.io:443','GATEWAY','',1,''),(28,13,'WEBDAV','remote.php/webdav','WEBDAV','',0,''),(29,15,'METRICS','metrics','METRICS','',1,''),(30,15,'OCM','ocm','OCM','',0,''),(31,15,'GATEWAY','grpc://sciencemesh.softwaremind.com:443','GATEWAY','',1,''),(32,15,'WEBDAV','remote.php/webdav','WEBDAV','',0,''),(33,35,'METRICS','metrics','METRICS','',1,''),(34,35,'OCM','ocm','OCM','',0,''),(35,35,'GATEWAY','grpc://mesh.pondersource.org:19000','GATEWAY','',1,''),(36,35,'WEBDAV','remote.php/webdav','WEBDAV','',0,''),(37,7,'MESHDIR','meshdir','MESHDIR','',1,'');
+INSERT INTO `EndpointLocations` VALUES (1,4,'METRICS','metrics','METRICS','',1,''),(2,4,'OCM','ocm','OCM','',0,''),(3,4,'GATEWAY','grpc://iop.sciencemesh.uni-muenster.de:443','GATEWAY','',1,''),(4,4,'WEBDAV','remote.php/webdav','WEBDAV','',0,''),(5,11,'METRICS','metrics','METRICS','',1,''),(6,11,'OCM','ocm','OCM','',0,''),(7,11,'GATEWAY','grpc://app.cs3mesh-iop.k8s.surfsara.nl:443','GATEWAY','',1,''),(8,11,'WEBDAV','remote.php/webdav','WEBDAV','',0,''),(9,28,'METRICS','metrics','METRICS','',1,''),(10,28,'OCM','ocm','OCM','',0,''),(11,28,'GATEWAY','grpc://cs3mesh.sciencedata.dk:19000','GATEWAY','',1,''),(12,28,'WEBDAV','remote.php/webdav','WEBDAV','',0,''),(13,23,'METRICS','metrics','METRICS','',1,''),(14,23,'OCM','ocm','OCM','',0,''),(15,23,'GATEWAY','grpc://sciencemesh-test.switch.ch:443','GATEWAY','',1,''),(16,23,'WEBDAV','remote.php/webdav','WEBDAV','',0,''),(17,9,'METRICS','metrics','METRICS','',1,''),(18,9,'OCM','ocm','OCM','',0,''),(19,9,'GATEWAY','grpc://sciencemesh.cernbox.cern.ch:443','GATEWAY','',1,''),(20,9,'WEBDAV','remote.php/webdav','WEBDAV','',0,''),(21,7,'METRICS','metrics','METRICS','',1,''),(22,7,'OCM','ocm','OCM','',0,''),(23,7,'GATEWAY','grpc://sciencemesh.cesnet.cz:443','GATEWAY','',1,''),(24,7,'WEBDAV','remote.php/webdav','WEBDAV','',0,''),(25,13,'METRICS','metrics','METRICS','',1,''),(26,13,'OCM','ocm','OCM','',0,''),(27,13,'GATEWAY','grpc://sciencemesh.cubbit.io:443','GATEWAY','',1,''),(28,13,'WEBDAV','remote.php/webdav','WEBDAV','',0,''),(29,15,'METRICS','metrics','METRICS','',1,''),(30,15,'OCM','ocm','OCM','',0,''),(31,15,'GATEWAY','grpc://sciencemesh.softwaremind.com:443','GATEWAY','',1,''),(32,15,'WEBDAV','remote.php/webdav','WEBDAV','',0,''),(33,35,'METRICS','metrics','METRICS','',1,''),(34,35,'OCM','ocm','OCM','',0,''),(35,35,'GATEWAY','grpc://mesh.pondersource.org:19000','GATEWAY','',1,''),(36,35,'WEBDAV','remote.php/webdav','WEBDAV','',0,''),(37,7,'MESHDIR','meshdir/','MESHDIR','',1,'');
 /*!40000 ALTER TABLE `EndpointLocations` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1210,10 +1210,9 @@ CREATE TABLE `Users` (
 
 LOCK TABLES `Users` WRITE;
 /*!40000 ALTER TABLE `Users` DISABLE KEYS */;
-INSERT INTO `Users` VALUES (3,'Michiel','de Jong','Mr','michiel@pondersource.com','616329893',NULL,NULL,'michiel@pondersource.com',NULL,0,'2021-11-09 15:10:54','2021-11-30 15:23:44',NULL),(4,'Ron','Trompert','Mr','ron.trompert@surf.nl','+31619039009',NULL,NULL,'ron.trompert@surf.nl',NULL,0,'2021-11-11 11:18:40','2022-02-14 15:45:23',NULL),(6,'Daniel','Mueller','Mr','daniel.mueller@uni-muenster.de','0251-830',NULL,NULL,'daniel.mueller@uni-muenster.de',NULL,1,'2022-01-11 14:24:17','2022-02-25 13:55:26',NULL),(7,'Miroslav','Bauer','Mr','bauer@cesnet.cz','',NULL,NULL,'bauer@cesnet.cz',NULL,0,'2022-02-14 13:00:32','2022-02-16 09:44:07',NULL),(8,'David','Antos','Mr','david.antos@cesnet.cz','+420602953079',NULL,NULL,'david.antos@cesnet.cz',NULL,0,'2022-02-15 11:48:26','2022-02-17 15:39:39',NULL),(9,'Milan','Danecek','Mr','milan.danecek@cesnet.cz','+420234680252',NULL,NULL,'milan.danecek@cesnet.cz',NULL,0,'2022-02-16 09:27:26','2022-02-18 18:34:04',NULL),(10,'Holger','Angenent','Mr','holger.angenent@uni-muenster.de','+49 251 8331569',NULL,NULL,'holger.angenent@uni-muenster.de',NULL,0,'2022-02-16 11:01:34','2022-02-17 10:20:24',NULL),(11,'Fergus','Kerins','Mr','fergus.kerins@switch.ch','+41 44 268 1542',NULL,NULL,'fergus.kerins@switch.ch',NULL,0,'2022-02-16 11:01:50','2022-02-16 13:27:10',NULL),(12,'Dawid','Golosz','Mr','dagl@softwaremind.com','',NULL,NULL,'dagl@softwaremind.com',NULL,0,'2022-02-16 11:02:02','2022-02-17 16:20:07',NULL);
+INSERT INTO `Users` VALUES (3,'Michiel','de Jong','Mr','michiel@pondersource.com','616329893',NULL,NULL,'michiel@pondersource.com',NULL,0,'2021-11-09 15:10:54','2022-03-01 08:57:11',NULL),(4,'Ron','Trompert','Mr','ron.trompert@surf.nl','+31619039009',NULL,NULL,'ron.trompert@surf.nl',NULL,0,'2021-11-11 11:18:40','2022-02-14 15:45:23',NULL),(6,'Daniel','Mueller','Mr','daniel.mueller@uni-muenster.de','0251-830',NULL,NULL,'daniel.mueller@uni-muenster.de',NULL,1,'2022-01-11 14:24:17','2022-03-03 11:17:17',NULL),(7,'Miroslav','Bauer','Mr','bauer@cesnet.cz','',NULL,NULL,'bauer@cesnet.cz',NULL,0,'2022-02-14 13:00:32','2022-03-02 12:33:16',NULL),(8,'David','Antos','Mr','david.antos@cesnet.cz','+420602953079',NULL,NULL,'david.antos@cesnet.cz',NULL,0,'2022-02-15 11:48:26','2022-02-17 15:39:39',NULL),(9,'Milan','Danecek','Mr','milan.danecek@cesnet.cz','+420234680252',NULL,NULL,'milan.danecek@cesnet.cz',NULL,0,'2022-02-16 09:27:26','2022-02-18 18:34:04',NULL),(10,'Holger','Angenent','Mr','holger.angenent@uni-muenster.de','+49 251 8331569',NULL,NULL,'holger.angenent@uni-muenster.de',NULL,0,'2022-02-16 11:01:34','2022-02-17 10:20:24',NULL),(11,'Fergus','Kerins','Mr','fergus.kerins@switch.ch','+41 44 268 1542',NULL,NULL,'fergus.kerins@switch.ch',NULL,0,'2022-02-16 11:01:50','2022-02-16 13:27:10',NULL),(12,'Dawid','Golosz','Mr','dagl@softwaremind.com','',NULL,NULL,'dagl@softwaremind.com',NULL,0,'2022-02-16 11:02:02','2022-02-17 16:20:07',NULL);
 /*!40000 ALTER TABLE `Users` ENABLE KEYS */;
 UNLOCK TABLES;
-/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
@@ -1223,4 +1222,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-02-25 14:00:12
+-- Dump completed on 2022-03-11 10:19:09
