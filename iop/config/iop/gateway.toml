@@ -98,7 +98,10 @@ disable_auth = true
 [http.services.siteacc.storage]
 driver = "file"
 [http.services.siteacc.storage.file]
-file = "/tmp/mentix/accounts.json"
+accounts_file = "/tmp/mentix/accounts.json"
+sites_file = "/tmp/mentix/sites.json"
+[http.services.siteacc.security]
+creds_passphrase = "ThisIs5O!S3cr3tY0uW1LLN3vRGue$$!"
 [http.services.siteacc.webserver]
 url = "https://iop.sciencemesh.uni-muenster.de/iop/siteacc/"
 [http.services.siteacc.mentix]

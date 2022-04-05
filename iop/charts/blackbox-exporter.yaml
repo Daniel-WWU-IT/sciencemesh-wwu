@@ -15,4 +15,4 @@ ingress:
         - bbe.sciencemesh.uni-muenster.de
 pspEnabled: false
 config:
-  # -- MODULES --
+  # -- CONFIG --

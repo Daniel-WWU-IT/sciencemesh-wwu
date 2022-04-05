@@ -4,7 +4,7 @@ cp charts/blackbox-exporter.yaml charts/blackbox-exporter.merged.yaml
 cp config/bbe/blackbox-exporter.yaml config/bbe/blackbox-exporter.merged.yaml
 
 sed -i -e 's/^/  /' config/bbe/blackbox-exporter.merged.yaml
-sed -i -e '/MODULES/r config/bbe/blackbox-exporter.merged.yaml' charts/blackbox-exporter.merged.yaml
+sed -i -e '/CONFIG/r config/bbe/blackbox-exporter.merged.yaml' charts/blackbox-exporter.merged.yaml
 
 helm install blackbox-exporter prometheus-community/prometheus-blackbox-exporter \
     -f charts/blackbox-exporter.merged.yaml

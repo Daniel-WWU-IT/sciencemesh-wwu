@@ -1,3 +1,11 @@
+siteaccounts:
+  url: http://iop-gateway:19001/siteacc
+  authentication:
+    username: daniel
+    password: danielpass
+  security:
+    creds_passphrase: "ThisIs5O!S3cr3tY0uW1LLN3vRGue$$!"
+
 modules:
   http_ping:
     # Ping via HTTP; do not check the actual HTTP status, just ensure that the host is reachable through HTTP
@@ -24,5 +32,5 @@ modules:
       check: check_ioplogin
       args:
         - -target=$TARGET$
-        - -user=test
-        - -pass=testpass
+        - -user=$TESTCLIENT_ID$
+        - -pass=$TESTCLIENT_SECRET$
