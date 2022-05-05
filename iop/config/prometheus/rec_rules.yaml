@@ -16,7 +16,7 @@ groups:
     rules:
     # -- GATEWAY rules --
     - record: sciencemesh_hcheck_service_status
-      # OK: GATEWAY -> Ping & network max. at warning, login & fs operations + speed must be ok
+      # OK: GATEWAY -> Ping, fs speed & network max. at warning, login & fs operations must be ok
       #     MESHDIR -> Ping must be ok
       expr: >-
           min by (site_id,site,service_type) (
@@ -30,22 +30,22 @@ groups:
       labels:
         status_type: OK
     - record: sciencemesh_hcheck_service_status
-      # WARN: GATEWAY -> Ping & network max. at warning, login or fs operations at warning, fs speed at warning or error
-      #       MESHDIR -> Ping at warning
+      # WARN: GATEWAY -> Any probe at least at warning level
+      #       MESHDIR -> Any probe at least at warning level
       expr: >-
-          min by (site_id,site,service_type) (
-          (probe_nagios_result{job="sciencemesh-hcheck-http-ping",      service_type="GATEWAY"} <=bool 1) or
-          (probe_nagios_result{job="sciencemesh-hcheck-network",        service_type="GATEWAY"} <=bool 1) or
-          (probe_nagios_result{job="sciencemesh-hcheck-iop-login",      service_type="GATEWAY"} ==bool 1) or
-          (probe_nagios_result{job="sciencemesh-hcheck-fs-operations",  service_type="GATEWAY"} ==bool 1) or
+          max by (site_id,site,service_type) (
+          (probe_nagios_result{job="sciencemesh-hcheck-http-ping",      service_type="GATEWAY"} >=bool 1) or
+          (probe_nagios_result{job="sciencemesh-hcheck-network",        service_type="GATEWAY"} >=bool 1) or
+          (probe_nagios_result{job="sciencemesh-hcheck-iop-login",      service_type="GATEWAY"} >=bool 1) or
+          (probe_nagios_result{job="sciencemesh-hcheck-fs-operations",  service_type="GATEWAY"} >=bool 1) or
           (probe_nagios_result{job="sciencemesh-hcheck-fs-speed",       service_type="GATEWAY"} >=bool 1) or
-          (probe_nagios_result{job="sciencemesh-hcheck-http-ping",      service_type="MESHDIR"} ==bool 1)
+          (probe_nagios_result{job="sciencemesh-hcheck-http-ping",      service_type="MESHDIR"} >=bool 1)
           ) * 2
       labels:
         status_type: WARN
     - record: sciencemesh_hcheck_service_status
       # CRIT: GATEWAY -> Any probe (except fs speed) at error or unknown
-      #       MESHDIR -> Ping at error or unknown
+      #       MESHDIR -> Any probe at error or unknown
       expr: >-
           max by (site_id,site,service_type) (
           (probe_nagios_result{job="sciencemesh-hcheck-http-ping",      service_type="GATEWAY"} >=bool 2) or
