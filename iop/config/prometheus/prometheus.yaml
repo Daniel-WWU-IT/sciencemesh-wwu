@@ -4,7 +4,7 @@
   scheme: 'https'
 
   file_sd_configs:
-  - refresh_interval: 30s
+  - refresh_interval: 1m
     files:
       - '/tmp/sciencemesh/svc_metrics.json'
 
@@ -33,7 +33,7 @@
     module: [http_ping]
 
   file_sd_configs:
-  - refresh_interval: 30s
+  - refresh_interval: 1m
     files:
       - '/tmp/sciencemesh/svc_revad.json'
       - '/tmp/sciencemesh/svc_meshdir.json'
@@ -62,7 +62,7 @@
     module: [iop_login]
 
   file_sd_configs:
-  - refresh_interval: 30s
+  - refresh_interval: 1m
     files:
       - '/tmp/sciencemesh/svc_gateway.json'
 
@@ -93,7 +93,7 @@
     module: [network]
 
   file_sd_configs:
-  - refresh_interval: 30s
+  - refresh_interval: 1m
     files:
       - '/tmp/sciencemesh/svc_gateway.json'
 
@@ -124,7 +124,7 @@
     module: [fs_operations]
 
   file_sd_configs:
-  - refresh_interval: 30s
+  - refresh_interval: 1m
     files:
       - '/tmp/sciencemesh/svc_gateway.json'
 
@@ -155,7 +155,7 @@
     module: [fs_speed]
 
   file_sd_configs:
-  - refresh_interval: 30s
+  - refresh_interval: 1m
     files:
       - '/tmp/sciencemesh/svc_gateway.json'
 

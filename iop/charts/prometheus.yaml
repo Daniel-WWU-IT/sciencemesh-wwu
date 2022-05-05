@@ -14,7 +14,7 @@ server:
   global:
     scrape_interval: 5m
     scrape_timeout: 15s
-    evaluation_interval: 10m
+    evaluation_interval: 5m
   alertmanagers:
     - static_configs:
         - targets: ['prometheus-alertmanager:80']

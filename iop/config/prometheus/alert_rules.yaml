@@ -12,7 +12,7 @@ groups:
   rules:
   - alert: LoginFailed
     expr: probe_nagios_result{job="sciencemesh-hcheck-iop-login"} == 2
-    for: 1m # Testing only
+    for: 15m
     labels:
       severity: high
     annotations:
@@ -25,13 +25,52 @@ groups:
 
   - alert: PingFailed
     expr: probe_nagios_result{job="sciencemesh-hcheck-http-ping"} == 2
-    for: 1m # Testing only
+    for: 15m
     labels:
       severity: medium
     annotations:
       summary: "HTTP ping on {{$labels.instance}} @ {{$labels.site}} failed"
       description: |
         The HTTP ping (probe: {{$labels.job}}) failed on {{$labels.instance}} @ {{$labels.site}}.
+
+        The probe returned the following information:
+            {{$labels.output}}
+
+  - alert: NetworkFailed
+    expr: probe_nagios_result{job="sciencemesh-hcheck-network"} == 2
+    for: 15m
+    labels:
+      severity: medium
+    annotations:
+      summary: "Network tests on {{$labels.instance}} @ {{$labels.site}} failed"
+      description: |
+        The network tests (probe: {{$labels.job}}) failed on {{$labels.instance}} @ {{$labels.site}}.
+
+        The probe returned the following information:
+            {{$labels.output}}
+
+  - alert: FSOperationsFailed
+    expr: probe_nagios_result{job="sciencemesh-hcheck-fs-operations"} == 2
+    for: 15m
+    labels:
+      severity: high
+    annotations:
+      summary: "File system operation tests on {{$labels.instance}} @ {{$labels.site}} failed"
+      description: |
+        The file system operation tests (probe: {{$labels.job}}) failed on {{$labels.instance}} @ {{$labels.site}}.
+
+        The probe returned the following information:
+            {{$labels.output}}
+
+  - alert: FSSpeedFailed
+    expr: probe_nagios_result{job="sciencemesh-hcheck-fs-speed"} == 2
+    for: 30m
+    labels:
+      severity: low
+    annotations:
+      summary: "File system speed tests on {{$labels.instance}} @ {{$labels.site}} failed"
+      description: |
+        The file system speed tests (probe: {{$labels.job}}) failed on {{$labels.instance}} @ {{$labels.site}}.
 
         The probe returned the following information:
             {{$labels.output}}
