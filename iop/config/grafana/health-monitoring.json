@@ -22,7 +22,7 @@
   "gnetId": null,
   "graphTooltip": 0,
   "id": 5,
-  "iteration": 1645795764060,
+  "iteration": 1651743404324,
   "links": [],
   "panels": [
     {
@@ -88,7 +88,7 @@
             "properties": [
               {
                 "id": "custom.width",
-                "value": 133
+                "value": 120
               },
               {
                 "id": "mappings",
@@ -231,8 +231,8 @@
         ]
       },
       "gridPos": {
-        "h": 12,
-        "w": 5,
+        "h": 9,
+        "w": 7,
         "x": 0,
         "y": 0
       },
@@ -481,9 +481,9 @@
         ]
       },
       "gridPos": {
-        "h": 4,
-        "w": 4,
-        "x": 5,
+        "h": 7,
+        "w": 5,
+        "x": 7,
         "y": 0
       },
       "id": 11,
@@ -696,9 +696,9 @@
         ]
       },
       "gridPos": {
-        "h": 4,
-        "w": 15,
-        "x": 9,
+        "h": 7,
+        "w": 12,
+        "x": 12,
         "y": 0
       },
       "id": 4,
@@ -790,9 +790,9 @@
       "format": "none",
       "gridPos": {
         "h": 8,
-        "w": 5,
+        "w": 7,
         "x": 0,
-        "y": 12
+        "y": 9
       },
       "id": 38,
       "interval": "",
@@ -902,5 +902,5 @@
   "timezone": "",
   "title": "Health monitoring",
   "uid": "gOBKvuOGz",
-  "version": 3
+  "version": 6
 }
