@@ -23,6 +23,7 @@ modules:
         - -w 3.0
         - -c 8.0
         - -t 10
+
   iop_login:
     # Try logging in to the IOP
     prober: nagios
@@ -33,6 +34,7 @@ modules:
         - -target=$TARGET$
         - -user=$TESTCLIENT_ID$
         - -pass=$TESTCLIENT_SECRET$
+
   network:
     # Try reaching the IOP
     prober: nagios
@@ -41,6 +43,7 @@ modules:
       check: check_network
       args:
         - -target=$TARGET$
+
   fs_operations:
     # Perform various file system operations on the IOP
     prober: nagios
@@ -51,6 +54,7 @@ modules:
         - -target=$TARGET$
         - -user=$TESTCLIENT_ID$
         - -pass=$TESTCLIENT_SECRET$
+        
   fs_speed:
     # Measure the speed of several file system operations on the IOP
     prober: nagios

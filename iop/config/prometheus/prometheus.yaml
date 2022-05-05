@@ -84,3 +84,96 @@
       target_label: country
     - source_labels: [__meta_mentix_type]
       target_label: service_type
+
+- job_name: 'sciencemesh-hcheck-network'
+  scheme: 'http'
+  metrics_path: /probe
+
+  params:
+    module: [network]
+
+  file_sd_configs:
+  - refresh_interval: 30s
+    files:
+      - '/tmp/sciencemesh/svc_gateway.json'
+
+  relabel_configs:
+    - source_labels: [__meta_mentix_host, __meta_mentix_port]
+      separator: ':'
+      target_label: __param_target
+    - source_labels: [__meta_mentix_host]
+      target_label: instance
+    - target_label: __address__
+      replacement: blackbox-exporter-prometheus-blackbox-exporter:9115
+    - source_labels: [__meta_mentix_site]
+      target_label: site
+    - source_labels: [__meta_mentix_site_id]
+      target_label: site_id
+    - source_labels: [site_id]
+      target_label: __param_site
+    - source_labels: [__meta_mentix_site_country]
+      target_label: country
+    - source_labels: [__meta_mentix_type]
+      target_label: service_type
+
+- job_name: 'sciencemesh-hcheck-fs-operations'
+  scheme: 'http'
+  metrics_path: /probe
+
+  params:
+    module: [fs_operations]
+
+  file_sd_configs:
+  - refresh_interval: 30s
+    files:
+      - '/tmp/sciencemesh/svc_gateway.json'
+
+  relabel_configs:
+    - source_labels: [__meta_mentix_host, __meta_mentix_port]
+      separator: ':'
+      target_label: __param_target
+    - source_labels: [__meta_mentix_host]
+      target_label: instance
+    - target_label: __address__
+      replacement: blackbox-exporter-prometheus-blackbox-exporter:9115
+    - source_labels: [__meta_mentix_site]
+      target_label: site
+    - source_labels: [__meta_mentix_site_id]
+      target_label: site_id
+    - source_labels: [site_id]
+      target_label: __param_site
+    - source_labels: [__meta_mentix_site_country]
+      target_label: country
+    - source_labels: [__meta_mentix_type]
+      target_label: service_type
+
+- job_name: 'sciencemesh-hcheck-fs-speed'
+  scheme: 'http'
+  metrics_path: /probe
+
+  params:
+    module: [fs_speed]
+
+  file_sd_configs:
+  - refresh_interval: 30s
+    files:
+      - '/tmp/sciencemesh/svc_gateway.json'
+
+  relabel_configs:
+    - source_labels: [__meta_mentix_host, __meta_mentix_port]
+      separator: ':'
+      target_label: __param_target
+    - source_labels: [__meta_mentix_host]
+      target_label: instance
+    - target_label: __address__
+      replacement: blackbox-exporter-prometheus-blackbox-exporter:9115
+    - source_labels: [__meta_mentix_site]
+      target_label: site
+    - source_labels: [__meta_mentix_site_id]
+      target_label: site_id
+    - source_labels: [site_id]
+      target_label: __param_site
+    - source_labels: [__meta_mentix_site_country]
+      target_label: country
+    - source_labels: [__meta_mentix_type]
+      target_label: service_type
