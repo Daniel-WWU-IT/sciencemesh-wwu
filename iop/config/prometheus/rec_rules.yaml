@@ -72,8 +72,9 @@ groups:
       #     MESHDIR -> OK
       expr: >-
           min by (site_id,site) (
-          (sciencemesh_hcheck_service_status{service_type="GATEWAY", status_type="RESULT"} ==bool 1) or
-          (sciencemesh_hcheck_service_status{service_type="MESHDIR", status_type="RESULT"} ==bool 1)
+          (sciencemesh_hcheck_service_status{service_type="REVAD",      status_type="RESULT"} ==bool 1) or
+          (sciencemesh_hcheck_service_status{service_type="GATEWAY",    status_type="RESULT"} ==bool 1) or
+          (sciencemesh_hcheck_service_status{service_type="MESHDIR",    status_type="RESULT"} ==bool 1)
           ) * 1
       labels:
         status_type: OK
@@ -82,8 +83,9 @@ groups:
       #       MESHDIR -> WARN
       expr: >-
           max by (site_id,site) (
-          (sciencemesh_hcheck_service_status{service_type="GATEWAY", status_type="RESULT"} ==bool 2) or
-          (sciencemesh_hcheck_service_status{service_type="MESHDIR", status_type="RESULT"} ==bool 2)
+          (sciencemesh_hcheck_service_status{service_type="REVAD",      status_type="RESULT"} ==bool 2) or
+          (sciencemesh_hcheck_service_status{service_type="GATEWAY",    status_type="RESULT"} ==bool 2) or
+          (sciencemesh_hcheck_service_status{service_type="MESHDIR",    status_type="RESULT"} ==bool 2)
           ) * 2
       labels:
         status_type: WARN
@@ -92,8 +94,9 @@ groups:
       #       MESHDIR -> CRIT
       expr: >-
           max by (site_id,site) (
-          (sciencemesh_hcheck_service_status{service_type="GATEWAY", status_type="RESULT"} ==bool 3) or
-          (sciencemesh_hcheck_service_status{service_type="MESHDIR", status_type="RESULT"} ==bool 3)
+          (sciencemesh_hcheck_service_status{service_type="REVAD",      status_type="RESULT"} ==bool 3) or
+          (sciencemesh_hcheck_service_status{service_type="GATEWAY",    status_type="RESULT"} ==bool 3) or
+          (sciencemesh_hcheck_service_status{service_type="MESHDIR",    status_type="RESULT"} ==bool 3)
           ) * 3
       labels:
         status_type: CRIT
