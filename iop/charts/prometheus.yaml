@@ -13,7 +13,7 @@ server:
     storageClass: rbd
   global:
     scrape_interval: 5m
-    scrape_timeout: 15s
+    scrape_timeout: 30s
     evaluation_interval: 5m
   alertmanagers:
     - static_configs:
