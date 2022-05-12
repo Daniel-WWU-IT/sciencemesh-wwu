@@ -58,7 +58,7 @@ modules:
   fs_speed:
     # Measure the speed of several file system operations on the IOP
     prober: nagios
-    timeout: 15s
+    timeout: 30s
     nagios:
       check: check_fsspeed
       args:
