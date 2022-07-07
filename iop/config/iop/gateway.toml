@@ -99,7 +99,7 @@ disable_auth = true
 driver = "file"
 [http.services.siteacc.storage.file]
 accounts_file = "/tmp/mentix/accounts.json"
-sites_file = "/tmp/mentix/sites.json"
+operators_file = "/tmp/mentix/operators.json"
 [http.services.siteacc.security]
 creds_passphrase = "ThisIs5O!S3cr3tY0uW1LLN3vRGue$$!"
 [http.services.siteacc.webserver]
@@ -123,7 +123,3 @@ elevated_service_types = ["GATEWAY", "WEBDAV", "OCM"]
 [http.services.mentix.exporters.promsd]
 output_path = "/tmp/scrapes"
 [http.services.mentix.exporters.metrics]
-[http.services.mentix.accounts]
-url = "https://iop.sciencemesh.uni-muenster.de/iop/siteacc"
-user = "daniel"
-password = "danielpass"

@@ -1,0 +1,137 @@
+[
+	{
+		"id": "WWU",
+		"sites": [
+			{
+				"id": "WWU",
+				"config": {
+					"testClientCredentials": {
+						"id": "VZmIKbvuiRJE86AclSiSnnhH8vq8RK2k/UwMlWkgb74=",
+						"secret": "4NR/8ylFQ7s8wBAA6bbShARV71JaJt7HPrdpBuvvlbuNqRZL"
+					}
+				}
+			}
+		]
+	},
+	{
+		"id": "CESNET",
+		"sites": [
+			{
+				"id": "CESNET",
+				"config": {
+					"testClientCredentials": {
+						"id": "1J1GrsYHZ55OrIyTs3hHgdjH9R8FT+5AiSXZTPgmmqc=",
+						"secret": "OiwU5rrfFfD7gLTmB8sZVrntXOo8p1kcfS8x5xm5/XwsF13A"
+					}
+				}
+			}
+		]
+	},
+	{
+		"id": "CERN",
+		"sites": [
+			{
+				"id": "CERN",
+				"config": {
+					"testClientCredentials": {
+						"id": "1J1GrsYHZ55OrIyTs3hHgdjH9R8FT+5AiSXZTPgmmqc=",
+						"secret": "OiwU5rrfFfD7gLTmB8sZVrntXOo8p1kcfS8x5xm5/XwsF13A"
+					}
+				}
+			}
+		]
+	},
+	{
+		"id": "SURFSARA",
+		"sites": [
+			{
+				"id": "SURFSARA",
+				"config": {
+					"testClientCredentials": {
+						"id": "1J1GrsYHZ55OrIyTs3hHgdjH9R8FT+5AiSXZTPgmmqc=",
+						"secret": "OiwU5rrfFfD7gLTmB8sZVrntXOo8p1kcfS8x5xm5/XwsF13A"
+					}
+				}
+			},
+			{		
+				"id": "SURFSARA-TEST",
+				"config": {
+					"testClientCredentials": {
+						"id": "1J1GrsYHZ55OrIyTs3hHgdjH9R8FT+5AiSXZTPgmmqc=",
+						"secret": "OiwU5rrfFfD7gLTmB8sZVrntXOo8p1kcfS8x5xm5/XwsF13A"
+					}
+				}
+			}
+		]
+	},
+	{
+		"id": "CUBBIT",
+		"sites": [		
+			{
+				"id": "CUBBIT",
+				"config": {
+					"testClientCredentials": {
+						"id": "1J1GrsYHZ55OrIyTs3hHgdjH9R8FT+5AiSXZTPgmmqc=",
+						"secret": "OiwU5rrfFfD7gLTmB8sZVrntXOo8p1kcfS8x5xm5/XwsF13A"
+					}
+				}
+			}
+		]
+	},
+	{
+		"id": "AILLERON",
+		"sites": [
+			{
+				"id": "AILLERON",
+				"config": {
+					"testClientCredentials": {
+						"id": "1J1GrsYHZ55OrIyTs3hHgdjH9R8FT+5AiSXZTPgmmqc=",
+						"secret": "OiwU5rrfFfD7gLTmB8sZVrntXOo8p1kcfS8x5xm5/XwsF13A"
+					}
+				}
+			}
+		]
+	},
+	{
+		"id": "SWITCH",
+		"sites": [
+			{
+				"id": "SWITCH",
+				"config": {
+					"testClientCredentials": {
+						"id": "1J1GrsYHZ55OrIyTs3hHgdjH9R8FT+5AiSXZTPgmmqc=",
+						"secret": "OiwU5rrfFfD7gLTmB8sZVrntXOo8p1kcfS8x5xm5/XwsF13A"
+					}
+				}
+			}
+		]
+	},
+	{
+		"id": "DTU",
+		"sites": [
+			{
+				"id": "DTU",
+				"config": {
+					"testClientCredentials": {
+						"id": "1J1GrsYHZ55OrIyTs3hHgdjH9R8FT+5AiSXZTPgmmqc=",
+						"secret": "OiwU5rrfFfD7gLTmB8sZVrntXOo8p1kcfS8x5xm5/XwsF13A"
+					}
+				}
+			}
+		]
+	},
+	{
+		"id": "PONDERSOURCE",
+		"sites": [
+			{
+				"id": "PONDERSOURCE",
+				"config": {
+					"testClientCredentials": {
+						"id": "1J1GrsYHZ55OrIyTs3hHgdjH9R8FT+5AiSXZTPgmmqc=",
+						"secret": "OiwU5rrfFfD7gLTmB8sZVrntXOo8p1kcfS8x5xm5/XwsF13A"
+					}
+				}
+			}
+		]
+	}
+]
