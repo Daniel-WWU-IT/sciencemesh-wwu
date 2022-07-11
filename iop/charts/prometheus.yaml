@@ -57,7 +57,7 @@ alertmanagerFiles:
 
     route:
       receiver: siteacc-dispatcher
-      group_by: ['site']
+      group_by: ['site_id']
       group_wait: 30s
       group_interval: 5m
       repeat_interval: 3h

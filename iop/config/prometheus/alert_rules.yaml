@@ -3,9 +3,12 @@
 # Alerts need to be streamlined to be consumed further by other services. To do so, add the following labels and annotations to every alert:
 #  Labels:
 #   * severity: low|medium|high
+#   * output: ""
 #  Annotations:
 #   * summary: <short text describing the alert>
 #   * description: <more detailed text describing the alert>
+#
+# The output is set to an empty string to be removed for evaluation.
 
 groups:
 - name: hcheck_probe_alerts
@@ -15,6 +18,7 @@ groups:
     for: 15m
     labels:
       severity: high
+      output: ""
     annotations:
       summary: "IOP login on {{$labels.instance}} @ {{$labels.site}} failed"
       description: |
@@ -28,6 +32,7 @@ groups:
     for: 15m
     labels:
       severity: medium
+      output: ""
     annotations:
       summary: "HTTP ping on {{$labels.instance}} @ {{$labels.site}} failed"
       description: |
@@ -41,6 +46,7 @@ groups:
     for: 15m
     labels:
       severity: medium
+      output: ""
     annotations:
       summary: "Network tests on {{$labels.instance}} @ {{$labels.site}} failed"
       description: |
@@ -54,6 +60,7 @@ groups:
     for: 15m
     labels:
       severity: high
+      output: ""
     annotations:
       summary: "File system operation tests on {{$labels.instance}} @ {{$labels.site}} failed"
       description: |
@@ -67,6 +74,7 @@ groups:
     for: 30m
     labels:
       severity: low
+      output: ""
     annotations:
       summary: "File system speed tests on {{$labels.instance}} @ {{$labels.site}} failed"
       description: |
