@@ -104,6 +104,9 @@ operators_file = "/tmp/mentix/operators.json"
 creds_passphrase = "ThisIs5O!S3cr3tY0uW1LLN3vRGue$$!"
 [http.services.siteacc.webserver]
 url = "https://iop.sciencemesh.uni-muenster.de/iop/siteacc/"
+session_timeout = 1800
+verify_remote_address = false
+log_sessions = false
 [http.services.siteacc.mentix]
 url = "https://iop.sciencemesh.uni-muenster.de/iop/mentix/"
 
