@@ -40,6 +40,8 @@ grafana.ini:
     org_role: Viewer
   security:
     allow_embedding: true
+  metrics:
+    enabled: false
 
 # Persistency
 persistence:
