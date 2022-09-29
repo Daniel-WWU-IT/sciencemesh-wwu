@@ -1,3 +1,4 @@
 #!/bin/bash
 helm delete gocdb
-kubectl delete pvc data-gocdb-database-0
+# Uncomment to delete the PVCs
+# kubectl delete -f k8s/gocdb-data-pvc.yaml

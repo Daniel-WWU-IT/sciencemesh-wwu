@@ -16,4 +16,8 @@ ingress:
 
 database:
   global:
-    storageClass: rbd
+    storageClass: cephfs
+  primary:
+    persistence:
+      enabled: true
+      existingClaim: gocdb-data
