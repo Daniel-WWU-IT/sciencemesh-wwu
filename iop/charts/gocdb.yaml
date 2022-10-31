@@ -17,6 +17,8 @@ ingress:
 database:
   global:
     storageClass: cephfs
+  auth:
+    rootPassword: "5rLG5sOBiQRWd8Th"
   primary:
     persistence:
       enabled: true
