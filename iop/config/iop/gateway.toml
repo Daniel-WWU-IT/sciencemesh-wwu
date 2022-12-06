@@ -121,7 +121,7 @@ critical_types = ["REVAD", "MESHDIR"]
 [http.services.mentix.exporters.webapi]
 [http.services.mentix.exporters.cs3api]
 enabled_connectors = ["gocdb"]
-elevated_service_types = ["GATEWAY", "WEBDAV", "OCM"]
+elevated_service_types = ["GATEWAY", "WEBDAV", "OCM", "EFSS_WEBAPP"]
 [http.services.mentix.exporters.siteloc]
 [http.services.mentix.exporters.promsd]
 output_path = "/tmp/scrapes"
