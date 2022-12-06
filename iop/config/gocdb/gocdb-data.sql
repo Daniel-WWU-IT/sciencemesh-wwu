@@ -190,7 +190,7 @@ CREATE TABLE `CertificationStatusLogs` (
   PRIMARY KEY (`id`),
   KEY `IDX_AD3967FE8F200B9F` (`parentSite_id`),
   CONSTRAINT `FK_AD3967FE8F200B9F` FOREIGN KEY (`parentSite_id`) REFERENCES `Sites` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -199,7 +199,7 @@ CREATE TABLE `CertificationStatusLogs` (
 
 LOCK TABLES `CertificationStatusLogs` WRITE;
 /*!40000 ALTER TABLE `CertificationStatusLogs` DISABLE KEYS */;
-INSERT INTO `CertificationStatusLogs` VALUES (1,NULL,'Certified','admin','2020-05-13 14:58:44','Initial creation',3),(2,NULL,'Certified','admin','2020-06-16 14:45:19','Initial creation',4),(3,NULL,'Certified','admin','2020-06-26 09:49:59','Initial creation',7),(4,NULL,'Certified','admin','2020-06-29 07:59:00','Initial creation',9),(5,NULL,'Certified','admin','2020-07-01 08:45:14','Initial creation',11),(6,NULL,'Candidate','admin','2020-07-01 10:44:01','Initial creation',14),(7,'Candidate','Certified','admin','2020-07-03 13:19:05','They are cool enough now',14),(8,NULL,'Certified','admin','2020-09-01 11:35:35','Initial creation',16),(9,NULL,'Certified','admin','2021-01-12 11:39:48','Initial creation',18),(10,NULL,'Certified','daniel.mueller@uni-muenster.de','2021-11-09 14:38:48','Initial creation',20),(11,NULL,'Certified','daniel.mueller@uni-muenster.de','2022-06-02 09:15:52','Initial creation',21),(12,NULL,'Certified','thirsa.deboer@surf.nl','2022-07-26 08:33:04','Initial creation',22);
+INSERT INTO `CertificationStatusLogs` VALUES (1,NULL,'Certified','admin','2020-05-13 14:58:44','Initial creation',3),(2,NULL,'Certified','admin','2020-06-16 14:45:19','Initial creation',4),(3,NULL,'Certified','admin','2020-06-26 09:49:59','Initial creation',7),(4,NULL,'Certified','admin','2020-06-29 07:59:00','Initial creation',9),(5,NULL,'Certified','admin','2020-07-01 08:45:14','Initial creation',11),(6,NULL,'Candidate','admin','2020-07-01 10:44:01','Initial creation',14),(7,'Candidate','Certified','admin','2020-07-03 13:19:05','They are cool enough now',14),(8,NULL,'Certified','admin','2020-09-01 11:35:35','Initial creation',16),(9,NULL,'Certified','admin','2021-01-12 11:39:48','Initial creation',18),(10,NULL,'Certified','daniel.mueller@uni-muenster.de','2021-11-09 14:38:48','Initial creation',20),(11,NULL,'Certified','daniel.mueller@uni-muenster.de','2022-06-02 09:15:52','Initial creation',21),(12,NULL,'Certified','thirsa.deboer@surf.nl','2022-07-26 08:33:04','Initial creation',22),(13,NULL,'Candidate','marqs@man.poznan.pl','2022-11-03 11:43:54','Initial creation',25);
 /*!40000 ALTER TABLE `CertificationStatusLogs` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -359,7 +359,7 @@ CREATE TABLE `EndpointLocations` (
   PRIMARY KEY (`id`),
   KEY `IDX_498F8DB5ED5CA9E6` (`service_id`),
   CONSTRAINT `FK_498F8DB5ED5CA9E6` FOREIGN KEY (`service_id`) REFERENCES `Services` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=52 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=56 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -368,7 +368,7 @@ CREATE TABLE `EndpointLocations` (
 
 LOCK TABLES `EndpointLocations` WRITE;
 /*!40000 ALTER TABLE `EndpointLocations` DISABLE KEYS */;
-INSERT INTO `EndpointLocations` VALUES (1,4,'METRICS','metrics','METRICS','',1,''),(2,4,'OCM','ocm','OCM','',0,''),(3,4,'GATEWAY','grpc://iop.sciencemesh.uni-muenster.de:443','GATEWAY','',1,''),(4,4,'WEBDAV','remote.php/webdav','WEBDAV','',0,''),(5,11,'METRICS','metrics','METRICS','',1,''),(6,11,'OCM','ocm','OCM','',0,''),(7,11,'GATEWAY','grpc://app.cs3mesh-iop.k8s.surfsara.nl:443','GATEWAY','',1,''),(8,11,'WEBDAV','remote.php/webdav','WEBDAV','',0,''),(9,28,'METRICS','metrics','METRICS','',1,''),(10,28,'OCM','ocm','OCM','',0,''),(11,28,'GATEWAY','grpc://cs3mesh.sciencedata.dk:19000','GATEWAY','',1,''),(12,28,'WEBDAV','remote.php/webdav','WEBDAV','',0,''),(13,23,'METRICS','metrics','METRICS','',1,''),(14,23,'OCM','ocm','OCM','',0,''),(15,23,'GATEWAY','grpc://sciencemesh-test.switch.ch:443','GATEWAY','',1,''),(16,23,'WEBDAV','remote.php/webdav','WEBDAV','',0,''),(17,9,'METRICS','metrics','METRICS','',1,''),(18,9,'OCM','ocm','OCM','',0,''),(19,9,'GATEWAY','grpc://sciencemesh.cernbox.cern.ch:443','GATEWAY','',1,''),(20,9,'WEBDAV','remote.php/webdav','WEBDAV','',0,''),(21,7,'METRICS','metrics','METRICS','',1,''),(22,7,'OCM','ocm','OCM','',0,''),(23,7,'GATEWAY','grpc://sciencemesh.cesnet.cz:443','GATEWAY','',1,''),(24,7,'WEBDAV','remote.php/webdav','WEBDAV','',0,''),(25,13,'METRICS','metrics','METRICS','',1,''),(26,13,'OCM','ocm','OCM','',0,''),(27,13,'GATEWAY','grpc://sciencemesh.cubbit.io:443','GATEWAY','',1,''),(28,13,'WEBDAV','remote.php/webdav','WEBDAV','',0,''),(29,15,'METRICS','metrics','METRICS','',1,''),(30,15,'OCM','ocm','OCM','',0,''),(31,15,'GATEWAY','grpc://sciencemesh.softwaremind.com:443','GATEWAY','',1,''),(32,15,'WEBDAV','remote.php/webdav','WEBDAV','',0,''),(33,35,'METRICS','metrics','METRICS','',1,''),(34,35,'OCM','ocm','OCM','',0,''),(35,35,'GATEWAY','grpc://mesh.pondersource.org:19000','GATEWAY','',1,''),(36,35,'WEBDAV','remote.php/webdav','WEBDAV','',0,''),(37,7,'MESHDIR','meshdir/','MESHDIR','',1,''),(40,36,'METRICS','metrics','METRICS','',1,''),(41,36,'OCM','ocm','OCM','',0,''),(42,36,'GATEWAY','https://surf-iop-rd-app-acc.data.surfsara.nl:443','GATEWAY','',1,''),(43,36,'WEBDAV','remote.php/webdav','WEBDAV','',0,''),(48,39,'GATEWAY','https://grpc-exp-surf-iop-rd-app-acc.data.surfsara.nl:443','GATEWAY','Surfsara ScienceMesh Experimental Instance',1,'thirsa.deboer@surf.nl'),(49,39,'WEBDAV','remote.php/webdav','WEBDAV','Surfsara ScienceMesh Experimental Instance',0,'thirsa.deboer@surf.nl'),(50,39,'OCM','ocm','OCM','Surfsara ScienceMesh Experimental Instance',0,'thirsa.deboer@surf.nl'),(51,39,'METRICS','metrics','METRICS','Surfsara ScienceMesh Experimental Instance',1,'');
+INSERT INTO `EndpointLocations` VALUES (1,4,'METRICS','metrics','METRICS','',1,''),(2,4,'OCM','ocm','OCM','',0,''),(3,4,'GATEWAY','grpc://iop.sciencemesh.uni-muenster.de:443','GATEWAY','',1,''),(4,4,'WEBDAV','remote.php/webdav','WEBDAV','',0,''),(5,11,'METRICS','metrics','METRICS','',1,''),(6,11,'OCM','ocm','OCM','',0,''),(7,11,'GATEWAY','grpc://app.cs3mesh-iop.k8s.surfsara.nl:443','GATEWAY','',1,''),(8,11,'WEBDAV','remote.php/webdav','WEBDAV','',0,''),(9,28,'METRICS','metrics','METRICS','',1,''),(10,28,'OCM','ocm','OCM','',0,''),(11,28,'GATEWAY','grpc://cs3mesh.sciencedata.dk:19000','GATEWAY','',1,''),(12,28,'WEBDAV','remote.php/webdav','WEBDAV','',0,''),(13,23,'METRICS','metrics','METRICS','',1,''),(14,23,'OCM','ocm','OCM','',0,''),(15,23,'GATEWAY','grpc://sciencemesh-test.switch.ch:443','GATEWAY','',1,''),(16,23,'WEBDAV','remote.php/webdav','WEBDAV','',0,''),(17,9,'METRICS','metrics','METRICS','',1,''),(18,9,'OCM','ocm','OCM','',0,''),(19,9,'GATEWAY','grpc://sciencemesh.cernbox.cern.ch:443','GATEWAY','',1,''),(20,9,'WEBDAV','remote.php/webdav','WEBDAV','',0,''),(21,7,'METRICS','metrics','METRICS','',1,''),(22,7,'OCM','ocm','OCM','',0,''),(23,7,'GATEWAY','grpc://sciencemesh.cesnet.cz:443','GATEWAY','',1,''),(24,7,'WEBDAV','remote.php/webdav','WEBDAV','',0,''),(25,13,'METRICS','metrics','METRICS','',1,''),(26,13,'OCM','ocm','OCM','',0,''),(27,13,'GATEWAY','grpc://sciencemesh.cubbit.io:443','GATEWAY','',1,''),(28,13,'WEBDAV','remote.php/webdav','WEBDAV','',0,''),(29,15,'METRICS','metrics','METRICS','',1,''),(30,15,'OCM','ocm','OCM','',0,''),(31,15,'GATEWAY','grpc://sciencemesh.softwaremind.com:443','GATEWAY','',1,''),(32,15,'WEBDAV','remote.php/webdav','WEBDAV','',0,''),(33,35,'METRICS','metrics','METRICS','',1,''),(34,35,'OCM','ocm','OCM','',0,''),(35,35,'GATEWAY','grpc://mesh.pondersource.org:19000','GATEWAY','',1,''),(36,35,'WEBDAV','remote.php/webdav','WEBDAV','',0,''),(37,7,'MESHDIR','meshdir/','MESHDIR','',1,''),(40,36,'METRICS','metrics','METRICS','',1,''),(41,36,'OCM','ocm','OCM','',0,''),(42,36,'GATEWAY','https://surf-iop-rd-app-acc.data.surfsara.nl:443','GATEWAY','',1,''),(43,36,'WEBDAV','remote.php/webdav','WEBDAV','',0,''),(48,39,'GATEWAY','https://grpc-exp-surf-iop-rd-app-acc.data.surfsara.nl:443','GATEWAY','Surfsara ScienceMesh Experimental Instance',1,'thirsa.deboer@surf.nl'),(49,39,'WEBDAV','remote.php/webdav','WEBDAV','Surfsara ScienceMesh Experimental Instance',0,'thirsa.deboer@surf.nl'),(50,39,'OCM','ocm','OCM','Surfsara ScienceMesh Experimental Instance',0,'thirsa.deboer@surf.nl'),(51,39,'METRICS','metrics','METRICS','Surfsara ScienceMesh Experimental Instance',1,''),(52,40,'metrics','metrics','METRICS','',1,'marqs@man.poznan.pl'),(53,40,'ocm','ocm','OCM','',1,'marqs@man.poznan.pl'),(54,40,'webdav','remote.php/webdav','WEBDAV','',1,'marqs@man.poznan.pl'),(55,40,'revad','https://cs3mesh-iop.apps.dcw1.paas.psnc.pl/','REVAD','revad',1,'marqs@man.poznan.pl');
 /*!40000 ALTER TABLE `EndpointLocations` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -497,7 +497,7 @@ CREATE TABLE `OwnedEntities` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `discr` varchar(255) COLLATE utf8mb3_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -506,7 +506,7 @@ CREATE TABLE `OwnedEntities` (
 
 LOCK TABLES `OwnedEntities` WRITE;
 /*!40000 ALTER TABLE `OwnedEntities` DISABLE KEYS */;
-INSERT INTO `OwnedEntities` VALUES (1,'project'),(2,'ngi'),(3,'site'),(4,'site'),(5,'ngi'),(6,'ngi'),(7,'site'),(8,'ngi'),(9,'site'),(10,'ngi'),(11,'site'),(12,'ngi'),(13,'ngi'),(14,'site'),(15,'ngi'),(16,'site'),(17,'ngi'),(18,'site'),(19,'ngi'),(20,'site'),(21,'site'),(22,'site'),(23,'ngi'),(24,'ngi');
+INSERT INTO `OwnedEntities` VALUES (1,'project'),(2,'ngi'),(3,'site'),(4,'site'),(5,'ngi'),(6,'ngi'),(7,'site'),(8,'ngi'),(9,'site'),(10,'ngi'),(11,'site'),(12,'ngi'),(13,'ngi'),(14,'site'),(15,'ngi'),(16,'site'),(17,'ngi'),(18,'site'),(19,'ngi'),(20,'site'),(21,'site'),(22,'site'),(23,'ngi'),(24,'ngi'),(25,'site');
 /*!40000 ALTER TABLE `OwnedEntities` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -520,7 +520,7 @@ DROP TABLE IF EXISTS `PrimaryKeys`;
 CREATE TABLE `PrimaryKeys` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -529,7 +529,7 @@ CREATE TABLE `PrimaryKeys` (
 
 LOCK TABLES `PrimaryKeys` WRITE;
 /*!40000 ALTER TABLE `PrimaryKeys` DISABLE KEYS */;
-INSERT INTO `PrimaryKeys` VALUES (1),(2),(3),(4),(5),(6),(7),(8),(9),(10),(11),(12),(13),(14),(15),(16),(17),(18);
+INSERT INTO `PrimaryKeys` VALUES (1),(2),(3),(4),(5),(6),(7),(8),(9),(10),(11),(12),(13),(14),(15),(16),(17),(18),(19);
 /*!40000 ALTER TABLE `PrimaryKeys` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -858,7 +858,7 @@ CREATE TABLE `ServiceTypes` (
   `description` varchar(255) COLLATE utf8mb3_unicode_ci NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `UNIQ_13A6B93B5E237E06` (`name`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -867,7 +867,7 @@ CREATE TABLE `ServiceTypes` (
 
 LOCK TABLES `ServiceTypes` WRITE;
 /*!40000 ALTER TABLE `ServiceTypes` DISABLE KEYS */;
-INSERT INTO `ServiceTypes` VALUES (3,'REVAD','Reva Daemon Service'),(4,'OCM','OpenCloudMesh Service'),(5,'WEBDAV','Web Distributed Authoring and Versioning Service'),(7,'GATEWAY','CS3 Gateway Service'),(8,'METRICS','Prometheus metrics provider'),(9,'MESHDIR','Mesh Directory Service');
+INSERT INTO `ServiceTypes` VALUES (3,'REVAD','Reva Daemon Service'),(4,'OCM','OpenCloudMesh Service'),(5,'WEBDAV','Web Distributed Authoring and Versioning Service'),(7,'GATEWAY','CS3 Gateway Service'),(8,'METRICS','Prometheus metrics provider'),(9,'MESHDIR','Mesh Directory Service'),(10,'EFSS_WEBAPP','ScienceMesh EFSS web application');
 /*!40000 ALTER TABLE `ServiceTypes` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -930,7 +930,7 @@ CREATE TABLE `Services` (
   KEY `IDX_8A44833FCD0557BA` (`serviceType_id`),
   CONSTRAINT `FK_8A44833F8F200B9F` FOREIGN KEY (`parentSite_id`) REFERENCES `Sites` (`id`),
   CONSTRAINT `FK_8A44833FCD0557BA` FOREIGN KEY (`serviceType_id`) REFERENCES `ServiceTypes` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -939,7 +939,7 @@ CREATE TABLE `Services` (
 
 LOCK TABLES `Services` WRITE;
 /*!40000 ALTER TABLE `Services` DISABLE KEYS */;
-INSERT INTO `Services` VALUES (4,'iop.sciencemesh.uni-muenster.de','WWU IOP',1,0,1,'','','','','','info@sciebo.de',0,'https://iop.sciencemesh.uni-muenster.de/iop','2020-06-09 09:37:03',3,3),(7,'sciencemesh.cesnet.cz','Cesnet IOP',1,0,1,'','','','','','du-support@cesnet.cz',0,'https://sciencemesh.cesnet.cz/iop','2020-06-22 16:01:10',4,3),(9,'sciencemesh.cernbox.cern.ch','CERN IOP',1,0,1,'','','','','','cernbox-service-ops@cern.ch',0,'https://sciencemesh.cernbox.cern.ch','2020-06-26 09:50:58',7,3),(11,'app.cs3mesh-iop.k8s.surfsara.nl','Surfsara IOP',0,0,0,'','','','','','thirsa.deboer@surf.nl',0,'https://app.cs3mesh-iop.k8s.surfsara.nl/iop','2020-06-29 08:00:25',9,3),(13,'sciencemesh.cubbit.io','Cubbit IOP',0,0,0,'','','','','','hello@cubbit.io',0,'https://sciencemesh.cubbit.io','2020-07-01 08:45:55',11,3),(15,'sciencemesh.softwaremind.com','Ailleron IOP',1,0,1,'','','','','','dawid.golosz@softwaremind.com',0,'https://sciencemesh.softwaremind.com/iop','2020-07-01 10:45:41',14,3),(23,'sciencemesh-test.switch.ch','Switch IOP',1,0,1,'','','','','','fergus.kerins@switch.ch',0,'https://sciencemesh-test.switch.ch/iop','2020-09-01 11:36:35',16,3),(28,'cs3mesh.sciencedata.dk','DTU IOP',0,0,0,'','','','','','marpap@dtu.dk',0,'https://cs3mesh.sciencedata.dk','2021-01-12 11:43:15',18,3),(35,'mesh.pondersource.org','PonderSource IOP',0,0,0,'','','','','','michiel@pondersource.com',0,'https://mesh.pondersource.org','2021-11-09 14:42:19',20,3),(36,'surf-iop-rd-app-acc.data.surfsara.nl','Surfsara Test IOP',0,0,0,'','','','','','thirsa.deboer@surf.nl',1,'https://surf-iop-rd-app-acc.data.surfsara.nl','2022-06-02 09:17:35',21,3),(39,'exp-surf-iop-rd-app-acc.data.surfsara.nl','Surfsara ScienceMesh Experimental Instance',0,0,0,'','','','','','thirsa.deboer@surf.nl',1,'https://exp-surf-iop-rd-app-acc.data.surfsara.nl/','2022-07-26 08:34:07',22,3);
+INSERT INTO `Services` VALUES (4,'iop.sciencemesh.uni-muenster.de','WWU IOP',1,0,1,'','','','','','info@sciebo.de',0,'https://iop.sciencemesh.uni-muenster.de/iop','2020-06-09 09:37:03',3,3),(7,'sciencemesh.cesnet.cz','Cesnet IOP',1,0,1,'','','','','','du-support@cesnet.cz',0,'https://sciencemesh.cesnet.cz/iop','2020-06-22 16:01:10',4,3),(9,'sciencemesh.cernbox.cern.ch','CERN IOP',1,0,1,'','','','','','cernbox-service-ops@cern.ch',0,'https://sciencemesh.cernbox.cern.ch','2020-06-26 09:50:58',7,3),(11,'app.cs3mesh-iop.k8s.surfsara.nl','Surfsara IOP',0,0,0,'','','','','','thirsa.deboer@surf.nl',0,'https://app.cs3mesh-iop.k8s.surfsara.nl/iop','2020-06-29 08:00:25',9,3),(13,'sciencemesh.cubbit.io','Cubbit IOP',0,0,0,'','','','','','hello@cubbit.io',0,'https://sciencemesh.cubbit.io','2020-07-01 08:45:55',11,3),(15,'sciencemesh.softwaremind.com','Ailleron IOP',1,0,1,'','','','','','dawid.golosz@softwaremind.com',0,'https://sciencemesh.softwaremind.com/iop','2020-07-01 10:45:41',14,3),(23,'sciencemesh-test.switch.ch','Switch IOP',1,0,1,'','','','','','fergus.kerins@switch.ch',0,'https://sciencemesh-test.switch.ch/iop','2020-09-01 11:36:35',16,3),(28,'cs3mesh.sciencedata.dk','DTU IOP',0,0,0,'','','','','','marpap@dtu.dk',0,'https://cs3mesh.sciencedata.dk','2021-01-12 11:43:15',18,3),(35,'mesh.pondersource.org','PonderSource IOP',0,0,0,'','','','','','michiel@pondersource.com',0,'https://mesh.pondersource.org','2021-11-09 14:42:19',20,3),(36,'surf-iop-rd-app-acc.data.surfsara.nl','Surfsara Test IOP',0,0,0,'','','','','','thirsa.deboer@surf.nl',1,'https://surf-iop-rd-app-acc.data.surfsara.nl','2022-06-02 09:17:35',21,3),(39,'exp-surf-iop-rd-app-acc.data.surfsara.nl','Surfsara ScienceMesh Experimental Instance',0,0,0,'','','','','','thirsa.deboer@surf.nl',1,'https://exp-surf-iop-rd-app-acc.data.surfsara.nl/','2022-07-26 08:34:07',22,3),(40,'cs3mesh-iop.apps.dcw1.paas.psnc.pl','PSNC IOP',0,0,1,'','','','','','marqs@man.poznan.pl',1,'https://cs3mesh-iop.apps.dcw1.paas.psnc.pl','2022-11-10 14:25:06',25,3);
 /*!40000 ALTER TABLE `Services` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -967,7 +967,7 @@ CREATE TABLE `Services_Scopes` (
 
 LOCK TABLES `Services_Scopes` WRITE;
 /*!40000 ALTER TABLE `Services_Scopes` DISABLE KEYS */;
-INSERT INTO `Services_Scopes` VALUES (4,1),(7,1),(9,1),(11,1),(13,1),(15,1),(23,1),(28,1),(35,1),(36,1),(39,1);
+INSERT INTO `Services_Scopes` VALUES (4,1),(7,1),(9,1),(11,1),(13,1),(15,1),(23,1),(28,1),(35,1),(36,1),(39,1),(40,1);
 /*!40000 ALTER TABLE `Services_Scopes` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1067,7 +1067,7 @@ CREATE TABLE `Sites` (
 
 LOCK TABLES `Sites` WRITE;
 /*!40000 ALTER TABLE `Sites` DISABLE KEYS */;
-INSERT INTO `Sites` VALUES (3,2,1,38,NULL,NULL,NULL,'1G0','WWU','University of Muenster','https://www.uni-muenster.de','University of Muenster ScienceMesh Test','info@sciebo.de','+49 0251 8800','',51.9607,7.6261,'','','','','uni-muenster.de','Muenster','','','','',0,'2020-05-13 14:58:44','Europe/Berlin','2020-05-13 14:58:44',2),(4,5,1,39,NULL,NULL,NULL,'2G0','CESNET','CESNET a.l.e.','https://www.cesnet.cz/','CESNET ScienceMesh Test','du-support@cesnet.cz','+420 234 680 222','',50.1017989,14.3907022,'certs@cesnet.cz','','','','sciencemesh.cesnet.cz','Prague','+420 234 680 222','','','du-support@cesnet.cz',0,'2020-06-16 14:45:19','Europe/Prague','2020-06-16 14:45:19',2),(7,6,1,33,NULL,NULL,NULL,'3G0','CERN','CERN','https://home.cern/','CERN ScienceMesh','cernbox-service-ops@cern.ch','0123456','',46.2351762,6.0392889,'','','','','cern.ch','Geneva','','','','',1,'2020-06-26 09:49:59','Europe/Zurich','2020-06-26 09:49:59',2),(9,8,1,22,NULL,NULL,NULL,'4G0','SURFSARA','SURFSARA','https://www.surf.nl/en','Surfsara ScienceMesh','thirsa.deboer@surf.nl','0123456','',52.35673,4.95459,'thirsa.deboer@surf.nl','','','','surfsara.nl','Amsterdam','','','','thirsa.deboer@surf.nl',1,'2020-06-29 07:59:00','Europe/Amsterdam','2020-06-29 07:59:00',2),(11,10,1,20,NULL,NULL,NULL,'5G0','CUBBIT','CUBBIT','http://www.cubbit.io','Cubbit ScienceMesh','hello@cubbit.io','0123456','',44.495121,11.34021,'','','','','cubbit.io','Bologna','','','','',1,'2020-07-01 08:45:14','Europe/Madrid','2020-07-01 08:45:14',2),(14,13,1,24,NULL,NULL,NULL,'6G0','AILLERON','Ailleron/Softwaremind','https://softwaremind.com/','Ailleron ScienceMesh','dawid.golosz@softwaremind.com','0123456','',50.064651,19.944981,'','','','','softwaremind.com','Krakow','','','','',0,'2020-07-03 13:19:05','Europe/Warsaw','2020-07-01 10:44:01',2),(16,15,1,33,NULL,NULL,NULL,'7G0','SWITCH','SWITCH','https://www.switch.ch','SWITCHdrive provides cloud storage to its students, faculty and researchers.','fergus.kerins@switch.ch','+41 44 268 15 15','',47.366667,8.55,'drive-support@switch.ch','drive-support@switch.ch','','','switch.ch','Zurich','','','drive-support@switch.ch','drive-support@switch.ch',1,'2020-09-01 11:35:35','Europe/Zurich','2020-09-01 11:35:35',2),(18,17,1,57,NULL,NULL,NULL,'8G0','DTU','Danmarks Tekniske Universitet','https://www.dtu.dk','DTU ScienceMesh','marpap@dtu.dk','+45 50103819','',55.676098,12.568337,'',NULL,'','','dtu.dk','Copenhagen','','','','',0,'2021-01-12 11:39:48','Europe/Copenhagen','2021-01-12 11:39:48',2),(20,19,1,22,NULL,NULL,NULL,'16G0','PONDERSOURCE','Ponder Source Foundation','https://pondersource.org/','Ponder Source provides software development, specialized in federated data architectures.','michiel@pondersource.com','+31-616329893','',52.366678442287,4.8889835359738,'','','','','pondersource.org','Amsterdam','','','','',0,'2021-11-09 14:38:48','Europe/Amsterdam','2021-11-09 14:38:48',2),(21,8,1,22,NULL,NULL,NULL,'17G0','SURFSARA-TEST','SURFSARA-TEST','https://www.surf.nl/en','Surfsara ScienceMesh Test Instance','thirsa.deboer@surf.nl','0123456','',52.35673,4.95459,'thirsa.deboer@surf.nl','','','','surf-iop-rd-app-acc.data.surfsara.nl','Amsterdam','','','','thirsa.deboer@surf.nl',1,'2022-06-02 09:15:52','Europe/Amsterdam','2022-06-02 09:15:52',2),(22,8,1,22,NULL,NULL,NULL,'18G0','SURF-EXP','SURF-EXP','https://www.surf.nl/en','Surfsara ScienceMesh Experimental Instance','thirsa.deboer@surf.nl','0123456','',52.35673,4.95459,'thirsa.deboer@surf.nl',NULL,'','','thirsa.nl','Amsterdam','','','','thirsa.deboer@surf.nl',0,'2022-07-26 08:33:04','Europe/Amsterdam','2022-07-26 08:33:04',2);
+INSERT INTO `Sites` VALUES (3,2,1,38,NULL,NULL,NULL,'1G0','WWU','University of Muenster','https://www.uni-muenster.de','University of Muenster ScienceMesh Test','info@sciebo.de','+49 0251 8800','',51.9607,7.6261,'','','','','uni-muenster.de','Muenster','','','','',0,'2020-05-13 14:58:44','Europe/Berlin','2020-05-13 14:58:44',2),(4,5,1,39,NULL,NULL,NULL,'2G0','CESNET','CESNET a.l.e.','https://www.cesnet.cz/','CESNET ScienceMesh Test','du-support@cesnet.cz','+420 234 680 222','',50.1017989,14.3907022,'certs@cesnet.cz','','','','sciencemesh.cesnet.cz','Prague','+420 234 680 222','','','du-support@cesnet.cz',0,'2020-06-16 14:45:19','Europe/Prague','2020-06-16 14:45:19',2),(7,6,1,33,NULL,NULL,NULL,'3G0','CERN','CERN','https://home.cern/','CERN ScienceMesh','cernbox-service-ops@cern.ch','0123456','',46.2351762,6.0392889,'','','','','cern.ch','Geneva','','','','',1,'2020-06-26 09:49:59','Europe/Zurich','2020-06-26 09:49:59',2),(9,8,1,22,NULL,NULL,NULL,'4G0','SURFSARA','SURFSARA','https://www.surf.nl/en','Surfsara ScienceMesh','thirsa.deboer@surf.nl','0123456','',52.35673,4.95459,'thirsa.deboer@surf.nl','','','','surfsara.nl','Amsterdam','','','','thirsa.deboer@surf.nl',1,'2020-06-29 07:59:00','Europe/Amsterdam','2020-06-29 07:59:00',2),(11,10,1,20,NULL,NULL,NULL,'5G0','CUBBIT','CUBBIT','http://www.cubbit.io','Cubbit ScienceMesh','hello@cubbit.io','0123456','',44.495121,11.34021,'','','','','cubbit.io','Bologna','','','','',1,'2020-07-01 08:45:14','Europe/Madrid','2020-07-01 08:45:14',2),(14,13,1,24,NULL,NULL,NULL,'6G0','AILLERON','Ailleron/Softwaremind','https://softwaremind.com/','Ailleron ScienceMesh','dawid.golosz@softwaremind.com','0123456','',50.064651,19.944981,'','','','','softwaremind.com','Krakow','','','','',0,'2020-07-03 13:19:05','Europe/Warsaw','2020-07-01 10:44:01',2),(16,15,1,33,NULL,NULL,NULL,'7G0','SWITCH','SWITCH','https://www.switch.ch','SWITCHdrive provides cloud storage to its students, faculty and researchers.','fergus.kerins@switch.ch','+41 44 268 15 15','',47.366667,8.55,'drive-support@switch.ch','drive-support@switch.ch','','','switch.ch','Zurich','','','drive-support@switch.ch','drive-support@switch.ch',1,'2020-09-01 11:35:35','Europe/Zurich','2020-09-01 11:35:35',2),(18,17,1,57,NULL,NULL,NULL,'8G0','DTU','Danmarks Tekniske Universitet','https://www.dtu.dk','DTU ScienceMesh','marpap@dtu.dk','+45 50103819','',55.676098,12.568337,'',NULL,'','','dtu.dk','Copenhagen','','','','',0,'2021-01-12 11:39:48','Europe/Copenhagen','2021-01-12 11:39:48',2),(20,19,1,22,NULL,NULL,NULL,'16G0','PONDERSOURCE','Ponder Source Foundation','https://pondersource.org/','Ponder Source provides software development, specialized in federated data architectures.','michiel@pondersource.com','+31-616329893','',52.366678442287,4.8889835359738,'','','','','pondersource.org','Amsterdam','','','','',0,'2021-11-09 14:38:48','Europe/Amsterdam','2021-11-09 14:38:48',2),(21,8,1,22,NULL,NULL,NULL,'17G0','SURFSARA-TEST','SURFSARA-TEST','https://www.surf.nl/en','Surfsara ScienceMesh Test Instance','thirsa.deboer@surf.nl','0123456','',52.35673,4.95459,'thirsa.deboer@surf.nl','','','','surf-iop-rd-app-acc.data.surfsara.nl','Amsterdam','','','','thirsa.deboer@surf.nl',1,'2022-06-02 09:15:52','Europe/Amsterdam','2022-06-02 09:15:52',2),(22,8,1,22,NULL,NULL,NULL,'18G0','SURF-EXP','SURF-EXP','https://www.surf.nl/en','Surfsara ScienceMesh Experimental Instance','thirsa.deboer@surf.nl','0123456','',52.35673,4.95459,'thirsa.deboer@surf.nl',NULL,'','','thirsa.nl','Amsterdam','','','','thirsa.deboer@surf.nl',0,'2022-07-26 08:33:04','Europe/Amsterdam','2022-07-26 08:33:04',2),(25,23,2,24,NULL,NULL,NULL,'19G0','PSNC','PSNC ScienceMesh Test','https://psnc.pl','PSNC ScienceMesh Test','marqs@man.poznan.pl','+48618585045','',52.4072753265556,16.952657374050734,'cert@pionier.gov.pl',NULL,'','','cs3mesh-iop.apps.dcw1.paas.psnc.pl','Poznan','','+48 61 858 5049','','',1,'2022-11-03 11:43:54','Europe/Warsaw','2022-11-03 11:43:54',1);
 /*!40000 ALTER TABLE `Sites` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1095,7 +1095,7 @@ CREATE TABLE `Sites_Scopes` (
 
 LOCK TABLES `Sites_Scopes` WRITE;
 /*!40000 ALTER TABLE `Sites_Scopes` DISABLE KEYS */;
-INSERT INTO `Sites_Scopes` VALUES (3,1),(4,1),(7,1),(9,1),(11,1),(14,1),(16,1),(18,1),(20,1),(21,1),(22,1);
+INSERT INTO `Sites_Scopes` VALUES (3,1),(4,1),(7,1),(9,1),(11,1),(14,1),(16,1),(18,1),(20,1),(21,1),(22,1),(25,1);
 /*!40000 ALTER TABLE `Sites_Scopes` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1201,7 +1201,7 @@ CREATE TABLE `Users` (
   UNIQUE KEY `UNIQ_D5428AED13566978` (`certificateDn`),
   KEY `IDX_D5428AED3037A1E4` (`homeSite_id`),
   CONSTRAINT `FK_D5428AED3037A1E4` FOREIGN KEY (`homeSite_id`) REFERENCES `Sites` (`id`) ON DELETE SET NULL
-) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_bin;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1210,7 +1210,7 @@ CREATE TABLE `Users` (
 
 LOCK TABLES `Users` WRITE;
 /*!40000 ALTER TABLE `Users` DISABLE KEYS */;
-INSERT INTO `Users` VALUES (16,'Holger','Angenent','Mr','holger.angenent@uni-muenster.de','+49 251 8331569',NULL,NULL,'holger.angenent@uni-muenster.de',NULL,0,'2022-04-06 13:58:52',NULL,NULL),(17,'David','Antos','Mr','david.antos@cesnet.cz','+420 602 953 079',NULL,NULL,'david.antos@cesnet.cz',NULL,0,'2022-04-12 10:25:08','2022-10-24 13:40:26',NULL),(18,'Dawid','Golosz','Mr','dagl@softwaremind.com','',NULL,NULL,'dagl@softwaremind.com',NULL,0,'2022-04-13 10:04:56','2022-06-27 13:07:56',NULL),(19,'Milan','Danecek','Mr','milan.danecek@cesnet.cz','+420 234 680 252',NULL,NULL,'milan.danecek@cesnet.cz',NULL,0,'2022-04-13 10:05:00','2022-04-29 13:19:10',NULL),(20,'Thirsa','de Boer','Mr','thirsa.deboer@surf.nl','',NULL,NULL,'thirsa.deboer@surf.nl',NULL,0,'2022-04-19 10:38:01','2022-09-22 14:35:29',NULL),(21,'Miroslav','Bauer','Mr','bauer@cesnet.cz','',NULL,NULL,'bauer@cesnet.cz',NULL,0,'2022-05-10 07:51:14','2022-10-04 15:16:06',NULL),(22,'Jan','Hornicek','Mr','jan.hornicek@cesnet.cz','',NULL,NULL,'jan.hornicek@cesnet.cz',NULL,0,'2022-05-10 08:02:16',NULL,NULL),(23,'Marina','Papathanasiou','Mr','marpap@dtu.dk','+45 50103819',NULL,NULL,'marpap@dtu.dk',NULL,0,'2022-06-13 13:01:17','2022-06-13 13:05:01',NULL),(24,'Ron','Trompert','Mr','ron.trompert@surf.nl','+31619039009',NULL,NULL,'ron.trompert@surf.nl',NULL,0,'2022-06-23 06:43:44',NULL,NULL),(27,'Daniel','Mueller','Mr','daniel.mueller@uni-muenster.de','',NULL,NULL,'daniel.mueller@uni-muenster.de',NULL,1,'2022-09-01 08:45:06','2022-10-31 10:06:10',NULL),(28,'Marek','Blazewicz','Mr','marqs@man.poznan.pl','+48 61 858 5045',NULL,NULL,'marqs@man.poznan.pl',NULL,0,'2022-09-15 13:18:53','2022-10-28 15:44:16',NULL),(29,'Hugo','Gonzalez Labrador','Mr','sciencemesh-cern-admins@cern.ch','',NULL,NULL,'sciencemesh-cern-admins@cern.ch',NULL,0,'2022-10-04 14:27:44',NULL,NULL);
+INSERT INTO `Users` VALUES (16,'Holger','Angenent','Mr','holger.angenent@uni-muenster.de','+49 251 8331569',NULL,NULL,'holger.angenent@uni-muenster.de',NULL,0,'2022-04-06 13:58:52',NULL,NULL),(17,'David','Antos','Mr','david.antos@cesnet.cz','+420 602 953 079',NULL,NULL,'david.antos@cesnet.cz',NULL,0,'2022-04-12 10:25:08','2022-10-24 13:40:26',NULL),(18,'Dawid','Golosz','Mr','dagl@softwaremind.com','',NULL,NULL,'dagl@softwaremind.com',NULL,0,'2022-04-13 10:04:56','2022-06-27 13:07:56',NULL),(19,'Milan','Danecek','Mr','milan.danecek@cesnet.cz','+420 234 680 252',NULL,NULL,'milan.danecek@cesnet.cz',NULL,0,'2022-04-13 10:05:00','2022-04-29 13:19:10',NULL),(20,'Thirsa','de Boer','Mr','thirsa.deboer@surf.nl','',NULL,NULL,'thirsa.deboer@surf.nl',NULL,0,'2022-04-19 10:38:01','2022-09-22 14:35:29',NULL),(21,'Miroslav','Bauer','Mr','bauer@cesnet.cz','',NULL,NULL,'bauer@cesnet.cz',NULL,0,'2022-05-10 07:51:14','2022-11-24 13:45:42',NULL),(22,'Jan','Hornicek','Mr','jan.hornicek@cesnet.cz','',NULL,NULL,'jan.hornicek@cesnet.cz',NULL,0,'2022-05-10 08:02:16',NULL,NULL),(23,'Marina','Papathanasiou','Mr','marpap@dtu.dk','+45 50103819',NULL,NULL,'marpap@dtu.dk',NULL,0,'2022-06-13 13:01:17','2022-06-13 13:05:01',NULL),(24,'Ron','Trompert','Mr','ron.trompert@surf.nl','+31619039009',NULL,NULL,'ron.trompert@surf.nl',NULL,0,'2022-06-23 06:43:44',NULL,NULL),(27,'Daniel','Mueller','Mr','daniel.mueller@uni-muenster.de','',NULL,NULL,'daniel.mueller@uni-muenster.de',NULL,1,'2022-09-01 08:45:06','2022-12-06 09:54:06',NULL),(28,'Marek','Blazewicz','Mr','marqs@man.poznan.pl','+48 61 858 5045',NULL,NULL,'marqs@man.poznan.pl',NULL,0,'2022-09-15 13:18:53','2022-11-17 14:03:57',NULL),(29,'Hugo','Gonzalez Labrador','Mr','sciencemesh-cern-admins@cern.ch','',NULL,NULL,'sciencemesh-cern-admins@cern.ch',NULL,0,'2022-10-04 14:27:44',NULL,NULL),(30,'Gianluca','Caratsch','Mr','gianluca.caratsch@id.ethz.ch','+41 76 528 02 97',NULL,NULL,'gianluca.caratsch@id.ethz.ch',NULL,0,'2022-11-29 10:47:40',NULL,NULL);
 /*!40000 ALTER TABLE `Users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -1223,4 +1223,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-10-31 14:11:28
+-- Dump completed on 2022-12-06  9:59:59
