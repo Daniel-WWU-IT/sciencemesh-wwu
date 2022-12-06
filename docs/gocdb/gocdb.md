@@ -13,12 +13,13 @@ To properly configure the `REVAD` service, additional endpoints and properties m
 ### Additional endpoints
 The `REVAD` service exposes various additional endpoints that also must be configured properly. Each such endpoint consists of its relative (e.g., `iop/metrics`) or absolute (e.g., `https://iop.uni-muenster.de/metrics`) URL, its name (which must match its type), as well as its interface name, which is interpreted as its type (this means that the endpoint and interface names are identical).
 
-| Name | Description | URL (common value)| Interface | Monitored? |
+| Name | Description | URL (common value/example)| Interface | Monitored? |
 | ---  | --- | --- | --- | --- |
 | **GATEWAY** | Main gRPC endpoint; note that the protocol (`grpc://`) and the gRPC port must _always_ be specified | `grpc://<host>:<port>` | GATEWAY | Yes |
 | **METRICS** | Prometheus metrics endpoint | `metrics` | METRICS | Yes |
 | **OCM** | OpenCloudMesh endpoint | `ocm` | OCM | No |
 | **WEBDAV** | Webdav endpoint | `remote.php/webdav` | WEBDAV | No |
+| **EFSS_WEBAPP** | EFSS Web application URL (fully qualified) | _ownCloud/Nextcloud:_ `https://<efss.site.com>/index.php/apps/sciencemesh/` | EFSS_WEBAPP | No |
 
 Only the URLs of the endpoints may differ from above common values; all endpoints need to be added, and their names, interfaces and monitoring need to exactly match what is listed above.
 
