@@ -19,7 +19,6 @@ The `REVAD` service exposes various additional endpoints that also must be confi
 | **METRICS** | Prometheus metrics endpoint | `metrics` | METRICS | Yes |
 | **OCM** | OpenCloudMesh endpoint | `ocm` | OCM | No |
 | **WEBDAV** | Webdav endpoint | `remote.php/webdav` | WEBDAV | No |
-| **EFSS_WEBAPP** | EFSS Web application URL (fully qualified) | _ownCloud/Nextcloud:_ `https://<efss.site.com>/index.php/apps/sciencemesh/` | EFSS_WEBAPP | No |
 
 Only the URLs of the endpoints may differ from above common values; all endpoints need to be added, and their names, interfaces and monitoring need to exactly match what is listed above.
 
@@ -32,3 +31,18 @@ There are also a few optional endpoints that you might need to add depending on 
 
 ### Additional properties
 - **API version:** The current API version of the service needs to be specified via the `API_VERSION` property. Note that this property might be removed in future iterations.
+
+## The EFSS Service
+Another mandatory service each site must provide is the `EFSS` service. This is the main EFSS website of your site. Monitoring needs to always be enabled for this service type.
+
+To properly configure the `EFSS` service, additional endpoints must be provided, as shown below.
+
+### Additional endpoints
+The `EFSS` service exposes various additional endpoints that also must be configured properly. Each such endpoint consists of its relative (e.g., `status.php`) or absolute (e.g., `https://efss.example.com/apps/sciencemesh`) URL, its name (which must match its type), as well as its interface name, which is interpreted as its type (this means that the endpoint and interface names are identical).
+
+| Name | Description | URL (common value/example)| Interface | Monitored? |
+| ---  | --- | --- | --- | --- |
+| **EFSS_WEBAPP** | Endpoint of the ScienceMesh web application | `apps/sciencemesh` | EFSS_WEBAPP | No |
+| **EFSS_STATUS** | Endpoint for querying the EFSS status | `status.php` | EFSS_STATUS | No |
+
+Only the URLs of the endpoints may differ from above common values; all endpoints need to be added, and their names, interfaces and monitoring need to exactly match what is listed above.
