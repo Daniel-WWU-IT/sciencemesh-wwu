@@ -8,10 +8,10 @@
 		"role": "Site Administrator",
 		"phoneNumber": "",
 		"password": {
-			"value": "$2a$10$c4QJxJ5xaTIZJ.21pQ/BRuvUloIniOCcCGtDJmUOJOjlGXUMKa2na"
+			"value": "$2a$10$jkvFF/xiJ.qK/niPEgZHGO7oOZ0bkNTWtcJGRnhfKJjqjh57DeC.i"
 		},
 		"dateCreated": "2022-04-06T10:57:57.460563997Z",
-		"dateModified": "2022-04-06T10:57:57.460563997Z",
+		"dateModified": "2022-10-27T12:23:38.603631815Z",
 		"data": {
 			"gocdbAccess": true,
 			"sitesAccess": true
@@ -50,16 +50,16 @@
 		"role": "Site Administrator",
 		"phoneNumber": "+420 602 953 079",
 		"password": {
-			"value": "$2a$10$mxGJBVl2qsF4fbocHHvnZOBmNCKBXTmmt9amdrqW/nIe7jCYq2Fdi"
+			"value": "$2a$10$9FflOMxc41LPcIhVs.nYuubcqPw37OSUg8zzgnnFdbqGvpqnJlv4y"
 		},
 		"dateCreated": "2022-04-12T10:17:08.554431452Z",
-		"dateModified": "2022-04-12T10:17:08.554431452Z",
+		"dateModified": "2022-10-24T13:39:08.337649989Z",
 		"data": {
 			"gocdbAccess": true,
 			"sitesAccess": true
 		},
 		"settings": {
-			"receiveAlerts": true
+			"receiveAlerts": false
 		}
 	},
 	{
@@ -201,6 +201,132 @@
 		},
 		"dateCreated": "2022-06-23T05:55:24.192459638Z",
 		"dateModified": "2022-06-23T05:55:24.192459638Z",
+		"data": {
+			"gocdbAccess": true,
+			"sitesAccess": true
+		},
+		"settings": {
+			"receiveAlerts": true
+		}
+	},
+	{
+		"email": "marqs@man.poznan.pl",
+		"title": "Mr",
+		"firstName": "Marek",
+		"lastName": "Blazewicz",
+		"operator": "PSNC",
+		"role": "Site administrator",
+		"phoneNumber": "+48 61 858 5045",
+		"password": {
+			"value": "$2a$10$QOczsaCVvnF.2tkdS5nkWOb3z/D7TI2N.eAzf0vpX2c4w/Rmd7EhS"
+		},
+		"dateCreated": "2022-09-15T13:03:32.704615612Z",
+		"dateModified": "2022-09-15T13:03:32.704615612Z",
+		"data": {
+			"gocdbAccess": true,
+			"sitesAccess": true
+		},
+		"settings": {
+			"receiveAlerts": true
+		}
+	},
+	{
+		"email": "sciencemesh-cern-admins@cern.ch",
+		"title": "Mr",
+		"firstName": "Hugo",
+		"lastName": "Gonzalez Labrador",
+		"operator": "CERN",
+		"role": "Site Administrator",
+		"phoneNumber": "",
+		"password": {
+			"value": "$2a$10$PffCSdeGLW.nhb4tHUUdYOxq3eMxwBslCkqZsJKrI4lAm4OOeKdn2"
+		},
+		"dateCreated": "2022-10-04T14:05:00.974397038Z",
+		"dateModified": "2022-10-04T14:05:00.974397038Z",
+		"data": {
+			"gocdbAccess": true,
+			"sitesAccess": true
+		},
+		"settings": {
+			"receiveAlerts": true
+		}
+	},
+	{
+		"email": "gianluca.caratsch@id.ethz.ch",
+		"title": "Mr",
+		"firstName": "Gianluca",
+		"lastName": "Caratsch",
+		"operator": "ETH",
+		"role": "Site administrator",
+		"phoneNumber": "+41 76 528 02 97",
+		"password": {
+			"value": "$2a$10$SXUm02Hx6bVD59loO5/k.OufxfEhk7lGsvYnqN6RV/p0S/r2rDmty"
+		},
+		"dateCreated": "2022-10-28T08:39:05.45140593Z",
+		"dateModified": "2022-10-28T08:39:05.45140593Z",
+		"data": {
+			"gocdbAccess": true,
+			"sitesAccess": true
+		},
+		"settings": {
+			"receiveAlerts": true
+		}
+	},
+	{
+		"email": "roberto.massa@rnp.br",
+		"title": "Mr",
+		"firstName": "Roberto",
+		"lastName": "Massa",
+		"operator": "CERN",
+		"role": "Site Administrator",
+		"phoneNumber": "+55 21 997699700",
+		"password": {
+			"value": "$2a$10$pWvuqciEbtXmfxXg6jAtee2ZeQ1Uk69a3QE94bF5bKY0efQqDmzAS"
+		},
+		"dateCreated": "2022-11-29T16:29:05.972459879Z",
+		"dateModified": "2022-12-21T14:52:11.158332591Z",
+		"data": {
+			"gocdbAccess": false,
+			"sitesAccess": false
+		},
+		"settings": {
+			"receiveAlerts": true
+		}
+	},
+	{
+		"email": "michiel@pondersource.com",
+		"title": "Mr",
+		"firstName": "Michiel",
+		"lastName": "de Jong",
+		"operator": "PONDERSOURCE",
+		"role": "Site administrator",
+		"phoneNumber": "+31616329893",
+		"password": {
+			"value": "$2a$10$ns5f9OH0UUy/XYZuWNwrxOayyNgFGJIHP7OiUNnGOJMYFLZli/uA6"
+		},
+		"dateCreated": "2022-12-06T15:41:10.947791532Z",
+		"dateModified": "2022-12-06T15:41:10.947791532Z",
+		"data": {
+			"gocdbAccess": true,
+			"sitesAccess": true
+		},
+		"settings": {
+			"receiveAlerts": true
+		}
+	},
+	{
+		"email": "kano@sunet.se",
+		"title": "Mr",
+		"firstName": "Mikael",
+		"lastName": "Nordin",
+		"operator": "SUNET",
+		"role": "Site administrator",
+		"phoneNumber": "+46 767259823",
+		"password": {
+			"value": "$2a$10$wmwxuE5cOPbX6efCoA0VB.onNHzwk9ZsI5TsrdLMkRT9.b2c7nv4G"
+		},
+		"dateCreated": "2023-02-13T11:02:15.483534588Z",
+		"dateModified": "2023-02-13T11:02:15.483534588Z",
 		"data": {
 			"gocdbAccess": true,
 			"sitesAccess": true
