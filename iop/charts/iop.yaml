@@ -1,9 +1,10 @@
 # Reva gateway --
 gateway:
   image:
-    #repository: harbor.uni-muenster.de/proxy-docker/cs3org/revad
-    repository: harbor.uni-muenster.de/proxy-docker/omnivox/revad
-    tag: latest
+    repository: harbor.uni-muenster.de/proxy-docker/cs3org/revad
+    tag: v1.21.0
+    #repository: harbor.uni-muenster.de/proxy-docker/omnivox/revad
+    #tag: latest
   persistentVolume:
     enabled: true
     existingClaim: iop-data
@@ -87,7 +88,8 @@ storageprovider-reva:
 
 # WOPI server --
 wopiserver:
-  enabled: true
+  #enabled: true
+  enabled: false
   image:
     repository: harbor.uni-muenster.de/proxy-docker/cs3org/wopiserver
   wopiserverUrl: https://iop.sciencemesh.uni-muenster.de
@@ -112,7 +114,8 @@ wopiserver:
 
   # WOPI bridge --
   wopibridge:
-    enabled: true
+    #enabled: true
+    enabled: false
     image:
       repository: harbor.uni-muenster.de/proxy-docker/cs3org/wopibridge
     bridgeUrl: https://iop.sciencemesh.uni-muenster.de
