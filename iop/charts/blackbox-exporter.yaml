@@ -14,9 +14,13 @@ ingress:
       hosts:
         - bbe.sciencemesh.uni-muenster.de
 pspEnabled: false
-readOnlyRootFilesystem: false
-runAsNonRoot: false
-runAsUser: 0
-runAsGroup: 0
+securityContext:
+  runAsUser: 0
+  runAsGroup: 0
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+  allowPrivilegeEscalation: true
+  capabilities:
+    add: ["NET_RAW"]
 config:
   # -- CONFIG --
