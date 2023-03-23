@@ -1,10 +1,10 @@
 # Reva gateway --
 gateway:
   image:
-    repository: harbor.uni-muenster.de/proxy-docker/cs3org/revad
-    tag: v1.21.0
-    #repository: harbor.uni-muenster.de/proxy-docker/omnivox/revad
-    #tag: latest
+    #repository: harbor.uni-muenster.de/proxy-docker/cs3org/revad
+    #tag: v1.21.0
+    repository: harbor.uni-muenster.de/proxy-docker/omnivox/revad
+    tag: latest
   persistentVolume:
     enabled: true
     existingClaim: iop-data
